@@ -1,4 +1,4 @@
-AuthUserFile /web/homepage/events/elisalpf2014/admin/.htpasswd
+AuthUserFile /home/ara/rafik/public_html/elisalpf2014/admin/.htpasswd
 AuthGroupFile /dev/null
 AuthName "Restricted Area - Please identify"
 AuthType Basic

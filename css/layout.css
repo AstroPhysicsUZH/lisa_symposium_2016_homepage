@@ -1,0 +1,165 @@
+
+#wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+header
+{
+    width: 100%;
+    padding: 0;
+    margin: 1em 0 0 0;
+    text-align:center;
+    
+    text-align: left;
+    background-color: #00a;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0.5em 0 0.5em 50px;
+}
+
+header h2 {
+    margin: 0;
+    padding: 0 0 0.5em 50px;
+}
+
+
+nav
+{   width: 100%;
+    display: block;
+    text-align:center;
+    
+    background-color: #00a;
+    color: white;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em 0.5em 1.5em 0.5em;
+}
+nav a:link {
+    color: white
+}
+nav a:visited {
+    color: white
+}
+nav a:hover, nav li:hover {
+    color: white;
+    background-color: #00f;
+}
+nav a:active {
+    color: white
+}
+
+nav li.active a {
+    padding: 1.5em 0.5em 0.5em 0.5em;
+}
+
+nav ul {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-flex;
+    align-self: flex-end;
+    text-align:left;
+    font-size:16px;
+    font-weight:bold;
+
+    align-items: baseline;
+    
+}
+
+nav ul li.active {
+    align-items: flex-end;
+
+}
+
+/* every li in nav that has a preceding li */
+nav li+li {
+    border-left: 2px solid #000000;
+}
+
+
+
+article
+{
+    width: 100%;
+    padding: 0;
+    background-color: #f0ea34;
+
+    margin-top:5px;
+}
+
+article h1,
+article h2,
+article p,
+aside h1,
+aside p {
+    padding: 0 1em 0 1em;
+}
+
+aside
+{
+    width:: 100%;
+    margin-top:5px;
+    background-color:#f0eaea;
+    padding: 0;
+
+    text-align: right;
+}
+
+aside h1 {
+    font-size: 1.2em;
+    padding-bottom: 0.2em;
+}
+
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+    padding: 0.5em 2em 0.5em 0.5em;
+    
+    clear: left;
+    background-color: #00a;
+    color: white;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+
+@media only screen and (min-width:600px) {
+    
+    article, aside {
+        float:left;
+    }
+    article {
+        width: 70%;
+    }
+    aside {
+        width: 30%;
+    }
+}
+
+
+
+
