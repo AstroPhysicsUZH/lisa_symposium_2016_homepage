@@ -124,14 +124,14 @@ foreach ($cmds as $elems) {
     $retval = &$elems[2];
 
     # screen
-    echo "<pre>\n> $cmd\n--> retval ".date(DATE_ATOM)."\n" . "------------------------------\n";
+    echo "<pre>\n> $cmd\n--> $retval ".date(DATE_ATOM)."\n" . "------------------------------\n";
     foreach ($outp as $line) {
         echo htmlspecialchars($line)."\n";
     }
     echo "</pre>\n<hr>\n";
     
     # file
-    fwrite($logfile, "\n\n> $cmd\n--> retval ".date(DATE_ATOM)."\n\n");
+    fwrite($logfile, "\n\n> $cmd\n--> $retval ".date(DATE_ATOM)."\n\n");
     foreach ($outp as $line) {
         fwrite($logfile, $line."\n");
     }
