@@ -1,9 +1,11 @@
 <?php
 
+ini_set('display_errors', 'On');
+
 # security check..
 $gh_ips = array('171.149.246.236', '95.92.138.4', '212.51.156.200');
 if (in_array($_SERVER['REMOTE_ADDR'], $gh_ips) === false) {
-    header('Status: 403 Your IP is not on our list; bugger off', true, 403);
+    header("Status: 403 Your IP [".$_SERVER['REMOTE_ADDR']."] is not on our list; bugger off", true, 403);
     #mail('root', 'Unfuddle hook error: bad ip', $_SERVER['REMOTE_ADDR']);
     die(1);
 }
@@ -24,8 +26,6 @@ echo "\n\n<hr>\n\n";
 foreach ($outp as $line) {
     echo $line . "\n";
 }
-#var_dump($outp);
-
 
 /*
 $BRANCH = $_GET['branch'];
@@ -36,6 +36,23 @@ if (!empty($BRANCH)) {
 */
 
 echo "\n\n<hr>\n\n";
+
+
+
+#
+# write to log file
+$logfile = fopen("hook.log", "w");
+
+fwrite($logfile, "\n----------\n" . date(DATE_ATOM));
+foreach ($outp as $txt) {
+    fwrite($logfile, $txt . "\n");
+}
+
+fwrite($logfile, "\n----------\nPOST\n");
+fwrite($logfile, print_r($_POST, true));
+fwrite($logfile, "\n----------\nGET\n");
+fwrite($logfile, print_r($_GET, true));
+fclose($logfile);
 
 die("done\n" . date(DATE_ATOM));
 
