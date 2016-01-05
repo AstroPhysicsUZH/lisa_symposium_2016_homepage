@@ -1,37 +1,43 @@
 <?php
 
-$menuitems = array(
-    'overview',
-    'programme',
-    'accomodation',
-    'travel',
-    'registration'
+$PAGES = array(
+  'overview',
+  'program',
+  'accomodation',
+  'travel',
+  'registration'
 );
 
-function print_menu($page) {
+$IMPLEMENTED_PAGES = array(
+  'overview',
+  'accomodation',
+  );
 
-    $menuitems = array(
-        'overview',
-        'programme',
-        'accomodation',
-        'travel',
-        'registration'
-    );
 
-    
-    foreach ($menuitems as $item) {
-        print "    <li";
-        if ($page == $item) {
-            print " class='active'";
-        }
-        print "><a href='?page=$item'>$item</a></li>\n";
+
+
+function print_menu($active_page) {
+
+  global $PAGES, $IMPLEMENTED_PAGES;
+
+  foreach ($PAGES as $page) {
+
+    $cls = array();
+
+    if ($page == $active_page) {
+      array_push($cls, "active");
     }
 
-/*
-    <li class="active"><a href="?page=overview">overview</a></li>
-    <li><a href="?page=programme">programme</a></li>
-    <li><a href="?page=accomodation">accomodation</a></li>
-    <li><a href="?page=travel">travel</a></li>
-    <li><a href="?page=registration">registration</a>
-*/
+    if ( ! in_array($page, $IMPLEMENTED_PAGES)) {
+      array_push($cls, "not_implemented");
+    }
+
+    $classes = "";
+    if (!empty($cls)) {
+      $classes = " class='" . implode(",", $cls) . "'";
+    }
+
+    print "    <li$classes><a href='?page=$page'>$page</a></li>\n";
+  }
+
 }

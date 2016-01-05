@@ -44,21 +44,28 @@ nav a {
     padding: 0.5em 0.5em 1.5em 0.5em;
 }
 nav a:link {
-    color: white
+    color: white;
 }
 nav a:visited {
-    color: white
+    color: white;
 }
 nav a:hover, nav li:hover {
     color: white;
     background-color: #00f;
 }
 nav a:active {
-    color: white
+    color: white;
 }
 
 nav li.active a {
     padding: 1.5em 0.5em 0.5em 0.5em;
+}
+
+/* use class .not_implemented for menuitems that are not yet implemented */
+nav li.not_implemented a {
+    color: gray !important;
+    pointer-events: none;
+    cursor: default;
 }
 
 nav ul {
@@ -117,16 +124,21 @@ aside p {
 aside
 {
     width:: 100%;
-    margin-top:5px;
+    margin: 0.5em 0 1em 0;
     background-color:#f0eaea;
     padding: 0;
 
-    text-align: right;
+    text-align: left;
 }
 
 aside h1 {
     font-size: 1.2em;
+    margin-bottom: 0;
     padding-bottom: 0.2em;
+}
+
+aside ul,p {
+    margin-top: 0em;
 }
 
 
@@ -157,6 +169,20 @@ footer
     }
     aside {
         width: 30%;
+        text-align: right;
+    }
+    
+    aside h1 {
+        margin-right: 0;
+        padding-right: 1.5em;
+    }
+    aside ul {
+        direction: rtl;
+        margin-right: 0;
+        padding-right: 1.5em;
+        list-style-type: disc;
+        list-style-position: outside;
+        
     }
 }
 
