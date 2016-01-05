@@ -1,8 +1,13 @@
 
+html {
+    overflow-y: scroll;
+}
+
 #wrapper {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
+    background-color: #ccc;
 }
 
 
@@ -44,21 +49,28 @@ nav a {
     padding: 0.5em 0.5em 1.5em 0.5em;
 }
 nav a:link {
-    color: white
+    color: white;
 }
 nav a:visited {
-    color: white
+    color: white;
 }
 nav a:hover, nav li:hover {
     color: white;
     background-color: #00f;
 }
 nav a:active {
-    color: white
+    color: white;
 }
 
 nav li.active a {
     padding: 1.5em 0.5em 0.5em 0.5em;
+}
+
+/* use class .not_implemented for menuitems that are not yet implemented */
+nav li.not_implemented a {
+    color: gray !important;
+    pointer-events: none;
+    cursor: default;
 }
 
 nav ul {
@@ -100,10 +112,11 @@ nav li+li {
 article
 {
     width: 100%;
-    padding: 0;
-    background-color: #f0ea34;
-
-    margin-top:5px;
+    margin: 0 0 0 0;
+    padding: 1em 0 0 0;
+/*    background-color: #f0ea34;*/
+/*    background: linear-gradient(to right, rgba(255, 255, 255, 1) 98%,  rgba(0, 0, 0, 0) 100%); */
+    background-color: white;
 }
 
 article h1,
@@ -111,22 +124,35 @@ article h2,
 article p,
 aside h1,
 aside p {
-    padding: 0 1em 0 1em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    padding: 0 0.5em 0 0.5em;
+}
+
+article h1,
+article h2 {
+    border-bottom: 1px dotted black;
 }
 
 aside
 {
     width:: 100%;
-    margin-top:5px;
-    background-color:#f0eaea;
-    padding: 0;
-
-    text-align: right;
+    margin: 0;
+    padding: 1em 0 0 0;
+/*    background-color:#f0eaea;*/
+    background-color: none;
+    
+    text-align: left;
 }
 
 aside h1 {
     font-size: 1.2em;
+    margin-bottom: 0;
     padding-bottom: 0.2em;
+}
+
+aside ul,p {
+    margin-top: 0em;
 }
 
 
@@ -146,6 +172,31 @@ footer
     text-align: right;
 }
 
+div.hotel {
+    display: inline-block;
+    margin: 0.5em;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 0.5em;
+    width: 250px;
+    vertical-align: text-top;
+/*    background-color: #ff6666;*/
+    background-color: #ccc;
+}
+
+.hotel img {
+    width: 100%;
+}
+
+div.hotel a,
+div.hotel div,
+div.hotel h3 {
+    display: block;
+}
+
+div.hotel h3 {
+    margin: 0.5em 0 0 0;
+}
 
 @media only screen and (min-width:600px) {
     
@@ -157,6 +208,20 @@ footer
     }
     aside {
         width: 30%;
+        text-align: right;
+    }
+    
+    aside h1 {
+        margin-right: 0;
+        padding-right: 1.5em;
+    }
+    aside ul {
+        direction: rtl;
+        margin-right: 0;
+        padding-right: 1.5em;
+        list-style-type: disc;
+        list-style-position: outside;
+        
     }
 }
 
