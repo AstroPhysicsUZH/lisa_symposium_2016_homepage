@@ -1,0 +1,8 @@
+name,street,loc,url,email,tel,img,rates,comment,gmaps,distance
+Hotel Rex,Weinbergstrasse 92,CH-8006 Zürich,http://www.hotelrex.ch,info@hotelrex.ch,+41 44 360 25 25,rex.jpg,,,,
+Hotel Coronado,Schaffhauserstrasse 137,CH-8037 Zürich,http://www.hotel-coronado.ch,coronado@welcomehotels.ch,+41 44 360 26 26,coronado.jpg,,,,
+Hotel St. Josef,Hirschengraben 64,CH-8001 Zürich,http://www.st-josef.ch,nfo@st-josef.ch,+41 44 250 57 57,stjosef.jpg,,,,
+Hotel Sunnehus,Sonneggstrasse 17,CH-8006 Zürich,http://www.hotelsunnehus.ch,info@hotelsunnehus.ch,+41 44 250 27 27,sunnehus.jpg,,,,
+Hotel Bristol,Stampfenbachstrasse 34,CH-8006 Zürich,http://www.hotelbristol.ch,info@hotelbristol.ch,+41 44 258 44 44,bristol.jpg,,,,
+Hotel Sternen Oerlikon,,,,,,,,,,
+Hotel du Theatre,,,,,,,,,,
