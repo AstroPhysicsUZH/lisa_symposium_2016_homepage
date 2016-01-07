@@ -147,6 +147,14 @@ aside
 
 aside h1 {
     font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding-bottom: 0.2em;
+}
+
+aside h2 {
+    font-size: 1em;
+    font-weight: bold;
     margin-bottom: 0;
     padding-bottom: 0.2em;
 }
@@ -175,9 +183,12 @@ footer
 div.hotel {
     display: inline-block;
     margin: 0.5em;
-    border: 1px solid black;
-    border-radius: 15px;
+    border: 1px solid #bbb;
+    border-radius: 10px;
     padding: 0.5em;
+    
+    box-shadow: 3px 3px 10px;
+    
     width: 250px;
     vertical-align: text-top;
 /*    background-color: #ff6666;*/
@@ -186,6 +197,7 @@ div.hotel {
 
 .hotel img {
     width: 100%;
+    border-radius: 5px;
 }
 
 div.hotel a,
@@ -211,14 +223,15 @@ div.hotel h3 {
         text-align: right;
     }
     
-    aside h1 {
+    aside h1,
+    aside h2,
+    aside ul,
+    aside p {
         margin-right: 0;
         padding-right: 1.5em;
     }
     aside ul {
         direction: rtl;
-        margin-right: 0;
-        padding-right: 1.5em;
         list-style-type: disc;
         list-style-position: outside;
         
