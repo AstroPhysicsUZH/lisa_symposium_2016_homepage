@@ -3,14 +3,17 @@
 $PAGES = array(
   'overview',
   'program',
-  'accomodation',
-  'travel',
-  'registration'
+  'conference information',
+  'registration',
+  'speaker information',
+  'accommodation',
+  'travel information',
+  
 );
 
-$IMPLEMENTED_PAGES = array(
-  'overview',
-  'accomodation',
+$NOT_IMPLEMENTED_PAGES = array(
+  'program',
+  'registration',
   );
 
 
@@ -18,9 +21,11 @@ $IMPLEMENTED_PAGES = array(
 
 function print_menu($active_page) {
 
-  global $PAGES, $IMPLEMENTED_PAGES;
+  global $PAGES, $NOT_IMPLEMENTED_PAGES;
 
   foreach ($PAGES as $page) {
+    
+    $page_ = str_replace(' ', '_', $page);
 
     $cls = array();
 
@@ -28,7 +33,7 @@ function print_menu($active_page) {
       array_push($cls, "active");
     }
 
-    if ( ! in_array($page, $IMPLEMENTED_PAGES)) {
+    if ( in_array($page, $NOT_IMPLEMENTED_PAGES) ) {
       array_push($cls, "not_implemented");
     }
 
@@ -37,7 +42,7 @@ function print_menu($active_page) {
       $classes = " class='" . implode(",", $cls) . "'";
     }
 
-    print "    <li$classes><a href='?page=$page'>$page</a></li>\n";
+    print "    <li$classes><a href='?page=$page_'>$page</a></li>\n";
   }
 
 }

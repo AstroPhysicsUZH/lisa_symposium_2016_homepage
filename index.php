@@ -47,6 +47,11 @@
   print_menu($page);
 ?>
   </ul>
+  
+  <p id='contact'>
+    contact:<br>
+    <a href=''>lisa2016@physik.uzh.ch</a>
+  </p>
 </nav>
 
 <?php
@@ -55,11 +60,13 @@
   else { include("not_found.php"); }
 ?>
 
+<!--
 <?php
   # get side content
   if (file_exists("$page" . "_aside.php")) { include("$page" . "_aside.php"); }
   else { include("default_aside.php"); }
 ?>
+-->
 
 
 <footer>
