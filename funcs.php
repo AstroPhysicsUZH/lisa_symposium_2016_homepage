@@ -3,11 +3,11 @@
 $PAGES = array(
   'overview',
   'program',
-  'conference information',
+  'conference_information',
   'registration',
-  'speaker information',
+  'speaker_information',
   'accommodation',
-  'travel information',
+  'travel_information',
   
 );
 
@@ -23,17 +23,18 @@ function print_menu($active_page) {
 
   global $PAGES, $NOT_IMPLEMENTED_PAGES;
 
-  foreach ($PAGES as $page) {
+  foreach ($PAGES as $page_) {
     
-    $page_ = str_replace(' ', '_', $page);
+    $page = str_replace('_', ' ', $page_);
 
     $cls = array();
 
-    if ($page == $active_page) {
+    if ($page_ == $active_page) {
       array_push($cls, "active");
+      $page = "&#x25B8; ".$page;
     }
 
-    if ( in_array($page, $NOT_IMPLEMENTED_PAGES) ) {
+    if ( in_array($page_, $NOT_IMPLEMENTED_PAGES) ) {
       array_push($cls, "not_implemented");
     }
 
@@ -45,12 +46,6 @@ function print_menu($active_page) {
     print "    <li$classes><a href='?page=$page_'>$page</a></li>\n";
   }
 
-}
-
-
-function get_hotel_array() {
-  return array_map('str_getcsv', file('hotels.csv'));
-  
 }
 
 
@@ -88,3 +83,18 @@ function csv_to_array($filename='', $delimiter=',')
   }
   return $data;
 }
+
+
+function get_news() 
+{
+  $news = csv_to_array('news.csv');
+  
+  // sort by date, newest on top
+  function compare_date($a, $b) { return strnatcmp($b['date'], $a['date']);}
+  usort($news, 'compare_date');
+  
+  return $news;
+}
+
+
+

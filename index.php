@@ -27,9 +27,13 @@
   <meta name="author" content="Rafael Kueng <rafi.kueng@gmx.ch>" >
   <meta name="designer" content="Rafael Kueng <rafi.kueng@gmx.ch>" >
   
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+  
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="shortcut icon" href="/favicon.ico">
+
+
 </head>
 
 <body>
@@ -54,11 +58,13 @@
   </p>
 </nav>
 
+<main>
 <?php
   # get main content
   if (file_exists("$page" . ".php")) { include("$page" . ".php"); }
   else { include("not_found.php"); }
 ?>
+</main>
 
 <!--
 <?php

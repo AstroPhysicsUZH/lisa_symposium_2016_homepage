@@ -1,10 +1,8 @@
 <article>
   <h1>Welcome</h1>
   <p>
-    Write a nice introduction text here
+     The eleventh international LISA Symposium on recent developments gravitational waves, LISA pathfinder and LISA in general will take place at the University of Zurich, Switzerland September 5 &ndash; 9, 2016.
   </p>
-  
-  <h2>Topics</h2>
   <p>
     Among others, we will discuss these preliminary topics:
   </p>
@@ -15,29 +13,15 @@
     <li>Precision tests of GR (MicroScope)</li>
   </ul>
   
-  <h2>Program</h2>
-  <p>
-    The program will be announced in February.
-  </p>
-
-  <h2>Registration / Participants</h2>
-  <p>
-    Registration will open in February.
-  </p>
-  <p>
-    A list of participants will shortly be published
-    <!-- You can find a list of all participants here. -->
-  </p>
-  
-  <h2>Location</h2>
-  <p>
-    The meeting will take place at the University of Zürich Irchel campus.
-    Associated rooms will be published with the release of the Programme.
-  </p>
-  
-  <h2>Proceedings</h2>
-  <p>
-    Proceedings will be released.
-  </p>
+  <h2>News</h2>
+  <ul>
+<?php
+  $news = get_news();
+  foreach ($news as $v) {
+    $strdate = $v['date'];
+    echo "<li><span class='date'>$strdate</span> {$v['comment']}</li>";
+  }
+?>
+  </ul>
 
 </article>

@@ -11,6 +11,10 @@ html {
 }
 
 
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
 header
 {
     width: 100%;
@@ -47,8 +51,11 @@ nav ul {
 
 nav ul li {
     display: box;
-    margin: 0.5em 0.5em 0.5em 0.5em;
+    margin: 0 0.5em 0 0.5em;
     padding: 0.5em 0 0 1em;
+    */
+    margin: 0;
+    padding: 0;
     list-style-type: none;
     list-style-position: outside;
 }
@@ -58,18 +65,16 @@ nav li+li {
 }
 
 
-nav ul li.active {
-    color: red;
-    padding-left: 1.5em;
+nav ul li a {
+    display: block;
+    padding: 0.5em 0.5em 0.5em 1.5em;
     
 }
-nav ul li.active::before {
-    font-size: 0.9em;
-    content: "\25B8  ";
-}
+
 
 nav ul li.active a {
     color: red !important;
+    padding-left: 1.5em;
     
 }
 
@@ -80,12 +85,15 @@ nav li.not_implemented a {
 }
 
 
+nav ul li a,
 nav ul li a:link,
 nav ul li a:visited,
 nav ul li a:hover,
 nav ul li a:active {
     color: black;
     text-decoration: none;
+    text-transform: capitalize;
+    
 }
 
 #contact {
@@ -95,100 +103,19 @@ nav ul li a:active {
 
 
 
-/*
-    nav
-    {   width: 100%;
-        display: block;
-        text-align: center;
-        
-        background-color: #00a;
-        color: white;
-    }
-
-    nav a {
-        display: inline-block;
-        text-decoration: none;
-        padding: 0.5em 0.5em 1.5em 0.5em;
-    }
-    nav a:link {
-        color: white;
-    }
-    nav a:visited {
-        color: white;
-    }
-    nav a:hover, nav li:hover {
-        color: white;
-        background-color: #00f;
-    }
-    nav a:active {
-        color: white;
-    }
-
-    nav li.active a {
-        padding: 1.5em 0.5em 0.5em 0.5em;
-    }
-
-    // use class .not_implemented for menuitems that are not yet implemented
-    nav li.not_implemented a {
-        color: gray !important;
-        pointer-events: none;
-        cursor: default;
-    }
-
-    nav ul {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
-
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        display: inline-flex;
-        align-self: flex-end;
-        text-align:left;
-        font-size:16px;
-        font-weight:bold;
-
-        align-items: baseline;
-        
-    }
-
-    nav ul li.active {
-        align-items: flex-end;
-
-    }
-
-    // every li in nav that has a preceding li
-    nav li+li {
-        border-left: 2px solid #000000;
-    }
-*/
-
-
-article
+main
 {
     width: 100%;
     margin: 0 0 0 0;
-    padding: 1em 0 0 0;
-/*    background-color: #f0ea34;*/
+    padding: 0 0 0 0;
+    background-color: #f0ea34;
 /*    background: linear-gradient(to right, rgba(255, 255, 255, 1) 98%,  rgba(0, 0, 0, 0) 100%); */
-    background-color: white;
 }
 
-article h1,
-article h2,
-article p,
-aside h1,
-aside p {
-    margin-right: 0.5em;
-    margin-left: 0.5em;
-    padding: 0 0.5em 0 0.5em;
+main article
+{
+    margin: 1.5em 1em 0.5em 1em;
+    background-color: #f0eaaa;
 }
 
 article h1,
@@ -196,55 +123,24 @@ article h2 {
     border-bottom: 1px dotted black;
 }
 
-
-
-/*
-    aside
-    {
-        width:: 100%;
-        margin: 0;
-        padding: 1em 0 0 0;
-        background-color: none;
-        
-        text-align: left;
-    }
-
-    aside h1 {
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-bottom: 0;
-        padding-bottom: 0.2em;
-    }
-
-    aside h2 {
-        font-size: 1em;
-        font-weight: bold;
-        margin-bottom: 0;
-        padding-bottom: 0.2em;
-    }
-
-    aside ul,p {
-        margin-top: 0em;
-    }
-
-*/
-
-
-footer
-{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    
-    padding: 0.5em 2em 0.5em 0.5em;
-    
-    clear: left;
-    background-color: #00a;
-    color: white;
-    font-size: 0.8em;
-    text-align: right;
+article ul {
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 0 15px 0 15px;
+    list-style-position: inside;
 }
+
+
+
+.warning {
+    margin: 0.5em 2em;
+    padding: 0.5em;
+    border: 2px solid red;
+    border-radius: 1em;
+    background-color: #f99;
+}
+
+
 
 div.hotel {
     display: inline-block;
@@ -255,7 +151,8 @@ div.hotel {
     
     box-shadow: 3px 3px 10px;
     
-    width: 250px;
+    width: 40%;
+    min-width: 230px;
     vertical-align: text-top;
 /*    background-color: #ff6666;*/
     background-color: #ccc;
@@ -276,16 +173,35 @@ div.hotel h3 {
     margin: 0.5em 0 0 0;
 }
 
+
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+    padding: 0.5em 2em 0.5em 0.5em;
+    
+    clear: left;
+    background-color: #00a;
+    color: white;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+
 @media only screen and (min-width:600px) {
     
     nav,
-    article {
+    main {
         float:left;
     }
     nav {
         width: 30%;
     }
-    article {
+    main {
         width: 70%;
         min-height: 20em; /* make it bitter than the menu */
     }
