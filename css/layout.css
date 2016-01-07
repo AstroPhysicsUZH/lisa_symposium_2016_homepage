@@ -23,7 +23,7 @@ header
     text-align:center;
     
     text-align: left;
-    background-color: #00a;
+    background-color: #0028a5;
     color: white;
 }
 
@@ -107,30 +107,45 @@ main
 {
     width: 100%;
     margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    background-color: #f0ea34;
+    padding: 0 0 5em 0;
+    background-color: #fff;
 /*    background: linear-gradient(to right, rgba(255, 255, 255, 1) 98%,  rgba(0, 0, 0, 0) 100%); */
 }
 
 main article
 {
     margin: 1.5em 1em 0.5em 1em;
-    background-color: #f0eaaa;
+/*    background-color: #f0eaaa;*/
 }
 
-article h1,
-article h2 {
-    border-bottom: 1px dotted black;
-}
 
 article ul {
     margin-right: 15px;
     margin-left: 15px;
     padding: 0 15px 0 15px;
-    list-style-position: inside;
 }
 
+article h1 {
+    border-bottom: 1px solid black;
+    font-size: 1.8em;
+}
 
+article h2 {
+    border-bottom: 1px dotted black;
+    font-size: 1.2em;
+}
+
+article h3 {
+    margin: 0.5em 0 0.25em 0;
+}
+
+article p {
+    margin: 0.25em 0 1em 0;
+}
+
+article span.date {
+    font-size: 0.8em;
+}
 
 .warning {
     margin: 0.5em 2em;
@@ -175,6 +190,7 @@ div.hotel h3 {
 
 
 
+/*
 footer
 {
     display: flex;
@@ -189,6 +205,23 @@ footer
     color: white;
     font-size: 0.8em;
     text-align: right;
+}*/
+
+footer {
+    clear: both;
+    display: block;
+    padding: 0.5em 2em 0.5em 0.5em;
+    
+    background-color: #0028a5;
+    color: white;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+
+
+footer img {
+    height: 50px;
 }
 
 

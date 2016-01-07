@@ -20,7 +20,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>LISA Symposium Meeting; 5. -- 9. Sept. 2016</title>
+  <title>LISA Symposium Meeting; 5. -- 9. Sept. 2016; University of Zurich</title>
   
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +41,7 @@
 
 <header>
   <h1>11th International LISA Symposium</h1>
-  <h2>5. &ndash; 9. September 2016; UZH, Zurich, Switzerland</h2>
+  <h2>5. &ndash; 9. September 2016<br>University of Zurich Irchel Campus, Zurich, Switzerland</h2>
 </header>
 
 <nav>
@@ -76,7 +76,8 @@
 
 
 <footer>
-  2016; Pauli Center for Theoretical Studies (UZH &amp; ETHZ)
+  <img class="footerimg" src="img/uzh.png" alt="uzhlogo" />
+  <img class="footerimg" src="img/pauli.png" alt="paulilogo" />
 </footer>
 
 </div>

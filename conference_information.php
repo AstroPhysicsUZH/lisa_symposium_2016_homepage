@@ -11,10 +11,8 @@
 
 <h3>Local Organizing Committee</h3>
 <ul>
-  <li>Philippe Jetzer</li>
-  <li>Domenico Giardini</li>
-</ul>
-<ul>
+  <li><b>Philippe Jetzer</b></li>
+  <li><b>Domenico Giardini</b></li>
   <li>Ruxandra Bondarescu</li>
   <li>Yannick Bötzel</li>
   <li>Luigi Ferraioli</li>
