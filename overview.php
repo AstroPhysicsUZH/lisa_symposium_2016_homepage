@@ -13,6 +13,19 @@
     <li>Precision tests of GR (MicroScope)</li>
   </ul>
   
+  <h2>Important Dates</h2>
+  <ul>
+    <li><span class='date'>2016-07-31 23:59</span> Deadline for Registration</li>
+    <li><span class='date'>2016-07-31 23:59</span> Deadline for Submissions (Abstracts / Posters)</li>
+    <li><span class='date'>2016-09-05 08:00</span> Registration Opens</li>
+    <li><span class='date'>2016-09-05 09:00</span> Opening Talk</li>
+    <li><span class='date'>2016-09-05 15:00</span> Group Picture</li>
+    <li><span class='date'>2016-09-07 20:00</span> Official Banquet</li>
+    
+    <li><span class='date'>2016-09-09 15:00</span> Closing Ceremony</li>
+
+  </ul>
+  
   <h2>News</h2>
   <ul>
 <?php

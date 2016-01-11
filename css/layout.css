@@ -13,15 +13,12 @@ html {
 
 body {
     font-family: 'PT Sans', sans-serif;
+    margin: 0;
 }
 
 header
 {
     width: 100%;
-    padding: 0;
-    margin: 1em 0 0 0;
-    text-align:center;
-    
     text-align: left;
     background-color: #0028a5;
     color: white;
@@ -29,12 +26,12 @@ header
 
 header h1 {
     margin: 0;
-    padding: 0.5em 0 0.5em 50px;
+    padding: 0.5em 0.5em 0.25em 0.5em;
 }
 
 header h2 {
     margin: 0;
-    padding: 0 0 0.5em 50px;
+    padding: 0.25em 0.5em 0.5em 0.5em;
 }
 
 
@@ -51,11 +48,10 @@ nav ul {
 
 nav ul li {
     display: box;
-    margin: 0 0.5em 0 0.5em;
-    padding: 0.5em 0 0 1em;
-    */
+/*    margin: 0 0.5em 0 0.5em;
+    padding: 0.5em 0 0 1em; */
     margin: 0;
-    padding: 0;
+    padding: 0; 
     list-style-type: none;
     list-style-position: outside;
 }
@@ -107,7 +103,7 @@ main
 {
     width: 100%;
     margin: 0 0 0 0;
-    padding: 0 0 5em 0;
+    padding: 2em 0 5em 0;
     background-color: #fff;
 /*    background: linear-gradient(to right, rgba(255, 255, 255, 1) 98%,  rgba(0, 0, 0, 0) 100%); */
 }
@@ -151,9 +147,62 @@ article span.date {
     margin: 0.5em 2em;
     padding: 0.5em;
     border: 2px solid red;
-    border-radius: 1em;
+    border-radius: 0.5em;
     background-color: #f99;
 }
+
+.zvvlinie {
+    display: inline-block;
+    width: 2em;
+    padding: 0.1em 0.2em;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+
+.l7 {
+    background-color: #000;
+    color: white;
+}
+
+.l9 {
+    background-color: #11296F;
+    border-color: #11296F;
+    color: white;
+}
+.l10 {
+    background-color: #E12472;
+    border-color: #E12472;
+    color: white;
+}
+
+.l14 {
+    background-color: #008dc5;
+    border-color: #008dc5;
+    color: white;
+}
+.l69 {
+    background-color: #fff;
+    color: black;
+}
+.l72 {
+    background-color: #C6A693;
+    border-color: #C6A693;
+    color: black;
+}
+.ic {
+    background-color: #E00000;
+    border-color: #E00000;
+    color: white;
+}
+.sb {
+    background-color: white;
+    color: black;
+}
+
 
 
 
@@ -226,6 +275,10 @@ footer img {
 
 
 @media only screen and (min-width:600px) {
+    
+    body {
+        margin: 1em;
+    }
     
     nav,
     main {
