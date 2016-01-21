@@ -83,7 +83,7 @@
 
 <h3>Taxis</h3>
 <p>
-  Taxis are quite expensive. Expect to pay from CHF 20.- upwards even for short rides.
+  Taxis are quite expensive. Expect to pay from CHF 20.- upwards even for short rides. (around CHF 40.- from the airport to Irchel)
   <br>
   Phone Numbers:
   <a href="tel:+41444444444">+41 44 444 44 44</a> or
@@ -94,7 +94,7 @@
 <h3>Car</h3>
 <p>
   We don't recommend arriving by car in Zurich.
-  There is a carpark at Irchel. Expect to pay CHF (parking time in hours)+1.
+  There is a carpark at Irchel. Expect to pay CHF [parking_duration_in_hours + 1].
   Finding parking spots in the city is only for the brave.
 </p>
 

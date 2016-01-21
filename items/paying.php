@@ -1,3 +1,9 @@
+
+<p>
+  The conference fee is to be payed in cash during registration.
+  It can be payed in Swiss Francs, Euro or Dollar.
+  (There is an ATM close to the registration desk available.)
+</p>
  
 <p>
   Please be aware, that Switzerland has it's own currency, the Swiss Franc (CHF), and not adapted the Euro.
@@ -7,5 +13,5 @@
 
 <p class="warning">
   In the university (cafeteria) you can only pay with Swiss Francs in <b>cash</b>.
-  No credit / debit cards can be accepted.
+  Unfortunately, no credit / debit cards will be accepted.
 </p>

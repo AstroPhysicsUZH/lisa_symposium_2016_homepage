@@ -164,12 +164,14 @@ article span.date {
 }
 
 .zvvstation {
-  background: #00f;
+  background: #00c;
   color: white;
   border-radius: 0px;
-  padding: 0.2em 0.5em;
+  margin: 0.2em 0;
+  padding: 0 0.5em;
   display: inline-block;
   font-weight: bold;
+  
 }
 
 .l7 {
