@@ -41,7 +41,7 @@
 
 <header>
   <h1>11th International LISA Symposium</h1>
-  <h2>5. &ndash; 9. September 2016<br>University of Zurich Irchel Campus, Zurich, Switzerland</h2>
+  <h2>5. &ndash; 9. September 2016<br>Irchel Campus, University of Zurich, Switzerland</h2>
 </header>
 
 <nav>
@@ -76,7 +76,9 @@
 
 
 <footer>
+  <img class="footerimg left" src="img/lisapf_logo.png" alt="lisa_pathfinder_logo" />
   <img class="footerimg" src="img/uzh.png" alt="uzhlogo" />
+  <img class="footerimg" src="img/eth_logo.png" alt="ethlogo" />
   <img class="footerimg" src="img/pauli.png" alt="paulilogo" />
 </footer>
 
