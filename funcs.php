@@ -2,13 +2,14 @@
 
 $PAGES = array(
   'home',
-  'about_the_conference',
-  'about_the_location',
-  'info_for_participants',
-  'info_for_presenters',
-  'travel_information',
+  'programme',
+  'committees',
   'registration',
-  'programme'
+  'participants',
+  'accommodation',
+  'transportation',
+  'about_the_location',
+  'proceedings'
   
 /*
   'program',
@@ -23,6 +24,7 @@ $PAGES = array(
 $NOT_IMPLEMENTED_PAGES = array(
   'program',
   'registration',
+  'proceedings'
   );
 
 

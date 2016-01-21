@@ -59,11 +59,13 @@
 </nav>
 
 <main>
+<article>
 <?php
   # get main content
   if (file_exists("$page" . ".php")) { include("$page" . ".php"); }
   else { include("not_found.php"); }
 ?>
+<article>
 </main>
 
 <!--
