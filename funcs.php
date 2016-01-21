@@ -1,14 +1,23 @@
 <?php
 
 $PAGES = array(
-  'overview',
+  'home',
+  'about_the_conference',
+  'about_the_location',
+  'info_for_participants',
+  'info_for_presenters',
+  'travel_information',
+  'registration',
+  'programme'
+  
+/*
   'program',
   'conference_information',
   'registration',
   'speaker_information',
   'accommodation',
   'travel_information',
-  
+*/
 );
 
 $NOT_IMPLEMENTED_PAGES = array(
@@ -85,16 +94,52 @@ function csv_to_array($filename='', $delimiter=',')
 }
 
 
-function get_news() 
-{
+function print_news() {
   $news = csv_to_array('news.csv');
   
   // sort by date, newest on top
   function compare_date($a, $b) { return strnatcmp($b['date'], $a['date']);}
   usort($news, 'compare_date');
-  
-  return $news;
+
+  echo "<ul>\n";
+  foreach ($news as $v) {
+    $strdate = $v['date'];
+    echo "<li><span class='date'>$strdate</span> {$v['comment']}</li>\n";
+  }
+  echo "</ul>\n";
 }
+
+
+function print_hotels() {
+
+  $hotels = csv_to_array('hotels.csv');
+  
+  foreach ($hotels as $hotel) {
+    #var_dump($hotel);
+    
+    $shorttel = str_replace(' ', '', $hotel["tel"]);
+    $img = (isset($hotel["img"]) && $hotel["img"]) ? $hotel["img"] : 'generic_hotel.jpg';
+
+    echo <<<EOL
+<div class='hotel'>
+  <a class='imga' href="img/hotels/$img">
+  <img src="img/hotels/_$img" />
+  </a>
+  <h3>{$hotel["name"]}</h3>
+
+  <div class="address">
+  {$hotel["street"]}<br>
+  {$hotel["loc"]}
+  </div>
+
+  <a class="web" href="{$hotel["url"]}">{$hotel["url"]}</a>
+  <a class="mail" href="mailto:{$hotel["email"]}">contact</a>
+  <a class="tel" href="tel:$shorttel">{$hotel["tel"]}</a>
+</div>
+EOL;
+  }
+}
+
 
 
 

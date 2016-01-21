@@ -27,14 +27,6 @@
   </ul>
   
   <h2>News</h2>
-  <ul>
-<?php
-  $news = get_news();
-  foreach ($news as $v) {
-    $strdate = $v['date'];
-    echo "<li><span class='date'>$strdate</span> {$v['comment']}</li>";
-  }
-?>
-  </ul>
+<?php print_news(); ?>
 
 </article>
