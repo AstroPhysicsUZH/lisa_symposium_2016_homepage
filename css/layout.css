@@ -163,6 +163,15 @@ article span.date {
     color: white;
 }
 
+.zvvstation {
+  background: #00f;
+  color: white;
+  border-radius: 0px;
+  padding: 0.2em 0.5em;
+  display: inline-block;
+  font-weight: bold;
+}
+
 .l7 {
     background-color: #000;
     color: white;

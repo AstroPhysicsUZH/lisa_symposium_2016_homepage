@@ -3,6 +3,7 @@
 <h1>About the Conference</h1>
 
 <h2>Location</h2>
+
 <?php include("items/location_irchel.php"); ?>
 
 

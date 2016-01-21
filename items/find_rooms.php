@@ -4,4 +4,5 @@
   (it's in building 16, on the left hand side; ground floor level "G")
 </p>
 
+<img alt="plan of irchel floor g" src="img/Y16_G.png" />
 
