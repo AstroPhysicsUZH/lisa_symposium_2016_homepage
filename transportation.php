@@ -1,26 +1,5 @@
- 
-<article>
-<h1>Travel Advice</h1>
 
-<h2>Accommodation</h2>
-
-<p>
-  We recommend the following hotels.<br>
-  For more choice consult <a href="https://www.zuerich.com/en/visit/accommodation-hotel-bed-and-breakfast-hostel"> the webpage of Zurich tourism</a>.
-</p>
-
-<p class="warning">
-  Please make sure to book <b>way in advance</b>.<br>
-  September is a crowded time in Zurich and Hotels are likely to book out very early.
-</p>
-
-<?php print_hotels(); ?>
-
-
-
-<h2>Paying in Zurich</h2>
-<?php include("items/paying.php"); ?>
-
+<h1>Transportation</h1>
 
 <h2>Travelling to Zurich</h2>
 
@@ -30,14 +9,16 @@
 
 <h3>Getting from the airport to the city</h3>
 <?php include("items/get_to_city.php"); ?>
+<?php include("items/location_irchel.php"); ?>
 
 
 
 <h3>Getting to the Conference / Irchel campus</h3>
 <?php include("items/get_to_conference.php"); ?>
+<?php include("items/location_park.php"); ?>
 
 
-<h3>Finding the Rooms (Y36G16 HS20)</h3>
+<h3>Finding the conference rooms</h3>
 <?php include("items/find_rooms.php"); ?>
 
 
@@ -100,11 +81,6 @@
 
 
 
-<h2>Sight Seeing / Events in Zurich</h2>
-<a href="https://www.zurich.com">visit the official Tourist Information</a>
-
-
-</article>
 
 
 

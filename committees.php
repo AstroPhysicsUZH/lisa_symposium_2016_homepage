@@ -3,13 +3,13 @@
 
 <h2>Science Advisory Committee</h2>
 <ul>
-  <li>(to be announced)</li>
+  <li>to be announced</li>
 </ul>
 
 <h2>Local Organizing Committee</h2>
 <ul>
-  <li><b>Philippe Jetzer</b></li>
   <li><b>Domenico Giardini</b></li>
+  <li><b>Philippe Jetzer</b></li>
   <li>Ruxandra Bondarescu</li>
   <li>Yannick Bötzel</li>
   <li>Luigi Ferraioli</li>
