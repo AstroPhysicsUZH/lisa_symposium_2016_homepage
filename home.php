@@ -1,16 +1,20 @@
 <article>
   <h1>Welcome</h1>
   <p>
-     The eleventh international LISA Symposium on recent developments gravitational waves, LISA pathfinder and LISA in general will take place at the University of Zurich, Switzerland September 5 &ndash; 9, 2016.
+     The eleventh International LISA Symposium
+     jointly organized by ETH Zurich and University of Zurich
+     will take place at the Irchel Campus of University of Zurich, Switzerland September 5 &ndash; 9, 2016.
   </p>
+
   <p>
-    Among others, we will discuss these preliminary topics:
+    Main topics after the recent development in the field of Gravitational Waves will be:
   </p>
+
   <ul>
-    <li>First results of LISA Pathfinder</li>
+    <li>First results from LISA Pathfinder</li>
     <li>Further development of LISA</li>
-    <li>Overview of ground based Gravitational Wave detection</li>
-    <li>Precision tests of GR (MicroScope)</li>
+    <li>Overview of ground based Gravitational Wave detectors</li>
+    <li>Precision tests of General Relativity</li>
   </ul>
   
   <h2>Important Dates</h2>
