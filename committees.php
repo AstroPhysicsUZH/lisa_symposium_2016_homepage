@@ -13,6 +13,7 @@
   <li>Ruxandra Bondarescu</li>
   <li>Yannick Bötzel</li>
   <li>Luigi Ferraioli</li>
+  <li>Carmelina Genovese</li>
   <li>Rafael Küng</li>
   <li>Davor Mance</li>
   <li>Lionel Philippoz</li>

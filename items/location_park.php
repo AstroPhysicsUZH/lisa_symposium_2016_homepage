@@ -12,7 +12,12 @@ http://umap.openstreetmap.fr/en/map/untitled-map_67817?scaleControl=false&miniMa
   </a>
 </small></p>
 
-<!--
+<?php
+/*
 http://umap.openstreetmap.fr/en/map/untitled-map_67817#16/47.3973/8.5498
--->
+
+Edit link:
+http://umap.openstreetmap.fr/en/map/anonymous-edit/67817%3AcmtXBRUMAnktSgvZHwsTexXIYn4
+*/
+?>
 
