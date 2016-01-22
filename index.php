@@ -10,7 +10,7 @@
   else { $page = NULL; }
 
   if (in_array(basename($page), $PAGES)) { $page = basename($page); }
-  else { $page = "overview"; }
+  else { $page = "home"; }
 ?>
 <!DOCTYPE html>
 <html>
