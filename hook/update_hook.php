@@ -88,6 +88,7 @@ $commands = array(
     , "chmod -R 777 *"
 );
 
+
 # prepare structure to save all output/return variables...
 $cmds = array();
 foreach ($commands as &$cmd) {
