@@ -54,7 +54,7 @@
   
   <p id='contact'>
     contact:<br>
-    <a href=''>lisa2016@physik.uzh.ch</a>
+    <a href='mailto:lisa2016@physik.uzh.ch'>lisa2016@physik.uzh.ch</a>
   </p>
 </nav>
 

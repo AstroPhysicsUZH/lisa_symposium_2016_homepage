@@ -1,9 +1,24 @@
 
 <h1>Committees</h1>
 
-<h2>Science Advisory Committee</h2>
+<h2>(preliminary) Science Advisory Committee</h2>
 <ul>
-  <li>to be announced</li>
+  <li>Peter Bender</li>
+  <li>Pierre Binetruy</li>
+  <li>Monica Colpi</li>
+  <li>Karsten Danzmann</li>
+  <li>Oliver Jennrich</li>
+  <li>Philippe Jetzer</li>
+  <li>Paul McNamara</li>
+  <li>Guido M&uuml;ller</li>
+  <li>Gijs Nelemans</li>
+  <li>Bernard Schutz</li>
+  <li>Carlos F. Sopuerta</li>
+  <li>Robin T. Stebbins</li>
+  <li>Timothy Sumner</li>
+  <li>Stefano Vitale</li>
+  <li>Henry Ward</li>
+  <li>Bill Weber</li>
 </ul>
 
 <h2>Local Organizing Committee</h2>
