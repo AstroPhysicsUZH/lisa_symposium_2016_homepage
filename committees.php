@@ -29,8 +29,10 @@
   <li>Yannick Bötzel</li>
   <li>Luigi Ferraioli</li>
   <li>Carmelina Genovese</li>
+  <li>Elisabeth L&auml;derach</li>
   <li>Rafael Küng</li>
   <li>Davor Mance</li>
+  <li>Neda Meshksar</li>
   <li>Lionel Philippoz</li>
   <li>Jan Ten Pierick</li>
   <li>Andreas Schärer</li>
