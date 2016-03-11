@@ -143,5 +143,21 @@ EOL;
 }
 
 
+function print_sac() {
+  $news = csv_to_array('science_advisory_committee.csv');
+  
+  // sort by date, newest on top
+  function compare_lastname($a, $b) { return strnatcmp($a['last_name'], $b['last_name']);}
+  usort($news, 'compare_lastname');
+
+  echo "<ul>\n";
+  foreach ($news as $v) {
+    echo "  <li>{$v['last_name']}, {$v['first_name']}</li>\n";
+  }
+  echo "</ul>\n";
+
+}
+
+
 
 
