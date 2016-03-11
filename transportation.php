@@ -26,6 +26,8 @@
 
 <p>
   We highly recommend using public transports.
+  You will get a <b>free ticket</b> for the public transport with your registration.
+  Make sure to keep it always on you while travelling.
 </p>
 
 <h3>Public Transports</h3>

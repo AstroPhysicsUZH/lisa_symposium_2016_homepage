@@ -152,7 +152,7 @@ function print_sac() {
 
   echo "<ul>\n";
   foreach ($news as $v) {
-    echo "  <li>{$v['last_name']}, {$v['first_name']}</li>\n";
+    echo "  <li>{$v['first_name']} {$v['last_name']}</li>\n";
   }
   echo "</ul>\n";
 
