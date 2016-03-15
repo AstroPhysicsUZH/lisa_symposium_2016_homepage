@@ -1,6 +1,6 @@
 <?php
 
-  include 'funcs.php';
+  include 'lib/funcs.php';
 
   header('Content-Type: text/html; charset=utf-8');
 
