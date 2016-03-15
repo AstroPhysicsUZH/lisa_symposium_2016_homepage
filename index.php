@@ -1,6 +1,7 @@
 <?php
 
-  include 'lib/funcs.php';
+  require_once 'lib/parsecsv.lib.php';
+  require_once 'lib/funcs.php';
 
   header('Content-Type: text/html; charset=utf-8');
 
@@ -59,7 +60,7 @@
   
   <p id='contact'>
     contact:<br>
-    <a href='mailto:lisa2016@physik.uzh.ch'>lisa2016@physik.uzh.ch</a>
+    <a href='mailto:relativityUZH@gmail.com'>relativityUZH@gmail.com</a>
   </p>
 </nav>
 

@@ -21,9 +21,9 @@ $(document).ready(function() {
         
         views: {
             agenda: {
-                scrollTime: '07:30:00',
+                scrollTime: '08:30:00',
                 slotLabelFormat: 'H',
-                minTime: "07:30:00",
+                minTime: "08:30:00",
                 maxTime: "20:30:00",
                 columnFormat: "ddd D"
             }
@@ -48,6 +48,10 @@ $(document).ready(function() {
 
 
 <h1>Programme</h1>
+
+<p>
+  Will be refined as soon as details are known.
+</p>
 
 <div id='calendar'></div>
 

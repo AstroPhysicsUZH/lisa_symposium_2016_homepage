@@ -295,10 +295,60 @@ footer img.left {
   float: left;
 }
 
-
+/* programm calendar adjustments */
 .fc-content {
     padding: 0px 3px;
 }
+
+
+/* registartion form */
+
+form {
+/*  width: 30em;
+  padding-top: 3em;
+  */position: relative;
+}
+
+table.registration {
+  width: 100%;
+  /*border-collapse: collapse;*/
+}
+
+th > h2 {
+  text-align: left;
+}
+table.registration td {
+  text-align: right;
+}
+table.registration td+td {
+  text-align: left;
+}
+
+input {
+  background-color: #fffbf0; 
+  border: 1px solid #e7c157;  
+}
+
+input:required + span::after {
+  content: "★";
+  color: red;
+}
+input:required:valid + span::after {
+  content: "✔";
+  color: green;
+}
+
+#price {
+  font-weight: bold;
+  border: 0px solid none;
+  background-color: #ffaaaa;
+}
+
+#tr_price {
+  background-color: #ffaaaa;
+  border: 1px solid red;
+}
+
 
 
 @media only screen and (min-width:600px) {
