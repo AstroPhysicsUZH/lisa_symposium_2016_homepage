@@ -1,9 +1,4 @@
 
-<p>
-  Will be announced soon
-</p>
-
-
 
 <h2>Invited Speakers</h2>
 
@@ -36,7 +31,7 @@
 
 <h3>Menu</h3>
 <ul>
-  <li>Starter: Gefl&uuml;gelcremesuppe</li>
+  <li>Starter: Karotten-Ingwer-Suppe</li>
   <li>Main regular: Glasierter Kalbsschulterbraten an Marsalajus</li>
   <li>Side dish: Tagliatelle und Gem&uuml;segarnitur</li>
   <li>Main vegie: Linsen - Kartoffel - Curry</li>

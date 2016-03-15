@@ -161,3 +161,68 @@ function print_sac() {
 
 
 
+function get_programme_json() {
+
+  echo "var evtSrcsBrks = { events: [\n";
+
+  for ($i = 5; $i < 9; $i++) { echo <<<EOT
+
+// Enter recurring breaks here
+  { start:'2016-09-0{$i}T10:30:00', end:'2016-09-0{$i}T11:00:00', title:'Break' },
+  { start:'2016-09-0{$i}T13:00:00', end:'2016-09-0{$i}T14:00:00', title:'Lunch Break' },
+  { start:'2016-09-0{$i}T15:20:00', end:'2016-09-0{$i}T15:40:00', title:'Break' },
+
+EOT;
+  };
+
+  echo <<<EOT
+  
+// Enter singular break events here
+  { start:'2016-09-07T19:00:00', end:'2016-09-07T23:00:00', title:'Conference Dinner' },
+
+  { start:'2016-09-09T10:30:00', end:'2016-09-09T11:00:00', title:'Break' },
+  { start:'2016-09-09T13:00:00', end:'2016-09-09T14:00:00', title:'Lunch Break' },
+
+EOT;
+
+  echo "  ], color: '#88ff88', textColor: 'black' };\n\n";
+
+  echo <<<EOT
+  var evtSrcsCTalks = { events: [
+
+// Enter Plenary Talks
+
+// MO
+  { start:'2016-09-05T09:00:00', end:'2016-09-05T10:30:00', title:'Opening Talk' },
+
+// Di
+
+// Mi
+
+// Do
+
+// Fr
+  { start:'2016-09-09T14:00:00', end:'2016-09-09T15:30:00', title:'Closing Talk' },
+
+// \------
+  ], color:'#ff8888', textColor:'black', borderColor:'#880000' };
+  
+EOT;
+
+  echo <<<EOT
+  var evtSrcsPTalks = { events: [
+
+// Enter Parallelsessions
+  { start:'2016-09-05T14:00:00', end:'2016-09-05T14:40:00', title:'Parallel Talk' },
+  { start:'2016-09-05T14:40:00', end:'2016-09-05T15:20:00', title:'Parallel Talk' },
+
+  ], color:'#ffff88', textColor:'black', borderColor:'#aaaa00' };
+  
+EOT;
+
+
+}
+
+
+
+
