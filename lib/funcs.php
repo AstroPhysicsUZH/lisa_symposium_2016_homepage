@@ -22,9 +22,8 @@ $PAGES = array(
 );
 
 $NOT_IMPLEMENTED_PAGES = array(
-  'program',
-  'registration',
-  'proceedings'
+  'proceedings',
+  'participants'
   );
 
 
@@ -97,7 +96,7 @@ function csv_to_array($filename='', $delimiter=',')
 
 
 function print_news() {
-  $news = csv_to_array('news.csv');
+  $news = csv_to_array('data/news.csv');
   
   // sort by date, newest on top
   function compare_date($a, $b) { return strnatcmp($b['date'], $a['date']);}
@@ -114,7 +113,7 @@ function print_news() {
 
 function print_hotels() {
 
-  $hotels = csv_to_array('hotels.csv');
+  $hotels = csv_to_array('data/hotels.csv');
   
   foreach ($hotels as $hotel) {
     #var_dump($hotel);
@@ -144,7 +143,7 @@ EOL;
 
 
 function print_sac() {
-  $news = csv_to_array('science_advisory_committee.csv');
+  $news = csv_to_array('data/science_advisory_committee.csv');
   
   // sort by date, newest on top
   function compare_lastname($a, $b) { return strnatcmp($a['last_name'], $b['last_name']);}
