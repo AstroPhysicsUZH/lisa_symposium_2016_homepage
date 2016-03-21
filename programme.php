@@ -55,5 +55,6 @@ $(document).ready(function() {
 
 <div id='calendar'></div>
 
-<?php include("items/programme.php"); ?>
+<?php include("items/plenary_speakers.php"); ?>
+<?php include("items/conference_dinner.php"); ?>
 

@@ -1,16 +1,5 @@
 
 
-<h2>Plenary Speakers</h2>
-
-<ul>
-  <li>Stefano Vitale (University of Trento)</li>
-  <li>Karsten Danzmann (Max Planck Institute for Gravitational Physics)</li>
-  <li>Paul Mc Namara (ESA)</li>
-  <li>Bill Weber (University of Trento)</li>
-</ul>
-
-
-
 <h2>Conference Dinner</h2>
 
 <p>
@@ -29,6 +18,7 @@
   The hike takes about 1 - 1.5 hours.
 </p>
 
+<!--
 <h3>Menu</h3>
 <ul>
   <li>Starter: Karotten-Ingwer-Suppe</li>
@@ -38,4 +28,4 @@
   <li>Side dish: Papadam und Limettenreis</li>
   <li>Dessert: Schokoterrine mit Pfefferminz&ouml;l und Fr&uuml;chten</li>
 </ul>
-
+-->
