@@ -2,7 +2,7 @@
 <h1>Committees</h1>
 
 <h2>Science Advisory Committee (preliminary)</h2>
-<?php include "items/science_advisory_committee.php"; ?>
+<?php require "items/science_advisory_committee.php"; ?>
 
 <h2>Local Organizing Committee</h2>
-<?php include "items/local_organizing_committee.php"; ?>
+<?php require "items/local_organizing_committee.php"; ?>

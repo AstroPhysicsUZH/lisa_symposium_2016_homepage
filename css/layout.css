@@ -16,8 +16,7 @@ body {
     margin: 0;
 }
 
-header
-{
+header {
     width: 100%;
     text-align: left;
     background-color: #0028a5;
@@ -40,9 +39,8 @@ header h2 {
 
 
 
-
 nav {
-    
+
 }
 
 
@@ -53,7 +51,7 @@ nav ul {
 nav ul li {
     display: box;
     margin: 0;
-    padding: 0; 
+    padding: 0;
     list-style-type: none;
     list-style-position: outside;
 }
@@ -66,14 +64,14 @@ nav li+li {
 nav ul li a {
     display: block;
     padding: 0.5em 0.5em 0.5em 1.5em;
-    
+
 }
 
 
 nav ul li.active a {
     color: red !important;
     padding-left: 1.5em;
-    
+
 }
 
 nav li.not_implemented a {
@@ -91,7 +89,7 @@ nav ul li a:active {
     color: black;
     text-decoration: none;
     text-transform: capitalize;
-    
+
 }
 
 #contact {
@@ -173,7 +171,7 @@ article span.date {
   padding: 0 0.5em;
   display: inline-block;
   font-weight: bold;
-  
+
 }
 
 .l7 {
@@ -230,9 +228,9 @@ div.hotel {
     border: 1px solid #bbb;
     border-radius: 10px;
     padding: 0.5em;
-    
+
     box-shadow: 3px 3px 10px;
-    
+
     width: 40%;
     min-width: 230px;
     vertical-align: text-top;
@@ -264,9 +262,9 @@ footer
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    
+
     padding: 0.5em 2em 0.5em 0.5em;
-    
+
     clear: left;
     background-color: #00a;
     color: white;
@@ -278,7 +276,7 @@ footer {
     clear: both;
     display: block;
     padding: 0.5em 2em 0.5em 0.5em;
-    
+
     background-color: #0028a5;
     color: white;
     font-size: 0.8em;
@@ -311,7 +309,7 @@ form {
 
 table.registration {
   width: 100%;
-  /*border-collapse: collapse;*/
+  border-collapse: collapse;
 }
 
 th > h2 {
@@ -319,14 +317,16 @@ th > h2 {
 }
 table.registration td {
   text-align: right;
+  padding-right: 0.25em;
 }
 table.registration td+td {
   text-align: left;
+  padding-left: 0.25em;
 }
 
 input {
-  background-color: #fffbf0; 
-  border: 1px solid #e7c157;  
+  background-color: #fffbf0;
+  border: 1px solid #e7c157;
 }
 
 input:required + span::after {
@@ -352,11 +352,11 @@ input:required:valid + span::after {
 
 
 @media only screen and (min-width:600px) {
-    
+
     body {
         margin: 1em;
     }
-    
+
     nav,
     main {
         float:left;
@@ -368,10 +368,6 @@ input:required:valid + span::after {
         width: 70%;
         min-height: 20em; /* make it bitter than the menu */
     }
-    
+
 
 }
-
-
-
-

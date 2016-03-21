@@ -8,18 +8,18 @@
 </p>
 
 <h3>Getting from the airport to the city</h3>
-<?php include("items/get_to_city.php"); ?>
-<?php include("items/location_irchel.php"); ?>
+<?php require "items/get_to_city.php"; ?>
+<?php require "items/location_irchel.php"; ?>
 
 
 
 <h3>Getting to the Conference / Irchel campus</h3>
-<?php include("items/get_to_conference.php"); ?>
-<?php include("items/location_park.php"); ?>
+<?php require "items/get_to_conference.php"; ?>
+<?php require "items/location_park.php"; ?>
 
 
 <h3>Finding the conference rooms</h3>
-<?php include("items/find_rooms.php"); ?>
+<?php require "items/find_rooms.php"; ?>
 
 
 <h2>Travelling in / around Zurich</h2>
@@ -80,9 +80,3 @@
   There is a carpark at Irchel. Expect to pay CHF [parking_duration_in_hours + 1].
   Finding parking spots in the city is only for the brave.
 </p>
-
-
-
-
-
-

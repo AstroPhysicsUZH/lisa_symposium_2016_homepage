@@ -1,17 +1,15 @@
 <?php
+    require_once 'lib/parsecsv.lib.php';
+    require_once 'lib/funcs.php';
 
-  require_once 'lib/parsecsv.lib.php';
-  require_once 'lib/funcs.php';
+    header('Content-Type: text/html; charset=utf-8');
 
-  header('Content-Type: text/html; charset=utf-8');
+    // Sanity checks
+    if (array_key_exists('page', $_GET)) { $page = $_GET['page']; }
+    else { $page = NULL; }
 
-  // Sanity checks
-
-  if (array_key_exists('page', $_GET)) { $page = $_GET['page']; }
-  else { $page = NULL; }
-
-  if (in_array(basename($page), $PAGES)) { $page = basename($page); }
-  else { $page = "home"; }
+    if (in_array(basename($page), $PAGES)) { $page = basename($page); }
+    else { $page = "home"; }
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,19 +20,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>LISA Symposium Meeting; 5. -- 9. Sept. 2016; University of Zurich</title>
-  
+
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Rafael Kueng <rafi.kueng@gmx.ch>" >
   <meta name="designer" content="Rafael Kueng <rafi.kueng@gmx.ch>" >
-  
+
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
-  
+
   <link rel='stylesheet' href='css/fullcalendar.min.css' />
   <script src='lib/jquery-1.12.1.min.js'></script>
   <script src='lib/moment.min.js'></script>
   <script src='lib/fullcalendar.min.js'></script>
-  
+
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -57,7 +55,7 @@
   print_menu($page);
 ?>
   </ul>
-  
+
   <p id='contact'>
     contact:<br>
     <a href='mailto:relativityUZH@gmail.com'>relativityUZH@gmail.com</a>
@@ -68,20 +66,11 @@
 <article>
 <?php
   # get main content
-  if (file_exists("$page" . ".php")) { include("$page" . ".php"); }
-  else { include("not_found.php"); }
+  if (file_exists("$page" . ".php")) {require "$page" . ".php"; }
+  else {require "not_found.php"; }
 ?>
 <article>
 </main>
-
-<!--
-<?php
-  # get side content
-  if (file_exists("$page" . "_aside.php")) { include("$page" . "_aside.php"); }
-  else { include("default_aside.php"); }
-?>
--->
-
 
 <footer>
   <img class="footerimg left" src="img/lisapf_logo.png" alt="lisa_pathfinder_logo" />
@@ -93,4 +82,3 @@
 </div>
 </body>
 </html>
-
