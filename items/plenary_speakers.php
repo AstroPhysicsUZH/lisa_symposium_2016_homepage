@@ -1,7 +1,5 @@
 
 
-<h2>Plenary Speakers</h2>
-
 <ul>
   <li>Stefano Vitale (University of Trento)</li>
   <li>Karsten Danzmann (Max Planck Institute for Gravitational Physics)</li>
