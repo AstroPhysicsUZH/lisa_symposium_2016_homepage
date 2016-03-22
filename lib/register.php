@@ -17,29 +17,33 @@ if ($rtest != 37) {
 // init to default values
 // because checkboxes only give a value if checked..
 $vals = [
-    "first" => "",
-    "last" => "",
+    "title" => "",
+    "lastname" => "",
+    "firstname" => "",
     "email" => "",
-    "affil" => "",
-    "talk" => "none",
-    "vegie" => FALSE,
-    "nPers" => 1,
-    "impared" => FALSE,
+    "affiliation" => "",
+    "talkType" => "none",
+    "isVeggie" => FALSE,
+    "nPersons" => 1,
+    "isImpaired" => FALSE,
 ];
 
+
+
 // parse string properties
-foreach (["first","last", "email", "affil", "talk"] as $key) {
+foreach (["title", "lastname", "firstname",
+          "email", "affiliation", "talkType"] as $key) {
     if (isset($_POST[$key])) { $vals[$key] = $_POST[$key]; }
 }
 
 // parse bool properties
-foreach (["vegie", "impared"] as $key) {
+foreach (["isVeggie", "isImpaired"] as $key) {
     if (isset($_POST[$key])) { $vals[$key] = TRUE; }
     else { $vals[$key] = FALSE; }
 }
 
 // parse int properties
-foreach (["nPers"] as $key) {
+foreach (["nPersons"] as $key) {
     if (isset($_POST[$key])) { $vals[$key] = intval($_POST[$key]); }
     else { $vals[$key] = FALSE; }
 }

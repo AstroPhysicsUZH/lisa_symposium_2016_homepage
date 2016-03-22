@@ -26,19 +26,28 @@ $( document ).ready(function(){
         </thead>
         <tr>
             <td>
-                <label for="first" class="left">First name</label>
+                <label for="title" class="left">Title</label>
             </td>
             <td>
-                <input type="text" name="first" required placeholder="Enter First Name">
+                <input type="text" name="title" placeholder="- / PhD / Dr / Prof">
                 <span></span>
             </td>
         </tr>
         <tr>
             <td>
-                <label for="last" class="left">Last name</label>
+                <label for="firstname" class="left">First name</label>
             </td>
             <td>
-                <input type="text" name="last" required placeholder="Enter Last Name">
+                <input type="text" name="firstname" required placeholder="Enter First Name">
+                <span></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="lastname" class="left">Last name</label>
+            </td>
+            <td>
+                <input type="text" name="lastname" required placeholder="Enter Last Name">
                 <span></span>
             </td>
         </tr>
@@ -53,10 +62,10 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <label for="affil" class="left">Affiliation</label>
+                <label for="affiliation" class="left">Affiliation</label>
             </td>
             <td>
-                <input type="text" name="affil" placeholder="Enter Affiliation">
+                <input type="text" name="affiliation" placeholder="Enter Affiliation">
                 <span></span>
             </td>
         </tr>
@@ -84,7 +93,7 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <input id="r1" type="radio" name="talk" value="none" checked>
+                <input id="r1" type="radio" name="talkType" value="none" checked>
             </td>
             <td>
                 <label for="r1">None</label>
@@ -92,7 +101,7 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <input id="r2" type="radio" name="talk" value="poster">
+                <input id="r2" type="radio" name="talkType" value="poster">
             </td>
             <td>
                 <label for="r2">Poster</label>
@@ -100,7 +109,7 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <input id="r3" type="radio" name="talk" value="talk">
+                <input id="r3" type="radio" name="talkType" value="talk">
             </td>
             <td>
                 <label for="r3">Talk</label>
@@ -119,7 +128,7 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <input id="c1" class="left" type="checkbox" name="vegie" value="checked">
+                <input id="c1" class="left" type="checkbox" name="isVeggie" value="checked">
             </td>
             <td>
                 <label for="c1">Vegetarian meal</label>
@@ -127,18 +136,18 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <input id="2pers" class="left" type="checkbox" name="nPers" value="2">
+                <input id="npers" class="left" type="checkbox" name="nPersons" value="2">
             </td>
             <td>
-                <label for="2pers">Accompanying person (+100.00 SFr)</label>
+                <label for="nPersons">Accompanying person (+100.00 SFr)</label>
             </td>
         </tr>
         <tr>
             <td>
-                <input id="c3" class="left" type="checkbox" name="impared" value="checked">
+                <input id="c3" class="left" type="checkbox" name="isImpaired" value="checked">
             </td>
             <td>
-                <label for="c3">Mobility impaired</label>
+                <label for="isImpaired">Mobility impaired</label>
             </td>
         </tr>
         <thead>
@@ -160,7 +169,7 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <label class="left">5 + 32 = ?</label>
+                <label class="left">5 + 32 = </label>
             </td>
             <td>
                 <input class="right" type="text" name="robot" required pattern="37">
