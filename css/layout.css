@@ -325,6 +325,7 @@ table.registration td+td {
 }
 
 input {
+  color: #000;
   background-color: #fffbf0;
   border: 1px solid #e7c157;
 }
