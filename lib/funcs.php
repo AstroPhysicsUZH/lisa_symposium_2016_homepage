@@ -26,6 +26,11 @@ $NOT_IMPLEMENTED_PAGES = array(
     'participants',
 );
 
+$HIDDEN_PAGES = array(
+    'msgs',
+    'user',
+);
+
 function print_menu($active_page)
 {
     global $PAGES, $NOT_IMPLEMENTED_PAGES;

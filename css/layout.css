@@ -324,17 +324,21 @@ table.registration td+td {
   padding-left: 0.25em;
 }
 
-input {
+input,
+textarea {
   color: #000;
   background-color: #fffbf0;
   border: 1px solid #e7c157;
 }
 
-input:required + span::after {
+input:required + span::after,
+textarea:required + span::after {
   content: "★";
   color: red;
 }
-input:required:valid + span::after {
+
+input:required:valid + span::after,
+textarea:required:valid + span::after {
   content: "✔";
   color: green;
 }

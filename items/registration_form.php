@@ -1,17 +1,24 @@
+<?php
+require_once "lib/db_settings.php";
+?>
 
 <script>
 $( document ).ready(function(){
 
     // set initial value
-    var price = 350; // hey genious, this is for display only, the real value will be calculated server side ;)
-    $("#price").val(price + ".00 SFr.");
+    var baseprice = <?= $baseFee; ?>; // hey genious, this is for display only, the real value will be calculated server side anyways ;)
+    var dinnerprice = <?= $dinnerFee; ?>;
+    var price = baseprice + dinnerprice;
+    $('#price').val(price + ".00 SFr.");
 
     //register update handler
     $("form :input").change(function() {
-        if ($('#2pers').prop('checked')) { price = 450; }
-        else {price = 350;}
+        price = baseprice + (parseInt($('#npers').val())+1) * dinnerprice;
         $("#price").val(price + ".00 SFr.");
     });
+
+    // trigger an change for inital calculation
+    $("form").change();
 
 });
 </script>
@@ -66,6 +73,18 @@ $( document ).ready(function(){
             </td>
             <td>
                 <input type="text" name="affiliation" placeholder="Enter Affiliation">
+                <span></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="address" class="left">Address</label>
+            </td>
+            <td>
+                <textarea name="address"
+                          style="width:250px;height:6em;"
+                          placeholder="Enter your FULL ADDRESS, including your name and country, as it should be written on a letter."
+                          required></textarea>
                 <span></span>
             </td>
         </tr>
@@ -128,18 +147,20 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <input id="c1" class="left" type="checkbox" name="isVeggie" value="checked">
+                <input id="npers"
+                    class="left" type="number" name="nPersons"
+                    value="0" style="width:3em;" min="0" max="5">
             </td>
             <td>
-                <label for="c1">Vegetarian meal</label>
+                <label for="nPersons">Accompanying persons (+100.00 SFr each)</label>
             </td>
         </tr>
         <tr>
             <td>
-                <input id="npers" class="left" type="checkbox" name="nPersons" value="2">
+                <input id="c1" class="left" type="checkbox" name="isVeggie" value="checked">
             </td>
             <td>
-                <label for="nPersons">Accompanying person (+100.00 SFr)</label>
+                <label for="c1">Vegetarian meal</label>
             </td>
         </tr>
         <tr>

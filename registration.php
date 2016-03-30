@@ -1,25 +1,14 @@
-
-
-<script>
-
-  //$("#price").val(10);
-
-  /*
-  var f = $('form');
-  f.on('change keydown paste input', function(){
-    alert("fired");
-    $("#price").val($("#price").val()+10);
-  });
-  */
-</script>
+<?php
+require_once "lib/db_settings.php";
+?>
 
 <h1>Registration</h1>
 
 <p>
-    The conference fee is 350.- SFr / $ / € for early bookers, until 2016-07-31.
+    The conference fee is <?=$baseFeeReduced+$dinnerFee;?>.&mdash; SFr for early bookers,
+    until  <?=$reducedLimitDate->format("Y-m-d");?>.
     Please remember to book your hotel in time as well!
-    <br />
-    The regular fee is 400.- SFr / $ / €.
+    The regular fee is <?= $baseFeeRegular+$dinnerFee ?>.&mdash; SFr.
 <p>
 
 </p>
