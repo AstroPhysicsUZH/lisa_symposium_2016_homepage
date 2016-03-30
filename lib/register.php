@@ -167,19 +167,22 @@ mail($to1, $subj, $msg, $headers);
 mail($to2, $subj, $msg, $headers);
 
 $subjX = "11th LISA Symposium Registration";
-$msgX  = "Hi\n\nThank you very much for your registration\n\n
-Please click on this link, to activate your registration:\n
-http://www.physik.uzh.ch/events/lisa2016/user.php?uid={$akey}\n\n
-Your registration fee was:\n
-{$vals["price"]}.-- CHF\n\n
-Please transfer it with banque transfer to:\n
-Rechnungswesen der Universität Zürich\n
-LISA Symposium\n
-8057 Zürich\n
-IBAN-Nr.: CH12 0900 0000 3109 1810 4\n
-Swift/BIC: POFICHBEXXX\n\n
-Best\n
-The OK";
+$msgX  = "Hi
+
+Thank you very much for your registration for the 11th LISA Symposium. Please click on this link, to activate your registration and upload/update your abstract:
+http://www.physik.uzh.ch/events/lisa2016/user.php?uid={$akey}
+
+Your registration fee is: {$vals["price"]}.-- CHF
+
+Please transfer it with banque transfer to:
+Rechnungswesen der Universitaet Zuerich
+LISA Symposium
+8057 Zuerich
+IBAN-Nr.: CH12 0900 0000 3109 1810 4
+Swift/BIC: POFICHBEXXX
+
+Kind regards,
+The local OK";
 
 mail($vals['email'], $subjX, $msgX, $headers);
 
