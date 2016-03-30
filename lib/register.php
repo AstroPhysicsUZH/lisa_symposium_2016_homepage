@@ -167,7 +167,7 @@ mail($to1, $subj, $msg, $headers);
 mail($to2, $subj, $msg, $headers);
 
 $subjX = "11th LISA Symposium Registration";
-$msg  = "Hi\n\nThank you very much for your registration\n\n
+$msgX  = "Hi\n\nThank you very much for your registration\n\n
 Please click on this link, to activate your registration:\n
 http://www.physik.uzh.ch/events/lisa2016/user.php?uid={$akey}\n\n
 Your registration fee was:\n
