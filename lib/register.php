@@ -85,7 +85,7 @@ $vals["notes"] = $now->format($dateformatstr) . "\tregistered\n";
 $vals["price"] = $baseFee + $dinnerFee * $vals["nPersons"];
 $vals["registrationDate"] = $now->format($dateformatstr);
 #$vals["lastAccessDate"] = $now->format($dateformatstr);
-
+$vals["hasPayed"] = FALSE;
 
 
 try {
@@ -139,10 +139,8 @@ catch(PDOException $e) {
     die(1);
 }
 
+$vals['_ID'] = $lastId;
 
-#print_r($vals);
-
-#echo "<hr>";
 
 $csv = new parseCSV();
 $csv->sort_by = 'email';
