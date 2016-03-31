@@ -224,32 +224,23 @@ article span.date {
 
 div.hotel {
     display: inline-block;
-    margin: 0.5em;
-    border: 1px solid #bbb;
-    border-radius: 10px;
-    padding: 0.5em;
-
-    box-shadow: 3px 3px 10px;
-
     width: 40%;
-    min-width: 230px;
+    min-width: 220px;
     vertical-align: text-top;
-/*    background-color: #ff6666;*/
-    background-color: #ccc;
+
+    background-color: #abf;
+
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid #bbf;
+    border-radius: 10px;
+
+    /*box-shadow: 3px 3px 10px;*/
 }
 
-.hotel img {
+div.hotel img {
     width: 100%;
     border-radius: 5px;
-}
-
-div.hotel a,
-div.hotel div.address,
-div.hotel h3 {
-    display: block;
-}
-div.hotel a {
-    position: relative;
 }
 
 div.hotel img.ico {
@@ -257,7 +248,6 @@ div.hotel img.ico {
     position: absolute;
     bottom: -5px;
 }
-
 div.hotel img.ico.x1 {
     right: -5px;
 }
@@ -268,30 +258,50 @@ div.hotel img.ico.x3 {
     right: 85px;
 }
 
+div.hotel>a,
+div.hotel>div,
+div.hotel>h3 {
+    display: block;
+    position: relative;
+    clear: both;
+}
+
+div.hotel a,
+div.hotel a:visited {
+    color: black;
+    text-decoration: none;
+}
+div.hotel a:hover {
+    background-color: #FFF;
+    color: #00E;
+    transition: 0.5s;
+}
+
 div.hotel h3 {
     margin: 0.5em 0 0 0;
 }
 
-.reservation{
+div.hotel .small {
     font-size: 80%;
-    clear: both;
-    vertical-align:middle;
-}
-.roomtype {
-    display: inline-block;
-    /*max-width: 75%;*/
-    vertical-align:middle;
 }
 
-.rate {
+div.hotel .linebot {
+    border-bottom: 1px dotted black;
+}
+div.hotel .linetop {
+    border-top: 1px dotted black;
+}
+
+div.hotel .rightib {
     display: inline-block;
-    /*width: 30%;*/
-    vertical-align:middle;
     float: right;
 }
 
-.deadline {
-    font-size: 80%;
+.roomtype {
+    display: inline-block;
+}
+
+.rate {
 }
 
 /*

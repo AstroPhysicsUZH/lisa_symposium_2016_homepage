@@ -116,10 +116,6 @@ function print_news()
     echo "</ul>\n";
 }
 
-function print_hotels()
-{
-
-}
 
 function print_sac()
 {
