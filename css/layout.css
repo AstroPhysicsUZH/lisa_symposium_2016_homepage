@@ -244,16 +244,55 @@ div.hotel {
 }
 
 div.hotel a,
-div.hotel div,
+div.hotel div.address,
 div.hotel h3 {
     display: block;
+}
+div.hotel a {
+    position: relative;
+}
+
+div.hotel img.ico {
+    width: 40px;
+    position: absolute;
+    bottom: -5px;
+}
+
+div.hotel img.ico.x1 {
+    right: -5px;
+}
+div.hotel img.ico.x2 {
+    right: 40px;
+}
+div.hotel img.ico.x3 {
+    right: 85px;
 }
 
 div.hotel h3 {
     margin: 0.5em 0 0 0;
 }
 
+.reservation{
+    font-size: 80%;
+    clear: both;
+    vertical-align:middle;
+}
+.roomtype {
+    display: inline-block;
+    /*max-width: 75%;*/
+    vertical-align:middle;
+}
 
+.rate {
+    display: inline-block;
+    /*width: 30%;*/
+    vertical-align:middle;
+    float: right;
+}
+
+.deadline {
+    font-size: 80%;
+}
 
 /*
 footer

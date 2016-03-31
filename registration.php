@@ -19,7 +19,7 @@ require_once "lib/db_settings.php";
     <li>Printed proceedings</li>
     <li>Coffee breaks</li>
     <li>Conference dinner</li>
-    <li>Local transportation (24h public transport)</li>
+    <li>Local transportation (24h public transport; except airport transfer)</li>
 </ul>
 
 <p>
