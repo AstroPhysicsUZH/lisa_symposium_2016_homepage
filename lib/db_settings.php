@@ -36,6 +36,7 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'address' => ['TEXT', 'string'],
 
 // options
+    'needInet' => ['INTEGER', 'boolean'],
     'nPersons' => ['INTEGER', 'integer'],
     'isVeggie' => ['INTEGER', 'boolean'],
     'isImpaired' => ['INTEGER', 'boolean'],

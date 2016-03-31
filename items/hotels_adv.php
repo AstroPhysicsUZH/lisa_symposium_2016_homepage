@@ -3,7 +3,7 @@
   We recommend the following hotels.<br>
   For more choice consult <a href="https://www.zuerich.com/en/visit/accommodation-hotel-bed-and-breakfast-hostel"> the webpage of Zurich tourism</a>.
   <br>
-  To profit from the reservations and the special prices printed below, please use the keyword <b>LISA Conference 2016</b> while booking.
+  To profit from the reservations and the special prices printed below, please use the keyword <b>LISA Conference 2016</b> while booking and book before the deadline.
   Rates are in CHF and including city tax.
   If two rates are given, then the first is the weekend price, the second for during the week.
   The number in brackets after the room type show the total of available rooms. (Not the number of free rooms left!)
@@ -13,6 +13,13 @@
   Please make sure to book <b>way in advance</b>.<br>
   September is a crowded time in Zurich and Hotels are likely to book out very early.
 </p>
+
+
+<?php /*
+http://umap.openstreetmap.fr/en/map/anonymous-edit/78775%3AQazSqz7NxNtECK5cabetfRbeKfU
+*/ ?>
+
+<iframe width="100%" height="600px" frameBorder="0" src="http://umap.openstreetmap.fr/en/map/hotels-near-irchel_78775?scaleControl=true&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe><p><a href="http://umap.openstreetmap.fr/en/map/hotels-near-irchel_78775">See full screen</a></p>
 
 
 <?php
@@ -40,8 +47,8 @@ foreach ($hotels as $hotel) {
         echo "    <img title='breakfast included' class='ico x3' src='img/breakfast.png' />\n";
     }
     echo "  </a>\n";
-    echo "  <h3>{$hotel['name']}</h3>\n";
-    echo "  <div>\n";
+    echo "  <h3 class='linebot'>{$hotel['name']}</h3>\n";
+    echo "  <div class='linebot'>\n";
     if (isset($hotel['street'])) { echo "    {$hotel['street']}<br>\n"; }
     if (isset($hotel['loc']))    { echo "    {$hotel['loc']}\n"; }
     echo "  </div>\n";
@@ -64,7 +71,7 @@ foreach ($hotels as $hotel) {
         echo "    <span class='rightib'>{$hotel['rates2']}</span>\n";
         echo "  </div>\n";
     }
-    echo "    <div class='small linebot'>\n";
+    echo "    <div class='small'>\n";
     echo "        <span>Deadline:</span>\n";
     echo "        <span class='rightib'>{$hotel['deadline']}</span>\n";
     echo "    </div>\n";

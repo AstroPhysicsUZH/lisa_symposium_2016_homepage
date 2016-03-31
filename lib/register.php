@@ -37,6 +37,7 @@ $vals = [
     "email" => "",
     "affiliation" => "",
     "nPersons" => 1,
+    "needInet" => FALSE,
     "isVeggie" => FALSE,
     "isImpaired" => FALSE,
 
@@ -165,14 +166,16 @@ mail($to1, $subj, $msg, $headers);
 mail($to2, $subj, $msg, $headers);
 
 $subjX = "11th LISA Symposium Registration";
-$msgX  = "Hi
+$msgX  = "Dear Mrs/Mr {$vals["lastname"]}
 
-Thank you very much for your registration for the 11th LISA Symposium. Please click on this link, to activate your registration and upload/update your abstract:
+Thank you very much for your registration for the 11th LISA Symposium in Zurich.
+Please click on this link, to activate your registration and upload/update your abstract:
 http://www.physik.uzh.ch/events/lisa2016/user.php?uid={$akey}
 
 Your registration fee is: {$vals["price"]}.-- CHF
 
 Please transfer it with banque transfer to:
+
 Rechnungswesen der Universitaet Zuerich
 LISA Symposium
 8057 Zuerich

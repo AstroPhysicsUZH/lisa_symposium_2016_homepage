@@ -32,6 +32,12 @@ $( document ).ready(function(){
             </th>
         </thead>
         <tr>
+            <td colspan="2" style="text-align:left;">
+                Please enter your personal details.
+
+            </td>
+        </tr>
+        <tr>
             <td>
                 <label for="title" class="left">Title</label>
             </td>
@@ -78,7 +84,7 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <label for="address" class="left">Address</label>
+                <label for="address" class="left">Full Address</label>
             </td>
             <td>
                 <textarea name="address"
@@ -86,6 +92,14 @@ $( document ).ready(function(){
                           placeholder="Enter your FULL ADDRESS, including your name and country, as it should be written on a letter."
                           required></textarea>
                 <span></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="needInet" class="left" type="checkbox" name="needInet" value="X">
+            </td>
+            <td>
+                <label for="needInet">I require WiFi access / <br />I don't have EDUROAM</label>
             </td>
         </tr>
         <!--
@@ -107,7 +121,12 @@ $( document ).ready(function(){
         </thead>
         <tr>
             <td colspan="2" style="text-align:left;">
-                After submitting the registration, you will receive a link to upload your abstract for approval. Please prepare one page A4 as pdf only.
+                Do you want to present a poster / presentation?
+                If so, please provide a short abstract (up to 200 words).
+                Please note that the the selection of contributed talk and poster presentation will be made by the Session Chairs.
+                Because on the limited number of speaking slots, not all requests to speak can be accommodated.
+                After registration, you will be notified in due time on its acceptance.
+                (Deadline for abstract submission: 2016-06-30)
             </td>
         </tr>
         <tr>
@@ -132,6 +151,18 @@ $( document ).ready(function(){
             </td>
             <td>
                 <label for="r3">Talk</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="abstract" class="left">Abstract</label>
+            </td>
+            <td>
+                <textarea name="abstract"
+                          style="width:100%;height:10em;"
+                          placeholder="Short abstract (max 200 words)"
+                          ></textarea>
+                <span></span>
             </td>
         </tr>
         <thead>
