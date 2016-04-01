@@ -5,10 +5,7 @@
     will write the data to the db and notify admins by email
 **/
 
-require_once "../lib/db_settings.php";
-
-require_once 'parsecsv.lib.php';
-$filename = "../data/register.csv";
+require_once "../lib/app.php";
 
 $rtest = intval($_POST['robot']);
 $rtest = 37;

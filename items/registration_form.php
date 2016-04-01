@@ -1,8 +1,5 @@
-<?php
-require_once "lib/db_settings.php";
-?>
-
 <?php /* use this for intertab communication for the preview */ ?>
+
 <script src="js/intercom.min.js"></script>
 
 <script>

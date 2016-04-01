@@ -1,6 +1,6 @@
 <!--
 <?php
-require_once "lib/db_settings.php";
+require_once "lib/app.php";
 $db_address = 'sqlite:db/registration.sqlite3';
 
 $data = null;

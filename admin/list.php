@@ -4,7 +4,7 @@
     Use this script for a simple database dump
 **/
 
-require_once "../lib/db_settings.php";
+require_once "../lib/app.php";
 
 try {
     // Create (connect to) SQLite database (creates if not exists)

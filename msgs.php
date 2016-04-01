@@ -1,8 +1,5 @@
 <?php
 
-require_once "lib/db_settings.php";
-
-
 if (isset($_GET['mid'])){ $mid = $_GET['mid']; }
 else { $id = "no_msg"; }
 

@@ -1,6 +1,3 @@
-<?php
-require_once "lib/db_settings.php";
-?>
 
 <h1>Registration</h1>
 

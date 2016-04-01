@@ -1,12 +1,18 @@
 <?php
 
-// set error reporting
+/**
+    set error reporting
+******************************************************************************/
 $DEBUG = TRUE;
 
 if ($DEBUG) {
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
     ini_set('display_startup_errors',1);
+} else {
+    error_reporting(E_NONE);
+    ini_set('display_errors', 'Off');
+    ini_set('display_startup_errors',0);
 }
 
 // Set default timezone
@@ -16,8 +22,49 @@ $datetime_fstr = 'Y-m-d\ H:i';      // how to present dates with time
 $date_fstr = 'Y-m-d';               // how to present dates only
 
 /**
+    setup the page layout / structure
+******************************************************************************/
+
+/*
+    menu entries / pages available
+
+    for each of this entries there must be a php file in root
+    This php there is supposed to inlcude "items" to generate a page
+*/
+$PAGES = array(
+    'home',
+    'programme',
+    'committees',
+    'registration',
+    'participants',
+    'accommodation',
+    'transportation',
+    'about_the_location',
+    'proceedings',
+);
+
+/*
+    menu entries that will be printed in the menu, but are not accessible /
+    grayed out, because not implemented
+*/
+$NOT_IMPLEMENTED_PAGES = array(
+    'proceedings',
+    'participants',
+);
+
+/*
+    pages that exist, but are not listed in the menu
+*/
+$HIDDEN_PAGES = array(
+    'msgs',
+    'user',
+);
+
+
+/**
     Setup the registration process
-**/
+******************************************************************************/
+
 $baseFeeReduced = 250; // conference cost for early bookers
 // $baseFeeStudents = 250; // conference cost for students bookers (we didn't do this, NOT IMPLEMENTED)
 $baseFeeRegular = 300; // conference cost for late bookers
@@ -31,8 +78,8 @@ $baseFee = $now < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular;
 $abstractSubmissionDate = new DateTime("2016-06-15 23:59:59");
 
 /**
-    Setup the application
-**/
+    Setup the application & database
+******************************************************************************/
 
 // name of the csv log file
 $csv_db_name = "../db/register.csv";
@@ -101,26 +148,5 @@ foreach ($tableFields as $key => $val) {
 }
 
 
-function open_db() {
-
-    global $db_address;
-    $db = NULL;
-
-    try {
-        // Create (connect to) SQLite database in file
-        $db = new PDO($db_address);
-        // Set errormode to exceptions
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch(PDOException $e) {
-        // Print PDOException message
-        echo $e->getMessage();
-        echo '<br />';
-        var_dump($e->getTraceAsString());
-
-        die(1);
-    }
-    return $db;
-}
 
 ?>

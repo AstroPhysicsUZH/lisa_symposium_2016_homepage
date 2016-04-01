@@ -1,40 +1,8 @@
 <?php
 
-require_once "lib/db_settings.php";
-
-$PAGES = array(
-    'home',
-    'programme',
-    'committees',
-    'registration',
-    'participants',
-    'accommodation',
-    'transportation',
-    'about_the_location',
-    'proceedings',
-
-/*
-  'program',
-  'conference_information',
-  'registration',
-  'speaker_information',
-  'accommodation',
-  'travel_information',
-*/
-);
-
-$NOT_IMPLEMENTED_PAGES = array(
-    'proceedings',
-    'participants',
-);
-
-$HIDDEN_PAGES = array(
-    'msgs',
-    'user',
-);
-
 /* everything that is printet from db to html should go though this function for security */
 function P($var) { return htmlentities($var); }
+
 
 /* Shorthand to print a bool from the database ("1" -> TRUE, otherwise false) */
 function B($var) { return $var==="1"? "yes":"no"; }
@@ -46,7 +14,6 @@ function print_menu($active_page)
 
     foreach ($PAGES as $page_) {
         $page = str_replace('_', ' ', $page_);
-
         $cls = array();
 
         if ($page_ == $active_page) {
@@ -68,22 +35,19 @@ function print_menu($active_page)
 }
 
 /**
- * Convert a comma separated file into an associated array.
- * The first row should contain the array keys.
- *
- * Example:
- *
- * @param string $filename  Path to the CSV file
- * @param string $delimiter The separator used in the file
- *
- * @return array
- *
- * @link http://gist.github.com/385876
- *
- * @author Jay Williams <http://myd3.com/>
- * @copyright Copyright (c) 2010, Jay Williams
- * @license http://www.opensource.org/licenses/mit-license.php MIT License
- */
+    Convert a comma separated file into an associated array.
+    The first row should contain the array keys.
+
+    Example:
+    @param string $filename  Path to the CSV file
+    @param string $delimiter The separator used in the file
+    @return array
+
+    @link http://gist.github.com/385876
+    @author Jay Williams <http://myd3.com/>
+    @copyright Copyright (c) 2010, Jay Williams
+    @license http://www.opensource.org/licenses/mit-license.php MIT License
+******************************************************************************/
 function csv_to_array($filename = '', $delimiter = ',')
 {
     if (!file_exists($filename) || !is_readable($filename)) {
@@ -105,3 +69,28 @@ function csv_to_array($filename = '', $delimiter = ',')
 
     return $data;
 };
+
+/**
+    function to open a database handle (using PDO)
+**/
+function open_db() {
+
+    global $db_address;
+    $db = NULL;
+
+    try {
+        // Create (connect to) SQLite database in file
+        $db = new PDO($db_address);
+        // Set errormode to exceptions
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(PDOException $e) {
+        // Print PDOException message
+        echo $e->getMessage();
+        echo '<br />';
+        var_dump($e->getTraceAsString());
+
+        die(1);
+    }
+    return $db;
+}
