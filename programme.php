@@ -1,10 +1,13 @@
 
+<script src='js/fullcalendar.min.js'></script>
+
 <h1>Programme</h1>
-<p>
-    Will be refined as soon as details are known.
-</p>
 
 <?php require "items/program.php"; ?>
+
+<p class="small">
+    (will be refined as soon as details are known)
+</p>
 
 <!--
 <h2>Plenary Speakers</h2>

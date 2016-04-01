@@ -118,26 +118,26 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'price' => ['INTEGER', 'integer'],
     'hasPayed' => ['INTEGER', 'boolean'],
     'amountPayed' => ['INTEGER', 'integer'],
-    'payDate' => ['INTEGER', 'date'],
+    'paymentDate' => ['INTEGER', 'date'],
 
     'talkType' => ['INTEGER', 'choice', ['none', 'talk', 'poster']],
     'presentationTitle' => ['TEXT', 'string'],
     'coauthors' => ['TEXT', 'string'],
     'abstract' => ['TEXT', 'string'],
-    'hasSubmittedAbstract' => ['INTEGER', 'boolean'],
+    'isAbstractSubmitted' => ['INTEGER', 'boolean'],
     'abstractSubmissionDate' => ['TEXT', 'date'],
-    'presentationIsChecked' => ['INTEGER', 'boolean'],  # has it been considered / looked at, and ...
-    'presentationIsAccepted' => ['INTEGER', 'boolean'], # ... the desicission.
+    'isPresentationChecked' => ['INTEGER', 'boolean'],  # has it been considered / looked at, and ...
+    'isPresentationAccepted' => ['INTEGER', 'boolean'], # ... the desicission.
     'acceptedType' => ['INTEGER', 'choice', ['none', 'talk', 'poster']], # What type of presentation will be given (talks can be downgraded to posters, posters upgraded to talks)
     'presentationSlot' => ['TEXT', 'date'],             # which timeslot, as a date -OR-
-    'posterPlace' => ['INTEGER', 'integer'],            # where to put your poster
     'presentationDuration' => ['INTEGER', 'integer'],   # duration of talk, in mins
+    'posterPlace' => ['TEXT', 'string'],                # where to put your poster
 
     'proceeding' => ['BLOB', 'file'],
     'hasUploadedProceeding' => ['INTEGER', 'boolean'],
     'proceedingSubmissionDate' => ['TEXT', 'date'],
-    'proceedingIsAccepted' => ['INTEGER', 'boolean']
-    );
+    'isProceedingAccepted' => ['INTEGER', 'boolean']
+);
 
 // create lookup tables
 foreach ($tableFields as $key => $val) {

@@ -429,3 +429,61 @@ textarea:required:valid + span::after {
 
 
 }
+
+@media print {
+    header {
+        background-color: #fff;
+        color: black;
+        background-image: none;
+        border-bottom: 2px solid black;
+    }
+
+
+    nav ul li {
+        display: none;
+    }
+    nav ul,
+    nav ul li.active {
+        display:inline-block;
+        width: 49%;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li.active a {
+        color: black !important;
+    }
+
+    #contact {
+        text-align:right;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        width: 49%;
+    }
+
+    footer {
+        display: none;
+    }
+    .zvvstation {
+        margin: 0;
+        padding: 0;
+        color: black;
+        background-color: white;
+    }
+    .zvvlinie {
+        margin: 0;
+        padding: 0;
+        color: black !important;
+        background-color: white;
+        border-color: black;
+    }
+    .warning {
+        border-color: black;
+        background-color: white;
+    }
+    a {
+        color: black;
+    }
+
+}
