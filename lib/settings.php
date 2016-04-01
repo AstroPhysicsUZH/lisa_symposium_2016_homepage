@@ -82,10 +82,11 @@ $abstractSubmissionDate = new DateTime("2016-06-15 23:59:59");
 ******************************************************************************/
 
 // name of the csv log file
-$csv_db_name = "../db/register.csv";
+$csv_db_name     = "../db/register.csv";
+$csv_db_name_abs = "../db/register.csv";
 
 // name of the sqlite database (mysql should work as well, thanks to PDO, but is not tested)
-$db_address = 'sqlite:../db/registration.sqlite3';
+$db_address     = 'sqlite:../db/registration.sqlite3';
 $db_address_abs = 'sqlite:db/registration.sqlite3';
 
 // the table in the database to use
@@ -109,7 +110,7 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'isVeggie' => ['INTEGER', 'boolean'],
     'isImpaired' => ['INTEGER', 'boolean'],
 
-    'notes' => ['TEXT', 'string'],
+    'notes' => ['TEXT', 'string'],           # kind of a log for keeping track of stuff..
 
     'registrationDate' => ['TEXT', 'date'],
     'lastAccessDate' => ['TEXT', 'date'],
@@ -134,7 +135,7 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'posterPlace' => ['TEXT', 'string'],                # where to put your poster
 
     'proceeding' => ['BLOB', 'file'],
-    'hasUploadedProceeding' => ['INTEGER', 'boolean'],
+    'isProceedingUploaded' => ['INTEGER', 'boolean'],
     'proceedingSubmissionDate' => ['TEXT', 'date'],
     'isProceedingAccepted' => ['INTEGER', 'boolean']
 );

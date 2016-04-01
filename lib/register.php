@@ -24,24 +24,30 @@ if (! isset($_POST['email'])) {
 }
 
 
-// init to default values
-// because checkboxes only give a value if checked..
-// all others could be set to null
+/*
+    init to default values
+    because checkboxes only give a value if checked..
+    all others could be set to null
+
+    make sure here are only fields that settings.php defines!!
+*/
 $vals = [
     "title" => "",
-    "lastname" => "",
     "firstname" => "",
+    "lastname" => "",
     "email" => "",
     "affiliation" => "",
-    "nPersons" => 1,
+    "address" => "",
+
     "needInet" => FALSE,
+    "nPersons" => 1,
     "isVeggie" => FALSE,
     "isImpaired" => FALSE,
 
     "hasPayed" => FALSE,
 
     "talkType" => 0,
-    'hasSubmittedAbstract' => NULL,
+    'isAbstractSubmitted' => NULL,
 ];
 
 // read post fields
@@ -82,7 +88,7 @@ $vals["nPersons"] += 1; # convert from nAdditionalPersons to nPersons
 $vals["notes"] = $now->format($datetime_db_fstr) . "\tregistered\n";
 $vals["price"] = $baseFee + $dinnerFee * $vals["nPersons"];
 $vals["registrationDate"] = $now->format($datetime_db_fstr);
-#$vals["lastAccessDate"] = $now->format($datetime_db_fstr);
+$vals["lastAccessDate"] = NULL;
 $vals["hasPayed"] = FALSE;
 
 
@@ -90,6 +96,7 @@ try {
     // Create (connect to) SQLite database (creates if not exists)
     $db = open_db();
 
+    // check if this email address already exists
     $findEmail = $vals['email'];
     $stmt = $db->prepare("SELECT COUNT(*) FROM {$tableName} WHERE email = :email");
     $res = $stmt->execute(array(':email'=>$findEmail));
@@ -101,7 +108,7 @@ try {
         //die(1);
     }
 
-    # generate unique access key
+    // generate unique access key
     $repeat = TRUE;
     while ($repeat) {
         $akey = bin2hex(openssl_random_pseudo_bytes(4)); # 4 bytes makes 8 = 2x4 hex digits
@@ -112,6 +119,11 @@ try {
             $repeat = FALSE;
         }
     }
+
+    var_dump(array_keys($tableFields));
+    echo "\n<hr />\n";
+    var_dump(array_keys($vals));
+
 
     $insert  = "INSERT INTO {$tableName} (";
     $insert .= implode(", ", array_keys($tableFields));
@@ -137,11 +149,12 @@ catch(PDOException $e) {
     die(1);
 }
 
-$vals['id'] = $lastId;
-
 /*
     for debug, append the data to a csv as well
 */
+// insert id in front
+$vals = ['id' => $lastId] + $vals;
+
 $csv = new parseCSV();
 $csv->sort_by = 'email';
 $csv->parse($csv_db_name);

@@ -5,6 +5,9 @@
     Only run it once, doesn't do anything if database exists.
 
     Can also be used to test the database connection..
+
+    use `sqlite3 registration.sqlite ".databases"` to create a ampty db from
+    command line
 **/
 
 require_once "../lib/app.php";
@@ -32,6 +35,10 @@ try {
     // Close file db connection
     // -------------------------------------------------------------------------
     $db = null;
+
+    // write csv header
+    $header = implode(", ", array_keys($tableFields));
+    file_put_contents($csv_db_name, "id,".$header, FILE_APPEND | LOCK_EX);
 }
 catch(PDOException $e) {
     // Print PDOException message

@@ -1,10 +1,13 @@
 <?php /* use this for intertab communication for the preview */ ?>
-
 <script src="js/intercom.min.js"></script>
+
 
 <script>
 $( document ).ready(function(){
 
+    /*
+        Setup automatic price update
+    */
     // set initial value
     var baseprice = <?= $baseFee; ?>; // hey genious, this is for display only, the real value will be calculated server side anyways ;)
     var dinnerprice = <?= $dinnerFee; ?>;
@@ -20,7 +23,9 @@ $( document ).ready(function(){
     // trigger an change for inital calculation
     $("form").change();
 
-    // setup intertab com for preview
+    /*
+        setup intertab com for preview
+    */
 	if (Intercom.supported) {
 		var title = document.title;
 
@@ -34,11 +39,6 @@ $( document ).ready(function(){
 		var intercom = new Intercom();
         var changeRate = 200; // only send each X ms an update
         var canFireRequest = true;
-
-/*		intercom.on('notice', function(data) {
-			$messages.append($('<p>').text(data.message));
-			document.title = '(' + $messages[0].childNodes.length + ') ' + title;
-		});*/
 
         $abstract
             .add($title)
@@ -70,7 +70,6 @@ $( document ).ready(function(){
 	} else {
 		alert('intercom.js is not supported by your browser. The preview function will not work');
 	}
-
 });
 </script>
 
@@ -140,7 +139,7 @@ $( document ).ready(function(){
             <td>
                 <textarea name="address"
                           style="height:6em;"
-                          placeholder="Enter your FULL ADDRESS, including your name and country, as it should be written on a letter."
+                          placeholder="Enter your FULL ADDRESS, including your FULL NAME and country, as it should be written on a letter."
                           required></textarea>
                 <span></span>
             </td>
