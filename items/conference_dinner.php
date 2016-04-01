@@ -1,6 +1,6 @@
 
 <p>
-    The conference dinner will take place on Wednessday evening, starting at 19:00 on the top of the Uetliberg.
+    The conference dinner will take place on Wednesday evening, starting at 19:00 on the top of the Uetliberg.
 </p>
 
 <h3>How to get there</h3>

@@ -101,7 +101,7 @@ try {
     if ($nEntries > 0) {
         echo "<h1 style='text-align:center;'>This email address is already registered</h1>\n";
         var_dump($_POST);
-        die(1);
+        //die(1);
     }
 
     # generate unique access key
@@ -140,22 +140,29 @@ catch(PDOException $e) {
     die(1);
 }
 
-$vals['_ID'] = $lastId;
+$vals['id'] = $lastId;
 
-
+/*
+    for debug, append the data to a csv as well
+*/
 $csv = new parseCSV();
 $csv->sort_by = 'email';
-$csv->parse($filename);
+$csv->parse($csv_db_name);
 $csv->data[$vals['email']] = $vals;
 $csv->save();
 #print_r($csv->data);
+
 
 
 $from = "LISA Symposium Website <relativityUZH@gmail.com>";
 $to1 = "rafik@physik.uzh.ch";
 $to2 = "relativityUZH@gmail.com";
 $subj = "[LISA] registration";
-$msg  = "this is just an automated backup mail in case of database corruption\n\n";
+$msg  = "Someone registered for the lisa conference. Here a backup dump\n\n";
+$msg .= "PHP var export:\n";
+$msg .= var_export($vals, true);
+$msg .= "\n\n";
+$msg .= "json encoded:\n";
 $msg .= json_encode($vals);
 
 $headers  = 'From: ' . $from . "\r\n";
@@ -163,32 +170,51 @@ $headers .= "Reply-To:" . $from . "\r\n" .
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 mail($to1, $subj, $msg, $headers);
-mail($to2, $subj, $msg, $headers);
+//mail($to2, $subj, $msg, $headers);
 
-$subjX = "11th LISA Symposium Registration";
-$msgX  = "Dear Mrs/Mr {$vals["lastname"]}
+/*
+    load the email message to send
+    this should set:
+    $from
+    $replyto
+    $subject
+    $message
+    expects the database fields in $X
+*/
+$X = $vals;
+require "../items/registration_email.php";
 
-Thank you very much for your registration for the 11th LISA Symposium in Zurich.
-Please click on this link, to activate your registration and upload/update your abstract:
-http://www.physik.uzh.ch/events/lisa2016/user.php?uid={$akey}
+$headers  = 'From: ' . $from . "\r\n";
+$headers .= "Reply-To:" . $replyto . "\r\n" .
+$headers .= "X-Mailer: PHP/" . phpversion();
 
-Your registration fee is: {$vals["price"]}.-- CHF
+mail($vals['email'], $subject, $message, $headers);
 
-Please transfer it with banque transfer to:
-
-Rechnungswesen der Universitaet Zuerich
-LISA Symposium
-8057 Zuerich
-IBAN-Nr.: CH12 0900 0000 3109 1810 4
-Swift/BIC: POFICHBEXXX
-
-Kind regards,
-The local OK";
-
-mail($vals['email'], $subjX, $msgX, $headers);
-
-$url = "../index.php?page=msgs&mid=reg_suc&lid={$lastId}&akey={$akey}";
-header('Location: ' . $url);
-die();
-
+/*
+    Now follows a redirect to a message page with a database dump to confirm
+    Only send user id and accesskey for security.
+*/
 ?>
+
+<html>
+<head>
+</head>
+<body>
+    <h1>processing registration...</h1>
+    <form action='../index.php?page=msgs&amp;mid=reg_suc' method='post' name='frm'>
+<?php
+$senddata = [
+    "id"        => $vals['id'],
+    "accessKey" => $vals['accessKey'],
+];
+foreach ($senddata as $a => $b) {
+    echo "<input type='hidden' name='".htmlentities($a)."' value='".htmlentities($b)."'>\n";
+}
+?>
+        <input type="submit" value="Click here if you are not redirected."/>
+    </form>
+    <script type="text/javascript">
+        //document.frm.submit();
+    </script>
+</body>
+</html>

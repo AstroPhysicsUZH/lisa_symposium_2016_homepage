@@ -31,6 +31,13 @@ $HIDDEN_PAGES = array(
     'user',
 );
 
+/* everything that is printet from db to html should go though this function for security */
+function P($var) { return htmlentities($var); }
+
+/* Shorthand to print a bool from the database ("1" -> TRUE, otherwise false) */
+function B($var) { return $var==="1"? "yes":"no"; }
+
+
 function print_menu($active_page)
 {
     global $PAGES, $NOT_IMPLEMENTED_PAGES;
@@ -96,112 +103,3 @@ function csv_to_array($filename = '', $delimiter = ',')
 
     return $data;
 };
-
-function print_news()
-{
-    $news = csv_to_array('data/news.csv');
-
-    // sort by date, newest on top
-    function compare_date($a, $b)
-    {
-      return strnatcmp($b['date'], $a['date']);
-    }
-    usort($news, 'compare_date');
-
-    echo "<ul>\n";
-    foreach ($news as $v) {
-        $strdate = $v['date'];
-        echo "<li><span class='date'>$strdate</span> {$v['comment']}</li>\n";
-    }
-    echo "</ul>\n";
-}
-
-
-function print_sac()
-{
-    $news = csv_to_array('data/science_advisory_committee.csv');
-
-  // sort by date, newest on top
-  function compare_lastname($a, $b)
-  {
-      return strnatcmp($a['last_name'], $b['last_name']);
-  }
-    usort($news, 'compare_lastname');
-
-    echo "<ul>\n";
-    foreach ($news as $v) {
-        echo "  <li>{$v['first_name']} {$v['last_name']}</li>\n";
-    }
-    echo "</ul>\n";
-}
-
-function get_programme_json()
-{
-    echo "var evtSrcsBrks = { events: [\n";
-
-    for ($i = 5; $i < 9; ++$i) {
-        echo <<<EOT
-
-// Enter recurring breaks here
-  { start:'2016-09-0{$i}T10:30:00', end:'2016-09-0{$i}T11:00:00', title:'Break' },
-  { start:'2016-09-0{$i}T13:00:00', end:'2016-09-0{$i}T14:00:00', title:'Lunch Break' },
-  { start:'2016-09-0{$i}T15:30:00', end:'2016-09-0{$i}T16:00:00', title:'Break' },
-
-EOT;
-    };
-
-    echo <<<EOT
-
-// Enter singular break events here
-  { start:'2016-09-07T18:00:00', end:'2016-09-07T23:00:00', title:'Apero and Conference Dinner' },
-
-  { start:'2016-09-09T10:30:00', end:'2016-09-09T11:00:00', title:'Break' },
-  { start:'2016-09-09T13:00:00', end:'2016-09-09T14:00:00', title:'Lunch Break' },
-
-EOT;
-
-    echo "  ], color: '#ff8888', textColor: 'black'};\n\n";
-
-    echo <<<EOT
-  var evtSrcsCTalks = { events: [
-
-// Enter Plenary Talks
-
-// MO
-  { start:'2016-09-05T09:00:00', end:'2016-09-05T09:30:00', title:'Opening' },
-  { start:'2016-09-05T09:30:00', end:'2016-09-05T13:00:00', title:'Talks' },
-// Di
-  { start:'2016-09-06T09:00:00', end:'2016-09-06T13:00:00', title:'Talks' },
-
-// Mi
-  { start:'2016-09-07T09:00:00', end:'2016-09-07T13:00:00', title:'Talks' },
-  { start:'2016-09-07T14:00:00', end:'2016-09-07T17:00:00', title:'Joint eLISA and L3ST consortium meeting' },
-
-// Do
-  { start:'2016-09-08T09:00:00', end:'2016-09-08T13:00:00', title:'Talks' },
-
-// Fr
-  { start:'2016-09-09T09:00:00', end:'2016-09-09T13:00:00', title:'Talks' },
-
-// \------
-  ], color:'#88ff88', textColor:'black', borderColor:'#008800' };
-
-EOT;
-
-    echo <<<EOT
-  var evtSrcsPTalks = { events: [
-
-// Enter Parallelsessions
-  { start:'2016-09-05T14:00:00', end:'2016-09-05T17:00:00', title:'Parallel Talks' },
-  { start:'2016-09-05T14:30:00', end:'2016-09-05T17:30:00', title:'Parallel Talks' },
-
-  { start:'2016-09-06T14:00:00', end:'2016-09-06T17:00:00', title:'Parallel Talks' },
-  { start:'2016-09-06T14:30:00', end:'2016-09-06T17:30:00', title:'Parallel Talks' },
-
-  { start:'2016-09-08T14:00:00', end:'2016-09-08T17:00:00', title:'Parallel Talks' },
-  { start:'2016-09-08T14:30:00', end:'2016-09-08T17:30:00', title:'Parallel Talks' },
-
-  ], color:'#ffff88', textColor:'black', borderColor:'#aaaa00' };
-
-EOT;
-}

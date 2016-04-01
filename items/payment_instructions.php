@@ -1,14 +1,17 @@
+
+<h2>Payment Instructions</h2>
+
 <p>
-    Please transfer the registration fee with banque transfer.
+    Please transfer the registration fee of <b><?=P($data["price"]);?>.&mdash; CHF</b> with bank transfer.
 </p>
 <p>
     To:<br>
-    Rechnungswesen der Universität Zürich<br>
+    Rechnungswesen der Universitat Zurich<br>
     LISA Symposium<br>
-    8057 Zürich <br>
+    8057 Zurich <br>
     IBAN-Nr.: CH12 0900 0000 3109 1810 4<br>
     Swift/BIC: POFICHBEXXX
 </p>
 <p>
-    From / Message: <?=sprintf('%03d', intval($_GET['lid']));?> FIRSTNAME LASTNAME
+    From / Message: <?=sprintf('%03d', intval($data["id"]));?> <?=P($data["lastname"]);?>
 </p>

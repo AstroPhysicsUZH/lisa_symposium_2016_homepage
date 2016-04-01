@@ -3,24 +3,33 @@
 require_once "lib/db_settings.php";
 
 
-if (isset($_GET['mid'])){ $id = $_GET['mid']; }
+if (isset($_GET['mid'])){ $mid = $_GET['mid']; }
 else { $id = "no_msg"; }
 
 
-if ($id == "no_msg") {
+if ($mid == "no_msg") {
     echo "";
 }
 
-elseif ($id=="reg_suc") {
-    echo "<h1>Registration successfull</h1>";
-    echo "<p>We sent you a link to activate, check and modify your registration.</p>";
-    echo "<ul>\n";
-    echo "<li>userid: {$_GET['lid']}</li>\n";
-    echo "<li>access key: {$_GET['akey']}</li>\n";
-    echo "</ul>\n\n";
 
-    echo "<h2>Payment Instructions</h2>";
+elseif ($mid=="reg_suc") {
+
+    $dbh = new PDO($db_address_abs);
+    $stmt = $dbh->prepare("SELECT * FROM {$tableName} WHERE id=:uid LIMIT 1");
+    $stmt->execute([':uid' => $_POST['id']]);
+    $data = $stmt->fetch();
+
+    if (! $data['accessKey'] == $_POST['accessKey']) {
+        echo "no spoofing plz!";
+        die(1);
+    }
+
+    require "items/registration_successful.php";
     require "items/payment_instructions.php";
+
+    // var_dump($_POST);
+    // echo "<hr />";
+    // var_dump($data);
 }
 
 ?>

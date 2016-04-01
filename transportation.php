@@ -31,6 +31,10 @@
 </p>
 
 <h3>Public Transports</h3>
+
+
+
+<?php /*
 <p>
   Zurich has a <a href="http://www.zvv.ch/zvv/en/home.html">unified public transport system (ZVV)</a>: one ticket is valid for all means of transportation like trains, busses, trams, trolleys and ships.
   Please make sure to get a ticket <b>before</b> entering the vehicle.
@@ -63,6 +67,7 @@
   If you stay 6 days and have to take the tram daily to get to Irchel and/or want to travel around in Zurich often, we recommend getting the multiple-journey card with day passes.
 </p>
 
+*/ ?>
 
 <h3>Taxis</h3>
 <p>

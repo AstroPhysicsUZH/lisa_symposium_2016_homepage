@@ -50,6 +50,7 @@ EOT;
 
         ], color:'#ffff88', textColor:'black', borderColor:'#aaaa00' };
 
+
     $('#calendar').fullCalendar({
         weekends: false, // will hide Saturdays and Sundays
 

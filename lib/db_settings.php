@@ -13,17 +13,35 @@ if ($DEBUG) {
 date_default_timezone_set('UTC');
 $dateformatstr = 'Y-m-d\ H:i:s';
 
-$dinnerFee = 100;
-$baseFeeReduced = 250;
-$baseFeeRegular = 300;
-$reducedLimitDate = new DateTime("2016-07-31 23:59:59");
+/**
+    Setup the registration process
+**/
+$baseFeeReduced = 250; // conference cost for early bookers
+// $baseFeeStudents = 250; // conference cost for students bookers (we didn't do this, NOT IMPLEMENTED)
+$baseFeeRegular = 300; // conference cost for late bookers
+$reducedLimitDate = new DateTime("2016-07-31 23:59:59"); // the date when early booking is over
+$dinnerFee = 100; // the price of the dinner, per person
+
+// calculate if we still get early/reduced price
 $now = new DateTime('NOW');
 $baseFee = $now < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular;
 
 
-$db_address = 'sqlite:../db/registration.sqlite3';
+/**
+    Setup the application
+**/
 
+// name of the csv log file
+$csv_db_name = "../db/register.csv";
+
+// name of the sqlite database (mysql should work as well, thanks to PDO, but is not tested)
+$db_address = 'sqlite:../db/registration.sqlite3';
+$db_address_abs = 'sqlite:db/registration.sqlite3';
+
+// the table in the database to use
 $tableName = "registrationTable";
+
+// Which fields do you want to have in the database?
 
 $tableFields = array(       # database table columns with key => [SQL_DATATYPE, meaning]
 

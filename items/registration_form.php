@@ -2,6 +2,9 @@
 require_once "lib/db_settings.php";
 ?>
 
+<?php /* use this for intertab communication for the preview */ ?>
+<script src="js/intercom.min.js"></script>
+
 <script>
 $( document ).ready(function(){
 
@@ -19,6 +22,54 @@ $( document ).ready(function(){
 
     // trigger an change for inital calculation
     $("form").change();
+
+    // setup intertab com for preview
+	if (Intercom.supported) {
+		var title = document.title;
+
+        var $first     = $('#firstname');
+        var $last      = $('#lastname');
+		var $abstract  = $('#abstract');
+		var $title     = $('#presentationTitle');
+		var $authors   = $('#coauthors');
+
+		var intercom = new Intercom();
+        var changeRate = 200; // only send each X ms an update
+        var canFireRequest = true;
+
+/*		intercom.on('notice', function(data) {
+			$messages.append($('<p>').text(data.message));
+			document.title = '(' + $messages[0].childNodes.length + ') ' + title;
+		});*/
+
+        $abstract
+            .add($title)
+            .add($authors)
+            .add($first)
+            .add($last)
+            .on('change keyup paste', function() {
+            /* this function is rate limited! because mathjax reloads.. */
+            if (canFireRequest) {
+                canFireRequest = false;
+
+                var authorslist = "<b>" + $last.val() + ', ' + $first.val() + "</b>";
+                if ($authors.val().length > 0) {
+                    authorslist += "; " + $authors.val();
+                }
+
+                intercom.emit('notice', {
+                    title: $title.val(),
+                    authors: authorslist,
+                    abstract: $abstract.val(),
+                })
+                setTimeout(function() {
+                    canFireRequest = true;
+                }, changeRate);
+            }
+        });
+	} else {
+		alert('intercom.js is not supported by your browser. The preview function will not work');
+	}
 
 });
 </script>
@@ -155,14 +206,33 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
+                <label for="presentationTitle" class="left">Titel</label>
+            </td>
+            <td>
+                <input id="presentationTitle" type="text" name="presentationTitle" placeholder="Titel of Presentation">
+                <span></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="coauthors" class="left">Co-Authors</label>
+            </td>
+            <td>
+                <input id="coauthors" type="text" name="coauthors" placeholder="Firstname Secondname; Firstname Secondname">
+                <span></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="abstract" class="left">Abstract</label>
             </td>
             <td>
-                <textarea name="abstract"
+                <textarea id="abstract" name="abstract"
                           style="width:100%;height:10em;"
                           placeholder="Short abstract (max 200 words)"
                           ></textarea>
-                <span></span>
+                <br />
+                <a href="preview.php"  onclick="window.open('preview.php', 'newwindow', 'width=400, height=600'); return false;">open preview</a>
             </td>
         </tr>
         <thead>
@@ -196,7 +266,7 @@ $( document ).ready(function(){
         </tr>
         <tr>
             <td>
-                <input id="c3" class="left" type="checkbox" name="isImpaired" value="checked">
+                <input id="isImpaired" class="left" type="checkbox" name="isImpaired" value="checked">
             </td>
             <td>
                 <label for="isImpaired">Mobility impaired</label>
