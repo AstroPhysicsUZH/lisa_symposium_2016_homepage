@@ -11,7 +11,9 @@ if ($DEBUG) {
 
 // Set default timezone
 date_default_timezone_set('UTC');
-$dateformatstr = 'Y-m-d\ H:i:s';
+$datetime_db_fstr = 'Y-m-d\ H:i:s'; // how are datetimes represented in the database
+$datetime_fstr = 'Y-m-d\ H:i';      // how to present dates with time
+$date_fstr = 'Y-m-d';               // how to present dates only
 
 /**
     Setup the registration process
@@ -26,6 +28,7 @@ $dinnerFee = 100; // the price of the dinner, per person
 $now = new DateTime('NOW');
 $baseFee = $now < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular;
 
+$abstractSubmissionDate = new DateTime("2016-06-15 23:59:59");
 
 /**
     Setup the application
@@ -71,8 +74,10 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'payDate' => ['INTEGER', 'date'],
 
     'talkType' => ['INTEGER', 'choice', ['none', 'talk', 'poster']],
-    'hasSubmittedAbstract' => ['INTEGER', 'boolean'],
+    'presentationTitle' => ['TEXT', 'string'],
+    'coauthors' => ['TEXT', 'string'],
     'abstract' => ['TEXT', 'string'],
+    'hasSubmittedAbstract' => ['INTEGER', 'boolean'],
     'abstractSubmissionDate' => ['TEXT', 'date'],
     'presentationIsChecked' => ['INTEGER', 'boolean'],  # has it been considered / looked at, and ...
     'presentationIsAccepted' => ['INTEGER', 'boolean'], # ... the desicission.

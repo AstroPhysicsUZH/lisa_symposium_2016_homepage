@@ -5,10 +5,10 @@ require_once "lib/db_settings.php";
 <h1>Registration</h1>
 
 <p>
-    The conference fee is <?=$baseFeeReduced+$dinnerFee;?>.&mdash; SFr for early bookers,
-    until  <?=$reducedLimitDate->format("Y-m-d");?>.
+    The conference fee is <?=$baseFeeReduced+$dinnerFee;?>.&mdash; CHF for early bookers,
+    until  <?=$reducedLimitDate->format($date_fstr);?>.
     Please remember to book your hotel in time as well!
-    The regular fee is <?= $baseFeeRegular+$dinnerFee ?>.&mdash; SFr.
+    The regular fee is <?= $baseFeeRegular+$dinnerFee ?>.&mdash; CHF.
 <p>
 
 </p>

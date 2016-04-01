@@ -4,12 +4,10 @@
   It's located on the foot of the Zurich-Berg (Zurich-Mountain), in the beautiful <a href="https://www.google.com/search?site=&tbm=isch&source=hp&biw=1580&bih=1048&q=irchel+park&oq=irchel+park&gs_l=img.3..0i10i30j0i8i30j0i24l2j0i10i24j0i24.1898.4682.0.4941.11.11.0.0.0.0.106.814.10j1.11.0....0...1ac.1.64.img..0.11.807.03MPA8vyaZU">Irchel Park</a>.
 </p>
 
-<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=8.513760566711426%2C47.38324141178361%2C8.585429191589355%2C47.410490398318785&amp;layer=mapnik&amp;marker=47.39686766648542%2C8.54959487915039" style="border: 1px solid black"></iframe>
+<?php /*
+http://umap.openstreetmap.fr/en/map/anonymous-edit/78929%3AGfwlZctRdlahVQLgZ_VU8OSLQUI
+*/ ?>
 
-<p>
-<small>
-  <a href="http://www.openstreetmap.org/?mlat=47.3969&amp;mlon=8.5496#map=15/47.3969/8.5496&amp;layers=N">
-    View Larger Map
-  </a>
-</small>
-</p>
+
+<iframe width="100%" height="300px" frameBorder="0" src="http://umap.openstreetmap.fr/en/map/irchel-park_78929?scaleControl=true&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe>
+<p><a class="small" href="http://umap.openstreetmap.fr/en/map/irchel-park_78929">See full screen</a></p>

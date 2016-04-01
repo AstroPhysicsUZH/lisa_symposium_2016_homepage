@@ -12,12 +12,12 @@ $( document ).ready(function(){
     var baseprice = <?= $baseFee; ?>; // hey genious, this is for display only, the real value will be calculated server side anyways ;)
     var dinnerprice = <?= $dinnerFee; ?>;
     var price = baseprice + dinnerprice;
-    $('#price').val(price + ".00 SFr.");
+    $('#price').val(price + ".00 CHF.");
 
     //register update handler
     $("form :input").change(function() {
         price = baseprice + (parseInt($('#npers').val())+1) * dinnerprice;
-        $("#price").val(price + ".00 SFr.");
+        $("#price").val(price + ".00 CHF.");
     });
 
     // trigger an change for inital calculation
@@ -27,11 +27,12 @@ $( document ).ready(function(){
 	if (Intercom.supported) {
 		var title = document.title;
 
-        var $first     = $('#firstname');
-        var $last      = $('#lastname');
-		var $abstract  = $('#abstract');
-		var $title     = $('#presentationTitle');
-		var $authors   = $('#coauthors');
+        var $first    = $('#firstname');
+        var $last     = $('#lastname');
+		var $abstract = $('#abstract');
+		var $title    = $('#presentationTitle');
+		var $authors  = $('#coauthors');
+        var $affil    = $("#affiliation");
 
 		var intercom = new Intercom();
         var changeRate = 200; // only send each X ms an update
@@ -47,12 +48,13 @@ $( document ).ready(function(){
             .add($authors)
             .add($first)
             .add($last)
+            .add($affil)
             .on('change keyup paste', function() {
             /* this function is rate limited! because mathjax reloads.. */
             if (canFireRequest) {
                 canFireRequest = false;
 
-                var authorslist = "<b>" + $last.val() + ', ' + $first.val() + "</b>";
+                var authorslist = "<b>" + $last.val() + ', ' + $first.val() + "<sup>1</sup></b>";
                 if ($authors.val().length > 0) {
                     authorslist += "; " + $authors.val();
                 }
@@ -60,6 +62,7 @@ $( document ).ready(function(){
                 intercom.emit('notice', {
                     title: $title.val(),
                     authors: authorslist,
+                    affil: "<sup>1</sup>"+$affil.val(),
                     abstract: $abstract.val(),
                 })
                 setTimeout(function() {
@@ -93,7 +96,7 @@ $( document ).ready(function(){
                 <label for="title" class="left">Title</label>
             </td>
             <td>
-                <input type="text" name="title" placeholder="- / PhD / Dr / Prof">
+                <input id="title" type="text" name="title" placeholder="- / PhD / Dr / Prof">
                 <span></span>
             </td>
         </tr>
@@ -102,7 +105,7 @@ $( document ).ready(function(){
                 <label for="firstname" class="left">First name</label>
             </td>
             <td>
-                <input type="text" name="firstname" required placeholder="Enter First Name">
+                <input id="firstname" type="text" name="firstname" required placeholder="Enter First Name">
                 <span></span>
             </td>
         </tr>
@@ -111,7 +114,7 @@ $( document ).ready(function(){
                 <label for="lastname" class="left">Last name</label>
             </td>
             <td>
-                <input type="text" name="lastname" required placeholder="Enter Last Name">
+                <input id="lastname" type="text" name="lastname" required placeholder="Enter Last Name">
                 <span></span>
             </td>
         </tr>
@@ -129,7 +132,7 @@ $( document ).ready(function(){
                 <label for="affiliation" class="left">Affiliation</label>
             </td>
             <td>
-                <input type="text" name="affiliation" placeholder="Enter Affiliation">
+                <input id="affiliation" type="text" name="affiliation" placeholder="Enter Affiliation">
                 <span></span>
             </td>
         </tr>
@@ -139,7 +142,7 @@ $( document ).ready(function(){
             </td>
             <td>
                 <textarea name="address"
-                          style="width:250px;height:6em;"
+                          style="height:6em;"
                           placeholder="Enter your FULL ADDRESS, including your name and country, as it should be written on a letter."
                           required></textarea>
                 <span></span>
@@ -172,12 +175,15 @@ $( document ).ready(function(){
         </thead>
         <tr>
             <td colspan="2" style="text-align:left;">
-                Do you want to present a poster / presentation?
+                Do you want to present a poster / talk?
+                <br />
                 If so, please provide a short abstract (up to 200 words).
                 Please note that the the selection of contributed talk and poster presentation will be made by the Session Chairs.
                 Because on the limited number of speaking slots, not all requests to speak can be accommodated.
                 After registration, you will be notified in due time on its acceptance.
-                (Deadline for abstract submission: 2016-06-30)
+                You will be able to change your submission after completing the registration.
+                <br />
+                (Deadline for abstract submission: <?=$abstractSubmissionDate->format($date_fstr);?>)
             </td>
         </tr>
         <tr>
@@ -218,7 +224,7 @@ $( document ).ready(function(){
                 <label for="coauthors" class="left">Co-Authors</label>
             </td>
             <td>
-                <input id="coauthors" type="text" name="coauthors" placeholder="Firstname Secondname; Firstname Secondname">
+                <input id="coauthors" type="text" name="coauthors" placeholder="Last, First; Last, First; ...">
                 <span></span>
             </td>
         </tr>
@@ -228,11 +234,12 @@ $( document ).ready(function(){
             </td>
             <td>
                 <textarea id="abstract" name="abstract"
-                          style="width:100%;height:10em;"
-                          placeholder="Short abstract (max 200 words)"
+                          style="height:10em;"
+                          placeholder="Short abstract (max 200 words). You can use basic latex commands (MathJax), check the preview."
                           ></textarea>
                 <br />
-                <a href="preview.php"  onclick="window.open('preview.php', 'newwindow', 'width=400, height=600'); return false;">open preview</a>
+                <?php /* open popup and trigger initial update for datatransfer */ ?>
+                <a href="preview.php"  style="font-size: 80%;" onclick="window.open('preview.php', 'newwindow', 'width=400, height=600'); setTimeout(function() {$('#abstract').change()},500); return false;">open preview (disable popup blocker)</a>
             </td>
         </tr>
         <thead>
@@ -250,10 +257,10 @@ $( document ).ready(function(){
             <td>
                 <input id="npers"
                     class="left" type="number" name="nPersons"
-                    value="0" style="width:3em;" min="0" max="5">
+                    value="0" style="width:5em;height:2em;text-align:center;" min="0" max="5">
             </td>
             <td>
-                <label for="nPersons">Accompanying persons (+100.00 SFr each)</label>
+                <label for="nPersons">Accompanying persons (+100.00 CHF each)</label>
             </td>
         </tr>
         <tr>
@@ -294,13 +301,12 @@ $( document ).ready(function(){
                 <label class="left">5 + 32 = </label>
             </td>
             <td>
-                <input class="right" type="text" name="robot" required pattern="37">
+                <input class="right" type="text" name="robot" style="width:5em;" required pattern="37">
                 <span></span>
             </td>
         </tr>
         <tr>
-            <td></td>
-            <td>
+            <td colspan="2">
                 <input type="submit" value="Submit">
             </td>
         </tr>

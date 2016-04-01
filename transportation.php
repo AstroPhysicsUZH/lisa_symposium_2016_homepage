@@ -26,15 +26,19 @@
 
 <p>
   We highly recommend using public transports.
-  You will get a <b>free ticket</b> for the public transport with your registration.
-  Make sure to keep it always on you while travelling.
 </p>
 
 <h3>Public Transports</h3>
 
-
+<p>
+  Zurich has a <a href="http://www.zvv.ch/zvv/en/home.html">unified public transport system (ZVV)</a>:
+  one ticket is valid for all means of transportation like trains, busses, trams, trolleys and ships.
+  Your conference fee includes a city zone ticket that is valid from Monday to Friday (no airport transfer).
+  Please print it out and carry it on you all the time.
+</p>
 
 <?php /*
+
 <p>
   Zurich has a <a href="http://www.zvv.ch/zvv/en/home.html">unified public transport system (ZVV)</a>: one ticket is valid for all means of transportation like trains, busses, trams, trolleys and ships.
   Please make sure to get a ticket <b>before</b> entering the vehicle.
@@ -71,17 +75,21 @@
 
 <h3>Taxis</h3>
 <p>
-  Taxis are quite expensive. Expect to pay from CHF 20.- upwards even for short rides. (around CHF 40.- from the airport to Irchel)
+  Taxis are quite expensive.
+  Expect to pay from CHF 20.&mdash; upwards even for short rides;
+  around CHF 40.&mdash; for a trip from the airport to Irchel.
   <br>
-  Phone Numbers:
-  <a href="tel:+41444444444">+41 44 444 44 44</a> or
-  <a href="tel:+41447777777">+41 44 777 77 77</a>.
+  Some companies:
+  TAXI444 <a href="tel:+41444444444">(+41 44 444 44 44)</a> or
+  7x7 Taxi <a href="tel:+41447777777">(+41 44 777 77 77)</a>.
 </p>
 
 
 <h3>Car</h3>
 <p>
   We don't recommend arriving by car in Zurich.
-  There is a carpark at Irchel. Expect to pay CHF [parking_duration_in_hours + 1].
-  Finding parking spots in the city is only for the brave.
+  There is a carpark at Irchel, but expect to pay CHF [parking_duration_in_hours + 1].
+  Finding parking spots in the city is only for the brave, but some hotel offer parking places.
+  <br />
+  <a href="https://www.zuerich.com/en/visit/parking-zurich">Further information.</a>
 </p>

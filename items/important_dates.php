@@ -1,19 +1,19 @@
 
 <ul>
     <li>
-        <span class='date'>2016-06-31 23:59</span>
+        <span class='small datetime'><?=$abstractSubmissionDate->format($date_fstr)?></span>
         Deadline for Submissions (Abstracts / Posters)
     </li>
     <li>
-        <span class='date'>2016-07-31 23:59</span>
+        <span class='small datetime'>2016-07-31 </span>
         Deadline for early Registration
     </li>
     <li>
-        <span class='date'>2016-08-31 23:59</span>
+        <span class='small datetime'>2016-08-31 23:59</span>
         Registration closes
     </li>
     <li>
-        <span class='date'>2016-09-07 20:00</span>
+        <span class='small datetime'>2016-09-07 20:00</span>
         Conference Dinner
     </li>
 <!--

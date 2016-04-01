@@ -25,20 +25,22 @@
 </head>
 
 <body>
-<h1 id="title">Title</h1>
-<p id="authors">author</p>
-<p id="abstract">
-    abstract
-</p>
+
+<h1 id="title"></h1>
+<p id="authors"></p>
+<p id="affil" style="font-style:italic;"></p>
+<p id="abstract"></p>
+
 <script>
 $( document ).ready(function(){
 
     var intercom = Intercom.getInstance();
     var timer = null;
-    var changeRate = 500; // waits X ms until received the last update for rerun of mathjax
+    var changeRate = 1000; // waits X ms until received the last update for rerun of mathjax
 
     var $title = $('#title');
     var $authors = $('#authors');
+    var $affil = $('#affil');
     var $abstract = $('#abstract');
 
 
@@ -46,6 +48,7 @@ $( document ).ready(function(){
 
         $title.html(data['title']);
         $authors.html(data['authors']);
+        $affil.html(data['affil']);
         $abstract.html(data['abstract'].replace(/(?:\r\n|\r|\n)/g, '<br />'));
 
         if (timer) {

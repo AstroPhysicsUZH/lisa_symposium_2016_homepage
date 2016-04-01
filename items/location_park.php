@@ -5,15 +5,14 @@
 <p>
   Alternativly, for the mobility impaired, follow the blue line on the street level into the parking house and take the elevator.
 </p>
-<iframe width="100%" height="300px" frameBorder="0" src="
-http://umap.openstreetmap.fr/en/map/untitled-map_67817?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false&datalayers=156206#16/47.3976/8.5458
-" style="border: 1px solid black">
-</iframe>
-<p><small>
-  <a href="http://umap.openstreetmap.fr/en/map/untitled-map_67817">
-    View Larger Map
-  </a>
-</small></p>
+
+<iframe
+    width="100%"
+    height="300px"
+    frameBorder="0"
+    src="http://umap.openstreetmap.fr/en/map/irchel-park_67817?scaleControl=true&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"
+    ></iframe>
+<p><a class="small" href="http://umap.openstreetmap.fr/en/map/irchel-park_67817">See full screen</a></p>
 
 <?php
 /*
@@ -23,4 +22,3 @@ Edit link:
 http://umap.openstreetmap.fr/en/map/anonymous-edit/67817%3AcmtXBRUMAnktSgvZHwsTexXIYn4
 */
 ?>
-

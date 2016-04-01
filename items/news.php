@@ -13,7 +13,7 @@
     echo "<ul>\n";
     foreach ($news as $v) {
         $strdate = $v['date'];
-        echo "<li><span class='date'>$strdate</span> {$v['comment']}</li>\n";
+        echo "<li><span class='small date'>$strdate</span> {$v['comment']}</li>\n";
     }
     echo "</ul>\n";
 

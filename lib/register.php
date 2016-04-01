@@ -69,7 +69,7 @@ foreach ($tableFields as $key => $arr) {
         }
         elseif ($type == "date") {
             $dt = new DateTime($x);
-            $vals[$key] = $dt->format($dateformatstr);
+            $vals[$key] = $dt->format($datetime_db_fstr);
         }
     }
     else { # if no default value is set, set to null
@@ -82,10 +82,10 @@ foreach ($tableFields as $key => $arr) {
 // fill in other fields
 
 $vals["nPersons"] += 1; # convert from nAdditionalPersons to nPersons
-$vals["notes"] = $now->format($dateformatstr) . "\tregistered\n";
+$vals["notes"] = $now->format($datetime_db_fstr) . "\tregistered\n";
 $vals["price"] = $baseFee + $dinnerFee * $vals["nPersons"];
-$vals["registrationDate"] = $now->format($dateformatstr);
-#$vals["lastAccessDate"] = $now->format($dateformatstr);
+$vals["registrationDate"] = $now->format($datetime_db_fstr);
+#$vals["lastAccessDate"] = $now->format($datetime_db_fstr);
 $vals["hasPayed"] = FALSE;
 
 
