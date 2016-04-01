@@ -37,7 +37,6 @@ else { $page = "home"; }
   <script src='js/fullcalendar.min.js'></script>
 
   <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
   <link rel="shortcut icon" href="/favicon.ico">
 
 
