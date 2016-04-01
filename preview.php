@@ -13,7 +13,7 @@
   <meta name="author" content="Rafael Kueng <rafi.kueng@gmx.ch>" >
   <meta name="designer" content="Rafael Kueng <rafi.kueng@gmx.ch>" >
 
-  <script src='lib/jquery-1.12.1.min.js'></script>
+  <script src='js/jquery-1.12.1.min.js'></script>
   <script src="js/intercom.min.js"></script>
   <script type="text/javascript" async
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
