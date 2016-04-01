@@ -1,23 +1,25 @@
-<!--
 <?php
-require_once "lib/app.php";
-$db_address = 'sqlite:db/registration.sqlite3';
 
-$data = null;
+require_once "lib/app.php";
 
 try {
-    $db = open_db();
+    $db = open_db($db_address_abs);
 
     $stmt = $db->prepare("SELECT * FROM {$tableName} WHERE accessKey = :akey");
 
-
-    if ($stmt->execute(array(':akey'=>$_GET['akey']))) {
+    if ($stmt->execute( [ ':akey'=>$_GET['akey'] ])) {
         while ($row = $stmt->fetch()) {
-            print_r($row);
             $data = $row;
+            $id = $data['id'];
         }
     }
 
+    if ($data) {
+        $stmt = $db->prepare("UPDATE {$tableName} SET lastAccessDate = :lac WHERE id = :id");
+        $lac = $now->format($datetime_db_fstr);
+        $res = $stmt->execute( [':lac'=>$lac, ':id'=>$id ]);
+        //var_dump($res);
+    }
     // Close file db connection
     // -------------------------------------------------------------------------
     $db = null;
@@ -31,10 +33,9 @@ catch(PDOException $e) {
 
 ?>
 
--->
-<h1>Participants corner</h1>
+<h1>Registration ID <?=$id?> activated</h1>
 <p>
     <?=$data['title']?> <?=$data['firstname']?> <?=$data['lastname']?> <br>
     price: <?=$data['price']?> <br>
-    has payed: <?=$data['hasPayed']?> <br>
+    has payed: <?=B($data['hasPayed'])?> <br>
 </p>

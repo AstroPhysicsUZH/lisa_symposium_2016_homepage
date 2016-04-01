@@ -104,7 +104,7 @@ try {
 
     if ($nEntries > 0) {
         echo "<h1 style='text-align:center;'>This email address is already registered</h1>\n";
-        var_dump($_POST);
+        //var_dump($_POST);
         //die(1);
     }
 
@@ -120,9 +120,9 @@ try {
         }
     }
 
-    var_dump(array_keys($tableFields));
-    echo "\n<hr />\n";
-    var_dump(array_keys($vals));
+    //var_dump(array_keys($tableFields));
+    //echo "\n<hr />\n";
+    //var_dump(array_keys($vals));
 
 
     $insert  = "INSERT INTO {$tableName} (";

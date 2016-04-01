@@ -83,7 +83,7 @@ $abstractSubmissionDate = new DateTime("2016-06-15 23:59:59");
 
 // name of the csv log file
 $csv_db_name     = "../db/register.csv";
-$csv_db_name_abs = "../db/register.csv";
+$csv_db_name_abs = "db/register.csv";
 
 // name of the sqlite database (mysql should work as well, thanks to PDO, but is not tested)
 $db_address     = 'sqlite:../db/registration.sqlite3';

@@ -18,7 +18,7 @@ $message = "Dear Mrs/Mr {$X["lastname"]}
 Thank you very much for your registration for the 11th LISA Symposium in Zurich.
 Please click on this link, to activate your registration and upload/update your abstract:
 
-http://www.physik.uzh.ch/events/lisa2016/user.php?uid={$X['accessKey']}
+http://www.physik.uzh.ch/events/lisa2016/activate.php?akey={$X['accessKey']}
 
 Your registration fee is: {$X["price"]}.-- CHF
 
@@ -29,7 +29,7 @@ LISA Symposium
 8057 Zurich
 IBAN-Nr.: CH12 0900 0000 3109 1810 4
 Swift/BIC: POFICHBEXXX
-Message: {$X["id"]} {$X["lastname"]}
+Message: ".sprintf('%03d', intval($X["id"]))." {$X["lastname"]}
 
 If there are any questions, simply reply to this email.
 

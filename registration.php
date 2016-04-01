@@ -20,7 +20,7 @@
 </ul>
 
 <p>
-    After sending this form, you will receive further instructions about payment (by banque) and your personal login link.
+    After sending this form, you will receive further instructions about payment (by bank) and your personal login link.
     Please keep it save.
     You can get a new one <a href="">here</a>.
     <br>
