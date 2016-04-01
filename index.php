@@ -32,9 +32,9 @@ else { $page = "home"; }
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
 
   <link rel='stylesheet' href='css/fullcalendar.min.css' />
-  <script src='lib/jquery-1.12.1.min.js'></script>
-  <script src='lib/moment.min.js'></script>
-  <script src='lib/fullcalendar.min.js'></script>
+  <script src='js/jquery-1.12.1.min.js'></script>
+  <script src='js/moment.min.js'></script>
+  <script src='js/fullcalendar.min.js'></script>
 
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
