@@ -180,7 +180,7 @@ $headers .= "Reply-To:" . $from . "\r\n" .
 $headers .= "X-Mailer: PHP/" . phpversion();
 
 mail($to1, $subj, $msg, $headers);
-//mail($to2, $subj, $msg, $headers);
+mail($to2, $subj, $msg, $headers);
 
 /*
     load the email message to send
@@ -224,7 +224,7 @@ foreach ($senddata as $a => $b) {
         <input type="submit" value="Click here if you are not redirected."/>
     </form>
     <script type="text/javascript">
-        //document.frm.submit();
+        document.frm.submit();
     </script>
 </body>
 </html>
