@@ -164,10 +164,12 @@ $csv->save();
 
 
 
-$from = "LISA Symposium Website <relativityUZH@gmail.com>";
+$from = '"LISA Symposium Website" <relativityUZH@gmail.com>';
+$replyto = $from;
 $to1 = "rafik@physik.uzh.ch";
 $to2 = "relativityUZH@gmail.com";
 $subj = "[LISA] registration";
+
 $msg  = "Someone registered for the lisa conference. Here a backup dump\n\n";
 $msg .= "PHP var export:\n";
 $msg .= var_export($vals, true);
@@ -195,8 +197,11 @@ $X = $vals;
 require "../items/registration_email.php";
 
 $headers  = 'From: ' . $from . "\r\n";
-$headers .= "Reply-To:" . $replyto . "\r\n" .
-$headers .= "X-Mailer: PHP/" . phpversion();
+$headers .= 'Reply-To:' . $replyto . "\r\n" .
+$headers .= 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
+$headers .= 'Delivery-Date: ' . date("r") . "\r\n";
 
 mail($vals['email'], $subject, $message, $headers);
 
