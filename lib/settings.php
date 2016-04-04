@@ -69,6 +69,7 @@ $baseFeeReduced = 250; // conference cost for early bookers
 // $baseFeeStudents = 250; // conference cost for students bookers (we didn't do this, NOT IMPLEMENTED)
 $baseFeeRegular = 300; // conference cost for late bookers
 $reducedLimitDate = new DateTime("2016-07-31 23:59:59"); // the date when early booking is over
+$registrationLimitDate = new DateTime("2016-08-31 23:59:59"); // the date when booking is over
 $dinnerFee = 100; // the price of the dinner, per person
 
 // calculate if we still get early/reduced price

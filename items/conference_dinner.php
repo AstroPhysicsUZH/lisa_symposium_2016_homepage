@@ -9,7 +9,7 @@
     (The conference ticket is valid, but please note that accompanying person need an additional ticket for 1 extra zone.)
     The train takes about 20min to the final station, <span class="zvvstation">Uetliberg</span> (1h from the conference).
     <br>
-    The way up the hill is also a nice, but quite steep hike though the forest.
+    The way up the hill is also a nice, but quite steep hike through the forest.
     Hiking shoes are higly recommended.
     Take the tram <span class='zvvlinie l14'>14</span>, bus <span class='zvvlinie l33'>33</span> or train <span class='zvvlinie sb'>S10</span> to station <span class="zvvstation">Triemli</span> and follow the signs upwards.
     The hike takes about 1 - 1.5 hours.

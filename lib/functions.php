@@ -1,6 +1,6 @@
 <?php
 
-/* everything that is printet from db to html should go though this function for security */
+/* everything that is printet from db to html should go through this function for security */
 function P($var) { return htmlentities($var); }
 
 
