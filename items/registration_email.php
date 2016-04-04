@@ -20,7 +20,7 @@ Please click on this link, to activate your registration and upload/update your 
 
 http://www.physik.uzh.ch/events/lisa2016/activate.php?akey={$X['accessKey']}
 
-Your registration fee is: {$X["price"]}.-- CHF
+Your registration fee is: CHF {$X["price"]}.--
 
 Please transfer it with bank transfer to:
 

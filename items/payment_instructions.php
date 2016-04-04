@@ -2,7 +2,7 @@
 <h2>Payment Instructions</h2>
 
 <p>
-    Please transfer the registration fee of <b><?=P($data["price"]);?>.&mdash; CHF</b> with bank transfer.
+    Please transfer the registration fee of <b>CHF <?=P($data["price"]);?>.&mdash;</b> with bank transfer.
 </p>
 <p>
     To:<br>

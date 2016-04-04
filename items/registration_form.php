@@ -12,12 +12,12 @@ $( document ).ready(function(){
     var baseprice = <?= $baseFee; ?>; // hey genious, this is for display only, the real value will be calculated server side anyways ;)
     var dinnerprice = <?= $dinnerFee; ?>;
     var price = baseprice + dinnerprice;
-    $('#price').val(price + ".00 CHF.");
+    $('#price').val("CHF " + price + ".00");
 
     //register update handler
     $("form :input").change(function() {
         price = baseprice + (parseInt($('#npers').val())+1) * dinnerprice;
-        $("#price").val(price + ".00 CHF.");
+        $("#price").val("CHF " + price + ".00");
     });
 
     // trigger an change for inital calculation
@@ -256,7 +256,7 @@ $( document ).ready(function(){
                     value="0" style="width:5em;height:2em;text-align:center;" min="0" max="5">
             </td>
             <td>
-                <label for="nPersons">Accompanying persons (+100.00 CHF each)</label>
+                <label for="nPersons">Accompanying persons (+ CHF 100.&mdash; each)</label>
             </td>
         </tr>
         <tr>
