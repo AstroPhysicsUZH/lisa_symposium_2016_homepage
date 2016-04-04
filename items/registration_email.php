@@ -26,17 +26,19 @@ Please click on this link, to activate your registration and upload/update your 
 
 http://www.physik.uzh.ch/events/lisa2016/activate.php?akey={$X['accessKey']}
 
-Your access key is: *{$X['accessKey']}*
+Your access key is: {$X['accessKey']}
 
-Your registration fee is: *CHF {$X["price"]}.--*
+Your registration fee is: CHF {$X["price"]}.--
 
 Please transfer it with bank transfer to:
 
 Rechnungswesen der Universitat Zurich
 LISA Symposium
 8057 Zurich
+
 IBAN-Nr.: CH12 0900 0000 3109 1810 4
 Swift/BIC: POFICHBEXXX
+
 Message: ".sprintf('%03d', intval($X["id"]))." {$X["lastname"]}
 
 If there are any questions, simply reply to this email.

@@ -183,7 +183,7 @@ $msg .= "PHP var export:\r\n";
 $msg .= var_export($vals, true);
 $msg .= "\r\n\r\n";
 $msg .= "json encoded:\r\n";
-$msg .= json_encode($vals);
+$msg .= chunk_split(json_encode($vals), 76, "\r\n");
 
 mail($to1, $subj, $msg, $headers);
 mail($to2, $subj, $msg, $headers);
