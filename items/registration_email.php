@@ -14,8 +14,8 @@
     - use quotes in the email address! '"name" <email@inter.net>'
 **/
 
-$from    = '"LISA Symposium Website" <relativityUZH@gmail.com>';
-$replyto = $from;
+$from    = '"LISA Symposium Website Admin" <rafik@physik.uzh.ch>';
+$replyto = '"LISA Symposium Website" <relativityUZH@gmail.com>';
 $subject = "11th LISA Symposium Registration [{$X["id"]}]";
 $message = preg_replace('~\R~u', "\r\n",  # make sure we have RFC 5322 linebreaks
 
@@ -41,7 +41,7 @@ Swift/BIC: POFICHBEXXX
 
 Message: ".sprintf('%03d', intval($X["id"]))." {$X["lastname"]}
 
-If there are any questions, simply reply to this email.
+If there are any questions, simply reply to this email (relativityUZH@gmail.com).
 
 Kind regards,
 The local OK
