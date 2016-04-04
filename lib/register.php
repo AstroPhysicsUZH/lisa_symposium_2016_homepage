@@ -168,18 +168,22 @@ $from = '"LISA Symposium Website" <relativityUZH@gmail.com>';
 $replyto = $from;
 $to1 = "rafik@physik.uzh.ch";
 $to2 = "relativityUZH@gmail.com";
+
 $subj = "[LISA] registration";
 
-$msg  = "Someone registered for the lisa conference. Here a backup dump\n\n";
-$msg .= "PHP var export:\n";
-$msg .= var_export($vals, true);
-$msg .= "\n\n";
-$msg .= "json encoded:\n";
-$msg .= json_encode($vals);
-
 $headers  = 'From: ' . $from . "\r\n";
-$headers .= "Reply-To:" . $from . "\r\n" .
-$headers .= "X-Mailer: PHP/" . phpversion();
+$headers .= 'Reply-To:' . $replyto . "\r\n" .
+$headers .= 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
+$headers .= 'Delivery-Date: ' . date("r") . "\r\n";
+
+$msg  = "Someone registered for the lisa conference. Here a backup dump\r\n\r\n";
+$msg .= "PHP var export:\r\n";
+$msg .= var_export($vals, true);
+$msg .= "\r\n\r\n";
+$msg .= "json encoded:\r\n";
+$msg .= json_encode($vals);
 
 mail($to1, $subj, $msg, $headers);
 mail($to2, $subj, $msg, $headers);
