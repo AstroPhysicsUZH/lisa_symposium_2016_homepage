@@ -105,7 +105,7 @@ try {
     if ($nEntries > 0) {
         echo "<h1 style='text-align:center;'>This email address is already registered</h1>\n";
         //var_dump($_POST);
-        //die(1);
+        die(1);
     }
 
     // generate unique access key
@@ -172,7 +172,7 @@ $to2 = "relativityUZH@gmail.com";
 $subj = "[LISA] registration";
 
 $headers  = 'From: ' . $from . "\r\n";
-$headers .= 'Reply-To:' . $replyto . "\r\n" .
+$headers .= 'Reply-To:' . $replyto . "\r\n";
 $headers .= 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
 $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
@@ -185,8 +185,8 @@ $msg .= "\r\n\r\n";
 $msg .= "json encoded:\r\n";
 $msg .= chunk_split(json_encode($vals), 76, "\r\n");
 
-mail($to1, $subj, $msg); #, $headers);
-mail($to2, $subj, $msg); #, $headers);
+mail($to1, $subj, $msg, $headers);
+mail($to2, $subj, $msg, $headers);
 
 /*
     load the email message to send
@@ -201,12 +201,12 @@ $X = $vals;
 require "../items/registration_email.php";
 
 $headers  = "";
-# $headers .= 'From: ' . $from . "\r\n";
-$headers .= 'Reply-To:' . $replyto . "\r\n" .
-#$headers .= 'MIME-Version: 1.0' . "\r\n";
-#$headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
-#$headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
-#$headers .= 'Delivery-Date: ' . date("r") . "\r\n";
+$headers .= 'From: ' . $from . "\r\n";
+$headers .= 'Reply-To:' . $replyto . "\r\n";
+$headers .= 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
+$headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
+$headers .= 'Delivery-Date: ' . date("r") . "\r\n";
 
 mail($vals['email'], $subject, $message, $headers);
 

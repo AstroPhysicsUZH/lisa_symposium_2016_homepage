@@ -14,8 +14,8 @@
     - use quotes in the email address! '"name" <email@inter.net>'
 **/
 
-$from    = '"LISA Symposium Website Admin" <rafik@physik.uzh.ch>';
-$replyto = '"LISA Symposium Website" <relativityUZH@gmail.com>';
+$from    = '"LISA Symposium Website" <relativityUZH@gmail.com>';
+$replyto = $from;
 $subject = "11th LISA Symposium Registration [{$X["id"]}]";
 $message = preg_replace('~\R~u', "\r\n",  # make sure we have RFC 5322 linebreaks
 
