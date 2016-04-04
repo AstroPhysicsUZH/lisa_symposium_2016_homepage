@@ -164,9 +164,9 @@ $csv->save();
 
 
 
-$from = '"LISA Symposium Website" <relativityUZH@gmail.com>';
+$from = '"LISA Symposium Website" <rafik@physik.uzh.ch>';
 $replyto = $from;
-$to1 = "rafik@physik.uzh.ch";
+$to1 = "rafael.kueng@uzh.ch";
 $to2 = "relativityUZH@gmail.com";
 
 $subj = "[LISA] registration";
