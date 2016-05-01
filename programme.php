@@ -10,9 +10,8 @@
 </p>
 
 
-<h2>Preliminary Plenary Speakers</h2>
 <?php require "items/plenary_speakers.php"; ?>
 
+<?php require "items/show_parallelsessions.php"; ?>
 
-<h2>Conference Dinner</h2>
 <?php require "items/conference_dinner.php"; ?>

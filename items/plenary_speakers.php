@@ -1,5 +1,7 @@
 
 
+<h2>Preliminary Plenary Speakers</h2>
+
 <h3>on LISA Pathfinder</h3>
 <ul>
     <li>Paul Mc Namara (ESA)</li>

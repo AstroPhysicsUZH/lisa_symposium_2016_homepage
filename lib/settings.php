@@ -76,7 +76,8 @@ $dinnerFee = 100; // the price of the dinner, per person
 $now = new DateTime('NOW');
 $baseFee = $now < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular;
 
-$abstractSubmissionDate = new DateTime("2016-06-15 23:59:59");
+$abstractSubmissionDate = new DateTime("2016-07-15 23:59:59");
+$conferenceDinnerDate = new DateTime("2016-09-07 19:00:00");
 
 /**
     Setup the application & database
