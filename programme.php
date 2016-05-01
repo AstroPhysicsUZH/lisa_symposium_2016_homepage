@@ -9,10 +9,10 @@
     (will be refined as soon as details are known)
 </p>
 
-<!--
-<h2>Plenary Speakers</h2>
+
+<h2>Preliminary Plenary Speakers</h2>
 <?php require "items/plenary_speakers.php"; ?>
--->
+
 
 <h2>Conference Dinner</h2>
 <?php require "items/conference_dinner.php"; ?>
