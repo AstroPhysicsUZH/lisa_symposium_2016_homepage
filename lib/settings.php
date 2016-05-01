@@ -49,7 +49,7 @@ $PAGES = array(
 */
 $NOT_IMPLEMENTED_PAGES = array(
     'proceedings',
-    'participants',
+/*    'participants',  */
 );
 
 /*

@@ -1,11 +1,8 @@
 
-
 <h1>Participants</h1>
 
 <p>
-  To be announced
+    So far the following people have registered:
 </p>
 
-<?php //include("items/participants.php"); ?>
-
-
+<?php require "items/list_of_participants.php"; ?>
