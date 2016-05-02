@@ -20,3 +20,20 @@
     <li>Oliver Jennrich (ESA)</li>
     <li>Gerhard Heinzel (Max Planck Institute for Gravitational Physics, Hannover)</li>
 </ul>
+
+<h3>3. Astrophysics with Gravitational Waves</h3>
+<ul>
+    <li>Alberto Sesana (University of Birmingham)</li>
+    <li>Monica Colpi (Università degli Studi di Milano-Bicocca)</li>
+</ul>
+
+<h3>4. EMRI</h3>
+<ul>
+    <li>???</li>
+    <li>???</li>
+</ul>
+
+<h3>5. Cosmology and Gravitational Waves</h3>
+<ul>
+    <li>???</li>
+</ul>

@@ -16,12 +16,33 @@
     <li>Oliver Jennrich (ESA)</li>
 </ul>
 
-<h3>Grace &ndash; Follow on discussion</h3>
+<h3>Further Speakers and Topics</h3>
 <ul>
-    <li>Gerhard Heinzel (Max Planck Institute for Gravitational Physics, Hannover)</li>
-</ul>
+    <li>
+        Grace &ndash; Follow on discussion<br />
+        Gerhard Heinzel (Max Planck Institute for Gravitational Physics, Hannover)
+    </li>
+    <li>
+        Microscope<br />
+        Joel Bergé (French Aeropace Lab ONERA, Palaiseau)
+    </li>
+    <li>
+        VIRGO<br />
+        Fulvio Ricci
+    </li>
+    <li>
+        Cosmology with GW<br />
+        Pierre Binétruy
+    </li>
+    <li>
+        Pulsar Timing Array<br />
+        Chi??????
+    </li>
+    <li>
+        Antoine Klein
+    </li>
+    <li>
+        Alberto Sesana
+    </li>
 
-<h3>Microscope</h3>
-<ul>
-    <li>Joel Bergé (French Aeropace Lab ONERA, Palaiseau)</li>
 </ul>
