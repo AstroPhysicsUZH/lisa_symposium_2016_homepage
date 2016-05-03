@@ -44,5 +44,9 @@
     <li>
         Alberto Sesana
     </li>
+    <li>
+        Einstein Telescope<br />
+        B S Sathyaprakash (Cardiff University)
+    </li>
 
 </ul>
