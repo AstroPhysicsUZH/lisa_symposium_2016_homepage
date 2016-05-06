@@ -7,7 +7,7 @@
     More will be announced as soon as available.
 </p>
 
-<h3>1. LISA Pathfinder results</h3>
+<h3>1. LISA Pathfinder - Results</h3>
 <ul>
     <li>Paul Mc Namara (ESA)</li>
     <li>Bill Weber (University of Trento)</li>
@@ -27,13 +27,14 @@
     <li>Monica Colpi (Università degli Studi di Milano-Bicocca)</li>
 </ul>
 
-<h3>4. EMRI</h3>
+<h3>4. Extreme Mass Ratio Inspirals (EMRI)</h3>
 <ul>
-    <li>???</li>
-    <li>???</li>
+    <li>Carlos Sopuerta (Institute of Space Sciences CSIC-IEEC, Catalunya, Spain)</li>
+    <li>Pau Amaro-Seoane (Albert Einstein Institute, Max Planck Institute for Gravitational Physics, Potsdam)</li>
 </ul>
 
 <h3>5. Cosmology and Gravitational Waves</h3>
 <ul>
-    <li>???</li>
+    <li>Chiara Caprini (IPhT, CEA Saclay)</li>
+    <li>Germano Nardini (Albert Einstein Center for Fundamental Physics, Universität Bern)</li>
 </ul>
