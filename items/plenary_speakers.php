@@ -8,7 +8,7 @@
     <li>Stefano Vitale (University of Trento)</li>
     <li>Bill Weber (University of Trento)</li>
     <li>Martin Hewitson (Max Planck Institute for Gravitational Physics)</li>
-    <li>Harry Ward (????)</li>
+    <li>Harry Ward (Institute for Gravitational Research, University of Glasgow)</li>
 </ul>
 
 <h4>on LISA</h4>
