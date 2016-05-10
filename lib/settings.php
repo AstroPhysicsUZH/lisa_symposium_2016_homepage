@@ -111,6 +111,7 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'nPersons' => ['INTEGER', 'integer'],
     'isVeggie' => ['INTEGER', 'boolean'],
     'isImpaired' => ['INTEGER', 'boolean'],
+    'lookingForRoomMate' => ['INTEGER', 'boolean'],
 
     'notes' => ['TEXT', 'string'],           # kind of a log for keeping track of stuff..
 
