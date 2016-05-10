@@ -8,7 +8,7 @@ $notPayed = $db->query(
     WHERE hasPayed<>1");
 
 $payed = $db->query(
-    "SELECT ID, title, firstname, lastname, affiliation, email
+    "SELECT ID, title, firstname, lastname, affiliation, email, amountPayed
     FROM {$tableName}
     WHERE hasPayed=1");
 
@@ -49,7 +49,7 @@ foreach($notPayed as $p) {
             <label for='nPersons'>amount (CHF)</label>
             <input id='a{$p['id']}' name='a{$p['id']}'
                 class='left' type='number' style='width:8em;height:2em;text-align:center;'
-                value='0' min='0' max='20000' />
+                min='0' max='20000' />
         </td>\n");
     print("    </tr>\n");
 }
@@ -85,7 +85,7 @@ foreach($payed as $p) {
             <label for='nPersons'>amount (CHF)</label>
             <input id='a{$p['id']}' name='a{$p['id']}'
                 class='left' type='number' style='width:8em;height:2em;text-align:center;'
-                value='0' min='0' max='20000' />
+                value='{$p['amountPayed']}' min='0' max='20000' />
         </td>\n");
     print("    </tr>\n");
 }
