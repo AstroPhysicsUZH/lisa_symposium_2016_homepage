@@ -41,8 +41,8 @@ foreach($notPayed as $p) {
     print("        <td><a href='mailto:{$p['email']}'>send<br />email</a></td>\n");
     print("
         <td>
-            <label for='p{$p['id']}'>payed:</label>
-            <input id='p{$p['id']}' name='p{$p['id']}' class='left' type='checkbox' value='X' />
+            <label for='np[{$p['id']}]'>payed:</label>
+            <input id='np[{$p['id']}]' name='np[{$p['id']}]' class='left' type='checkbox' value='X' />
         </td>\n");
     print("
         <td>
@@ -77,15 +77,16 @@ foreach($payed as $p) {
     print("        <td><a href='mailto:{$p['email']}'>send<br />email</a></td>\n");
     print("
         <td>
-            <label for='p{$p['id']}'>payed:</label>
-            <input id='p{$p['id']}' name='p{$p['id']}' class='left' type='checkbox' value='X' checked />
+            <label for='pp[{$p['id']}]'>remove payment:</label>
+            <input id='pp[{$p['id']}]' name='pp[{$p['id']}]' class='left' type='checkbox' value='X' />
         </td>\n");
+    print("        <td>{$p['amountPayed']}</td>\n");
     print("
         <td>
-            <label for='nPersons'>amount (CHF)</label>
+            <label for='nPersons'>change amount:</label>
             <input id='a{$p['id']}' name='a{$p['id']}'
                 class='left' type='number' style='width:8em;height:2em;text-align:center;'
-                value='{$p['amountPayed']}' min='0' max='20000' />
+                min='0' max='20000' />
         </td>\n");
     print("    </tr>\n");
 }
