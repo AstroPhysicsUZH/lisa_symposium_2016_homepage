@@ -1,0 +1,43 @@
+
+body,
+html {
+    margin:0;
+    padding:0;
+    color:#000;
+    background:#a7a09a;
+}
+
+#wrap {
+    max-width:800px;
+    margin:0 auto;
+    background:#99c;
+}
+
+header {
+    background:#ddd;
+}
+
+nav {
+    float: left;
+    width: 150px;
+    padding: 10px;
+    background:#c99;
+}
+#main {
+    display: block;
+    margin-left: 200px;
+    background:#9c9;
+}
+#sidebar {
+    background:#c9c;
+}
+#footer {
+    background:#cc9;
+}
+
+table {
+    border-collapse: collapse;
+}
+.line_bot td {
+    border-bottom: 1px solid black;
+}

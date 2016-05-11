@@ -14,6 +14,12 @@ $payed = $db->query(
 
 ?>
 
+<script>
+    $(function() {
+        // With a custom message
+        $('form').areYouSure( {'message':'Your profile details are not saved!'} );
+    });
+</script>
 
 <h1>
     Manage Payments

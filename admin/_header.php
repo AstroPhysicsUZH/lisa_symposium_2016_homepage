@@ -24,8 +24,11 @@ header('Content-Type: text/html; charset=utf-8');
 <html>
 
 <head>
-<title>LISA meeting administraion area</title>
-<link rel="stylesheet" href="../css/admin.css">
+    <title>LISA meeting - administraion area</title>
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <script src='../js/jquery-1.12.1.min.js'></script>
+    <script src='../js/moment.min.js'></script>
 </head>
 
 <body>
