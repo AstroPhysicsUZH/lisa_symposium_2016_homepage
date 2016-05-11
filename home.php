@@ -17,7 +17,7 @@
   <li>Joint eLISA and L3ST consortium meeting</li>
 </ul>
 
-<h2>Important Dates</h2>
+<h2>Important Dates (CEST)</h2>
 <?php require "items/important_dates.php"; ?>
 
 <h2>News</h2>

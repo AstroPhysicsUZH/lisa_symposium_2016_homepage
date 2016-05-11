@@ -27,8 +27,9 @@ header('Content-Type: text/html; charset=utf-8');
     <title>LISA meeting - administraion area</title>
     <link rel="stylesheet" href="../css/admin.css">
 
-    <script src='../js/jquery-1.12.1.min.js'></script>
-    <script src='../js/moment.min.js'></script>
+    <script src='../js/jquery/jquery.min.js'></script>
+    <script src='../js/jquery.are-you-sure/jquery.are-you-sure.js'></script>
+    <script src='../js/moment/moment.min.js'></script>
 </head>
 
 <body>

@@ -4,29 +4,32 @@ html {
     margin:0;
     padding:0;
     color:#000;
-    background:#a7a09a;
+    background:#fff;
 }
 
 #wrap {
-    max-width:800px;
+    max-width:1200px;
     margin:0 auto;
-    background:#99c;
+    background:#fff;
 }
 
 header {
-    background:#ddd;
+    background:#fff;
 }
 
 nav {
     float: left;
     width: 150px;
     padding: 10px;
-    background:#c99;
+    background:#fff;
 }
 #main {
     display: block;
     margin-left: 200px;
-    background:#9c9;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background:#ddd;
 }
 #sidebar {
     background:#c9c;
@@ -38,6 +41,12 @@ nav {
 table {
     border-collapse: collapse;
 }
-.line_bot td {
+.line_bot td,
+.line_bot th {
     border-bottom: 1px solid black;
+}
+
+td.center {
+    text-align: center;
+    vertical-align: middle;
 }
