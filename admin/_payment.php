@@ -153,14 +153,14 @@ foreach($all_people as $p) {
 </h1>
 
 <ul>
-    <li><a href="payment_np.php">list of those NOT payed already</a></li>
-    <li><a href="payment_all.php">list of ALL</a></li>
+    <li><a href="payment_np.php">list only those that NOT payed already</a></li>
+    <li><a href="payment_all.php">show all registered users</a></li>
 </ul>
 
 <form action="_update_payment.php" method="post">
 <input type="submit" value="SAVE ALL CHANGES" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
 
-<h2 id="notpayed">List of people that havent yet payed:</h2>
+<h2 id="notpayed"><?=$h2tit?></h2>
 
 <?php
 print_table($sel_people);

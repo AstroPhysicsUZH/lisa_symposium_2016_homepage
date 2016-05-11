@@ -31,11 +31,15 @@ nav {
     padding: 10px 20px;
     background:#ddd;
 }
-#sidebar {
-    background:#c9c;
+footer {
+    margin-top: 3em;
+    background:#fff;
+    border-top: 1px dotted black;
+    text-align: right;
+    vertical-align: middle;
 }
-#footer {
-    background:#cc9;
+footer p {
+    padding: 0.5em;
 }
 
 table {
