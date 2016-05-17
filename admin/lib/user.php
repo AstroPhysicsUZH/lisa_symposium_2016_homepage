@@ -18,7 +18,7 @@
 			// and you need to use htaccess rules or some such to ensure no one
 			// grabs your user's data.
 
-			const USER_HOME = "./database/users/";
+			const USER_HOME = "./users/";
 
 			// In order for users to be notified by email of certain things, set this to true.
 			// Note that the server you run this on should have sendmail in order for
@@ -37,7 +37,7 @@
 			// base dir as your web page. So change it, because people are going to try
 			// to download your database file. And succeed.
 
-			const DATABASE_LOCATION = "./database/";
+			const DATABASE_LOCATION = "db/";
 
 			// if this is set to "true", registration failure due to known usernames is reported,
 			// and login failures are explained as either the wrong username or the wrong password.
@@ -74,14 +74,14 @@
 
 			// You'll probably want to change this to something sensible. If your site is
 			// www.sockmonkey.com, then you want this to be "sockmonkey.com"
-			const DOMAIN_NAME = "localhost";
+			const DOMAIN_NAME = "physik.uzh.ch";
 
 			// This is going to be the "from" address
-			const MAILER_NAME = "noreply@localhost";
+			const MAILER_NAME = "relativitiyUZH@gmail.com";
 
 			// if you want people to be able to reply to a real address, override
 			// this variable to "yourmail@somedomain.ext" here.
-			const MAILER_REPLYTO = "noreply@localhost";
+			const MAILER_REPLYTO = "relativitiyUZH@gmail.com";
 
 		// =======================================================================
 		// 	Don't modify any variables beyond this point =)
@@ -118,7 +118,7 @@
 		var $authenticated = false;
 
 		// the guest user name
-		const GUEST_USER  = "guest user";
+		const GUEST_USER  = "guest";
 
 		// this will contain the user name for the user doing the page request
 		var $username = User::GUEST_USER;
@@ -506,10 +506,14 @@ EOT;
 			else{	$query = "SELECT username FROM users";
 				$usernames = array();
 				foreach($this->database->query($query) as $data) { $usernames[] = $this->homogenise_username($data["username"]); }
+
+				/* TODO RK: this makes no sense? Why would I forbid similar user names???
 				if(in_array($this->homogenise_username($username), $usernames)) {
 					$this->info("user account for $username not created.");
 					$this->error = "this user name is not allowed, because it is too similar to other user names.";
-					return false; }}
+					return false; }
+				*/
+				}
 
 			// Is email address already in use? (see notes on safe reporting)
 			$query = "SELECT * FROM users WHERE email = '$email'";
