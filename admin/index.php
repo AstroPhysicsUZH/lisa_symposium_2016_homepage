@@ -1,6 +1,6 @@
 
 <?php
-require "_header.php";
+require "lib/header.php";
 
 $nRows = (int)$db->query("SELECT count(*) FROM {$tableName}")->fetchColumn();
 $nLunch = (int)$db->query("SELECT sum(nPersons) from {$tableName}")->fetchColumn();
@@ -19,5 +19,5 @@ print_r($nRows . "// ".$nLunch);
 
 
 <?php
-require "_footer.php"
+require "lib/footer.php"
 ?>
