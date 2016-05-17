@@ -26,10 +26,13 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
     <title>LISA meeting - administraion area</title>
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script src='../js/jquery/jquery.min.js'></script>
     <script src='../js/jquery.are-you-sure/jquery.are-you-sure.js'></script>
     <script src='../js/moment/moment.min.js'></script>
+    <script src='js/sha1.js'></script>
+    <script src='js/user.js'></script>
 </head>
 
 <body>
@@ -43,7 +46,7 @@ header('Content-Type: text/html; charset=utf-8');
 
     <nav>
 <?php
-require "_menu.php";
+require "menu.php";
 ?>
     </nav>
 

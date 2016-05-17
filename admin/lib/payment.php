@@ -1,6 +1,5 @@
 
 <?php
-require_once "_header.php";
 
 $not_payed_people = $db->query(
     "SELECT ID, title, firstname, lastname, affiliation, email, price, hasPayed, amountPayed
@@ -167,6 +166,3 @@ print_table($sel_people);
 ?>
 
 </form>
-
-
-<?php require "_footer.php"; ?>
