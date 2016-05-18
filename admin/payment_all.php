@@ -15,7 +15,7 @@ $all_people = $db->query(
 
 $sel_people = $all_people;
 
-$h2tit = "List of people that haven't yet payed";
+$h2tit = "List of all people";
 
 require_once "lib/payment.php";
 require_once "lib/footer.php";

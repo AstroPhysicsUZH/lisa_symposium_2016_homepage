@@ -42,22 +42,31 @@ header('Content-Type: text/html; charset=utf-8');
 
 <div id="wrap">
     <header>
+<?php if($USER->authenticated) { ?>
+        <form class="loggedinbox" name="log out" id="logout" action="index.php" method="POST">
+            <input type="hidden" name="op" value="logout"/>
+            <input type="hidden" name="username"value="<?php echo $_SESSION["username"]; ?>" />
+            <p>
+                Logged in as <?php echo $_SESSION["username"]," ($USER->role)"; ?>
+                <input type="submit" value="log out"/>
+            </p>
+        </form>
+<?php } ?>
+
         <h1>LISA Symposium</h1>
-        <h2>Admin area (for <?=$USER->username?>)</h2>
+        <h2>Admin area</h2>
+
     </header>
 
     <nav>
-<?php
-
-if($USER->authenticated) {
-    require "menu.php";
-}
-?>
+<?php if($USER->authenticated) {require "menu.php";} ?>
     </nav>
 
     <div id="main">
 
 <?php
+
+# if not logged in, show login form
 if(!$USER->authenticated) {
 ?>
 
@@ -71,9 +80,21 @@ if(!$USER->authenticated) {
 			</table>
 			<input type="button" value="log in" onclick="User.processLogin()"/>
 		</form>
-        <?=print_r($USER); ?>
 <?php
     require_once "footer.php";
     exit;
 }
+
+# check if user really has access to this module
+if($USER->authenticated) {
+    $curr_fn = basename($_SERVER["SCRIPT_FILENAME"]);
+    if (! in_array($USER->role, $get_acl[$curr_fn]) ) {
+        print "$curr_fn: Access Error";
+        require_once "footer.php";
+        exit;
+    }
+}
+
+
+
 ?>

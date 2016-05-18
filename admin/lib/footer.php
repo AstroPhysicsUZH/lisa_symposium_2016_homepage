@@ -1,8 +1,20 @@
         </div>
         <footer>
+            <div class="log">
+                <dl>
+                    <dt>infolog:</dt>
+                    <dd>
+                        <?= implode("<br />\n", array_values($USER->info_log)); ?>
+                    </dd>
+                    <dt>errorlog:</dt>
+                    <dd>
+                        <?= implode("<br />\n", array_values($USER->error_log)); ?>
+                    </dd>
+                </dl>
+            </div>
             <p>
-                ConferencePlanningSoftware with admin interface by Rafael Kueng<br />
-                <small>2016; MIT license, unless included components say differently...</small>
+                SCPS-AI - SimpleConferencePlanningSoftware with Admin Interface<br />
+                <small>2016; &copy; Rafael Kueng; MIT license, unless included components say differently...</small>
             </p>
         </footer>
     </div>

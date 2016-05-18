@@ -17,6 +17,11 @@
     <li>Dr. Oliver Jennrich (ESA)</li>
 </ul>
 
+<h4>ESA Plans</h4>
+<ul>
+    <li>Prof. Dr. Alvaro Giménez Cañete (Director of Science, ESA)</li>
+</ul>
+
 <h4>Grace &ndash; Follow on discussion</h4>
 <ul>
     <li>Dr. Gerhard Heinzel (Max Planck Institute for Gravitational Physics, Hannover)</li>
@@ -57,9 +62,4 @@
 <h4>KAGRA and DECIGO</h4>
 <ul>
     <li>Prof. Dr. Shuichi Sato (Hosei University, Tokyo)</li>
-</ul>
-
-<h4>Other</h4>
-<ul>
-    <li>Prof. Dr. Alvaro Giménez Cañete (Director of Science, ESA)</li>
 </ul>

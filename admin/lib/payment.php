@@ -34,7 +34,7 @@ function print_table($people) {
         print("    <tr id='tr_{$p['id']}' class='line_bot'>\n");
         print("        <td class='center'>{$p['id']}</td>\n");
         print("        <td class='center'>{$p['title']}</td>\n");
-        print("        <td>{$p['firstname']}<br />{$p['lastname']}</td>\n");
+        print("        <td>{$p['lastname']}<br />{$p['firstname']}</td>\n");
         print("        <td>{$p['affiliation']}</td>\n");
         print("
             <td class='center'>
