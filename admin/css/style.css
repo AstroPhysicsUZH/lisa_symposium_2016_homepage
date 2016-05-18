@@ -14,6 +14,7 @@ html {
 }
 
 header {
+    position: relative;
     background:#fff;
 }
 
@@ -52,17 +53,52 @@ table {
     border-bottom: 1px solid black;
 }
 
+td {
+    padding: 0 0.25em 0 0.25em;
+}
+
 td.center {
     text-align: center;
     vertical-align: middle;
 }
 
+td.right {
+    text-align: right;
+    vertical-align: middle;
+}
 
-
-
-
-
-
+.bigsavebtn {
+    width: auto;
+    margin: 0.5em;
+    padding: 1em;
+    background-color:#f66;
+    border: 1px none #f00;
+    border-radius: 5px;
+}
+table.edit th {
+    text-align: left;
+}
+table.edit label {
+    display: inline-block;
+    vertical-align: middle;
+    height: 2em;
+}
+table.edit input[type=text] ,
+table.edit input[type=email],
+table.edit input[type=number],
+table.edit textarea {
+    font-family: monospace;
+    font-size: 14px;
+    width: 35em;
+    height: 2em;
+}
+table.edit textarea {
+    height: 10em;
+}
+table.edit input.left {
+    float: right;
+    clear:both;
+}
 
 
 /*
@@ -78,7 +114,7 @@ td.center {
 
 .loggedinbox {
     position: absolute;
-    top: 1em;
+    top: 0px;
     right: 0px;
 
 	border: 1px solid black;

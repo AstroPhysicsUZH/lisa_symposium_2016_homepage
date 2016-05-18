@@ -56,7 +56,7 @@ function print_table($people) {
             </td>\n");
         print("        <td class='center'>\n");
         print("            <a href='mailto:{$p['email']}'>mail</a>\n");
-        print("            <a href=''>edit</a>\n");
+        print("            <a href='edit.php?id={$p['id']}'>edit</a>\n");
         print("            <a href=''>del</a>\n");
         print("        </td>");
 
@@ -157,7 +157,7 @@ foreach($all_people as $p) {
 </ul>
 
 <form action="_update_payment.php" method="post">
-<input type="submit" value="SAVE ALL CHANGES" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
+<input type="submit" value="SAVE ALL CHANGES" class="bigsavebtn" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
 
 <h2 id="notpayed"><?=$h2tit?></h2>
 
