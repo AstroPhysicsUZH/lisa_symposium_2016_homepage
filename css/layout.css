@@ -18,9 +18,9 @@ body {
 header {
     width: 100%;
     text-align: left;
-    background-color: #0028a5;
+    background-color: #00002F;
     color: white;
-    background-image: url("../img/lisa_bg.png");
+    background-image: url("../img/header_website.png");
     background-repeat: no-repeat;
     background-position: right top;
     background-size: auto 100%;
@@ -82,9 +82,12 @@ nav ul li a:active {
     text-transform: capitalize;
 }
 
-#contact {
-    padding: 2em 0 0 1.5em;
+.bigtopspace {
+    padding-top: 2em;
+}
+.menuaddition {
     font-size: 0.8em;
+    padding-left: 1.5em;
 }
 
 main
@@ -170,7 +173,7 @@ footer {
     display: block;
     padding: 0.5em 2em 0.5em 0.5em;
 
-    background-color: #0028a5;
+    background-color: #00002F;
     color: white;
     font-size: 0.8em;
     text-align: right;

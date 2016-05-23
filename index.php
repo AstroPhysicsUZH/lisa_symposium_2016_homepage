@@ -57,7 +57,12 @@ else { $page = "home"; }
 ?>
   </ul>
 
-  <p id='contact'>
+  <p class="menuaddition bigtopspace">
+    Download Poster:<br />
+    <a href=''>[ pdf, A4 ]</a>
+    <a href=''>[ pdf, A2 ]</a>
+  </p>
+  <p class="menuaddition">
     contact:<br>
     <a href='mailto:relativityUZH@gmail.com'>relativityUZH@gmail.com</a>
   </p>
@@ -70,12 +75,12 @@ else { $page = "home"; }
   if (file_exists("$page" . ".php")) {require "$page" . ".php"; }
   else {require "not_found.php"; }
 ?>
-<article>
+</article>
 </main>
 
 <footer>
   <img class="footerimg left" src="img/lisapf_logo.png" alt="lisa_pathfinder_logo" />
-  <img class="footerimg" src="img/uzh.png" alt="uzhlogo" />
+  <img class="footerimg" src="img/uzh_logo_e_neg_border.png" alt="uzhlogo" />
   <img class="footerimg" src="img/eth_logo.png" alt="ethlogo" />
   <img class="footerimg" src="img/pauli.png" alt="paulilogo" />
 </footer>
