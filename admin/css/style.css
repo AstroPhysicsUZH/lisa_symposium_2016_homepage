@@ -6,6 +6,9 @@ html {
     color:#000;
     background:#fff;
 }
+body {
+    margin: 0 1em;
+}
 
 #wrap {
     max-width:1200px;
@@ -26,6 +29,7 @@ nav {
 }
 #main {
     display: block;
+    min-height: 300px;
     margin-left: 200px;
     border: 1px solid black;
     border-radius: 10px;

@@ -31,7 +31,6 @@ header('Content-Type: text/html; charset=utf-8');
     <link rel="stylesheet" href="css/style.css">
 
     <script src='../js/jquery/jquery.min.js'></script>
-    <script src='../js/jquery.are-you-sure/jquery.are-you-sure.js'></script>
     <script src='../js/moment/moment.min.js'></script>
     <script src='js/sha1.js'></script>
     <script src='js/user.js'></script>

@@ -5,7 +5,8 @@ $admin_modules = array(
     ["index.php", "Overview", ["guest", "admin", "finanz", "session_head"]],
     ["edit.php", "Edit Entries", ["admin", "helper"]],
     ["payment_np.php", "Manage Payment", ["admin", "finanz"]],
-    ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]]
+    ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]],
+    ["test2.php", "testing", ["admin"]]
 );
 
 $get_acl = [];

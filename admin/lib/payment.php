@@ -1,15 +1,79 @@
+<?php
+
+// $db is already open!
+
+if (!empty($_POST)):
+
+    #print_r($_POST);
+    #print_r(getcwd());
+
+    $lut = [
+        'tp' => ["price"],
+        'hp' => ["hasPayed"],
+        'ap' => ["amountPayed"]
+    ];
+
+    print "<h1>Saving changes</h1>";
+
+    foreach ($_POST as $id => $vals) {
+
+        $values = [];
+
+        $stmtstr = "UPDATE {$tableName} SET ";
+
+        $lbls = [];
+        foreach ($vals as $sname => $val) {
+            // $sname is the shortname used to POST data
+            $pname = $lut[$sname][0]; // proper name in db
+            $lbl = ":$sname";         // the label used in the statement string
+            $lbls[] = "$pname = $lbl";
+            $values[$lbl] = $val;
+        }
+        $stmtstr .= implode(", ", $lbls);
+        $stmtstr .= " WHERE id = :id;";
+
+        #print_r($db_address);
+        print "\n<br />";
+        print_r($values);
+        print "\n<br />";
+        print_r($stmtstr);
+        print "\n<br />";
+
+        $stmt = $db->prepare($stmtstr);
+        $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+        foreach ($values as $lbl => $val) {
+            $stmt->bindValue($lbl, $val);
+        }
+
+        $res = $stmt->execute();
+        #print_r($res);
+        print "updated ID: $id: ";
+        #print_r($values);
+
+        $res = null;
+        $stmt = null;
+    }
+
+    $db = null;
+    print "<h2>done!</h2>";
+    return;
+endif;
+
+?>
 
 <?php
 
-$not_payed_people = $db->query(
+$qry = $db->query(
     "SELECT ID, title, firstname, lastname, affiliation, email, price, hasPayed, amountPayed
-    FROM {$tableName}
-    WHERE hasPayed<>1");
+    FROM {$tableName} " . $addQuery . ";" );
+$sel_people = $qry->fetchAll(PDO::FETCH_ASSOC);
+$qry = null;
 
+/*
 $all_people = $db->query(
     "SELECT ID, title, firstname, lastname, affiliation, email, price, hasPayed, amountPayed
     FROM {$tableName}")->fetchAll(PDO::FETCH_ASSOC);
-
+*/
 
 
 function print_table($people) {
@@ -57,7 +121,7 @@ function print_table($people) {
         print("        <td class='center'>\n");
         print("            <a href='mailto:{$p['email']}'>mail</a>\n");
         print("            <a href='edit.php?id={$p['id']}'>edit</a>\n");
-        print("            <a href=''>del</a>\n");
+        //print("            <a href=''>del</a>\n");
         print("        </td>");
 
         print("    </tr>\n");
@@ -73,23 +137,20 @@ function print_table($people) {
 ?>
 
 <script>
-gg = "";
+
 $(function() {
 
     data=[];
 <?php
 print "/* stores [fullname, hasPayed, price, amountPayed]  and some refs */\n";
-foreach($all_people as $p) {
+foreach($sel_people as $p) {
     $hasPayed = $p['hasPayed']==1 ? 'true': 'false';
     $price = empty($p['price']) ? '0': $p['price'];
     $amountPayed = empty($p['amountPayed']) ? '0' : $p['amountPayed'];
     $fullname = "\"{$p['lastname']}; {$p['firstname']} ({$p['title']})\"";
-    print "    data[{$p['id']}] = {'fn':{$fullname}, 'hp':{$hasPayed}, 'tp':{$price}, 'ap':{$amountPayed}};\n";
+    print "    data[{$p['id']}] = {'fn':{$fullname}, 'hp':{$hasPayed}, 'tp':{$price}, 'ap':{$amountPayed}, 'dirty':false};\n";
 }
 ?>
-
-    // With a custom message
-    $('form').areYouSure( {'message':'Your profile details are not saved!'} );
 
     $.each( data, function(i, v){
         if (v==null) {return;}
@@ -98,14 +159,18 @@ foreach($all_people as $p) {
         v.tr = $('#tr_'+i);
     });
 
+    var form_dirty = false;
 
-    $('form').change( function() {
+    $('#pay_frm').change( function() {
+
+        form_dirty = false;
 
         $.each( data, function(i, db_value){
 
             if (db_value==null) {return;}
 
             var isDirty = false;
+            var dirty = [];
 
             db_value.lnk.each(function(ii){
 
@@ -125,6 +190,7 @@ foreach($all_people as $p) {
 
                 if ( v1 != v2 ){
                     isDirty = true;
+                    dirty.push([n, v2]);
                 }
                 // console.log("   " + v1 + " --form: " + db_value[n] + " -- of type: " +typeof(db_value[n]));
                 // console.log("   " + v2 + " --form: " + $formObj);
@@ -133,14 +199,56 @@ foreach($all_people as $p) {
             if (isDirty) {
                 // console.log('dirty');
                 db_value.tr.css({'background-color':'#faa', 'transition': 'background 0.5s linear'});
-                db_value.dirty = true;
+                db_value.dirty = dirty;
+                form_dirty = true;
+
             }
             else {
                 db_value.tr.css({'background-color':''});
                 db_value.dirty = false;
             }
         });
-    } );
+    });
+
+    $(window).on('beforeunload', function() {
+        if (form_dirty){
+            return "really? stuff is not changed!";
+        }
+    });
+
+
+    ddata = [];
+
+    $('#submit_pay_frm').click( function() {
+        console.log("submit clicked" + "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>");
+
+        var $tmpform = $('<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" />');
+
+        $.each( data, function(i, db_value){
+            if (db_value==null) {return;}
+
+            if (db_value.dirty) {
+                $.each( db_value.dirty, function(ii, itm){
+                    var propname = itm[0];
+                    var val = itm[1];
+                    console.log(db_value.fn + " / " + i + "; " + ii + "; " + propname + "; " + val);
+                    if (!(i in ddata)) {
+                        ddata[i] = {}
+                    }
+                    ddata[i][propname] = val;
+                    $tmpform.append($('<input type="hidden" name="'+i+'['+propname+']" value="' + val + '">'));
+                });
+            }
+        });
+
+        // prevent dirty message:
+        form_dirty = false;
+
+        $tmpform.appendTo($(document.body)) //it has to be added somewhere into the <body>
+                .submit();
+
+        return false; // prevent sending of orginal form
+    });
 
 });
 
@@ -156,8 +264,8 @@ foreach($all_people as $p) {
     <li><a href="payment_all.php">show all registered users</a></li>
 </ul>
 
-<form action="_update_payment.php" method="post">
-<input type="submit" value="SAVE ALL CHANGES" class="bigsavebtn" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
+<form id="pay_frm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<input id="submit_pay_frm" type="submit" value="SAVE ALL CHANGES" class="bigsavebtn" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
 
 <h2 id="notpayed"><?=$h2tit?></h2>
 
