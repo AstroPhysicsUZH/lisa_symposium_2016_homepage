@@ -2,15 +2,84 @@
 
 <?php
 
-if (array_key_exists("action", $_POST)) {
 
-    if ($_POST["action"]=="save") {
+// $db is already open!
 
+if (!empty($_POST)) {
+
+    print "<h1>Saving changes</h1>";
+    print_r($_POST);
+
+    if (array_key_exists("action", $_POST)) {
+
+        if ($_POST["action"]=="save") {
+
+        }
+
+
+        else if ($_POST["action"]=="delete") {
+
+        }
     }
-    else if ($_POST["action"]=="save") {
 
+
+    /*
+    foreach ($_POST as $id => $vals) {
+
+        $values = [];
+
+        $stmtstr = "UPDATE {$tableName} SET ";
+
+        $lbls = [];
+        foreach ($vals as $sname => $val) {
+            // $sname is the shortname used to POST data
+            $pname = $lut[$sname][0]; // proper name in db
+            $lbl = ":$sname";         // the label used in the statement string
+            $lbls[] = "$pname = $lbl";
+            $values[$lbl] = $val;
+        }
+        $stmtstr .= implode(", ", $lbls);
+        $stmtstr .= " WHERE id = :id;";
+
+        #print_r($db_address);
+        #print "\n<br />";
+        #print_r($values);
+        #print "\n<br />";
+        #print_r($stmtstr);
+        #print "\n<br />";
+
+        $stmt = $db->prepare($stmtstr);
+        $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+        foreach ($values as $lbl => $val) {
+            $stmt->bindValue($lbl, $val);
+        }
+
+        $res = $stmt->execute();
+        #print_r($res);
+        print "updated ID $id: ";
+        print_r($values);
+        print "<br />";
+
+        $res = null;
+        $stmt = null;
     }
+    */
+
+    print "<h2>done!</h2>";
+    $db = null;
+    require "lib/footer.php";
+    return;
 }
+
+// ----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 ?>
 

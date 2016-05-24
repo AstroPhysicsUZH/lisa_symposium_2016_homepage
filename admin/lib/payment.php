@@ -2,7 +2,7 @@
 
 // $db is already open!
 
-if (!empty($_POST)):
+if (!empty($_POST)) {
 
     #print_r($_POST);
     #print_r(getcwd());
@@ -30,6 +30,12 @@ if (!empty($_POST)):
             $values[$lbl] = $val;
         }
         $stmtstr .= implode(", ", $lbls);
+
+        # log entry
+        $dtstr = $now->format($datetime_db_fstr);
+        $str = "$dtstr\t{$_SESSION["username"]}\tupdate payment";
+        $stmtstr .= ", notes = ('$str' || CHAR(13) || notes ) ";
+
         $stmtstr .= " WHERE id = :id;";
 
         #print_r($db_address);
@@ -58,11 +64,9 @@ if (!empty($_POST)):
     $db = null;
     print "<h2>done!</h2>";
     return;
-endif;
+}
 
-?>
-
-<?php
+// ----------------------------------------------------------------------------
 
 $qry = $db->query(
     "SELECT ID, title, firstname, lastname, affiliation, email, price, hasPayed, amountPayed
