@@ -33,11 +33,11 @@ if (!empty($_POST)):
         $stmtstr .= " WHERE id = :id;";
 
         #print_r($db_address);
-        print "\n<br />";
-        print_r($values);
-        print "\n<br />";
-        print_r($stmtstr);
-        print "\n<br />";
+        #print "\n<br />";
+        #print_r($values);
+        #print "\n<br />";
+        #print_r($stmtstr);
+        #print "\n<br />";
 
         $stmt = $db->prepare($stmtstr);
         $stmt->bindParam(':id', $id , PDO::PARAM_INT);
@@ -47,8 +47,9 @@ if (!empty($_POST)):
 
         $res = $stmt->execute();
         #print_r($res);
-        print "updated ID: $id: ";
-        #print_r($values);
+        print "updated ID $id: ";
+        print_r($values);
+        print "<br />";
 
         $res = null;
         $stmt = null;
