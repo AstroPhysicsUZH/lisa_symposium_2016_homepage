@@ -129,7 +129,7 @@ try {
     $insert .= implode(", ", array_keys($tableFields));
     $insert .= ") VALUES ( ";
     $insert .= implode(", ", array_map(function($value) { return ':'.$value; }, array_keys($tableFields)));
-    $insert .= ")";
+    $insert .= ");";
 
     $stmt = $db->prepare($insert);
     $stmt->execute($vals);

@@ -9,7 +9,6 @@ require "lib/header.php";
 </p>
 
 
-
 <?php
 print_r($USER);
 

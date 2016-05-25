@@ -91,7 +91,7 @@ User = {
 		// that just confuses your users. If you want to enforce strong passwords,
 		// calculate how easy it is to guess the password, and report how quickly
 		// you can figure out their password so that they pick a better one.
-		if(password.length<8) { return this.markInvalid(input, "Your password is too easy to guess, please pick something longer. Use an entire sentence. if you like."); }
+		if(password.length<6) { return this.markInvalid(input, "Your password is too easy to guess, please pick something longer. Use an entire sentence. if you like."); }
 		return this.markValid(input);
 	},
 

@@ -25,7 +25,7 @@
 			// notification emails to work. Also note that password resetting doesn't work
 			// unless mail notification is turned on.
 
-			const use_mail = false;
+			const use_mail = true;
 
 			// This value should point to a directory that is not available to web users.
 			// If your documents are in ./public_html, for instance., then put database
@@ -270,6 +270,7 @@
 			$username = $_POST["username"];
 			$email = $_POST["email"];
 			$sha1 = $_POST["sha1"];
+			$role = array_key_exists("role", $_POST) ? $_POST["role"] : "user";
 			// step 1: someone could have bypassed the javascript validation, so validate again.
 			if(!$this->validate_user_name($username)) {
 				$this->info("registration error: user name did not pass validation");
@@ -281,7 +282,7 @@
 				$this->info("registration error: password did not pass validation");
 				return false; }
 			// step 2: if validation passed, register user
-			$registered = $this->register_user($username, $email, $sha1, $registration_callback);
+			$registered = $this->register_user($username, $email, $sha1, $registration_callback, $role);
 			if($registered && User::use_mail)
 			{
 				// send email notification
@@ -290,19 +291,16 @@
 				$domain_name = User::DOMAIN_NAME;
 				$subject = User::DOMAIN_NAME . " registration";
 				$body = <<<EOT
-	Hi,
+Hi,
 
-	this is an automated message to let you know that someone signed up at $domain_name with the user name "$username", using this email address as mailing address.
+this is an automated message to let you know that someone signed up at $domain_name with the user name "$username", using this email address as mailing address.
+Because of the way our user registration works, we have no idea which password was used to register this account (it gets one-way hashed by the browser before it is sent to our user registration system, so that we don't know your password either), so if you registered this account, hopefully you wrote your password down somewhere.
 
-	Because of the way our user registration works, we have no idea which password was used to register this account (it gets one-way hashed by the browser before it is sent to our user registration system, so that we don't know your password either), so if you registered this account, hopefully you wrote your password down somewhere.
+However, if you ever forget your password, you can click the "I forgot my password" link in the log-in section for $domain_name and you will be sent an email containing a new, ridiculously long and complicated password that you can use to log in. You can change your password after logging in, but that's up to you. No one's going to guess it, or brute force it, but if other people can read your emails, it's generally a good idea to change passwords.
+If you were not the one to register this account, you can either contact us the normal way or —much easier— you can ask the system to reset the password for the account, after which you can simply log in with the temporary password and delete the account. That'll teach whoever pretended to be you not to mess with you!
+Of course, if you did register it yourself, welcome to $domain_name!
 
-	However, if you ever forget your password, you can click the "I forgot my password" link in the log-in section for $domain_name and you will be sent an email containing a new, ridiculously long and complicated password that you can use to log in. You can change your password after logging in, but that's up to you. No one's going to guess it, or brute force it, but if other people can read your emails, it's generally a good idea to change passwords.
-
-	If you were not the one to register this account, you can either contact us the normal way or —much easier— you can ask the system to reset the password for the account, after which you can simply log in with the temporary password and delete the account. That'll teach whoever pretended to be you not to mess with you!
-
-	Of course, if you did register it yourself, welcome to $domain_name!
-
-	- the $domain_name team
+- the $domain_name team
 EOT;
 				$headers = "From: $from\r\n";
 				$headers .= "Reply-To: $replyto\r\n";
@@ -346,7 +344,7 @@ EOT;
 				return false; }
 
 			// step 2: if validation passed, see if there is a matching user, and reset the password if there is
-			$newpassword = $this->random_ascii_string(64);
+			$newpassword = $this->random_ascii_string(12);
 			$sha1 = sha1($newpassword);
 			$query = "SELECT username, token FROM users WHERE email = '$email'";
 			$username = "";
@@ -367,19 +365,17 @@ EOT;
 			$domain_name = User::DOMAIN_NAME;
 			$subject = User::DOMAIN_NAME . " password reset request";
 			$body = <<<EOT
-	Hi,
+Hi,
 
-	this is an automated message to let you know that someone requested a password reset for the $domain_name user account with user name "$username", which is linked to this email address.
+this is an automated message to let you know that someone requested a password reset for the $domain_name user account with user name "$username", which is linked to this email address.
+We've reset the password to the following 12 character string, so make sure to copy/paste it without any leading or trailing spaces:
 
-	We've reset the password to the following 64 character string, so make sure to copy/paste it without any leading or trailing spaces:
+$newpassword
 
-	$newpassword
+If you didn't even know this account existed, now is the time to log in and delete it. How dare people use your email address to register accounts! Of course, if you did register it yourself, but you didn't request the reset, some jerk is apparently reset-spamming. We hope he gets run over by a steam shovel driven by rabid ocelots or something.
+Then again, it's far more likely that you did register this account, and you simply forgot the password so you asked for the reset yourself, in which case: here's your new password, and thank you for your patronage at $domain_name!
 
-	If you didn't even know this account existed, now is the time to log in and delete it. How dare people use your email address to register accounts! Of course, if you did register it yourself, but you didn't request the reset, some jerk is apparently reset-spamming. We hope he gets run over by a steam shovel driven by rabid ocelots or something.
-
-	Then again, it's far more likely that you did register this account, and you simply forgot the password so you asked for the reset yourself, in which case: here's your new password, and thank you for your patronage at $domain_name!
-
-	- the $domain_name team
+- the $domain_name team
 EOT;
 			$headers = "From: $from\r\n";
 			$headers .= "Reply-To: $replyto\r\n";
@@ -491,7 +487,7 @@ EOT;
 		 * is profile information that can be set, but in no way
 		 * needs to be, in the user's profile section
 		 */
-		function register_user($username, $email, $sha1, &$registration_callback = false)
+		function register_user($username, $email, $sha1, &$registration_callback = false, $role="user")
 		{
 			$dbpassword = $this->token_hash_password($username, $sha1, "");
 			if($dbpassword==$sha1) die("password hashing is not implemented.");
@@ -524,7 +520,7 @@ EOT;
 
 			// This user can be registered
 			$insert = "INSERT INTO users (username, email, password, token, role, active, last) ";
-			$insert .= "VALUES ('$username', '$email', '$dbpassword', '', 'user', 'true', '" . time() . "') ";
+			$insert .= "VALUES ('$username', '$email', '$dbpassword', '', '$role', 'true', '" . time() . "') ";
 			$this->database->exec($insert);
 			$query = "SELECT * FROM users WHERE username = '$username'";
 			foreach($this->database->query($query) as $data) {

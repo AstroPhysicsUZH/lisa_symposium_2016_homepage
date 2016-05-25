@@ -79,6 +79,15 @@ if(!$USER->authenticated) {
 			</table>
 			<input type="button" value="log in" onclick="User.processLogin()"/>
 		</form>
+
+        <form class="controlbox" name="forgotten passwords" id="reset" action="index.php" method="POST">
+            <input type="hidden" name="op" value="reset"/>
+            <table>
+                <tr><td>email address </td><td><input type="text" name="email" value="<?php $USER->email; ?>" /></td></tr>
+            </table>
+            <input type="submit" value="reset password"/>
+        </form>
+
 <?php
     require_once "footer.php";
     exit;
