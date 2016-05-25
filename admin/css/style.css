@@ -71,6 +71,10 @@ td.right {
     vertical-align: middle;
 }
 
+table form {
+    margin: 0;
+}
+
 .bigsavebtn {
     width: auto;
     margin: 0.5em;

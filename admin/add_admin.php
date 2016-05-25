@@ -23,7 +23,7 @@ require_once "lib/header.php";
 
 <h2>Reset user passwords</h2>
 
-<table>
+<table class="line_bot">
 
 <?php
 $dbfile = User::DATABASE_LOCATION  . User::DATABASE_NAME . ".db";
