@@ -1,5 +1,0 @@
-AuthUserFile /home/ara/rafik/public_html/elisalpf2014/admin/.htpasswd
-AuthGroupFile /dev/null
-AuthName "Restricted Area - Please identify"
-AuthType Basic
-require user admin

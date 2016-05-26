@@ -6,8 +6,8 @@ $admin_modules = array(
     ["add_admin.php", "Edit Admin Users", ["admin"]],
     ["edit.php", "Edit Entries", ["admin", "helper"]],
     ["payment_np.php", "Manage Payment", ["admin", "finanz"]],
-    ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]],
-    ["test2.php", "testing", ["admin"]]
+    ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]]
+    #["test2.php", "testing", ["admin"]]
 );
 
 $get_acl = [];
