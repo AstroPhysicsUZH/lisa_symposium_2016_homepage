@@ -30,6 +30,11 @@ if (!empty($_POST)) {
             }
             $stmtstr .= implode(", ", $lbls);
 
+            # log entry
+            $dtstr = $now->format($datetime_db_fstr);
+            $str = "$dtstr\t{$_SESSION["username"]}\tupdate entry";
+            $stmtstr .= ", notes = ('$str' || CHAR(13) || notes ) ";
+
             $stmtstr .= " WHERE id = :id;";
 
             print "<p>updating ID [$id]<br />\n";
@@ -209,6 +214,13 @@ if (array_key_exists('id', $_GET)):
             </td>
             <td><label for="lookingForRoomMate">is looking for RoomMate</label></td>
         </tr>
+        <tr>
+            <td><label for="notes" class="left">notes / log</label></td>
+            <td>
+                <textarea name="notes" readonly
+                          placeholder=""><?=$p->notes?></textarea>
+            </td>
+        </tr>
     </table>
     <input id="action" type="hidden" name="action" value="" >
     <input id="btn_save" type="button" value="SAVE CHANGES" class="bigsavebtn" >
@@ -225,10 +237,9 @@ if (array_key_exists('id', $_GET)):
 <table id="tab_all" style='width:100%;'>
     <thead class='line_bot'>
         <th>ID</th>
-        <th></th>
-        <th>name</th>
-        <th></th>
+        <th colspan='3'>name</th>
         <th>affil</th>
+        <th>email</th>
     </thead>
     <tbody>
 
@@ -242,6 +253,7 @@ foreach($all_people as $p): ?>
             <td><?=$p->lastname;?></td>
             <td><?=$p->firstname;?></td>
             <td><?=$p->affiliation;?></td>
+            <td><?=$p->email;?></td>
         </tr>
 <?php endforeach; ?>
     </tbody>
