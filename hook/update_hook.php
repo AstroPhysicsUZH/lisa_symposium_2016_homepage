@@ -83,6 +83,7 @@ $outp = array();
 # enter commands to be executed here
 $commands = array(
       "git reset --hard HEAD"
+    , "git fetch"
     , "git pull https master"
     , "git status"
     , "chmod -R 777 ../*"
