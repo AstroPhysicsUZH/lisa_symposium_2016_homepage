@@ -8,7 +8,7 @@
 
 <h3>1. LISA Pathfinder - Results</h3>
 
-<p class="orgatime">???</p>
+<p class="orgatime"> </p>
 <p class="orgas">Organizers:</p>
 <ul class="orgalist">
     <li>Paul Mc Namara (ESA)</li>
@@ -19,7 +19,7 @@
 
 <h3>2. LISA Hardware</h3>
 
-<p class="orgatime">???</p>
+<p class="orgatime"> </p>
 <p class="orgas">Organizers:</p>
 <ul class="orgalist">
     <li>Oliver Jennrich (ESA)</li>
@@ -29,7 +29,7 @@
 
 <h3>3. Astrophysics with Gravitational Waves</h3>
 
-<p class="orgatime">???</p>
+<p class="orgatime"> </p>
 <p class="orgas">Organizers:</p>
 <ul class="orgalist">
     <li>Alberto Sesana (University of Birmingham)</li>
@@ -39,7 +39,7 @@
 
 <h3>4. Extreme Mass Ratio Inspirals (EMRI)</h3>
 
-<p class="orgatime">???</p>
+<p class="orgatime"> </p>
 <p class="orgas">Organizers:</p>
 <ul class="orgalist">
     <li>Carlos Sopuerta (Institute of Space Sciences CSIC-IEEC, Catalunya, Spain)</li>
