@@ -40,7 +40,7 @@ foreach($udb->query($query) as $data) {
         <td>
             <form class='controlbox' name='unregister'
                 id='unregister{$data['username']}'
-                action='index.php'
+                action='".htmlspecialchars($_SERVER["PHP_SELF"])."'
                 method='POST'>
                 <input type='hidden' name='op' value='unregister'/>
                 <input type='hidden' name='username' value='{$data['username']}' />

@@ -7,79 +7,76 @@
 
 if (!empty($_POST)) {
 
-    print "<h1>Saving changes</h1>";
+    print "<h1>Processing changes</h1>";
     print_r($_POST);
 
     if (array_key_exists("action", $_POST)) {
 
-        if ($_POST["action"]=="save") {
+        $action = $_POST["action"];
+        unset($_POST["action"]);
+        $id = $_POST["id"];
+        unset($_POST["id"]);
 
+        if ($action=="save") {
+            print "<h2>saving</h2>";
+            $values = [];
+
+            $stmtstr = "UPDATE {$tableName} SET ";
+
+            $lbls = [];
+            foreach ($_POST as $name => $val) {
+                $lbls[] = "$name = :$name";
+                $values[":$name"] = $val;
+            }
+            $stmtstr .= implode(", ", $lbls);
+
+            $stmtstr .= " WHERE id = :id;";
+
+            print "<p>updating ID [$id]<br />\n";
+
+            $stmt = $db->prepare($stmtstr);
+            $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+            foreach ($values as $lbl => $val) {
+                $stmt->bindValue($lbl, $val);
+            }
+
+            $res = $stmt->execute();
+            print "updated [$res] entry<br />\n";
+
+            $res = null;
+            $stmt = null;
+            print "DONE</p>";
         }
 
 
-        else if ($_POST["action"]=="delete") {
+        else if ($action=="del") {
+            print "<h2>deleting</h2>";
+            $sql = "DELETE FROM {$tableName} WHERE id = :id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $res = $stmt->execute();
 
+            print "<p>deleting ID [$id]<br />\n";
+            print "deleted [$res] entry<br />\n";
+            $res = null;
+            $stmt = null;
+            print "DONE</p>";
         }
+
+        else {
+            print "huch??";
+            require "lib/footer.php";
+            die();
+        }
+
     }
 
-
-    /*
-    foreach ($_POST as $id => $vals) {
-
-        $values = [];
-
-        $stmtstr = "UPDATE {$tableName} SET ";
-
-        $lbls = [];
-        foreach ($vals as $sname => $val) {
-            // $sname is the shortname used to POST data
-            $pname = $lut[$sname][0]; // proper name in db
-            $lbl = ":$sname";         // the label used in the statement string
-            $lbls[] = "$pname = $lbl";
-            $values[$lbl] = $val;
-        }
-        $stmtstr .= implode(", ", $lbls);
-        $stmtstr .= " WHERE id = :id;";
-
-        #print_r($db_address);
-        #print "\n<br />";
-        #print_r($values);
-        #print "\n<br />";
-        #print_r($stmtstr);
-        #print "\n<br />";
-
-        $stmt = $db->prepare($stmtstr);
-        $stmt->bindParam(':id', $id , PDO::PARAM_INT);
-        foreach ($values as $lbl => $val) {
-            $stmt->bindValue($lbl, $val);
-        }
-
-        $res = $stmt->execute();
-        #print_r($res);
-        print "updated ID $id: ";
-        print_r($values);
-        print "<br />";
-
-        $res = null;
-        $stmt = null;
-    }
-    */
-
-    print "<h2>done!</h2>";
     $db = null;
     require "lib/footer.php";
     return;
 }
 
 // ----------------------------------------------------------------------------
-
-
-
-
-
-
-
-
 
 ?>
 
@@ -103,13 +100,23 @@ if (array_key_exists('id', $_GET)):
     $p = $stmt->fetch(PDO::FETCH_OBJ);
 ?>
 
-<form action="" method="post">
+<form id="frm_edit"
+      action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
+      method="post">
     <table class="edit">
         <thead>
             <th colspan="2">
                 <b>Personal Details</b>
             </th>
         </thead>
+        <tr>
+            <td><label for="id" class="left">id</label></td>
+            <td>
+                <input
+                    id="id" type="number" name="id"
+                    value="<?=$p->id?>" readonly="readonly">
+            </td>
+        </tr>
         <tr>
             <td><label for="title" class="left">Title</label></td>
             <td>
@@ -193,12 +200,19 @@ if (array_key_exists('id', $_GET)):
             <td><label for="isImpaired">Mobility impaired</label></td>
         </tr>
 
-
         <tr>
-
+            <td>
+                <input id="lookingForRoomMate"
+                    class="left" type="checkbox"
+                    name="lookingForRoomMate" value="checked"
+                    <?= $p->lookingForRoomMate ? "checked" : "" ?> >
+            </td>
+            <td><label for="lookingForRoomMate">is looking for RoomMate</label></td>
         </tr>
     </table>
-    <input type="submit" value="SAVE CHANGES" class="bigsavebtn">
+    <input id="action" type="hidden" name="action" value="" >
+    <input id="btn_save" type="button" value="SAVE CHANGES" class="bigsavebtn" >
+    <input id="btn_del" type="button" value="DELETE" class="bigsavebtn">
 </form>
 
 <?php endif; ?>
@@ -237,8 +251,17 @@ foreach($all_people as $p): ?>
     $(function(){
         $('#tab_all tr').click(function(){
             $this = $(this);
-            console.log("clicked on row: " + $this.data('id'));
+            //console.log("clicked on row: " + $this.data('id'));
             window.location = '?id=' + $this.data('id');
+        });
+
+        $('#btn_save').click(function(){
+            $('#action').val("save");
+            $('#frm_edit').submit();
+        });
+        $('#btn_del').click(function(){
+            $('#action').val("del");
+            $('#frm_edit').submit();
         });
     })
 </script>
