@@ -31,5 +31,10 @@
     <br>
     For any special requests, please register anyways and contact us by email by replaying to the registration email or by writing an email to <a href="mailto:relativityuzh@gmail.com">relativityUZH@gmail.com</a>.
 </p>
+<p>
+    Please note that we publish a list of registered participants publically on the webpage.
+    This entry contains your first name, last name and affiliation.
+    Other data will not be public and shall never be used for anything else.
+</p>
 
 <?php require "items/registration_form.php"; ?>

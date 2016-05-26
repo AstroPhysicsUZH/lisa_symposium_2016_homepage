@@ -1,4 +1,4 @@
 
 <?php
 unlink("users.db");
- ?>
+?>

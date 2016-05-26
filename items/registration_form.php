@@ -238,6 +238,7 @@ $( document ).ready(function(){
                 <a href="preview.php"  style="font-size: 80%;" onclick="window.open('preview.php', 'newwindow', 'width=400, height=600'); setTimeout(function() {$('#abstract').change()},500); return false;">open preview (disable popup blocker)</a>
             </td>
         </tr>
+
         <thead>
             <th colspan="2">
                 <h2>Conference Dinner</h2>
@@ -275,6 +276,29 @@ $( document ).ready(function(){
                 <label for="isImpaired">Mobility impaired</label>
             </td>
         </tr>
+
+        <thead>
+            <th colspan="2">
+                <h2>Accommodation</h2>
+            </th>
+        </thead>
+        <tr>
+            <td colspan="2" style="text-align:left;">
+                Please organize accomodation yourself and in time!<br />
+                If you are looking for a shared appartement and possible room mates, tick the box and we will add your email to a google group where you can reach others.
+                (your email adress will be seen by other participants)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="lookingForRoomMate" class="left" type="checkbox" name="lookingForRoomMate" value="checked">
+            </td>
+            <td>
+                <label for="lookingForRoomMate">Looking for room mates</label>
+            </td>
+        </tr>
+
+
         <thead>
             <th colspan="2">
                 <h2>Send</h2>

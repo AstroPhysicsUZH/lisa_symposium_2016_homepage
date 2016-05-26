@@ -20,7 +20,7 @@
         }
     }
 
-	require_once("lib/user.php");
+	require_once("../lib/user.php");
 	$USER = new User();
 ?>
 <!DOCTYPE html>
@@ -28,9 +28,9 @@
 	<head>
 		<title>init admin user</title>
 		<meta charset="utf-8"/>
-		<script type="text/javascript" src="js/sha1.js"></script>
-		<script type="text/javascript" src="js/user.js"></script>
-		<link rel="stylesheet" type="text/css" href="style.css"></link>
+		<script type="text/javascript" src="../js/sha1.js"></script>
+		<script type="text/javascript" src="../js/user.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"></link>
 	</head>
 
 	<body>

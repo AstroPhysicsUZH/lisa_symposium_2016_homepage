@@ -43,6 +43,7 @@ $vals = [
     "nPersons" => 1,
     "isVeggie" => FALSE,
     "isImpaired" => FALSE,
+    "lookingForRoomMate" => FALSE,
 
     "hasPayed" => FALSE,
 
@@ -179,6 +180,9 @@ $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
 $headers .= 'Delivery-Date: ' . date("r") . "\r\n";
 
 $msg  = "Someone registered for the lisa conference. Here a backup dump\r\n\r\n";
+if ($vals['lookingForRoomMate']){
+    $msg .= "ADD TO EMAIL LIST! : {$vals['email']} \r\n\r\n";
+}
 $msg .= "PHP var export:\r\n";
 $msg .= var_export($vals, true);
 $msg .= "\r\n\r\n";
