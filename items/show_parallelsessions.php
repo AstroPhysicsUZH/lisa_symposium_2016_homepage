@@ -9,12 +9,11 @@
 <h3>1. LISA Pathfinder - Results</h3>
 
 <p class="orgatime"> </p>
-<p class="orgas">Organizers:</p>
-<ul class="orgalist">
-    <li>Paul Mc Namara (ESA)</li>
-    <li>Bill Weber (University of Trento)</li>
-    <li>Martin Hewitson (Max Planck Institute for Gravitational Physics)</li>
-</ul>
+<p class="orgas">Organizers:<br />
+    Paul Mc Namara (ESA),
+    Bill Weber (University of Trento),
+    Martin Hewitson (Max Planck Institute for Gravitational Physics)
+</p>
 
 
 <h3>2. LISA Hardware</h3>
