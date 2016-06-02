@@ -14,20 +14,23 @@ $SIGNATURE_IMG = K_PATH_IMAGES . 'sig_PhJ_bw.png';
 
 $PHY_ADDRESS = <<<EOD
 <b>Physik-Institut</b><br />
-Wintherthurerstrasse 190<br />
+Winterthurerstrasse 190<br />
 CH-8057 Z&uuml;rich<br />
 Phone: +41 44 635 57 81<br />
 http://www.physik.uzh.ch/events/lisa2016<br />
 relativityUZH@gmail.com
 EOD;
 
+$PAYMENT_INSTRUCTION_TITLE = "Please pay by bank transfer to:";
+
 $PAYMENT_INSTRUCTIONS = [
     "Rechnungswesen der Universitat Zurich",
     "LISA Symposium",
     "8057 Zurich",
-    "IBAN-Nr.: CH12 0900 0000 3109 1810 4",
+    "",
+    "IBAN-Nr. : CH12 0900 0000 3109 1810 4",
     "Swift/BIC: POFICHBEXXX",
-    "Message: 000 LASTNAME",
+    "Message  : 000 LASTNAME",
 ];
 
 
@@ -39,6 +42,16 @@ $REC_ADRESS = [
     "PLZ Loc",
     "Country"
 ];
+
+$SPECIAL_NOTE = 'Tax number: blabla';
+
+$INVOICE_ITMS = [
+    ["Conference fee (incl. dinner, proceedings, coffee breaks)", "CHF", "350.00"],
+    ["Dinner for 1 accompaning person(s)", "CHF", "100.00"],
+    ["Special agreement", "CHF", "-100.00"],
+];
+
+$TOTAL_AMNT = ["CHF", "350.00"];
 
 $LOCDATE = "Zurich, 2016-00-00";
 
@@ -110,46 +123,39 @@ $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
 // ---------------------------------------------------------
 
-// set font
-$pdf->SetFont('helvetica', '', 12);
-
-// add a page
-$pdf->AddPage();
-
-// Print address
-//$pdf->SetY(50);
-foreach ($REC_ADRESS as $line) {
-    $pdf->Cell(0,0,$line,0,1);
-}
-
-$pdf->ln();
-
-$pdf->SetY(90);
-
 $LM = $pdf->getMargins()['left'];
 $RM = $pdf->getMargins()['right'];
 $W = $pdf->getPageWidth() - $RM - $LM;
 
-$pdf->Image($HEADER_IMG, $pdf->GetX(), $pdf->GetY(), $W, '', 'png', '', 'T', true, 300, '', false, false, 0, true, false, false);
+// ---------------------------------------------------------
 
-$pdf->SetY(125);
+$pdf->SetFont('helvetica', '', 12);
+$pdf->AddPage();
 
+// Print address
+$pdf->SetFont('helvetica', '', 10);
+foreach ($REC_ADRESS as $line) {
+    $pdf->Cell(0,0,$line,0,1);
+}
+$pdf->SetFont('helvetica', '', 8);
+$pdf->ln();
+$pdf->Cell(0,0,$SPECIAL_NOTE,0,1);
+$pdf->ln();
+
+$pdf->SetY(90);
 $pdf->SetFont('helvetica', 'B', 14);
 $pdf->Cell(0,0,"Invoice",0,1);
+
+// ---------------------------------------------------------
+
+$pdf->SetY(100);
 $pdf->SetFont('helvetica', '', 12);
-//$pdf->Cell(0,0,"Conference fee for LISA Symposium XI, Zurich",1,1);
+$pdf->Image($HEADER_IMG, $pdf->GetX(), $pdf->GetY(), $W, '', 'png', '', 'T', true, 300, '', false, false, 0, true, false, false);
 
 $w2 = 20;
 $pdf->SetY(140);
 
-$invoice_items = [
-    ["Conference fee (incl. dinner, proceedings, coffee breaks)", "CHF", "350.00"],
-    ["Dinner for 1 accompaning person(s)", "CHF", "100.00"],
-    ["Special agreement", "CHF", "-100.00"],
-];
-$total = ["CHF", "350.00"];
-
-foreach($invoice_items as $i) {
+foreach($INVOICE_ITMS as $i) {
     $item = $i[0];
     $curr = $i[1];
     $amnt = $i[2];
@@ -164,14 +170,14 @@ $pdf->Cell($W,1,"","B",1);
 
 $pdf->SetFont('helvetica', 'B', 12);
 $pdf->Cell($W-2*$w2,10,"TOTAL","B",0);
-$pdf->Cell($w2,10,$total[0],"B",0,"R");
-$pdf->Cell($w2,10,$total[1],"B",0,"R");
+$pdf->Cell($w2,10,$TOTAL_AMNT[0],"B",0,"R");
+$pdf->Cell($w2,10,$TOTAL_AMNT[1],"B",0,"R");
 $pdf->Ln();
 
 
 $pdf->SetY(180);
 $pdf->SetFont('helvetica', 'B', 10);
-$pdf->Cell($W,10,"Payment instructions:",0,1);
+$pdf->Cell($W,10,$PAYMENT_INSTRUCTION_TITLE,0,1);
 
 $pdf->SetFont('courier', 'B', 10);
 foreach($PAYMENT_INSTRUCTIONS as $line){
