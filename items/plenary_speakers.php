@@ -32,9 +32,11 @@
     <li>Joel Bergé (French Aeropace Lab ONERA, Palaiseau)</li>
 </ul>
 
-<h4>VIRGO</h4>
+<h4>LIGO / Advanced VIRGO</h4>
 <ul>
-    <li>Fulvio Ricci (Università La Sapienza, Roma)</li>
+    <li>Fulvio Ricci &mdash; Advanced VIRGO: State of the Art <br />
+        (Università La Sapienza, Roma)</li>
+    <li>Katherine Dooley (University of Mississippi, Mississippi)</li>
 </ul>
 
 <h4>Cosmology with GW</h4>
