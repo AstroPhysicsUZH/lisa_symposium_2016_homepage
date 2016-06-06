@@ -59,8 +59,10 @@ else { $page = "home"; }
 
   <p class="menuaddition bigtopspace">
     Download Poster:<br />
-    <a href='files/poster_lisa11_A4.pdf'>[ pdf, A4, 4 MB ]</a>
+    <a href='files/poster_lisa11_A4.pdf'>[ pdf, hires, 4 MB ]</a>
+    <!-- simply print the A4 version up to A1!!
     <a href='files/poster_lisa11_A1.pdf'>[ pdf, A1, 30 MB]</a>
+-->
   </p>
   <p class="menuaddition">
     contact:<br>
