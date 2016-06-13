@@ -42,7 +42,7 @@
 <h4>Astrophysics and Cosmology with GW</h4>
 <ul>
     <li>Pierre Binétruy (Université Paris-Diderot)</li>
-    <li>Roger Blandfort (Stanford University)</li>
+    <li>Roger Blandford (Stanford University)</li>
     <li>Kelly Holley-Bockelmann (Vanderbilt University; Nashville, Tennessee)</li>
 </ul>
 
