@@ -7,13 +7,13 @@
     <li>Paul Mc Namara (ESA)</li>
     <li>Stefano Vitale (University of Trento)</li>
     <li>Bill Weber (University of Trento)</li>
-    <li>Martin Hewitson (Max Planck Institute for Gravitational Physics)</li>
+    <li>Martin Hewitson (Max Planck Institute for Gravitational Physics; Hannover)</li>
     <li>Harry Ward (Institute for Gravitational Research, University of Glasgow)</li>
 </ul>
 
 <h4>on LISA</h4>
 <ul>
-    <li>Karsten Danzmann (Max Planck Institute for Gravitational Physics, Hannover)</li>
+    <li>Karsten Danzmann (Max Planck Institute for Gravitational Physics; Hannover)</li>
     <li>Oliver Jennrich (ESA)</li>
 </ul>
 
@@ -24,24 +24,26 @@
 
 <h4>Grace &ndash; Follow on discussion</h4>
 <ul>
-    <li>Gerhard Heinzel (Max Planck Institute for Gravitational Physics, Hannover)</li>
+    <li>Gerhard Heinzel (Max Planck Institute for Gravitational Physics; Hannover)</li>
 </ul>
 
 <h4>Microscope</h4>
 <ul>
-    <li>Joel Bergé (French Aeropace Lab ONERA, Palaiseau)</li>
+    <li>Joel Bergé (French Aeropace Lab ONERA; Palaiseau)</li>
 </ul>
 
 <h4>LIGO / Advanced VIRGO</h4>
 <ul>
     <li>Fulvio Ricci &mdash; Advanced VIRGO: State of the Art <br />
-        (Università La Sapienza, Roma)</li>
-    <li>Katherine Dooley (University of Mississippi, Mississippi)</li>
+        (Università La Sapienza; Roma)</li>
+    <li>Katherine Dooley (University of Mississippi)</li>
 </ul>
 
-<h4>Cosmology with GW</h4>
+<h4>Astrophysics and Cosmology with GW</h4>
 <ul>
     <li>Pierre Binétruy (Université Paris-Diderot)</li>
+    <li>Roger Blandfort (Stanford University)</li>
+    <li>Kelly Holley-Bockelmann (Vanderbilt University; Nashville, Tennessee)</li>
 </ul>
 
 <h4>Pulsar Timing Array</h4>

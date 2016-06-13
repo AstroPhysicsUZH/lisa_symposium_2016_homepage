@@ -1,9 +1,13 @@
 
 <nav>
   <ul>
-      <li><a href="">Index</a></li>
+      <li><a href="index.php">Index</a></li>
+      <li><a href="invoice_.php">Invoice</a></li>
   </ul>
 
+  <p class="menuaddition">
+      <a href="logout.php">logout</a>
+  </p>
   <p class="menuaddition">
     In case of problems:<br>
     <a href='mailto:relativityUZH@gmail.com'>relativityUZH@gmail.com</a>
