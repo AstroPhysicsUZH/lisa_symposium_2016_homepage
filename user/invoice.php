@@ -3,7 +3,11 @@
     Template used to create the invoice pdf
  */
 
+require_once 'lib/auth.php';
+require_once "../lib/app.php";
+
 require_once "../lib/tcpdf_min/tcpdf_import.php";
+
 
 // Logos and images
 $UZH_LOGO      = K_PATH_IMAGES . 'uzh_logo_e_pos_klein.png';
@@ -43,7 +47,7 @@ $REC_ADRESS = [
     "Country"
 ];
 
-$SPECIAL_NOTE = 'Tax number: blabla';
+$SPECIAL_NOTE = '';
 
 $INVOICE_ITMS = [
     ["Conference fee (incl. dinner, proceedings, coffee breaks)", "CHF", "350.00"],
@@ -60,7 +64,32 @@ $SIGNATURE_IMGPERS = [
     "on behalf of the organizers"
 ];
 
+// --------------------------------------------------------------------------
+// read custion information from SESSION
 
+$U = $_SESSION['user'];
+
+$REC_ADRESS = explode("\n",
+                preg_replace("/(?<=[^\r]|^)\n/", "\n",
+                    $U['address']));
+
+if (isset($_POST['addline'])) {
+    $SPECIAL_NOTE = $_POST['addline'];
+}
+
+$INVOICE_ITMS = [];
+
+$regdate = new DateTime($U['registrationDate']);
+
+$fee = ($regdate < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular) + $dinnerFee;
+$cfi = [
+    "Conference fee (incl. dinner, proceedings, coffee breaks)",
+    "CHF",
+    strval($fee).".00"
+];
+array_push($INVOICE_ITMS, $cfi);
+
+#TODO add more lines to finish the incoice
 
 
 class MYPDF extends TCPDF {
@@ -87,6 +116,7 @@ class MYPDF extends TCPDF {
         $FM = $this->getMargins()['footer'];
         $W = $this->getPageWidth() - $RM - $LM;
         $H = $this->getPageHeight() - $HM - $FM;
+        $LEFT = $this->getMargins()['left'];
 
         $this->Image($FOOTER_IMG, $LEFT, $H, $W, '', 'png', '', 'T', true, 300, '', false, false, 0, true, false, false);
     }
