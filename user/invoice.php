@@ -57,7 +57,7 @@ $INVOICE_ITMS = [
 
 $TOTAL_AMNT = ["CHF", "350.00"];
 
-$LOCDATE = "Zurich, 2016-00-00";
+$LOCDATE = "Zurich, ".date("Y-m-d");
 
 $SIGNATURE_IMGPERS = [
     "Philippe Jetzer",
@@ -90,6 +90,25 @@ $cfi = [
 array_push($INVOICE_ITMS, $cfi);
 
 #TODO add more lines to finish the incoice
+
+
+$LOCDATE = "Zurich, " . $regdate->format("Y-m-d");
+
+$PAYMENT_INSTRUCTIONS = [
+    "Rechnungswesen der Universitat Zurich",
+    "LISA Symposium",
+    "8057 Zurich",
+    "",
+    "IBAN-Nr. : CH12 0900 0000 3109 1810 4",
+    "Swift/BIC: POFICHBEXXX",
+];
+$idnamestr  = sprintf( "%03d %s", $U['id'], $U['lastname']);
+$idnamestr2 = sprintf( "%03d_%s", $U['id'], $U['lastname']);
+array_push($PAYMENT_INSTRUCTIONS, "Message  : " . $idnamestr);
+
+
+
+
 
 
 class MYPDF extends TCPDF {
@@ -229,7 +248,7 @@ $pdf->Image($SIGNATURE_IMG, $os+$LM-5, 250-$sh, "", $sh, 'png', '', 'T', true, 3
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('example_003.pdf', 'I');
+$pdf->Output('invoice_'.$idnamestr2.'.pdf', 'I');
 
 //============================================================+
 // END OF FILE

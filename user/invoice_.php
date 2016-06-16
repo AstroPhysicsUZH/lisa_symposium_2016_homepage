@@ -10,7 +10,7 @@ require "lib/menu.php";
 
 <main>
 <article>
-    <h1>Donload Invoice</h1>
+    <h1>Download Invoice</h1>
     <p>
         Here you can download your invoice.
         If you require a special remark below your address (like tax number), enter the text into the field first:

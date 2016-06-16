@@ -5,17 +5,25 @@ require_once "../lib/app.php";
 
 # print_r($_POST);
 
-if (isset($_POST["op"])){
+if (isset($_POST["op"]) || isset($_GET["op"])){
 
-    $op = $_POST["op"];
+    $op = isset($_POST["op"]) ? $_POST["op"] : $_GET["op"];
 
     if ($op=="login") {
-        if (!isset($_POST["email"]) || !isset($_POST["accessKey"])) {
-            echo "req fields not set1";
+        if (
+            (!isset($_POST["email"]) || !isset($_POST["accessKey"])) &&
+            (!isset($_GET["email"]) || !isset($_GET["akey"] )) ){
+
+            echo "req fields not set";
+            echo $_POST["email"];
+            echo $_POST["accessKey"];
+            echo $_GET["email"];
+            echo $_GET["akey"];
             die(1);
         }
-        $email = $_POST["email"];
-        $akey = $_POST["accessKey"];
+        $email = isset($_POST["email"]) ? $_POST["email"] : $_GET["email"];
+        $akey = isset($_POST["accessKey"]) ? $_POST["accessKey"] : $_GET["akey"];
+        $redirect = isset($_GET["rdir"]) ? $_GET["rdir"] : "index.php";
 
         $db = open_db($db_address);
 
@@ -40,7 +48,7 @@ if (isset($_POST["op"])){
                 $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
                 $_SESSION['last_action'] = date('U');
 
-                $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/index.php';
+                $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/' . $redirect;
                 header('Location: ' . $target , true, $_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1' ? 303 : 302);
                 exit;
             }
@@ -100,6 +108,9 @@ The local OK
 
         mail($email, $subject, $message, $headers);
 
+        session_start();
+        $_SESSION['loggedin'] = FALSE;
+
         require "lib/header.php";
         require "lib/menu.php";
         echo "<main><article>\n";
@@ -122,10 +133,17 @@ The local OK
     }
 }
 
+session_start();
+$_SESSION['loggedin'] = FALSE;
+
+require "lib/header.php";
+require "lib/menu.php";
+
+$email_field = isset($_GET['email']) ? $_GET['email'] : "";
+$akey_field = isset($_GET['akey']) ? $_GET['akey'] : "";
+
 ?>
 
-<?php require "lib/header.php"; ?>
-<?php require "lib/menu.php"; ?>
 
 <main>
 <article>
@@ -139,11 +157,11 @@ The local OK
         <table>
             <tr>
                 <td>email </td>
-                <td><input type="text" name="email" value="" /></td>
+                <td><input type="text" name="email" value="<?=$email_field?>" /></td>
             </tr>
             <tr>
                 <td>access token </td>
-                <td><input type="password" name="accessKey" value="" /></td>
+                <td><input type="text" name="accessKey" value="<?=$akey_field?>" /></td>
             </tr>
         </table>
         <input type="submit" value="login" />

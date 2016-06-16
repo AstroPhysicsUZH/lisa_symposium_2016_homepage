@@ -19,6 +19,7 @@ if (
 }
 
 $_SESSION['last_action'] = time();
+$_SESSION['loggedin'] = TRUE;  // need to set this here for get login
 // Kein Exit, da das aufrufende Skript weiter arbeiten muss!
 
 ?>

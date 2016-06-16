@@ -22,11 +22,25 @@ $message = preg_replace('~\R~u', "\r\n",  # make sure we have RFC 5322 linebreak
 "Dear Mrs/Mr {$X["lastname"]}
 
 Thank you very much for your registration for the 11th LISA Symposium in Zurich.
-Please click on this link, to activate your registration and upload/update your abstract:
 
+!! Please confirm your registration by clicking on this link: !!
 http://www.physik.uzh.ch/events/lisa2016/activate.php?akey={$X['accessKey']}
 
+You can login into the user center with your email address and access key:
+http://www.physik.uzh.ch/events/lisa2016/user/
+or use this direct link:
+http://www.physik.uzh.ch/events/lisa2016/user/login.php?op=login&email=".urlencode($X['email'])."&akey={$X['accessKey']}&rdir=index.php
+
 Your access key is: {$X['accessKey']}
+
+In the user center you can:
+* Download an invoice:
+http://www.physik.uzh.ch/events/lisa2016/user/login.php?op=login&email=".urlencode($X['email'])."&akey={$X['accessKey']}&rdir=invoice_.php
+* Download an invitation letter:
+http://www.physik.uzh.ch/events/lisa2016/user/login.php?op=login&email=".urlencode($X['email'])."&akey={$X['accessKey']}&rdir=invite.php
+* Change your details:
+http://www.physik.uzh.ch/events/lisa2016/user/login.php?op=login&email=".urlencode($X['email'])."&akey={$X['accessKey']}&rdir=edit.php
+
 
 Your registration fee is: CHF {$X["price"]}.--
 
@@ -38,7 +52,6 @@ LISA Symposium
 
 IBAN-Nr.: CH12 0900 0000 3109 1810 4
 Swift/BIC: POFICHBEXXX
-
 Message: ".sprintf('%03d', intval($X["id"]))." {$X["lastname"]}
 
 If there are any questions, simply reply to this email (relativityUZH@gmail.com).
