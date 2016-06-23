@@ -82,12 +82,6 @@ if (isset($_POST["op"]) || isset($_GET["op"])) {
 require "lib/header.php";
 require "lib/menu.php";
 
-$db = open_db($db_address);
-
-$stmt = $db->prepare("SELECT * FROM {$tableName} WHERE id = :id" );
-$stmt->bindParam(":id", $_SESSION['uid']);
-$res = $stmt->execute();
-$p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
 
 ?>
 
@@ -108,31 +102,31 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
             <tr>
                 <td><label for="title" class="left">Title</label></td>
                 <td>
-                    <input id="title" type="text" name="title" placeholder="- / PhD / Dr / Prof" value="<?=$p["title"]?>">
+                    <input id="title" type="text" name="title" placeholder="- / PhD / Dr / Prof" value="<?=$P["title"]?>">
                 </td>
             </tr>
             <tr>
                 <td><label for="firstname" class="left">First name</label></td>
                 <td>
-                    <input id="firstname" type="text" name="firstname" required placeholder="Enter First Name" value="<?=$p["firstname"]?>">
+                    <input id="firstname" type="text" name="firstname" required placeholder="Enter First Name" value="<?=$P["firstname"]?>">
                 </td>
             </tr>
             <tr>
                 <td><label for="lastname" class="left">Last name</label></td>
                 <td>
-                    <input id="lastname" type="text" name="lastname" required placeholder="Enter Last Name"  value="<?=$p["lastname"]?>">
+                    <input id="lastname" type="text" name="lastname" required placeholder="Enter Last Name"  value="<?=$P["lastname"]?>">
                 </td>
             </tr>
             <tr>
                 <td><label for="email" class="left">Email</label></td>
                 <td>
-                    <input type="email" name="email" required placeholder="Enter Email"  value="<?=$p["email"]?>">
+                    <input type="email" name="email" required placeholder="Enter Email"  value="<?=$P["email"]?>">
                 </td>
             </tr>
             <tr>
                 <td><label for="affiliation" class="left">Affiliation</label></td>
                 <td>
-                    <input id="affiliation" type="text" name="affiliation" placeholder="Enter Affiliation" value="<?=$p["affiliation"]?>">
+                    <input id="affiliation" type="text" name="affiliation" placeholder="Enter Affiliation" value="<?=$P["affiliation"]?>">
                 </td>
             </tr>
             <tr>
@@ -141,7 +135,7 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
                     <textarea name="address"
                               style="height:8em;"
                               placeholder="Enter your FULL ADDRESS, including your FULL NAME and country, as it should be written on a letter."
-                              required><?=$p["address"]?></textarea>
+                              required><?=$P["address"]?></textarea>
                 </td>
             </tr>
             <tr>
@@ -149,7 +143,7 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
                     <input
                         id="needInet" class="left" type="checkbox"
                         name="needInet" value="X"
-                        <?= $p["needInet"] ? "checked" : "" ?> >
+                        <?= $P["needInet"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="needInet">Need WIFI access</label></td>
             </tr>
@@ -158,7 +152,7 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
                 <td>
                     <input id="c1" class="left" type="checkbox"
                         name="isVeggie" value="checked"
-                        <?= $p["isVeggie"] ? "checked" : "" ?> >
+                        <?= $P["isVeggie"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="c1">Vegetarian meal</label></td>
             </tr>
@@ -167,7 +161,7 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
                     <input id="isImpaired"
                         class="left" type="checkbox"
                         name="isImpaired" value="checked"
-                        <?= $p["isImpaired"] ? "checked" : "" ?> >
+                        <?= $P["isImpaired"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="isImpaired">Mobility impaired</label></td>
             </tr>
@@ -177,7 +171,7 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
                     <input id="lookingForRoomMate"
                         class="left" type="checkbox"
                         name="lookingForRoomMate" value="checked"
-                        <?= $p["lookingForRoomMate"] ? "checked" : "" ?> >
+                        <?= $P["lookingForRoomMate"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="lookingForRoomMate">looking for roommates</label></td>
             </tr>

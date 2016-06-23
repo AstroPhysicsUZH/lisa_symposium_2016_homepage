@@ -1,26 +1,17 @@
 <?php
 require_once 'lib/auth.php';
 
-require_once "../lib/app.php";
-
 
 require "lib/header.php";
 require "lib/menu.php";
-
-$db = open_db($db_address);
-
-$stmt = $db->prepare("SELECT * FROM {$tableName} WHERE id = :id" );
-$stmt->bindParam(":id", $_SESSION['uid']);
-$res = $stmt->execute();
-$p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
 
 ?>
 
 <main>
 <article>
-    <h1>Participant data:</h1>
+    <h1>Participant's Area</h1>
     <p>
-        logged in as <?=$p["title"];?> <?=$p["lastname"];?>; <?=$_SESSION['user']["firstname"];?>
+        logged in as <?=$P["title"];?> <?=$P["lastname"];?>; <?=$P["firstname"];?>
     </p>
 
     <h2>Contact Data</h2>
@@ -32,13 +23,13 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
     </p>
     <a href="edit.php" class="nolink">
         <code>
-            <?=nl2br($p['address'])?>
+            <?=nl2br($P['address'])?>
         </code>
     </a>
 
     <h2>Payment status:</h2>
 <?php
-    if ($p['hasPayed']) {
+    if ($P['hasPayed']) {
         echo '
         <p class="notice centered">
             We received your payment. Thank you very much.<br />
@@ -53,19 +44,19 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
         </p>';
     }
 
-    if ($p['paymentNotes']) {
+    if ($P['paymentNotes']) {
         echo "
         <p class=\"notice centered\"><span class='small'>
             <b>Notes from the organizer:</b><br />
             <span>
-                {$p['paymentNotes']}
+                {$P['paymentNotes']}
             </span></span>
         </p>";
     }
 ?>
     <ul>
-        <li>Amount to pay: <?=$p['price']?></li>
-        <li>Amount received: <?=$p['amountPayed']?></li>
+        <li>Amount to pay: <?=$P['price']?></li>
+        <li>Amount received: <?=$P['amountPayed']?></li>
     </ul>
 
 

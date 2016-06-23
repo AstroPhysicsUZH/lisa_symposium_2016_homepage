@@ -30,21 +30,20 @@ if (isset($_POST["op"]) || isset($_GET["op"])){
         $stmt = $db->prepare("SELECT * FROM {$tableName} WHERE email = :email" );
         $stmt->bindParam(":email", $email);
         $res = $stmt->execute();
-        $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
+        $P = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
 
-        if ($res && isset($p)) {
+        if ($res && isset($P)) {
             #print_r($p);
             #print $p->accessKey . " | " . $akey;
 
-            if ($p['accessKey'] == $akey) {
+            if ($P['accessKey'] == $akey) {
                 session_start();
                 session_unset();
                 session_regenerate_id(true);
 
                 $_SESSION['loggedin'] = TRUE;
-                $_SESSION['uid'] = $p['id']; # the id is our username for this script
-                $_SESSION['accessKey'] = $p['accessKey'];
-                $_SESSION['user'] = $p; #TODO: remove this, this wont ever update!
+                $_SESSION['uid'] = $P['id']; # the id is our username for this script
+                $_SESSION['accessKey'] = $P['accessKey'];
                 $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
                 $_SESSION['last_action'] = date('U');
 
@@ -103,6 +102,7 @@ if (isset($_POST["op"]) || isset($_GET["op"])){
 Someone reset your access key:
 Your new access key is: {$akey}
 
+Kind regards,
 The local OK
 ");
 

@@ -68,7 +68,6 @@ $SIGNATURE_IMGPERS = [
 // --------------------------------------------------------------------------
 // read custion information from SESSION
 
-# $U = $_SESSION['user'];
 
 $REC_ADRESS = explode("\n",
                 preg_replace("/(?<=[^\r]|^)\n/", "\n",
