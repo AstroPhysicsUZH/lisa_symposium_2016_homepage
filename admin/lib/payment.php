@@ -60,6 +60,48 @@ if (!empty($_POST)) {
 
         $res = null;
         $stmt = null;
+
+
+        # send email to the user:
+        $stmt = $db->prepare("SELECT ID, title, firstname, lastname, email, accessKey FROM {$tableName} WHERE id = :id" );
+        $stmt->bindParam(":id", $id);
+        $res = $stmt->execute();
+
+        if (! $res) {
+            echo "could not find email address. serious bug!!";
+            die(1);
+        }
+        $p = $stmt->fetch(PDO::FETCH_OBJ);
+
+        $from    = '"LISA Symposium Website" <relativityUZH@gmail.com>';
+        $replyto = $from;
+
+        $headers  = "";
+        $headers .= 'From: ' . $from . "\r\n";
+        $headers .= 'Reply-To:' . $replyto . "\r\n";
+        $headers .= 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
+        $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
+        $headers .= 'Delivery-Date: ' . date("r") . "\r\n";
+
+        $subject = "11th LISA Symposium Payment Update [{$p->id}]";
+
+        $message = preg_replace('~\R~u', "\r\n",  # make sure we have RFC 5322 linebreaks
+"Dear Mrs/Mr {$p->title} {$p->lastname}
+
+Details about your payment for the 11th LISA Symposium were changed.
+You can check the details here:\n"
+. $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']
+. dirname(dirname($_SERVER['SCRIPT_NAME'])) # get one level up
+. "/user/login.php?op=login&email=".urlencode($p->email)."&akey={$p->accessKey}&rdir=index.php
+
+Kind regrads,
+The local OK
+");
+
+        mail($p->email, $subject, $message, $headers);
+
+
     }
 
     $db = null;
@@ -280,6 +322,10 @@ foreach($sel_people as $p) {
     <li><a href="payment_np.php">list only those that NOT payed already</a></li>
     <li><a href="payment_all.php">show all registered users</a></li>
 </ul>
+
+<p>
+    Note that each user gets an email if his payment status changes!
+</p>
 
 <form id="pay_frm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 <input id="submit_pay_frm" type="submit" value="SAVE ALL CHANGES" class="bigsavebtn" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
