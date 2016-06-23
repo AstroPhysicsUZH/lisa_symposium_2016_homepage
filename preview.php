@@ -32,6 +32,22 @@
 <p id="abstract"></p>
 
 <script>
+
+var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+};
+
+function escapeHtml(string) {
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+        return entityMap[s];
+    });
+}
+
 $( document ).ready(function(){
 
     var intercom = Intercom.getInstance();
@@ -43,13 +59,12 @@ $( document ).ready(function(){
     var $affil = $('#affil');
     var $abstract = $('#abstract');
 
-
     intercom.on('notice', function(data) {
 
         $title.html(data['title']);
         $authors.html(data['authors']);
         $affil.html(data['affil']);
-        $abstract.html(data['abstract'].replace(/(?:\r\n|\r|\n)/g, '<br />'));
+        $abstract.html(escapeHtml(data['abstract']).replace(/(?:\r\n|\r|\n)/g, '<br />'));
 
         if (timer) {
             clearTimeout(timer);

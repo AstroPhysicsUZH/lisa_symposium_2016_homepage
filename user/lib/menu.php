@@ -3,7 +3,7 @@
   <ul>
       <li><a href="index.php">Index</a></li>
       <li><a href="edit.php">Edit My Details</a></li>
-      <li><a class="deactivated" href="submission.php">Edit My Submission</a></li>
+      <li><a href="submission.php">Edit My Submission</a></li>
       <li><a class="deactivated" href="proceeding.php">Edit My Proceeding</a></li>
       <li><a href="invoice_.php">Get Invoice</a></li>
       <li><a href="invitation.php">Get Invitation</a></li>
