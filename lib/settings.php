@@ -41,6 +41,7 @@ $PAGES = array(
     'transportation',
     'about_the_location',
     'proceedings',
+    'login_for_participants'
 );
 
 /*

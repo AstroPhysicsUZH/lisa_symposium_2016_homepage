@@ -27,12 +27,14 @@ $p = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
     <p>
         We use this address to send you letters:<br />
         <span class="small">
-            (if you forgot to add your name in the address field, please do so now <a href="edit.php">here</a>)
+            (if you forgot to add your name in the address field, please do so now <a href="edit.php">here</a> or by clicking the address)
         </span>
     </p>
-    <code>
-        <?=nl2br($p['address'])?>
-    </code>
+    <a href="edit.php" class="nolink">
+        <code>
+            <?=nl2br($p['address'])?>
+        </code>
+    </a>
 
     <h2>Payment status:</h2>
 <?php

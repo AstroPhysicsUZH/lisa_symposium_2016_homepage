@@ -19,7 +19,8 @@ $SIGNATURE_IMG = K_PATH_IMAGES . 'sig_PhJ_bw.png';
 $PHY_ADDRESS = <<<EOD
 <b>Physik-Institut</b><br />
 Winterthurerstrasse 190<br />
-CH-8057 Z&uuml;rich<br />
+8057 Z&uuml;rich<br />
+Switzerland<br />
 Phone: +41 44 635 57 81<br />
 http://www.physik.uzh.ch/events/lisa2016<br />
 relativityUZH@gmail.com
@@ -67,19 +68,20 @@ $SIGNATURE_IMGPERS = [
 // --------------------------------------------------------------------------
 // read custion information from SESSION
 
-$U = $_SESSION['user'];
+# $U = $_SESSION['user'];
 
 $REC_ADRESS = explode("\n",
                 preg_replace("/(?<=[^\r]|^)\n/", "\n",
-                    $U['address']));
+                    $P['address']));
 
 if (isset($_POST['addline'])) {
     $SPECIAL_NOTE = $_POST['addline'];
 }
 
 $INVOICE_ITMS = [];
+$TOT = 0;
 
-$regdate = new DateTime($U['registrationDate']);
+$regdate = new DateTime($P['registrationDate']);
 
 $fee = ($regdate < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular) + $dinnerFee;
 $cfi = [
@@ -88,8 +90,37 @@ $cfi = [
     strval($fee).".00"
 ];
 array_push($INVOICE_ITMS, $cfi);
+$TOT += $fee;
+
+
+# add conference dinner for additional persons
+$addPersons = $P['nPersons']-1;
+if ($addPersons>0) {
+    $fee = 100*$addPersons;
+    $cfi = [
+        "+ Dinner for {$addPersons} additional person(s)",
+        "CHF",
+        strval($fee) . ".00"
+    ];
+    array_push($INVOICE_ITMS, $cfi);
+    $TOT += $fee;
+}
+
+$price = $P['price'];
+if ($price!=$TOT) {
+    $diff = $price-$TOT;
+    $cfi = [
+        "+ Special arrangement",
+        "CHF",
+        strval($diff) . ".00"
+    ];
+    array_push($INVOICE_ITMS, $cfi);
+    $TOT += $diff;
+}
+
 
 #TODO add more lines to finish the incoice
+$TOTAL_AMNT = ["CHF", strval($TOT).".00"];
 
 
 $LOCDATE = "Zurich, " . $regdate->format("Y-m-d");
@@ -102,8 +133,8 @@ $PAYMENT_INSTRUCTIONS = [
     "IBAN-Nr. : CH12 0900 0000 3109 1810 4",
     "Swift/BIC: POFICHBEXXX",
 ];
-$idnamestr  = sprintf( "%03d %s", $U['id'], $U['lastname']);
-$idnamestr2 = sprintf( "%03d_%s", $U['id'], $U['lastname']);
+$idnamestr  = sprintf( "%03d %s", $P['id'], $P['lastname']);
+$idnamestr2 = sprintf( "%03d_%s", $P['id'], $P['lastname']);
 array_push($PAYMENT_INSTRUCTIONS, "Message  : " . $idnamestr);
 
 

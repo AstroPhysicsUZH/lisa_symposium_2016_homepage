@@ -18,8 +18,16 @@ if (
     exit;
 }
 
+require_once "../lib/app.php";
+
 $_SESSION['last_action'] = time();
 $_SESSION['loggedin'] = TRUE;  // need to set this here for get login
-// Kein Exit, da das aufrufende Skript weiter arbeiten muss!
 
+$db = open_db($db_address);
+$stmt = $db->prepare("SELECT * FROM {$tableName} WHERE id = :id" );
+$stmt->bindParam(":id", $_SESSION['uid']);
+$res = $stmt->execute();
+$P = $stmt->fetch(PDO::FETCH_ASSOC); #PDO::FETCH_OBJ);
+
+// Kein Exit, da das aufrufende Skript weiter arbeiten muss!
 ?>

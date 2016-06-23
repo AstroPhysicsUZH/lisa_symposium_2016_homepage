@@ -44,7 +44,7 @@ if (isset($_POST["op"]) || isset($_GET["op"])){
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['uid'] = $p['id']; # the id is our username for this script
                 $_SESSION['accessKey'] = $p['accessKey'];
-                $_SESSION['user'] = $p;
+                $_SESSION['user'] = $p; #TODO: remove this, this wont ever update!
                 $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
                 $_SESSION['last_action'] = date('U');
 

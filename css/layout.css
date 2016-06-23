@@ -197,6 +197,14 @@ code {
     padding-left: 1em;
 }
 
+.nolink,
+.nolink:link,
+.nolink:visited,
+.nolink:hover,
+.nolink:active {
+    color: black;
+    text-decoration: none;
+}
 
 footer {
     clear: both;
