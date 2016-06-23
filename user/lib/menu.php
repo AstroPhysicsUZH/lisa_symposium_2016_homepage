@@ -2,7 +2,9 @@
 <nav>
   <ul>
       <li><a href="index.php">Index</a></li>
-      <li><a href="invoice_.php">Invoice</a></li>
+      <li><a href="edit.php">Edit Entry</a></li>
+      <li><a href="invoice_.php">Get Invoice</a></li>
+      <li><a href="invitation.php">Get Invitation</a></li>
   </ul>
 
 <?php if ($_SESSION['loggedin']) { ?>

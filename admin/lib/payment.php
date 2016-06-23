@@ -10,7 +10,8 @@ if (!empty($_POST)) {
     $lut = [
         'tp' => ["price"],
         'hp' => ["hasPayed"],
-        'ap' => ["amountPayed"]
+        'ap' => ["amountPayed"],
+        'pn' => ["paymentNotes"]
     ];
 
     print "<h1>Saving changes</h1>";
@@ -69,7 +70,7 @@ if (!empty($_POST)) {
 // ----------------------------------------------------------------------------
 
 $qry = $db->query(
-    "SELECT ID, title, firstname, lastname, affiliation, email, price, hasPayed, amountPayed
+    "SELECT ID, title, firstname, lastname, affiliation, email, price, hasPayed, amountPayed, paymentNotes
     FROM {$tableName} " . $addQuery . ";" );
 $sel_people = $qry->fetchAll(PDO::FETCH_ASSOC);
 $qry = null;
@@ -91,8 +92,9 @@ function print_table($people) {
             <th>name</th>
             <th>affil</th>
             <th>has to pay<br />CHF</th>
-            <th>has payed?</th>
+            <th>has<br />payed?</th>
             <th>received<br />CHF</th>
+            <th>Notes (user sees it!)</th>
             <th>edit</th>
         </thead>
         <tbody>
@@ -123,6 +125,12 @@ function print_table($people) {
                     class='' type='number' style='width:6em;height:2em;text-align:center;'
                     value='{$p['amountPayed']}' min='0' />
             </td>\n");
+        print("
+            <td class='center'>
+                <input id='pn_{$p['id']}' name='pn_{$p['id']}'
+                    class='' type='text' style='width:12em;height:2em;text-align:left;'
+                    value='{$p['paymentNotes']}' />
+            </td>\n");
         print("        <td class='center'>\n");
         print("            <a href='mailto:{$p['email']}'>mail</a>\n");
         print("            <a href='edit.php?id={$p['id']}'>edit</a>\n");
@@ -147,13 +155,13 @@ $(function() {
 
     data=[];
 <?php
-print "/* stores [fullname, hasPayed, price, amountPayed]  and some refs */\n";
+print "/* stores [fullname, hasPayed, price, amountPayed, paymentNotes]  and some refs */\n";
 foreach($sel_people as $p) {
     $hasPayed = $p['hasPayed']==1 ? 'true': 'false';
     $price = empty($p['price']) ? '0': $p['price'];
     $amountPayed = empty($p['amountPayed']) ? '0' : $p['amountPayed'];
     $fullname = "\"{$p['lastname']}; {$p['firstname']} ({$p['title']})\"";
-    print "    data[{$p['id']}] = {'fn':{$fullname}, 'hp':{$hasPayed}, 'tp':{$price}, 'ap':{$amountPayed}, 'dirty':false};\n";
+    print "    data[{$p['id']}] = {'fn':{$fullname}, 'hp':{$hasPayed}, 'tp':{$price}, 'ap':{$amountPayed}, 'pn':'{$p['paymentNotes']}', 'dirty':false};\n";
 }
 ?>
 
@@ -191,6 +199,10 @@ foreach($sel_people as $p) {
                 else if (typeof(db_value[n]) === "number"){
                     v1 = parseInt(db_value[n]);
                     v2 = parseInt($formObj.val()) || 0;
+                }
+                else if (typeof(db_value[n]) === "string"){
+                    v1 = db_value[n];
+                    v2 = $formObj.val() || "";
                 }
 
                 if ( v1 != v2 ){

@@ -12,8 +12,9 @@ require "lib/menu.php";
 <article>
     <h1>Download Invoice</h1>
     <p>
-        Here you can download your invoice.
-        If you require a special remark below your address (like tax number), enter the text into the field first:
+        Here you can download your invoice.<br />
+        If you require a special remark below your address (like tax number), enter the text into the field first:<br />
+        If your address is incorrect, please first correct it <a href="edit.php">here</a>.
     </p>
     <form action="invoice.php" method="post">
         <div style="padding-bottom:0.5em;">

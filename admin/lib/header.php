@@ -44,7 +44,7 @@ header('Content-Type: text/html; charset=utf-8');
 <?php if($USER->authenticated) { ?>
         <form class="loggedinbox" name="log out" id="logout" action="index.php" method="POST">
             <input type="hidden" name="op" value="logout"/>
-            <input type="hidden" name="username"value="<?php echo $_SESSION["username"]; ?>" />
+            <input type="hidden" name="username" value="<?php echo $_SESSION["username"]; ?>" />
             <p>
                 Logged in as <?php echo $_SESSION["username"]," ($USER->role)"; ?>
                 <input type="submit" value="log out"/>

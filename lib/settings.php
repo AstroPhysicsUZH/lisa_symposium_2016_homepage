@@ -123,6 +123,7 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'hasPayed' => ['INTEGER', 'boolean'],
     'amountPayed' => ['INTEGER', 'integer'],
     'paymentDate' => ['INTEGER', 'date'],
+    'paymentNotes' => ['TEXT', 'string'], # special notes about the payment, can be seen by the user
 
     'talkType' => ['INTEGER', 'choice', ['none', 'talk', 'poster']],
     'presentationTitle' => ['TEXT', 'string'],

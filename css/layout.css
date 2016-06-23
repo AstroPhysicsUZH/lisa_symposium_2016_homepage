@@ -138,6 +138,7 @@ article ul {
 img,
 iframe,
 .warning,
+.notice,
 .bordered {
     border: 1px solid #666;
     border-radius: 0.5em;
@@ -148,6 +149,12 @@ iframe,
     padding: 0.5em;
     border: 2px solid red;
     background-color: #f99;
+}
+.notice {
+    margin: 0.5em 2em;
+    padding: 0.5em;
+    border: 2px solid green;
+    background-color: #afa;
 }
 .centered {
     text-align: center;
@@ -182,7 +189,13 @@ iframe,
     min-width: 11ch;
 }
 
-
+code {
+    display: inline-block;
+    font-family: monospace;
+    margin-left: 2em;
+    border-left: 2px solid black;
+    padding-left: 1em;
+}
 
 
 footer {
