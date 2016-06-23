@@ -55,9 +55,47 @@ require "lib/menu.php";
     }
 ?>
     <ul>
-        <li>Amount to pay: <?=$P['price']?></li>
-        <li>Amount received: <?=$P['amountPayed']?></li>
+        <li>
+            Amount to pay: CHF <?=$P['price']?>.00<br />
+            <span class="small">(you bring <?=$P['nPersons']-1>0 ? $P['nPersons']-1 : "no"?> additional person<?=$P['nPersons']>2 ? "s" : ""?>)</span>
+        </li>
+        <li>Amount received: CHF <?=$P['amountPayed']?>.00</li>
     </ul>
+
+
+    <h2>Presentations / Talks / Posters</h2>
+    <p>
+<?php
+if ($P['talkType'] == 0) {
+    print "You are not presenting anything. ";
+}
+else {
+
+    print "You applied to present a "
+        . ($P['talkType'] == 1 ? "talk" : "poster")
+        . " with title:<br />\n"
+        . "<b>&#x3008; " . $P['presentationTitle'] . " &#x3009;</b><br />\n";
+
+    if (!$P["isPresentationChecked"]) {
+        print "No decision has been made yet. Please be patient.<br />\n
+        You can edit your submission <a href=''>here</a>.\n";
+    }
+    else {
+        if ($P["isPresentationAccepted"]) {
+            print "Congratulations, your presentation was accepted. ";
+
+            if (! ($P['talkType']==$P['acceptedType'])) {
+                print "Please pay attention, that the organiser decided you should better present in form of a <b>" . ($P['acceptedType']==1? "talk" : "poster") . "</b>. Details will be listed here shortly.";
+            }
+
+        }
+        else {
+            print "We're sorry! Sadly, your request was rejected. For further information, please contact the organiser of the according parallel session directly or the OK.";
+        }
+
+    }
+}
+?>
 
 
 <!--  <code>
