@@ -239,21 +239,33 @@ if (array_key_exists('id', $_GET)):
         <th>ID</th>
         <th colspan='3'>name</th>
         <th>affil</th>
+        <th>akey</th>
         <th>email</th>
+        <th>dlink</th>
     </thead>
     <tbody>
 
 <?php
 $all_people = $db->query( "SELECT * FROM {$tableName}")->fetchAll(PDO::FETCH_OBJ);
 
-foreach($all_people as $p): ?>
+foreach($all_people as $p):
+    $lnk =
+        $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']
+        . dirname(dirname($_SERVER['SCRIPT_NAME']))
+        . "/user/login.php?op=login&"
+        . "email=" . urlencode($p->email)
+        . "&akey=" . $p->accessKey
+        . "&rdir=index.php";
+    ?>
         <tr id="tr<?=$p->id;?>" class='line_bot' data-id="<?=$p->id;?>">
             <td class='center'><?=$p->id;?></td>
             <td class='right'><?=$p->title;?></td>
             <td><?=$p->lastname;?></td>
             <td><?=$p->firstname;?></td>
             <td><?=$p->affiliation;?></td>
+            <td><?=$p->accessKey;?></td>
             <td><?=$p->email;?></td>
+            <td><a href="<?=$lnk ?>">lnk</a></td>
         </tr>
 <?php endforeach; ?>
     </tbody>
