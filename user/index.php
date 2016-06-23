@@ -59,7 +59,9 @@ require "lib/menu.php";
             Amount to pay: CHF <?=$P['price']?>.00<br />
             <span class="small">(you bring <?=$P['nPersons']-1>0 ? $P['nPersons']-1 : "no"?> additional person<?=$P['nPersons']>2 ? "s" : ""?>)</span>
         </li>
+        <!-- yeah better hide this
         <li>Amount received: CHF <?=$P['amountPayed']>0?$P['amountPayed']:0?>.00</li>
+        -->
     </ul>
 
 
