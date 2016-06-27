@@ -289,16 +289,18 @@
 				$from = User::MAILER_NAME;
 				$replyto = User::MAILER_REPLYTO;
 				$domain_name = User::DOMAIN_NAME;
-				$subject = User::DOMAIN_NAME . " registration";
+				$subject = User::DOMAIN_NAME . " admin panel registration";
+                $adminurl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']);
 				$body = <<<EOT
-Hi,
+Hi
 
-this is an automated message to let you know that someone signed up at $domain_name with the user name "$username", using this email address as mailing address.
-Because of the way our user registration works, we have no idea which password was used to register this account (it gets one-way hashed by the browser before it is sent to our user registration system, so that we don't know your password either), so if you registered this account, hopefully you wrote your password down somewhere.
+This is an automated message to let you know that your email address just got registered for access to the admin section of the LISA 2016 Conference webpage.
 
-However, if you ever forget your password, you can click the "I forgot my password" link in the log-in section for $domain_name and you will be sent an email containing a new, ridiculously long and complicated password that you can use to log in. You can change your password after logging in, but that's up to you. No one's going to guess it, or brute force it, but if other people can read your emails, it's generally a good idea to change passwords.
-If you were not the one to register this account, you can either contact us the normal way or —much easier— you can ask the system to reset the password for the account, after which you can simply log in with the temporary password and delete the account. That'll teach whoever pretended to be you not to mess with you!
-Of course, if you did register it yourself, welcome to $domain_name!
+You can login with your username "$username" and a password.
+(You will get your password in a few minutes with another email)
+
+Welcome to the admin area of $domain_name!
+$adminurl
 
 - the $domain_name team
 EOT;
@@ -365,17 +367,16 @@ EOT;
 			$domain_name = User::DOMAIN_NAME;
 			$subject = User::DOMAIN_NAME . " password reset request";
 			$body = <<<EOT
-Hi,
+Hi
 
-this is an automated message to let you know that someone requested a password reset for the $domain_name user account with user name "$username", which is linked to this email address.
-We've reset the password to the following 12 character string, so make sure to copy/paste it without any leading or trailing spaces:
+This is an automated message to let you know that someone requested a password reset for the admin account for the LISA2016 conference linked to this email address.
+
+We have reset the password to the following 12 character string, so make sure to copy/paste it without any leading or trailing spaces:
 
 $newpassword
 
-If you didn't even know this account existed, now is the time to log in and delete it. How dare people use your email address to register accounts! Of course, if you did register it yourself, but you didn't request the reset, some jerk is apparently reset-spamming. We hope he gets run over by a steam shovel driven by rabid ocelots or something.
-Then again, it's far more likely that you did register this account, and you simply forgot the password so you asked for the reset yourself, in which case: here's your new password, and thank you for your patronage at $domain_name!
-
-- the $domain_name team
+Best regards
+The $domain_name team
 EOT;
 			$headers = "From: $from\r\n";
 			$headers .= "Reply-To: $replyto\r\n";
