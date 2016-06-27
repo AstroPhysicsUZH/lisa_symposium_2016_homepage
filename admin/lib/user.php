@@ -205,7 +205,7 @@
 
 			// clear database
 			$this->database->commit();
-			$this->database = null;
+			//$this->database = null;
 		}
 
 	// ---------------------

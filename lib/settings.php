@@ -95,6 +95,9 @@ $db_address_abs = 'sqlite:db/registration.sqlite3';
 // the table in the database to use
 $tableName = "registrationTable";
 
+// table to manage the (parallel)sessions
+$sessionsTable = "sessionsTable";
+
 // Which fields do you want to have in the database?
 
 $tableFields = array(       # database table columns with key => [SQL_DATATYPE, meaning]

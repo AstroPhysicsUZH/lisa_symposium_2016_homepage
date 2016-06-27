@@ -6,7 +6,9 @@ $admin_modules = array(
     ["add_admin.php", "Edit Admin Users", ["admin"]],
     ["edit.php", "Edit Entries", ["admin", "helper"]],
     ["payment_np.php", "Manage Payment", ["admin", "finanz"]],
-    ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]]
+    ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]],
+    ["assign_sessions.php", "Assign Sessions", ["admin", "morga"]],
+    ["manage_session.php", "Manage Session", ["admin", "morga", "orga"]]
     #["test2.php", "testing", ["admin"]]
 );
 
