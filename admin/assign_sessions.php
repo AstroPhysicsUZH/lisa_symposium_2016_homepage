@@ -21,6 +21,7 @@ if (! tableExists($db, $sessionsTable) ) {
                     id INTEGER PRIMARY KEY,
                     shortName TEXT,
                     description TEXT,
+                    categories TEXT,
                     orgas TEXT,
                     timeslots TEXT
                 )"
@@ -42,10 +43,11 @@ if (!empty($_POST)) {
         if ($action=="new") {
             $sname = $_POST['shortName'];
             $desc = $_POST['description'];
+            $cats = "";
             $orgas = "";
             $timeslots = "";
-            $insert = "INSERT INTO {$sessionsTable} (shortName, description, orgas, timeslots) ";
-            $insert .= "VALUES ('$sname', '$desc', '$orgas', '$timeslots') ";
+            $insert = "INSERT INTO {$sessionsTable} (shortName, description, categories, orgas, timeslots) ";
+            $insert .= "VALUES ('$sname', '$desc', '$cats', '$orgas', '$timeslots') ";
             $db->exec($insert);
 
             $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
@@ -59,12 +61,14 @@ if (!empty($_POST)) {
             if ($btn=="edit") {
                 $sname = $_POST['shortName'];
                 $desc = $_POST['description'];
+                $cats = $_POST['categories'];
                 $orgas = $_POST['orgas'];
                 $timeslots = $_POST['timeslots'];
 
                 $stmtstr = "UPDATE {$sessionsTable} SET
                     shortName = :sname,
                     description = :desc,
+                    categories = :cats,
                     orgas = :orgas,
                     timeslots = :ts
                     WHERE id = :id;";
@@ -72,6 +76,7 @@ if (!empty($_POST)) {
                 $stmt->bindParam(':id', $id , PDO::PARAM_INT);
                 $stmt->bindParam(':sname', $sname , PDO::PARAM_STR);
                 $stmt->bindParam(':desc', $desc , PDO::PARAM_STR);
+                $stmt->bindParam(':cats', $cats , PDO::PARAM_STR);
                 $stmt->bindParam(':orgas', $orgas , PDO::PARAM_STR);
                 $stmt->bindParam(':ts', $timeslots , PDO::PARAM_STR);
 
@@ -150,6 +155,12 @@ if (!empty($_POST)) {
 ?>
 </ul>
 
+<h3>timeslots</h3>
+<p>
+    enter timeslots like <code>2016-09-05 08:00+12:00</code>
+</p>
+
+
 <?php
     $all_sessions = $db->query( "SELECT * FROM {$sessionsTable}")->fetchAll(PDO::FETCH_OBJ);
     foreach($all_sessions as $s) {
@@ -171,6 +182,13 @@ if (!empty($_POST)) {
                 id="description" type="text" name="description"
                 placeholder="Enter description"
                 value="<?=$s->description?>">
+        </div>
+        <div>
+            <label for="categories" class="left">categories</label>
+            <input
+                id="categories" type="text" name="categories"
+                placeholder="Enter categories"
+                value="<?=$s->categories?>">
         </div>
         <div>
             <label for="orgas" class="left">orgas</label>

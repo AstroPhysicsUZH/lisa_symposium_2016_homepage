@@ -133,6 +133,7 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'presentationTitle' => ['TEXT', 'string'],
     'coauthors' => ['TEXT', 'string'],
     'abstract' => ['TEXT', 'string'],
+    'presentationCategories' => ['TEXT', 'string'],      # comma separated values of categories
     'isAbstractSubmitted' => ['INTEGER', 'boolean'],
     'abstractSubmissionDate' => ['TEXT', 'date'],
     'isPresentationChecked' => ['INTEGER', 'boolean'],  # has it been considered / looked at, and ...
