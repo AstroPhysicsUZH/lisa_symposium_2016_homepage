@@ -6,10 +6,11 @@ $(document).ready(function() {
     var evtSrcsBrks = { events: [
 
 <?php
-    for ($i = 5; $i < 9; $i++) { echo <<<EOT
+    for ($i = 5; $i < 9; $i++) {
+        echo <<<EOT
         { start:'2016-09-0{$i}T10:30:00', end:'2016-09-0{$i}T11:00:00', title:'Break' },
         { start:'2016-09-0{$i}T13:00:00', end:'2016-09-0{$i}T14:00:00', title:'Lunch Break' },
-        { start:'2016-09-0{$i}T15:30:00', end:'2016-09-0{$i}T16:00:00', title:'Break' },
+        { start:'2016-09-0{$i}T16:00:00', end:'2016-09-0{$i}T16:20:00', title:'Break' },
 EOT;
     };
 ?>
@@ -39,14 +40,11 @@ EOT;
 
     // Enter Parallelsessions
     var evtSrcsPTalks = { events: [
-        { start:'2016-09-05T14:00:00', end:'2016-09-05T17:00:00', title:'Parallel Talks' },
-        { start:'2016-09-05T14:30:00', end:'2016-09-05T17:30:00', title:'Parallel Talks' },
+        { start:'2016-09-05T14:30:00', end:'2016-09-05T19:00:00', title:'Contributed Talks' },
 
-        { start:'2016-09-06T14:00:00', end:'2016-09-06T17:00:00', title:'Parallel Talks' },
-        { start:'2016-09-06T14:30:00', end:'2016-09-06T17:30:00', title:'Parallel Talks' },
+        { start:'2016-09-06T14:30:00', end:'2016-09-06T19:00:00', title:'Contributed Talks' },
 
-        { start:'2016-09-08T14:00:00', end:'2016-09-08T17:00:00', title:'Parallel Talks' },
-        { start:'2016-09-08T14:30:00', end:'2016-09-08T17:30:00', title:'Parallel Talks' },
+        { start:'2016-09-08T14:30:00', end:'2016-09-08T19:00:00', title:'Contributed Talks' },
 
         ], color:'#ffff88', textColor:'black', borderColor:'#aaaa00' };
 

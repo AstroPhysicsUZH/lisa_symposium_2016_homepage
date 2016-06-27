@@ -42,7 +42,8 @@
 <h4>Astrophysics and Cosmology with GW</h4>
 <ul>
     <li>Pierre Binétruy (Université Paris-Diderot)</li>
-    <li>Roger Blandford (Stanford University)</li>
+    <li>Roger Blandford &mdash; The Future of Black Hole Astrophysics in the LISA-VIRGO-LPF Era<br />
+        (Stanford University)</li>
     <li>Kelly Holley-Bockelmann (Vanderbilt University; Nashville, Tennessee)</li>
 </ul>
 
@@ -59,6 +60,7 @@
 <h4>Science with LIGO/LISA</h4>
 <ul>
     <li>Antoine Klein (Université Paris-Diderot)</li>
+    <li>Antoine Petiteau (Université Paris-Diderot)</li>
     <li>Alberto Sesana (University of Birmingham)</li>
     <li>Bernard Schutz (Max Planck Institute for Gravitational Physics, Potsdam)</li>
 </ul>

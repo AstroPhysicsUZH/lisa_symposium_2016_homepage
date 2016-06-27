@@ -1,5 +1,5 @@
 
-<h2>Parallel Sessions and Organizers</h2>
+<h2>Contributed Sessions and Organizers</h2>
 
 <p>
     The following parallel sessions are foreseen.
