@@ -1,8 +1,6 @@
 <?php
 require_once 'lib/auth.php';
 
-require_once "../lib/app.php";
-
 require "lib/header.php";
 require "lib/menu.php";
 
