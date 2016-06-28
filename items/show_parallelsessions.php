@@ -30,7 +30,8 @@
 <p class="orgatime"> </p>
 <p class="orgas"><b>Organizers:</b><br />
     Alberto Sesana (University of Birmingham);
-    Monica Colpi (Università degli Studi di Milano-Bicocca)
+    Monica Colpi (Università degli Studi di Milano-Bicocca);
+    Gijs Nelemans (Radboud University)
 </ul>
 
 
