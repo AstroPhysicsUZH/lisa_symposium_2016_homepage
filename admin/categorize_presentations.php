@@ -21,6 +21,11 @@ if (!empty($_POST)) {
 
     if (array_key_exists("action", $_POST)) {
 
+        #
+        # TODO we need to implement this.... all code down is still old...
+        #
+        #
+
         $action = $_POST["action"];
         unset($_POST["action"]);
 
