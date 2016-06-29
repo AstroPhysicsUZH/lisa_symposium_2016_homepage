@@ -88,7 +88,7 @@ if (!empty($_POST)) {
 
 
 <h1>Edit Entries</h1>
-<ul class="menu">
+<ul class="pagemenu">
     <li><a href='#entry'>entry</a></li>
     <li><a href='#overview'>overview</a></li>
 </ul>
@@ -223,8 +223,8 @@ if (array_key_exists('id', $_GET)):
         </tr>
     </table>
     <input id="action" type="hidden" name="action" value="" >
-    <input id="btn_save" type="button" value="SAVE CHANGES" class="bigsavebtn" >
-    <input id="btn_del" type="button" value="DELETE" class="bigsavebtn">
+    <input id="btn_save" type="button" value="SAVE CHANGES" class="save" >
+    <input id="btn_del" type="button" value="DELETE" class="warn">
 </form>
 
 <?php endif; ?>
@@ -241,7 +241,7 @@ if (array_key_exists('id', $_GET)):
         <th>affil</th>
         <th>akey</th>
         <th>email</th>
-        <th>dlink</th>
+        <th>login as</th>
     </thead>
     <tbody>
 

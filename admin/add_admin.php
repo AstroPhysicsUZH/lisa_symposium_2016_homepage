@@ -18,7 +18,7 @@ require_once "lib/header.php";
         <tr><td>password (again) </td><td><input type="password" name="password2" value="" /></td></tr>
         <tr><td>role </td><td><input type="text" name="role" value="" /></td></tr>
 	</table>
-	<input type="button" value="register" onclick="User.processRegistration()"/>
+	<input class="save" type="button" value="register" onclick="User.processRegistration()"/>
 </form>
 
 <h2>Reset user passwords</h2>
@@ -44,7 +44,7 @@ foreach($udb->query($query) as $data) {
                 method='POST'>
                 <input type='hidden' name='op' value='unregister'/>
                 <input type='hidden' name='username' value='{$data['username']}' />
-                <input type='submit' value='DEL' />
+                <input type='submit' value='DEL' class='warn'/>
             </form>
         </td>
     </tr>";

@@ -25,13 +25,16 @@ if (!empty($_POST)) {
         if ($action=="save") {
             $id = $_POST['id'];
             $sid = $_POST['sid'];
+            $atp = $_POST['acceptedType'];
 
             $stmtstr = "UPDATE {$tableName} SET
-                assignedSession = :sid
+                assignedSession = :sid,
+                acceptedType = :atp
                 WHERE id = :id;";
             $stmt = $db->prepare($stmtstr);
             $stmt->bindParam(':id', $id , PDO::PARAM_INT);
             $stmt->bindParam(':sid', $sid , PDO::PARAM_INT);
+            $stmt->bindParam(':atp', $atp , PDO::PARAM_INT);
 
             $res = $stmt->execute();
 
@@ -135,7 +138,7 @@ foreach($all_sessions as $s) {
     $stmtstr = "SELECT
                     id, title, firstname, lastname, email, affiliation,
                     talkType, presentationTitle, coauthors, abstract, presentationCategories,
-                    assignedSession, isPresentationAccepted
+                    assignedSession, isPresentationAccepted, acceptedType
                 FROM {$tableName}
                 WHERE presentationTitle<>'';";
 
@@ -167,7 +170,7 @@ foreach($all_sessions as $s) {
             }
             else {
 ?>
-        <label class="left">Select Session:
+        <label class="left">Assign to Session:
             <select name="sid" size="1">
                 <option value='none'>-- not yet assigned --</option>
 <?php
@@ -183,8 +186,24 @@ foreach($all_sessions as $s) {
  ?>
             </select>
         </label>
-        <input type="submit" name="action" value="save" >
-        <input type="submit" name="action" value="REJECT" class="warn" >
+        <label class="left">As:
+            <select name="acceptedType" size="1">
+<?php
+                $s0=''; $s1=''; $s2='';
+                if ($p->acceptedType == 1) {$s1=' selected';}
+                elseif ($p->acceptedType == 2) {$s2=' selected';}
+                else {$s0=' selected';}
+                print "<!-- $s0 - $s1 - $s2 -->"
+?>
+                <option value='-1'<?=$s0?>>- to be decided -</option>
+                <option value='1'<?=$s1?>>talk</option>
+                <option value='2'<?=$s2?>>poster</option>
+            </select>
+        </label>
+        <div style="display:inline-block;">
+            <input class="save" type="submit" name="action" value="save" >
+            <input type="submit" name="action" value="REJECT" class="warn" >
+        </div>
 <?php       } ?>
     </div>
     <input type="hidden" name="id" value="<?=$p->id?>" >

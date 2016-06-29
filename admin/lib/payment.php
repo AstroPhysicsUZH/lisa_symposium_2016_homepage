@@ -318,7 +318,7 @@ foreach($sel_people as $p) {
     Manage Payments
 </h1>
 
-<ul>
+<ul class="pagemenu">
     <li><a href="payment_np.php">list only those that NOT payed already</a></li>
     <li><a href="payment_all.php">show all registered users</a></li>
 </ul>
@@ -328,7 +328,7 @@ foreach($sel_people as $p) {
 </p>
 
 <form id="pay_frm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-<input id="submit_pay_frm" type="submit" value="SAVE ALL CHANGES" class="bigsavebtn" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
+<input id="submit_pay_frm" type="submit" value="SAVE ALL CHANGES" class="save" style="width:100%; padding: 1em; background-color:#f66; border: 1px none #f00; border-radius: 5px;">
 
 <h2 id="notpayed"><?=$h2tit?></h2>
 

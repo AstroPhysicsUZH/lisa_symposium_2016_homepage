@@ -137,7 +137,7 @@ if (!empty($_POST)) {
             required placeholder="Enter description">
     </div>
     <input id="action" type="hidden" name="action" value="new" >
-    <input id="btn_save" type="submit" value="SAVE" class="bigsavebtn" >
+    <input id="btn_save" type="submit" value="SAVE" class="save" >
 </form>
 
 
@@ -207,8 +207,8 @@ if (!empty($_POST)) {
         </div>
         <input id="action" type="hidden" name="action" value="edit" >
         <input id="id" type="hidden" name="id" value="<?=$s->id?>" >
-        <input type="submit" name="btn" value="edit" class="bigsavebtn" >
-        <input type="submit" name="btn" value="DELETE" class="bigsavebtn" >
+        <input type="submit" name="btn" value="edit" class="save" >
+        <input type="submit" name="btn" value="DELETE" class="warn" >
     </form>
 
 <?php } ?>

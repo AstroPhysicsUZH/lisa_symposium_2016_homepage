@@ -113,7 +113,7 @@ if (!empty($_POST)) {
         <input
             type="text" name="presentationCategories"
             placeholder="cats" value="<?=$p->presentationCategories ?>">
-        <input type="submit" value="SAVE" class="bigsavebtn" >
+        <input type="submit" value="SAVE" class="save" >
     </div>
     <input type="hidden" name="action" value="assign_cat" >
     <input type="hidden" name="id" value="<?=$p->id?>" >

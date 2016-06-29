@@ -74,6 +74,18 @@ if (array_key_exists('sid', $_GET)) {
     $stmt->bindParam(':sid', $sid , PDO::PARAM_INT);
     $stmt->execute();
     $s = $stmt->fetch(PDO::FETCH_OBJ);
+
+    # check if one simply modified the get parameter... admins are allowed to do so thou
+    if ( is_null($s) || !$s ) {
+        print "nice try, but you murdered me... die() [index out of range]";
+        die();
+    }
+    if ( !in_array($USER->username, explode(";", $s->orgas)) &&  # an unauthorised user access existing stuff
+         !in_array($USER->role, $special_power_roles) ) { # the user has super powers or asked nicely
+        print "nice try, but you murdered me... die() [access denied]";
+        die();
+    }
+
     $slots = explode(";",$s->timeslots);
     $start_datetime = explode("/", $slots[0]);
     $start_date = explode(" ", $start_datetime[0])[0];
@@ -97,8 +109,8 @@ if (array_key_exists('sid', $_GET)) {
 
     <h2>Overview / Timeline</h2>
     <p>
-        Please be patient, I'll implement a nice little overview in the next
-        few days
+        Please be patient, I'll implement a nice little graphical overview in the next
+        few days...
     </p>
     <h2>Presentations</h2>
 
@@ -137,20 +149,21 @@ if (array_key_exists('sid', $_GET)) {
                         $s0=''; $s1=''; $s2='';
                         if ($p->acceptedType == 1) {$s1=' selected';}
                         elseif ($p->acceptedType == 2) {$s2=' selected';}
+                        else {$s0=' selected';}
 ?>
-                <div style="display:inline-block; width:48%;">
+                <div class="half">
                     <label class="left">Accept as:
                         <select name="acceptedType" size="1">
-                            <option value='none'<?=$s0?>>-- not defined --</option>
+                            <option value='-1'<?=$s0?>>-- not defined --</option>
                             <option value='1'<?=$s1?>>talk</option>
                             <option value='2'<?=$s2?>>poster</option>
                         </select>
                     </label>
                     <br>
-                    <input type="submit" name="action" value="save" >
-                    <input type="submit" name="action" value="REJECT" class="warn" >
+                    <input class="save" type="submit" name="action" value="save" >
+                    <input class="warn" type="submit" name="action" value="REJECT" >
                 </div>
-                <div style="display:inline-block; width:48%;">
+                <div class="half">
                     <label class="left">
                         <small>[talk] starting time (24h):</small>
                         <input name="time" type="text" value="<?=$ptime?>"
@@ -161,7 +174,7 @@ if (array_key_exists('sid', $_GET)) {
                         <small>[talk] duration in minutes:</small>
                         <input name="duration" type="numeric" min=0 max=240
                             placeholder="25" value="<?=$p->presentationDuration?>">
-                    </label>
+                    </label><br>
                     <label class="left">
                         <small>[poster] number / place:</small>
                         <input name="posterPlace" type="numeric" min=0 max=240
@@ -201,7 +214,8 @@ if (array_key_exists('sid', $_GET)) {
 
 
     foreach($all_sessions as $s) {
-        if (in_array($_SESSION["username"], explode(';', $s->orgas))) {
+        if (in_array($_SESSION["username"], explode(';', $s->orgas)) ||
+            in_array($USER->role, $special_power_roles)) {
             print "<li><a href='{$url}?sid={$s->id}'><code>[{$s->shortName}]</code> {$s->description}</a></li>";
         }
     }
