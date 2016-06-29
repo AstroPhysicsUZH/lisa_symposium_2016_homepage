@@ -147,7 +147,8 @@ foreach($all_sessions as $s) {
         if ($p->talkType > 0) {$type = ($p->talkType == 1 ? "talk" : "poster");}
         else {$type = "none";}
 
-        if (in_array($p->presentationCategories, $my_cats) ) {
+        if (in_array($p->presentationCategories, $my_cats) ||
+            in_array($USER->role, $special_power_roles)) {
 ?>
 <form id="frmid<?=$p->id?>"
     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
