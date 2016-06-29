@@ -170,6 +170,9 @@ select {
     box-shadow: 5px 5px 0px #888833;
 }
 
+input.short {
+    width: 5em;
+}
 
 table.edit th {
     text-align: left;

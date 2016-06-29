@@ -166,18 +166,18 @@ if (array_key_exists('sid', $_GET)) {
                 <div class="half">
                     <label class="left">
                         <small>[talk] starting time (24h):</small>
-                        <input name="time" type="text" value="<?=$ptime?>"
+                        <input class="short" name="time" type="text" value="<?=$ptime?>"
                             placeholder="14:15" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
                             title="Enter a time in 24h HH:mm format, like 14:15" >
                     </label><br>
                     <label class="left">
                         <small>[talk] duration in minutes:</small>
-                        <input name="duration" type="numeric" min=0 max=240
+                        <input class="short" name="duration" type="numeric" min=0 max=240
                             placeholder="25" value="<?=$p->presentationDuration?>">
                     </label><br>
                     <label class="left">
                         <small>[poster] number / place:</small>
-                        <input name="posterPlace" type="numeric" min=0 max=240
+                        <input class="short" name="posterPlace" type="numeric" min=0 max=240
                             value="<?=$p->posterPlace?>">
                     </label>
                 </div>
@@ -207,6 +207,8 @@ if (array_key_exists('sid', $_GET)) {
     <h1>Manage Your Sessions</h1>
     <h2>Select a session to manage:</h2>
 
+    <ul class="pagemenu">
+
 <?php
 
     $all_sessions = $db->query( "SELECT * FROM {$sessionsTable}")->fetchAll(PDO::FETCH_OBJ);
@@ -221,5 +223,6 @@ if (array_key_exists('sid', $_GET)) {
     }
 }
 ?>
+    </ul>
 
 <?php require "lib/footer.php" ?>
