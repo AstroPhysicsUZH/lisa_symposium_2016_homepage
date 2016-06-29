@@ -5,6 +5,7 @@ html {
     padding:0;
     color:#000;
     background:#fff;
+    font-family: sans-serif;
 }
 body {
     margin: 0 1em;
@@ -37,6 +38,7 @@ nav {
     background:#ddd;
 }
 footer {
+    clear: both;
     position: relative;
     margin-top: 3em;
     background:#fff;
@@ -48,6 +50,22 @@ footer>p {
     margin-top: 0px;
     padding: 0.5em;
 }
+
+h3.presentation {
+    padding-top:2em;
+    padding-bottom: 0.5em;
+    margin-bottom:0.5em;
+    border-bottom: 1px solid black;
+}
+p.summary {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0.5em;
+    margin-bottom:0.5em;
+    border-bottom: 1px dotted black;
+
+}
+
 
 table {
     border-collapse: collapse;
@@ -75,14 +93,27 @@ table form {
     margin: 0;
 }
 
-.bigsavebtn {
-    width: auto;
-    margin: 0.5em;
-    padding: 1em;
-    background-color:#f66;
-    border: 1px none #f00;
-    border-radius: 5px;
+.warn {
+    background-color:#f66 !important;
+    box-shadow: 5px 5px 0px #883333 !important;
 }
+
+input,
+input[type=button],
+input[type=submit],
+input[type=text],
+input[type=password],
+select {
+    background-color:#ffa;
+    margin: 1em 0.5em;
+    padding: 0.5em;
+    border: 1px solid #660;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 0px #888833;
+}
+
+
 table.edit th {
     text-align: left;
 }
@@ -106,6 +137,13 @@ table.edit textarea {
 table.edit input.left {
     float: right;
     clear:both;
+}
+
+.inputarea {
+    border: 1px dotted black;
+    border-radius: 10px;
+	text-align: center;
+    background-color: white;
 }
 
 

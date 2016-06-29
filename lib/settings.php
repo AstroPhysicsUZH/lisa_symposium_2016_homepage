@@ -133,11 +133,12 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'presentationTitle' => ['TEXT', 'string'],
     'coauthors' => ['TEXT', 'string'],
     'abstract' => ['TEXT', 'string'],
-    'presentationCategories' => ['TEXT', 'string'],      # comma separated values of categories
+    'presentationCategories' => ['TEXT', 'string'],      # comma separated values of categories, NOPE should be only one!!
+    'assignedSession' => ['INTEGER', 'integer'],    # id of session from sessionsTable
     'isAbstractSubmitted' => ['INTEGER', 'boolean'],
     'abstractSubmissionDate' => ['TEXT', 'date'],
-    'isPresentationChecked' => ['INTEGER', 'boolean'],  # has it been considered / looked at, and ...
-    'isPresentationAccepted' => ['INTEGER', 'boolean'], # ... the desicission.
+    'isPresentationChecked' => ['INTEGER', 'boolean'],  # has it been considered / looked at, and descision shall be published
+    'isPresentationAccepted' => ['INTEGER', 'boolean'], # ... the desicission. Tristate: None -> not decided..
     'acceptedType' => ['INTEGER', 'choice', ['none', 'talk', 'poster']], # What type of presentation will be given (talks can be downgraded to posters, posters upgraded to talks)
     'presentationSlot' => ['TEXT', 'date'],             # which timeslot, as a date -OR-
     'presentationDuration' => ['INTEGER', 'integer'],   # duration of talk, in mins
@@ -152,9 +153,9 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
 // create lookup tables
 foreach ($tableFields as $key => $val) {
     if      ($val[1]=='boolean') { $boolTableFields[] = $key; }
-    else if ($val[1]=='choice')  { $choiceTableFields[] = $key; }
-    else if ($val[1]=='date')    { $dateTableFields[] = $key; }
-    else if ($val[1]=='hex')     { $hexTableFields[] = $key; }
+    elseif ($val[1]=='choice')  { $choiceTableFields[] = $key; }
+    elseif ($val[1]=='date')    { $dateTableFields[] = $key; }
+    elseif ($val[1]=='hex')     { $hexTableFields[] = $key; }
 }
 
 

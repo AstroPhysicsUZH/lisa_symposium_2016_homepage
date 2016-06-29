@@ -2,14 +2,15 @@
 <?php
 
 $admin_modules = array(
-    ["index.php", "Overview", ["guest", "admin", "finanz", "session_head"]],
+    ["index.php", "Overview", ["guest", "admin", "finanz", "session_head", "morga", "orga"]],
     ["add_admin.php", "Edit Admin Users", ["admin"]],
     ["edit.php", "Edit Entries", ["admin", "helper"]],
     ["payment_np.php", "Manage Payment", ["admin", "finanz"]],
     ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]],
     ["assign_sessions.php", "Create/Assign Sessions", ["admin", "morga"]],
     ["categorize_presentations.php", "Categorize Presentations", ["admin", "morga"]],
-    ["manage_session.php", "Manage Session", ["admin", "morga", "orga"]]
+    ["assign_presentations.php", "Assign Presentations to Sessions", ["admin", "morga", "orga"]],
+    ["manage_session.php", "Manage My Session", ["admin", "morga", "orga"]]
     #["test2.php", "testing", ["admin"]]
 );
 

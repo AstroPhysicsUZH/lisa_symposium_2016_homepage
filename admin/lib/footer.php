@@ -14,7 +14,7 @@
             </div>
             <p>
                 SCPS-AI - SimpleConferencePlanningSoftware with Admin Interface<br />
-                <small>2016; &copy; Rafael Kueng; MIT license, unless included components say differently...</small>
+                <small>2016 &copy; Rafael Kueng; MIT license</small>
             </p>
         </footer>
     </div>

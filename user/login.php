@@ -54,7 +54,7 @@ if (isset($_POST["op"]) || isset($_GET["op"])){
         }
 
     }
-    else if ($op=="reset") {
+    elseif ($op=="reset") {
         if (!isset($_POST["email"])) {
             echo "req fields not set2";
             die(1);
@@ -120,7 +120,7 @@ The local OK
         exit;
 
     }
-    else if ($op=="logout") {
+    elseif ($op=="logout") {
         session_start();
         session_destroy();
 

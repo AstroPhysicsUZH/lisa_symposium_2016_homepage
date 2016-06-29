@@ -17,7 +17,10 @@ catch(PDOException $e) {
     echo $e->getMessage();
     echo '<br />';
     var_dump($e->getTraceAsString());
+    die();
 }
+#$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+#$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 header('Content-Type: text/html; charset=utf-8');
 

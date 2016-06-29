@@ -27,6 +27,7 @@ if (! tableExists($db, $sessionsTable) ) {
                 )"
         );
 }
+#$db->exec("ALTER TABLE {$sessionsTable} ADD categories TEXT DEFAULT ''");
 
 
 
@@ -54,7 +55,7 @@ if (!empty($_POST)) {
             print "<script type='text/javascript'>window.location = '$target';</script>";
         }
 
-        else if ($action="edit") {
+        elseif ($action="edit") {
             $id = $_POST['id'];
             $btn = $_POST['btn'];
 
@@ -85,7 +86,7 @@ if (!empty($_POST)) {
                 $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
                 print "<script type='text/javascript'>window.location = '$target';</script>";
             }
-            else if ($btn == "DELETE") {
+            elseif ($btn == "DELETE") {
                 $stmtstr = "DELETE FROM {$sessionsTable} WHERE id = :id";
                 $stmt = $db->prepare($stmtstr);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -157,7 +158,7 @@ if (!empty($_POST)) {
 
 <h3>timeslots</h3>
 <p>
-    enter timeslots like <code>2016-09-05 08:00+12:00</code>
+    enter timeslots like <code>2016-09-05 08:00/12:00; ...</code>
 </p>
 
 

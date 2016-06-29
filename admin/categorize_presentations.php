@@ -21,65 +21,28 @@ if (!empty($_POST)) {
 
     if (array_key_exists("action", $_POST)) {
 
-        #
-        # TODO we need to implement this.... all code down is still old...
-        #
-        #
-
         $action = $_POST["action"];
         unset($_POST["action"]);
 
-        if ($action=="new") {
-            $sname = $_POST['shortName'];
-            $desc = $_POST['description'];
-            $orgas = "";
-            $timeslots = "";
-            $insert = "INSERT INTO {$sessionsTable} (shortName, description, orgas, timeslots) ";
-            $insert .= "VALUES ('$sname', '$desc', '$orgas', '$timeslots') ";
-            $db->exec($insert);
+        if ($action=="assign_cat") {
+            $id = $_POST['id'];
+            $pcat = $_POST['presentationCategories'];
 
-            $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
+            $stmtstr = "UPDATE {$tableName} SET
+                presentationCategories = :pcat
+                WHERE id = :id;";
+            $stmt = $db->prepare($stmtstr);
+            $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+            $stmt->bindParam(':pcat', $pcat , PDO::PARAM_STR);
+
+            $res = $stmt->execute();
+
+            $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "?_=_#frmid" . $id; # ?_=_ part is needed to trigger actual reload
             print "<script type='text/javascript'>window.location = '$target';</script>";
         }
 
-        else if ($action="edit") {
-            $id = $_POST['id'];
-            $btn = $_POST['btn'];
+        elseif ($action="reject") {
 
-            if ($btn=="edit") {
-                $sname = $_POST['shortName'];
-                $desc = $_POST['description'];
-                $orgas = $_POST['orgas'];
-                $timeslots = $_POST['timeslots'];
-
-                $stmtstr = "UPDATE {$sessionsTable} SET
-                    shortName = :sname,
-                    description = :desc,
-                    orgas = :orgas,
-                    timeslots = :ts
-                    WHERE id = :id;";
-                $stmt = $db->prepare($stmtstr);
-                $stmt->bindParam(':id', $id , PDO::PARAM_INT);
-                $stmt->bindParam(':sname', $sname , PDO::PARAM_STR);
-                $stmt->bindParam(':desc', $desc , PDO::PARAM_STR);
-                $stmt->bindParam(':orgas', $orgas , PDO::PARAM_STR);
-                $stmt->bindParam(':ts', $timeslots , PDO::PARAM_STR);
-
-                $res = $stmt->execute();
-
-                $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
-                print "<script type='text/javascript'>window.location = '$target';</script>";
-            }
-            else if ($btn == "DELETE") {
-                $stmtstr = "DELETE FROM {$sessionsTable} WHERE id = :id";
-                $stmt = $db->prepare($stmtstr);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                $res = $stmt->execute();
-
-                $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
-                print "<script type='text/javascript'>window.location = '$target';</script>";
-
-            }
         }
 
         else {
@@ -126,30 +89,34 @@ if (!empty($_POST)) {
 
     $presentations = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
     foreach($presentations as $p) {
+        if ($p->talkType > 0) {$type = ($p->talkType == 1 ? "talk" : "poster");}
+        else {$type = "none";}
 ?>
 
 
-<form id="asscat_<?=$p->id?>"
+<form id="frmid<?=$p->id?>"
     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
     method="post">
-    <h3><code>[<?=$p->id?>]</code> <?=$p->presentationTitle?></h3>
-    <p>
+    <h3 class="presentation"><code>[<?=$p->id?>]</code> <?=$p->presentationTitle?></h3>
+    <p class="summary">
+        Type: <?=$type?> <br />
         By: <?=$p->title?> <?=$p->firstname?> <?=$p->lastname?> (<?=$p->email?>)<br />
         <i><?=$p->affiliation?></i><br />
-        <small><?=$p->coauthors?></small><br />
-        <br />
+        <small>Coauthors: <?=$p->coauthors?></small>
+    </p>
+    <p class="abstract">
         <code><?=nl2br($p->abstract) ?></code>
     </p>
 
-    <div>
-        <label for="presentationCategories" class="left">presentation Categories</label>
+    <div class="inputarea">
+        <label for="presentationCategories" class="left">Assign Categories</label>
         <input
             type="text" name="presentationCategories"
             placeholder="cats" value="<?=$p->presentationCategories ?>">
+        <input type="submit" value="SAVE" class="bigsavebtn" >
     </div>
-    <input type="hidden" name="action" value="ass_cat" >
+    <input type="hidden" name="action" value="assign_cat" >
     <input type="hidden" name="id" value="<?=$p->id?>" >
-    <input type="submit" value="SAVE" class="bigsavebtn" >
 </form>
 
 <?php } ?>

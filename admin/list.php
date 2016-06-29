@@ -30,11 +30,11 @@ try {
         echo "    <tr>\n";
         foreach($row as $key => $val) {
             if (in_array($key, $boolTableFields)) {
-                if      (is_null($val)) {$val = "(not set)";}
-                else if ($val == TRUE)  {$val = "yes";}
-                else    {$val = "no";}
+                if     (is_null($val)) {$val = "(not set)";}
+                elseif ($val == TRUE)  {$val = "yes";}
+                else   {$val = "no";}
             }
-            else if (in_array($key, $choiceTableFields)) {
+            elseif (in_array($key, $choiceTableFields)) {
                 if      (is_null($val)) {$val = "(not set)";}
                 else { $val = $tableFields[$key][2][intval($val)]; }
             }

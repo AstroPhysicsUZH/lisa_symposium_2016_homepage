@@ -54,7 +54,7 @@ if (!empty($_POST)) {
         }
 
 
-        else if ($action=="del") {
+        elseif ($action=="del") {
             print "<h2>deleting</h2>";
             $sql = "DELETE FROM {$tableName} WHERE id = :id";
             $stmt = $db->prepare($sql);
