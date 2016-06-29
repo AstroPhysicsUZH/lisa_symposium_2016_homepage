@@ -289,7 +289,7 @@
 				$from = User::MAILER_NAME;
 				$replyto = User::MAILER_REPLYTO;
 				$domain_name = User::DOMAIN_NAME;
-				$subject = User::DOMAIN_NAME . " admin panel registration";
+				$subject = User::DOMAIN_NAME . " admin section registration";
                 $adminurl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']);
 				$body = <<<EOT
 Hi
@@ -369,7 +369,7 @@ EOT;
 			$body = <<<EOT
 Hi
 
-This is an automated message to let you know that someone requested a password reset for the admin account for the LISA2016 conference linked to this email address.
+This is an automated message to let you know that someone requested a password reset for the admin account for the Admin area of LISA2016 conference linked to this email address.
 
 We have reset the password to the following 12 character string, so make sure to copy/paste it without any leading or trailing spaces:
 
@@ -529,7 +529,7 @@ EOT;
 				$this->update_user_token($username, $sha1);
 				// make the user's data directory
 				$dir = User::USER_HOME . $username;
-				if(!mkdir($dir, 0600)) { $this->error("could not make user directory $dir"); return false; }
+				if(!mkdir($dir, 0600)) { $this->error("could not make user directory $dir"); } #return false; }
 				$this->info("created user directory $dir");
 				// if there is a callback, call it
 				if($registration_callback !== false) { $registration_callback($username, $email, $dir); }
