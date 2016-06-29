@@ -7,13 +7,15 @@ $(document).ready(function() {
 
 <?php
     for ($i = 5; $i < 9; $i++) {
+        if ($i==7){continue;}
         echo <<<EOT
         { start:'2016-09-0{$i}T10:30:00', end:'2016-09-0{$i}T11:00:00', title:'Break' },
-        { start:'2016-09-0{$i}T13:00:00', end:'2016-09-0{$i}T14:00:00', title:'Lunch Break' },
-        { start:'2016-09-0{$i}T16:00:00', end:'2016-09-0{$i}T16:20:00', title:'Break' },
+        { start:'2016-09-0{$i}T13:00:00', end:'2016-09-0{$i}T14:30:00', title:'Lunch Break' },
+        { start:'2016-09-0{$i}T16:30:00', end:'2016-09-0{$i}T17:00:00', title:'Break' },
 EOT;
     };
 ?>
+        { start:'2016-09-07T13:00:00', end:'2016-09-07T14:00:00', title:'Lunch Break' },
 
         // Enter singular break events here
         { start:'2016-09-09T10:30:00', end:'2016-09-09T11:00:00', title:'Break' },

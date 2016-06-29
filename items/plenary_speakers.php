@@ -7,7 +7,10 @@
     <li>Paul Mc Namara (ESA)</li>
     <li>Stefano Vitale (University of Trento)</li>
     <li>Bill Weber (University of Trento)</li>
-    <li>Martin Hewitson (Max Planck Institute for Gravitational Physics; Hannover)</li>
+    <li>
+        Martin Hewitson &mdash; In-flight Performance of the Optical Metrology System on LISA Pathfinder<br>
+        (Max Planck Institute for Gravitational Physics; Hannover)
+    </li>
     <li>Harry Ward (Institute for Gravitational Research, University of Glasgow)</li>
 </ul>
 
@@ -60,7 +63,9 @@
 <h4>Science with LIGO/LISA</h4>
 <ul>
     <li>Antoine Klein (Université Paris-Diderot)</li>
-    <li>Antoine Petiteau (Université Paris-Diderot)</li>
+    <li>
+        Antoine Petiteau &mdash; eLISA science performances in the context of LISAPathfinder first results<br>
+        (Université Paris-Diderot)</li>
     <li>Alberto Sesana (University of Birmingham)</li>
     <li>Bernard Schutz (Max Planck Institute for Gravitational Physics, Potsdam)</li>
 </ul>
