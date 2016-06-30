@@ -12,7 +12,7 @@ $nImpared = (int)$db->query("SELECT SUM(CASE WHEN isImpaired THEN 1 ELSE 0 END) 
 $nContributions = (int)$db->query("SELECT SUM(CASE WHEN talkType>0 THEN 1 ELSE 0 END) FROM  {$tableName}")->fetchColumn();
 $nTalks = (int)$db->query("SELECT SUM(CASE WHEN talkType=1 THEN 1 ELSE 0 END) FROM  {$tableName}")->fetchColumn();
 $nPosters = (int)$db->query("SELECT SUM(CASE WHEN talkType=2 THEN 1 ELSE 0 END) FROM  {$tableName}")->fetchColumn();
-$nCategorised = (int)$db->query("SELECT SUM(CASE WHEN presentationCategories<>'' THEN 1 ELSE 0 END) FROM  {$tableName}")->fetchColumn();
+$nCategorised = (int)$db->query("SELECT SUM(CASE WHEN presentationCategories<>'' THEN 1 ELSE 0 END) FROM {$tableName}")->fetchColumn();
 $nSession = (int)$db->query("SELECT SUM(CASE WHEN assignedSession<>'' THEN 1 ELSE 0 END) FROM  {$tableName}")->fetchColumn();
 
 
