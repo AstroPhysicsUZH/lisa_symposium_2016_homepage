@@ -4,9 +4,17 @@
 
 <h4>on LISA Pathfinder</h4>
 <ul>
-    <li>Paul Mc Namara (ESA)</li>
-    <li>Stefano Vitale (University of Trento)</li>
-    <li>Bill Weber (University of Trento)</li>
+    <li>
+        Paul Mc Namara &mdash; LISA Pathfinder: First steps to observing gravitational waves from space <br />
+        (ESA)
+    </li>
+    <li>
+        Stefano Vitale &mdash; The LTP experiment on LISA Pathfinder and its first results<br />
+        (University of Trento)</li>
+    <li>
+        Bill Weber &mdash; Physical model of the LISA Pathfinder differential acceleration measurement and its application to LISA<br />
+        (University of Trento)
+    </li>
     <li>
         Martin Hewitson &mdash; In-flight Performance of the Optical Metrology System on LISA Pathfinder<br>
         (Max Planck Institute for Gravitational Physics; Hannover)
@@ -27,7 +35,10 @@
 
 <h4>Grace &ndash; Follow on discussion</h4>
 <ul>
-    <li>Gerhard Heinzel (Max Planck Institute for Gravitational Physics; Hannover)</li>
+    <li>
+        Gerhard Heinzel &mdash; Satellite interferometry from LTP and GRACE Follow-On to LISA<br />
+        (Max Planck Institute for Gravitational Physics; Hannover)
+    </li>
 </ul>
 
 <h4>Microscope</h4>
@@ -37,16 +48,20 @@
 
 <h4>LIGO / Advanced VIRGO</h4>
 <ul>
-    <li>Fulvio Ricci &mdash; Advanced VIRGO: State of the Art <br />
-        (Università La Sapienza; Roma)</li>
+    <li>
+        Fulvio Ricci &mdash; Advanced VIRGO: State of the Art <br />
+        (Università La Sapienza; Roma)
+    </li>
     <li>Katherine Dooley (University of Mississippi)</li>
 </ul>
 
 <h4>Astrophysics and Cosmology with GW</h4>
 <ul>
     <li>Pierre Binétruy (Université Paris-Diderot)</li>
-    <li>Roger Blandford &mdash; The Future of Black Hole Astrophysics in the LISA-VIRGO-LPF Era<br />
-        (Stanford University)</li>
+    <li>
+        Roger Blandford &mdash; The Future of Black Hole Astrophysics in the LISA-VIRGO-LPF Era<br />
+        (Stanford University)
+    </li>
     <li>Kelly Holley-Bockelmann (Vanderbilt University; Nashville, Tennessee)</li>
 </ul>
 
@@ -65,7 +80,8 @@
     <li>Antoine Klein (Université Paris-Diderot)</li>
     <li>
         Antoine Petiteau &mdash; eLISA science performances in the context of LISAPathfinder first results<br>
-        (Université Paris-Diderot)</li>
+        (Université Paris-Diderot)
+    </li>
     <li>Alberto Sesana (University of Birmingham)</li>
     <li>Bernard Schutz (Max Planck Institute for Gravitational Physics, Potsdam)</li>
 </ul>
