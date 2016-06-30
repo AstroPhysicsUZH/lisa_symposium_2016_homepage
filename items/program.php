@@ -27,8 +27,8 @@ EOT;
     // Enter Plenary Talks
     var evtSrcsCTalks = { events: [
         // MO
-        { start:'2016-09-05T09:00:00', end:'2016-09-05T09:30:00', title:'Opening' },
-        { start:'2016-09-05T09:30:00', end:'2016-09-05T13:00:00', title:'Talks' },
+        { start:'2016-09-05T09:00:00', end:'2016-09-05T09:15:00', title:'Opening' },
+        { start:'2016-09-05T09:15:00', end:'2016-09-05T13:00:00', title:'Talks' },
         // Di
         { start:'2016-09-06T09:00:00', end:'2016-09-06T13:00:00', title:'Talks' },
         // Mi
