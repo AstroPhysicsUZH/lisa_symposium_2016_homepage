@@ -87,8 +87,9 @@ footer {
     clear: both;
     position: relative;
     margin-top: 3em;
+    padding-top: 5px;
     background:#fff;
-    border-top: 1px dotted black;
+    border-top: 1px solid black;
     text-align: right;
     vertical-align: middle;
 }
@@ -245,7 +246,7 @@ table.edit input.left {
 
 .log {
     position: absolute;
-    top: 0px;
+    top: 5px;
     left: 0px;
     text-align: left;
 }
@@ -301,3 +302,73 @@ input[type=button], input[type=submit] { position: relative; float: right; top: 
 
 a { text-decoration: none; }
 */
+
+
+@media print {
+
+    .loggedinbox {
+        display: none;
+    }
+    h1, h2 {
+        display: inline-block;
+        margin: 0px;
+        padding: 0 0 0.25em 0;
+    }
+    nav {
+        float: none;
+        width: auto;
+        margin-bottom: 1em;
+        border-bottom: 3px solid black;
+        padding-bottom: 0.5em;
+    }
+    nav .menu {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav .menu.act {
+        display:block;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+    }
+    nav .menu.act:before {
+        content: "menu > ";
+    }
+
+    #main {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+    }
+
+    .inputarea {
+        font-size: 8pt;
+    }
+
+    input,
+    input[type=button],
+    input[type=submit],
+    input[type=text],
+    input[type=password],
+    select {
+        font-size: 8pt;
+        background-color:transparent !important;
+        margin: 0.25em 0em;
+        padding: 0.125em;
+        border: 1px solid black !important;
+        border-radius: 5px;
+        box-sizing: border-box;
+        box-shadow: none !important;
+    }
+
+    footer {
+        border-top-width: 2px;
+    }
+
+    footer .log {
+        display: none;
+    }
+
+}
