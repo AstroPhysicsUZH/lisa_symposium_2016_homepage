@@ -24,7 +24,10 @@
 
 <h4>on LISA</h4>
 <ul>
-    <li>Karsten Danzmann (Max Planck Institute for Gravitational Physics; Hannover)</li>
+    <li>
+        Karsten Danzmann &mdash; The Status of LISA<br />
+        (Max Planck Institute for Gravitational Physics; Hannover)
+    </li>
     <li>Oliver Jennrich (ESA)</li>
 </ul>
 
