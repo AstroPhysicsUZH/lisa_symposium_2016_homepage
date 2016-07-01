@@ -112,6 +112,50 @@ if (array_key_exists('sid', $_GET)) {
         Please be patient, I'll implement a nice little graphical overview in the next
         few days...
     </p>
+    <div id="timeline_container">
+
+    </div>
+
+    <script type="text/javascript">
+$(function(){
+    var container = document.getElementById('timeline_container');
+
+    var items = new vis.DataSet([
+        {id: 'A', content: 'Period A', start: '2016-09-01', end: '2016-09-05', type: 'background'},
+        {id: 'B', content: 'Period B', start: '2016-09-09', end: '2016-09-30', type: 'background', className: 'negative'},
+
+        {id: 1, content: 'item 1', start: '2016-09-20'},
+        {id: 2, content: 'item 2', start: '2016-09-14'},
+        {id: 3, content: 'item 3', start: '2016-09-18'},
+        {id: 4, content: 'item 4', start: '2016-09-16', end: '2016-09-19'},
+        {id: 5, content: 'item 5', start: '2016-09-15'},
+        {id: 6, content: 'item 6', start: '2016-09-17'}
+    ]);
+
+    // Configuration for the Timeline
+    var options = {
+        editable: true,
+        min: new Date("2016-09-01"),
+        max: new Date("2016-09-30"),
+    };
+
+    var groups = [
+      {
+        id: 1,
+        content: 'Group 1'
+        // Optional: a field 'className', 'style'
+      }
+      // more groups...
+    ];
+
+    var timeline = new vis.Timeline(container, items, options);
+
+    timeline.on('rangechanged', function (properties) {
+        console.log('rangechanged', properties);
+    });
+})
+    </script>
+
     <h2>Presentations</h2>
 
 <?php

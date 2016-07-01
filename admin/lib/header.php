@@ -30,13 +30,17 @@ header('Content-Type: text/html; charset=utf-8');
 
 <head>
     <title>LISA meeting - administraion area</title>
-    <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src='../js/jquery/jquery.min.js'></script>
-    <script src='../js/moment/moment.min.js'></script>
+    <!--<script src='../js/moment/moment.min.js'></script>-->
+
     <script src='js/sha1.js'></script>
     <script src='js/user.js'></script>
+
+    <script src="vis.js/vis.min.js"></script>
+    <link href="vis.js/vis.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
