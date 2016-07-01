@@ -31,9 +31,10 @@
     <li>Oliver Jennrich (ESA)</li>
 </ul>
 
-<h4>ESA Plans</h4>
+<h4>ESA/NASA Plans</h4>
 <ul>
     <li>Alvaro Giménez Cañete (Director of Science, ESA)</li>
+    <li>Paul Hertz (NASA, Director, Astrophysics Division, Science Mission Directorate)</li>
 </ul>
 
 <h4>Grace &ndash; Follow on discussion</h4>
@@ -70,7 +71,10 @@
 
 <h4>Pulsar Timing Array</h4>
 <ul>
-    <li>Chiara Mingarelli (California Institute of Technology and Max Planck Institute for Radio Astronomy)</li>
+    <li>
+        Chiara Mingarelli &mdash; The Gravitational-Wave Universe Seen by Pulsar Timing Arrays <br>
+        (California Institute of Technology and Max Planck Institute for Radio Astronomy)
+    </li>
 </ul>
 
 <h4>Einstein Telescope</h4>
@@ -92,4 +96,9 @@
 <h4>KAGRA and DECIGO</h4>
 <ul>
     <li>Shuichi Sato (Hosei University, Tokyo)</li>
+</ul>
+
+<h4>EM follow up</h4>
+<ul>
+    <li>Stephen Smartt (Queen's University Belfast) </li>
 </ul>
