@@ -1,5 +1,5 @@
 <?php
-require "lib/header.php";
+require_once "lib/headerphp.php";
 
 
 
@@ -47,6 +47,25 @@ if (!empty($_POST)) {
             $target = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . ($sid ? "?sid=$sid" : "?_=_") . "#frmid" . $id; # ?_=_ part is needed to trigger actual reload
             print "<script type='text/javascript'>window.location = '$target';</script>";
         }
+
+        # the following create json output for ajax access
+        elseif ($action = "get_data") {
+            $sid = "";
+            $stmtstr = "SELECT
+                            id, title, firstname, lastname, email, affiliation,
+                            talkType, presentationTitle, coauthors, abstract, presentationCategories,
+                            assignedSession, isPresentationAccepted, acceptedType,
+                            presentationSlot, presentationDuration, posterPlace
+                        FROM {$tableName}
+                        WHERE assignedSession=:sid;";
+            $stmt = $db->prepare($stmtstr);
+            $stmt->bindParam(':sid', $sid , PDO::PARAM_INT);
+            $stmt->execute();
+            $presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            exit(); # end output here
+        }
+
         else {
             print "huch??";
             require "lib/footer.php";
@@ -59,10 +78,9 @@ if (!empty($_POST)) {
     require "lib/footer.php";
     die();
 }
+
+require_once "lib/headerhtml.php";
 ?>
-
-
-
 
 
 
