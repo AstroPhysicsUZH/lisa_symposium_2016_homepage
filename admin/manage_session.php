@@ -1,5 +1,5 @@
 <?php
-require "lib/header.php";
+require_once "lib/headerphp.php";
 
 
 if (array_key_exists('sid', $_GET)) {
@@ -192,7 +192,6 @@ if (!empty($_POST)) {
 
 
             exit();
-
         }
 
         else {
@@ -207,6 +206,8 @@ if (!empty($_POST)) {
     require "lib/footer.php";
     die();
 }
+
+require_once "lib/headerhtml.php";
 
 #
 # DISPLAY MENU ONLY
