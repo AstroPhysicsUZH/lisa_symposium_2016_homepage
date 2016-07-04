@@ -80,6 +80,9 @@ $baseFee = $now < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular;
 $abstractSubmissionDate = new DateTime("2016-07-15 23:59:59");
 $conferenceDinnerDate = new DateTime("2016-09-07 19:00:00");
 
+$conferenceStartDay = new DateTime("2016-09-05 00:00:00");
+$conferenceEndDay = new DateTime("2016-09-09 23:59:59");
+
 /**
     Setup the application & database
 ******************************************************************************/
@@ -158,6 +161,18 @@ foreach ($tableFields as $key => $val) {
     elseif ($val[1]=='hex')     { $hexTableFields[] = $key; }
 }
 
+define("PRESENTATION_TYPE_NONE", 0);
+define("PRESENTATION_TYPE_TALK", 1);
+define("PRESENTATION_TYPE_POSTER", 2);
 
+define("PRESENTATION_STR_NONE", 'none');
+define("PRESENTATION_STR_TALK", 'talk');
+define("PRESENTATION_STR_POSTER", 'poster');
+
+function GET_PRES_STR( $index ) {
+    if ( $index ==  PRESENTATION_TYPE_NONE ) { return PRESENTATION_STR_NONE; }
+    elseif ( $index ==  PRESENTATION_TYPE_TALK ) { return PRESENTATION_STR_TALK; }
+    elseif ( $index ==  PRESENTATION_TYPE_POSTER ) { return PRESENTATION_STR_POSTER; }
+}
 
 ?>
