@@ -100,7 +100,7 @@ $all_sessions = $db->query( "SELECT * FROM {$sessionsTable}")->fetchAll(PDO::FET
 foreach($all_sessions as $s) {
     # print "{$s->shortName} {$s->orgas} <br>";
     if ( in_array($_SESSION["username"], explode(';', $s->orgas))
-        || $USER->role == "admin" ) {
+        || in_array($USER->role, $special_power_roles) ) {
 
         foreach(explode(';', $s->categories) as $c) {
             $my_cats[$c] = TRUE;
