@@ -3,9 +3,9 @@
 
 <h1>Programme</h1>
 
-<!--
+
 <?php require "items/program.php"; ?>
--->
+
 <p class="small">
     (will be refined as soon as details are known)
 </p>
