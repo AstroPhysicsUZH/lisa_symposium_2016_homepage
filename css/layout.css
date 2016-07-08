@@ -491,6 +491,10 @@ ul.speakers a.title {
     display: block;
 }
 
+ul.speakers a.title.linked {
+    color: #008;
+}
+
 ul.speakers a.title.linked:hover {
     color: #00f;
     text-decoration: underline;
@@ -514,18 +518,21 @@ ul.speakers div.modal_abstract {
 
 ul.speakers div.modal_abstract .container {
     position: fixed;
+    transform: translate(0, -50%);
     top: 50%;
+    right: 5%;
+    left: 5%;
+
+    width: auto;
+    max-height: 80%;
 
     margin: 0;
-
-    transform: translate(0, -50%);
-    background-color: #fefefe;
     padding: 20px;
+
     border: 1px solid #888;
-    width: 40%;
-    right: 10%;
     border-radius: 1em;
-    max-height: 80%;
+
+    background-color: #fefefe;
     overflow: auto;
 }
 
@@ -578,6 +585,12 @@ ul.speakers .mod_title {
         min-height: 20em; /* make it bitter than the menu */
     }
 
+    ul.speakers div.modal_abstract .container {
+        left: auto;
+        right: 10%;
+
+        width: 40%;
+    }
 
 }
 
@@ -637,4 +650,29 @@ ul.speakers .mod_title {
         color: black;
     }
 
+
+    ul.speakers div.modal_abstract {
+        display: block;
+        position: static;
+        background-color: white;
+        height: auto;
+        width: auto;
+
+    }
+    ul.speakers div.modal_abstract .container {
+        display: block;
+        position: static;
+        transform: none;
+        border: none;
+        border-left: 3px solid black;
+        padding: 0 0 0 1em;
+        margin: 0.25em 0.25em 0.25em 2em;
+        font-size: 80%;
+    }
+    ul.speakers div.modal_abstract .close,
+    ul.speakers .mod_name,
+    ul.speakers .mod_aff,
+    ul.speakers .mod_title {
+        display: none;
+    }
 }

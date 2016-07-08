@@ -61,7 +61,7 @@ $topics = [
         [
             'name' => "Alvaro Giménez Cañete",
             'affil' => "Director of Science, ESA",
-            'title' => "",
+            'title' => "Beyond LISA Pathfinder",
             'abstract' => ""
         ],
         [
@@ -86,7 +86,7 @@ $topics = [
         [
             'name' => "Joel Bergé",
             'affil' => "French Aeropace Lab ONERA; Palaiseau",
-            'title' => "",
+            'title' => "MICROSCOPE: the first few months in orbit",
             'abstract' => ""
         ]
     ],
@@ -237,7 +237,7 @@ foreach($topics as $topic => $speakers) {
         <a class="title linked" onclick="
             document.getElementById('mod_abstr_<?=$id?>').style.display = 'block';
             ">
-            &lsaquo; <?=$speaker['title']?> &rsaquo; [&hellip;]
+            &lsaquo; <?=$speaker['title']?> &rsaquo; <small>[ abstract ]</small>
         </a>
         <div id="mod_abstr_<?=$id?>" class="modal_abstract" onclick="
             document.getElementById('mod_abstr_<?=$id?>').style.display = 'none';

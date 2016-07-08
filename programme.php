@@ -12,7 +12,5 @@
 
 
 <?php require "items/plenary_speakers.php"; ?>
-
 <?php require "items/show_parallelsessions.php"; ?>
-
 <?php require "items/conference_dinner.php"; ?>
