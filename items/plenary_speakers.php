@@ -84,10 +84,11 @@ $topics = [
 
     "Microscope" => [
         [
+            'regid' => 104,
             'name' => "Joel Bergé",
             'affil' => "French Aeropace Lab ONERA; Palaiseau",
             'title' => "MICROSCOPE: the first few months in orbit",
-            'abstract' => ""
+            'abstract' => "MICROSCOPE is a CNES/ONERA mission that aims to test the Weak Equivalence Principle in space with an unprecedented accuracy. It was launch on April 25, 2016. We will present the science objectives and the technology of the mission, and report on the first few months of operation."
         ]
     ],
 
@@ -233,7 +234,7 @@ foreach($topics as $topic => $speakers) {
 <?php
             }
             else {
- ?>
+?>
         <a class="title linked" onclick="
             document.getElementById('mod_abstr_<?=$id?>').style.display = 'block';
             ">
