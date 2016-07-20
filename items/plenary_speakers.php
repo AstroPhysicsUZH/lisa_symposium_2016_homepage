@@ -67,7 +67,7 @@ $topics = [
         [
             'name' => "Paul Hertz",
             'affil' => "NASA, Director, Astrophysics Division, Science Mission Directorate",
-            'title' => "",
+            'title' => "NASA Astrophysics Program: Present and Future",
             'abstract' => ""
         ]
     ],
@@ -103,17 +103,18 @@ $topics = [
             'regid' => 85,
             'name' => "Katherine Dooley",
             'affil' => "University of Mississippi",
-            'title' => "News from the Dark Universe",
+            'title' => "Advanced LIGO: News from the Dark Universe",
             'abstract' => "After over 50 years of effort, scientists and engineers recently succeeded in the challenge to measure the infinitesimal changes in the separation between two mirrors caused by cataclysmic events in the distant universe. During its first observing run in fall 2015, the Advanced LIGO interferometers witnessed the passing of gravitational waves created by the collisions of black holes over 1 billion light-years away. These first and second detections of gravitational waves bring to life a new instrument for astronomy, delivering news from the otherwise invisible affairs of the cosmos. I will describe the Advanced LIGO interferometers, the detections that have been made, and the outlook of ongoing and planned instrument work to further improve Advanced LIGO's sensitivity for future observing runs."
         ]
     ],
 
     "Astrophysics and Cosmology with GW" => [
         [
+            'regid' => 146,
             'name' => "Pierre Binétruy",
             'affil' => "Université Paris-Diderot",
-            'title' => "",
-            'abstract' => ""
+            'title' => "Cosmology with LISA",
+            'abstract' => "I will review the scientific potential of the LISA mission from the point of view of the cosmology of the early Universe, emphasizing what we have learned in the last two years."
         ],
         [
             'name' => "Roger Blandford",
@@ -131,10 +132,11 @@ $topics = [
 
     "Pulsar Timing Array" => [
         [
+            'regid' => 110,
             'name' => "Chiara Mingarelli",
             'affil' => "California Institute of Technology and Max Planck Institute for Radio Astronomy",
             'title' => "The Gravitational-Wave Universe Seen by Pulsar Timing Arrays",
-            'abstract' => ""
+            'abstract' => "Galaxy mergers are a standard aspect of galaxy formation and evolution, and most (likely all) large galaxies contain supermassive black holes. As part of the merging process, the supermassive black holes should in-spiral together and eventually merge, generating a background of gravitational radiation in the nanohertz and microhertz regime. Processes in the early Universe such as relic gravitational waves and cosmic strings may also generate gravitational radiation in the same frequency band. An array of precisely timed pulsars spread across the sky can form a galactic-scale gravitational wave detector in the nanohertz band. I describe the current efforts to develop and extend the pulsar timing array concept, together with recent limits which have emerged from international efforts to constrain astrophysical phenomena at the heart of supermassive black hole mergers."
         ]
     ],
 
@@ -142,7 +144,7 @@ $topics = [
         [
             'name' => "B. S. Sathyaprakash",
             'affil' => "Cardiff University",
-            'title' => "",
+            'title' => "Exploring the Universe  with 3G Interferometers",
             'abstract' => ""
         ]
     ],
@@ -152,10 +154,11 @@ $topics = [
             'regid' => 92,
             'name' => "Antoine Klein",
             'affil' => "Université Paris-Diderot",
-            'title' => "",
-            'abstract' => ""
+            'title' => "Supermassive Black Hole Observations with eLISA",
+            'abstract' => "We compare the science capabilities of different eLISA configurations for supermassive black hole binary observations. We vary the numer of links, armlength, low-frequency noise level, and mission duration. We consider different binary formation scenarios, with different black hole seeding mechanisms, and including delays between galaxy mergers and black hole mergers."
         ],
         [
+            'regid' => 12,
             'name' => "Antoine Petiteau",
             'affil' => "Université Paris-Diderot",
             'title' => "eLISA science performances in the context of LISAPathfinder first results",
@@ -178,10 +181,11 @@ $topics = [
 
     "KAGRA and DECIGO" => [
         [
+            "regid" => 96,
             'name' => "Shuichi Sato",
             'affil' => "Hosei University, Tokyo",
-            'title' => "",
-            'abstract' => ""
+            'title' => "The status of DECIGO",
+            'abstract' => "This talk will summarise the status of DECIGO and its precursor satellite Pre-DECIGO,  mainly focusing on the recently re-planned roadmap to DECIGO. Very preliminary, but some basic ideas for conceptual design for these missions will be discussed."
         ]
     ],
 
