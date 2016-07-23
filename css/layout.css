@@ -120,16 +120,19 @@ article h1 {
 }
 
 article h2 {
+    margin: 2em 0 0.5em 0;
     border-bottom: 1px dotted black;
     font-size: 1.2em;
 }
 
 article h3 {
-    margin: 0.5em 0 0.25em 0;
+    margin: 1em 0 0.25em 0;
+    font-size: 1.0em;
 }
 
 article h4 {
     margin: 0.5em 0 0.2em 0;
+    font-size: 1.0em;
 }
 
 article p,
@@ -461,6 +464,106 @@ textarea:required:valid + span::after {
 }
 
 
+ul.speakers {
+
+}
+
+ul.speakers li.speaker_topic {
+    margin-bottom: 0.5em;
+    border-bottom: 1px dotted black;
+    padding-bottom: 0.5em;
+}
+ul.speakers li.speaker_topic:last-child {
+    border-bottom: none;
+}
+
+ul.speakers span.speaker {
+
+}
+
+ul.speakers span.affiliation {
+    font-size: 80%;
+    font-style: italic;
+}
+
+ul.speakers a.title {
+    font-weight: bold;
+    display: block;
+}
+
+ul.speakers a.title.linked {
+    color: #008;
+}
+
+ul.speakers a.title.linked:hover {
+    color: #00f;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+ul.speakers div.modal_abstract {
+    clear:both;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    /* z-index: 1; /* Sit on top */
+    /* padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.66); /* Black w/ opacity */
+}
+
+ul.speakers div.modal_abstract .container {
+    position: fixed;
+    transform: translate(0, -50%);
+    top: 50%;
+    right: 5%;
+    left: 5%;
+
+    width: auto;
+    max-height: 80%;
+
+    margin: 0;
+    padding: 20px;
+
+    border: 1px solid #888;
+    border-radius: 1em;
+
+    background-color: #fefefe;
+    overflow: auto;
+}
+
+ul.speakers div.modal_abstract .close {
+    color: #ffaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+ul.speakers div.modal_abstract .close:hover,
+ul.speakers div.modal_abstract .close:focus {
+    color: #ff3333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul.speakers .mod_name {
+    display: block;
+}
+ul.speakers .mod_aff {
+    display: block;
+    font-size: 75%;
+    font-style: italic;
+}
+ul.speakers .mod_title {
+    display: block;
+    font-weight: bold;
+    padding: 0.5em 0 1em 0;
+}
+
+
 
 
 
@@ -482,6 +585,12 @@ textarea:required:valid + span::after {
         min-height: 20em; /* make it bitter than the menu */
     }
 
+    ul.speakers div.modal_abstract .container {
+        left: auto;
+        right: 10%;
+
+        width: 40%;
+    }
 
 }
 
@@ -541,4 +650,29 @@ textarea:required:valid + span::after {
         color: black;
     }
 
+
+    ul.speakers div.modal_abstract {
+        display: block;
+        position: static;
+        background-color: white;
+        height: auto;
+        width: auto;
+
+    }
+    ul.speakers div.modal_abstract .container {
+        display: block;
+        position: static;
+        transform: none;
+        border: none;
+        border-left: 3px solid black;
+        padding: 0 0 0 1em;
+        margin: 0.25em 0.25em 0.25em 2em;
+        font-size: 80%;
+    }
+    ul.speakers div.modal_abstract .close,
+    ul.speakers .mod_name,
+    ul.speakers .mod_aff,
+    ul.speakers .mod_title {
+        display: none;
+    }
 }

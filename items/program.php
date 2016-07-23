@@ -15,6 +15,7 @@ $(document).ready(function() {
 EOT;
     };
 ?>
+        { start:'2016-09-07T10:30:00', end:'2016-09-07T11:00:00', title:'Break' },
         { start:'2016-09-07T13:00:00', end:'2016-09-07T14:00:00', title:'Lunch Break' },
 
         // Enter singular break events here
@@ -28,16 +29,16 @@ EOT;
     var evtSrcsCTalks = { events: [
         // MO
         { start:'2016-09-05T09:00:00', end:'2016-09-05T09:15:00', title:'Opening' },
-        { start:'2016-09-05T09:15:00', end:'2016-09-05T13:00:00', title:'Talks' },
+        { start:'2016-09-05T09:15:00', end:'2016-09-05T13:00:00', title:'Plenary Talks' },
         // Di
-        { start:'2016-09-06T09:00:00', end:'2016-09-06T13:00:00', title:'Talks' },
+        { start:'2016-09-06T09:00:00', end:'2016-09-06T13:00:00', title:'Plenary Talks' },
         // Mi
-        { start:'2016-09-07T09:00:00', end:'2016-09-07T13:00:00', title:'Talks' },
+        { start:'2016-09-07T09:00:00', end:'2016-09-07T13:00:00', title:'Plenary Talks' },
         { start:'2016-09-07T14:00:00', end:'2016-09-07T17:00:00', title:'Joint eLISA and L3ST consortium meeting' },
         // Do
-        { start:'2016-09-08T09:00:00', end:'2016-09-08T13:00:00', title:'Talks' },
+        { start:'2016-09-08T09:00:00', end:'2016-09-08T13:00:00', title:'Plenary Talks' },
         // Fr
-        { start:'2016-09-09T09:00:00', end:'2016-09-09T13:00:00', title:'Talks' },
+        { start:'2016-09-09T09:00:00', end:'2016-09-09T13:00:00', title:'Plenary Talks' },
     ], color:'#88ff88', textColor:'black', borderColor:'#008800' };
 
     // Enter Parallelsessions

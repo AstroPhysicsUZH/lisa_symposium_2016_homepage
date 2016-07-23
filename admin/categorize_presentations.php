@@ -72,7 +72,9 @@ if (!empty($_POST)) {
 <?php
     $categories = $db->query( "SELECT DISTINCT presentationCategories FROM {$tableName}" )->fetchAll(PDO::FETCH_OBJ);
     foreach($categories as $c) {
-        print "<li><code>{$c->presentationCategories}</code></li>";
+        if ( $c->presentationCategories != "" ) {
+            print "<li><code>{$c->presentationCategories}</code></li>";
+        }
     }
 ?>
 </ul>
