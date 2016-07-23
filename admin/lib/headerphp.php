@@ -4,6 +4,7 @@
 **/
 
 require_once "user.php";
+require_once "menu.php";
 require_once "../lib/app.php";
 
 $USER = new User();

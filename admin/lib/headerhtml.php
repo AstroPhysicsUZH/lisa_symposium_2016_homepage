@@ -37,7 +37,7 @@
     </header>
 
     <nav>
-<?php if($USER->authenticated) {require "menu.php";} ?>
+<?php if($USER->authenticated) {printmenu();} ?>
     </nav>
 
     <div id="main">

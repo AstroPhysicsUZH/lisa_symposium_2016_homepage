@@ -27,12 +27,20 @@ foreach ($admin_modules as $value) {
     #print_r($acl);
     #print_r($USER->role);
     #print_r( in_array($USER->role, $acl)?"4":"0");
-
-    if ( in_array($USER->role, $acl) ) {
-        $act = ($site == basename($_SERVER["SCRIPT_NAME"]) ? " act'" : "'    " );
-        print "        <a class='menu$act href=\"$site\">$name</a>\n";
-    }
-
 }
 
+function printmenu() {
+    global $admin_modules;
+    global $USER;
+    foreach ($admin_modules as $value) {
+        $site = $value[0];
+        $name = $value[1];
+        $acl  = $value[2];
+        if ( in_array($USER->role, $acl) ) {
+            $act = ($site == basename($_SERVER["SCRIPT_NAME"]) ? " act'" : "'    " );
+            print "        <a class='menu$act href=\"$site\">$name</a>\n";
+        }
+
+    }
+}
 ?>
