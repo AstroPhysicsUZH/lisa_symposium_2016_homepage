@@ -17,7 +17,7 @@ try {
     echo "<table{$style2}'>\n";
 
     // Select all data from memory db messages table
-    $result = $db->query("SELECT * FROM {$tableName} ORDER BY lastname ASC, firstname ASC;", PDO::FETCH_ASSOC);
+    $result = $db->query("SELECT * FROM {$tableName} ORDER BY LOWER(lastname) ASC, firstname ASC;", PDO::FETCH_ASSOC);
 
     echo "  <tbody>\n";
     foreach($result as $r) {
