@@ -161,10 +161,12 @@ foreach ($tableFields as $key => $val) {
     elseif ($val[1]=='hex')     { $hexTableFields[] = $key; }
 }
 
+define("PRESENTATION_TYPE_REJECTED", -1);
 define("PRESENTATION_TYPE_NONE", 0);
 define("PRESENTATION_TYPE_TALK", 1);
 define("PRESENTATION_TYPE_POSTER", 2);
 
+define("PRESENTATION_STR_REJECTED", 'rejected');
 define("PRESENTATION_STR_NONE", 'none');
 define("PRESENTATION_STR_TALK", 'talk');
 define("PRESENTATION_STR_POSTER", 'poster');
