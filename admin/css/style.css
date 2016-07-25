@@ -156,12 +156,22 @@ table form {
     box-shadow: 5px 5px 0px #383 !important;
 }
 
+.bottomborder {
+    border-bottom: 1px solid black;
+}
+.topborder {
+    margin-top: 0.5em;
+    border-top: 1px solid black;
+    padding-top: 0.5em;
+}
+
 input,
 input[type=button],
 input[type=submit],
 input[type=text],
 input[type=password],
-select {
+select,
+textarea {
     background-color:#ffa;
     margin: 1em 0.5em;
     padding: 0.5em;

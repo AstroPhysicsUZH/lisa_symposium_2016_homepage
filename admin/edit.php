@@ -170,12 +170,20 @@ if (array_key_exists('id', $_GET)):
             <td><label for="needInet">Need WIFI</label></td>
         </tr>
 
-        <tr>
-            <td><label for="talkType" class="left">Talk Type</label></td>
+        <tr class='topborder'>
+            <td><label for="talkType" class="left">requested Talk Type</label></td>
             <td>
                 <input id="talkType"
                     type="text" name="talkType" placeholder="talktype 0:none, 1:talk, 2:poster"
                     value="<?=$p->talkType?>">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="acceptedType" class="left">accepted Talk Type</label></td>
+            <td>
+                <input id="acceptedType"
+                    type="text" name="acceptedType" placeholder="talktype 0:none, 1:talk, 2:poster"
+                    value="<?=$p->acceptedType?>">
             </td>
         </tr>
 
@@ -197,8 +205,67 @@ if (array_key_exists('id', $_GET)):
             </td>
         </tr>
 
-
         <tr>
+            <td><label for="presentationCategories" class="left">Category</label></td>
+            <td>
+                <input id="presentationCategories"
+                    type="text" name="presentationCategories" placeholder=""
+                    value="<?=$p->presentationCategories?>">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="assignedSession" class="left">SID</label></td>
+            <td>
+                <input id="assignedSession"
+                    type="text" name="assignedSession" placeholder=""
+                    value="<?=$p->assignedSession?>">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="isPresentationChecked"
+                    class="left" type="checkbox"
+                    name="isPresentationChecked" value="checked"
+                    <?= $p->isPresentationChecked ? "checked" : "" ?> >
+            </td>
+            <td><label for="isPresentationChecked">isPresentationChecked</label></td>
+        </tr>
+        <tr>
+            <td>
+                <input id="isPresentationAccepted"
+                    class="left" type="checkbox"
+                    name="isPresentationAccepted" value="checked"
+                    <?= $p->isPresentationAccepted ? "checked" : "" ?> >
+            </td>
+            <td><label for="isPresentationAccepted">isPresentationAccepted</label></td>
+        </tr>
+        <tr>
+            <td><label for="presentationSlot" class="left">slot datetime</label></td>
+            <td>
+                <input id="presentationSlot"
+                    type="text" name="presentationSlot" placeholder=""
+                    value="<?=$p->presentationSlot?>">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="presentationDuration" class="left">duration</label></td>
+            <td>
+                <input id="presentationDuration"
+                    type="text" name="presentationDuration" placeholder=""
+                    value="<?=$p->presentationDuration?>">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="posterPlace" class="left">posterPlace</label></td>
+            <td>
+                <input id="posterPlace"
+                    type="text" name="posterPlace" placeholder=""
+                    value="<?=$p->posterPlace?>">
+            </td>
+        </tr>
+
+
+        <tr class='topborder'>
             <td><label for="nPersons">Acc persons</label></td>
             <td>
                 <input id="nPersons"
@@ -233,7 +300,7 @@ if (array_key_exists('id', $_GET)):
             </td>
             <td><label for="lookingForRoomMate">is looking for RoomMate</label></td>
         </tr>
-        <tr>
+        <tr class='topborder'>
             <td><label for="notes" class="left">notes / log</label></td>
             <td>
                 <textarea name="notes" readonly
