@@ -180,6 +180,25 @@ if (array_key_exists('id', $_GET)):
         </tr>
 
         <tr>
+            <td><label for="presentationTitle" class="left">P Title</label></td>
+            <td>
+                <input id="presentationTitle"
+                    type="text" name="presentationTitle" placeholder=""
+                    value="<?=$p->presentationTitle?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="abstract" class="left">Abstract</label></td>
+            <td>
+                <textarea name="abstract"
+                          placeholder="Enter your FULL ADDRESS, including your FULL NAME and country, as it should be written on a letter."
+                          required><?=$p->abstract?></textarea>
+            </td>
+        </tr>
+
+
+        <tr>
             <td><label for="nPersons">Acc persons</label></td>
             <td>
                 <input id="nPersons"
