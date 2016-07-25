@@ -315,6 +315,19 @@ elseif ($sid_is_set) {
     $stmt->bindParam(':sid', $sid , PDO::PARAM_INT);
     $stmt->execute();
     $presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    $stmtstr = "SELECT
+                    id, title, firstname, lastname, email, affiliation,
+                    talkType, presentationTitle, coauthors, abstract, presentationCategories,
+                    assignedSession, isPresentationAccepted, acceptedType,
+                    presentationSlot, presentationDuration, posterPlace
+                FROM {$tableName}
+                WHERE assignedSession<>:sid;";
+    $stmt = $db->prepare($stmtstr);
+    $stmt->bindParam(':sid', $sid , PDO::PARAM_INT);
+    $stmt->execute();
+    $other_presentations = $stmt->fetchAll(PDO::FETCH_OBJ);
+
 ?>
 
     <h2>Overview / Timeline</h2>
@@ -327,23 +340,60 @@ $(function(){
     var container = document.getElementById('timeline_container');
 
     var items = new vis.DataSet([
-        {id: 'A', content: 'Period A', start: '2016-09-01 12:00', end: '2016-09-05', type: 'background'},
-        {id: 'B', content: 'Period B', start: '2016-09-09', end: '2016-09-30', type: 'background', className: 'negative'},
+        {id: 'A', content: '', start: '2016-09-01 12:00', end: '2016-09-05 08:00', type: 'background'},
+        {id: 'B', content: '', start: '2016-09-09 14:30', end: '2016-09-30', type: 'background', className: 'negative'},
 
+    <?php
+        $fmt = 'Y-m-d\ H:i:s';
+        foreach($presentations as $p) {
+            if (!empty($p->presentationSlot)) {
+                $p->name = substr($p->firstname,0,1) . ". " . $p->lastname;
 
-        {id: 1, content: 'item 1', start: '2016-09-20'},
-        {id: 2, content: 'item 2', start: '2016-09-14'},
-        {id: 3, content: 'item 3', start: '2016-09-18'},
-        {id: 4, content: 'item 4', start: '2016-09-16', end: '2016-09-19'},
-        {id: 5, content: 'item 5', start: '2016-09-15'},
-        {id: 6, content: 'item 6', start: '2016-09-17'}
+                $start = (new DateTime($p->presentationSlot))->format($fmt);
+                $dur = new DateInterval('PT'.$p->presentationDuration.'M');
+                $end = (new DateTime($p->presentationSlot))->add($dur)->format($fmt);
+                print <<<EOT
+    {
+            id: {$p->id},
+            content: '{$p->name}',
+            start: '$start',
+            end:   '$end',
+            className: 'tc_mysession'
+        },
+
+EOT;
+            }
+        }
+    ?>
+    <?php
+        $fmt = 'Y-m-d\ H:i:s';
+        foreach($other_presentations as $p) {
+            if (!empty($p->presentationSlot)) {
+                $p->name = substr($p->firstname,0,1) . ". " . $p->lastname;
+
+                $start = (new DateTime($p->presentationSlot))->format($fmt);
+                $dur = new DateInterval('PT'.$p->presentationDuration.'M');
+                $end = (new DateTime($p->presentationSlot))->add($dur)->format($fmt);
+                print <<<EOT
+    {
+            id: {$p->id},
+            content: '{$p->name}',
+            start: '$start',
+            end:   '$end',
+            className: 'tc_othersession'
+        },
+
+EOT;
+            }
+        }
+    ?>
     ]);
 
     // Configuration for the Timeline
     var options = {
         editable: false,
-        min: new Date("2016-09-01"),
-        max: new Date("2016-09-30"),
+        min: new Date("2016-09-05 07:00"),
+        max: new Date("2016-09-09 18:00"),
     };
 
     var groups = [
@@ -435,7 +485,7 @@ $(function(){
                         <input class="short" name="date" type="text"
                             value="<?=$pdate?>"
                             placeholder="2016-09-05"
-                            pattern="([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]"
+                            pattern="[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]"
                             title="Enter a date in ISO norm YYYY-MM-DD , like 2016-09-05"
                             >
                     </label><br>

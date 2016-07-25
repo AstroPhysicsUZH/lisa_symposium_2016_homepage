@@ -110,7 +110,7 @@ if (!empty($_POST)) {
         <code><?=nl2br($p->abstract) ?></code>
     </p>
 
-    <div class="inputarea<?=(empty($p->presentationCategories) ? " warn_bg": "") ?>">
+    <div class="inputarea<?=(empty($p->presentationCategories) ? " warn_bg": "")?>">
         <label for="presentationCategories" class="left">Assign Categories</label>
         <input
             type="text" name="presentationCategories"

@@ -281,6 +281,12 @@ table.edit input.left {
 }
 
 
+.tc_mysession {
+    background-color: #ffaaaa !important;
+}
+.tc_othersession {
+    background-color: #ffffaa !important;
+}
 
 
 /*
