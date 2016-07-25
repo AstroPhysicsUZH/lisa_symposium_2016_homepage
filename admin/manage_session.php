@@ -471,6 +471,10 @@ EOT;
                     <input class="save" type="submit" name="action" value="save" >
                     <input class="warn" type="submit" name="action" value="REJECT" >
                 </div>
+<?php
+                        // allow only super orgas to manage the time
+                        if (in_array($USER->role, $special_power_roles)) {
+?>
                 <div class="half">
                     <label class="left">
                         <small>[talk] starting time (24h):</small>
@@ -503,6 +507,7 @@ EOT;
                     </label>
                     -->
                 </div>
+<?php                   } ?>
 <?php               } ?>
             </div>
             <input type="hidden" name="id" value="<?=$p->id?>" >
