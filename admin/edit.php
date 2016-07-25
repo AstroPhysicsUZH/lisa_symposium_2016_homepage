@@ -192,7 +192,7 @@ if (array_key_exists('id', $_GET)):
             <td><label for="abstract" class="left">Abstract</label></td>
             <td>
                 <textarea name="abstract"
-                          placeholder="Enter your FULL ADDRESS, including your FULL NAME and country, as it should be written on a letter."
+                          placeholder="Abstract"
                           required><?=$p->abstract?></textarea>
             </td>
         </tr>
