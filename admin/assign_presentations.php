@@ -164,7 +164,7 @@ foreach($all_sessions as $s) {
         <code><?=nl2br($p->abstract) ?></code>
     </p>
 
-    <div class="inputarea">
+    <div class="inputarea<?=(is_null($p->assignedSession) ? " warn_bg": "")?>">
 <?php
             if (isset($p->isPresentationAccepted) && !$p->isPresentationAccepted) {
                 print "was rejeced <input type='submit' name='action' value='reconsider' >";

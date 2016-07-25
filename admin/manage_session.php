@@ -318,9 +318,9 @@ elseif ($sid_is_set) {
 ?>
 
     <h2>Overview / Timeline</h2>
-<?php
-#    <div id="timeline_container"></div>
-?>
+
+    <div id="timeline_container"></div>
+
 
     <script type="text/javascript">
 $(function(){
@@ -329,6 +329,7 @@ $(function(){
     var items = new vis.DataSet([
         {id: 'A', content: 'Period A', start: '2016-09-01 12:00', end: '2016-09-05', type: 'background'},
         {id: 'B', content: 'Period B', start: '2016-09-09', end: '2016-09-30', type: 'background', className: 'negative'},
+
 
         {id: 1, content: 'item 1', start: '2016-09-20'},
         {id: 2, content: 'item 2', start: '2016-09-14'},
@@ -340,7 +341,7 @@ $(function(){
 
     // Configuration for the Timeline
     var options = {
-        editable: true,
+        editable: false,
         min: new Date("2016-09-01"),
         max: new Date("2016-09-30"),
     };
