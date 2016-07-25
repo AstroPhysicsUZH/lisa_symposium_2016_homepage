@@ -41,7 +41,13 @@ foreach($presentations as $p) {
 
     $p->name = substr($p->firstname,0,1) . ". " . $p->lastname;
     $p->start = new DateTime($p->presentationSlot);
-    $dur = new DateInterval('PT'.$p->presentationDuration.'M');
+    try {
+        $dur = new DateInterval('PT'.$p->presentationDuration.'M');
+    }
+    catch (Exception $e) {
+        $dur = new DateInterval('PT'.'15'.'M');
+        echo "<!-- error with duration of {$p->id} -->\n";
+    }
     $end = new DateTime($p->presentationSlot);
     $p->end = $end->add($dur);
     $p->is_plenary = ($p->assignedSession == $plenary_sid ? TRUE : FALSE);
@@ -195,8 +201,6 @@ EOT;
         }
     }
     ?>
-        // MO
-        { start:'2016-09-05T09:30:00', end:'2016-09-05T10:00:00', title:'Opening Talk' },
 
     ], color:'#88ff88', textColor:'black', borderColor:'#008800' };
 
