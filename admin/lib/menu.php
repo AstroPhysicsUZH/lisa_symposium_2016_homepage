@@ -9,8 +9,11 @@ $admin_modules = array(
     ["assign_sessions.php", "Create/Assign Sessions", ["admin", "chief_orga"]],
     ["categorize_presentations.php", "Categorize Presentations", ["admin", "chief_orga"]],
     ["assign_presentations.php", "Assign Presentations to Sessions", ["admin", "chief_orga", "orga"]],
-    ["manage_session.php", "Manage My Session", ["admin", "chief_orga", "orga"]]
+    ["manage_session.php", "Manage My Session", ["admin", "chief_orga", "orga"]],
+    ["view_plan.php", "-> Prelim. Program Plan", ["admin", "chief_orga", "orga"]]
+
     #["test2.php", "testing", ["admin"]]
+
 );
 
 $special_power_roles = ["admin", "chief_orga"]; # those can see all the details about the session handling process

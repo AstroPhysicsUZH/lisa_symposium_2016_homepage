@@ -72,6 +72,7 @@ $special_events_list = [
     ['Welcome Talk', '2016-09-05T08:45:00', '2016-09-05T09:00:00', ''],
     ['Joint eLISA and L3ST consortium meeting', '2016-09-07T14:00:00', '2016-09-07T16:30:00', ''],
     ['Apero & Dinner', '2016-09-07T18:00:00', '2016-09-07T23:00:00', ''],
+    ['Farewell Talk', '2016-09-09T12:30:00', '2016-09-09T13:00:00', 'by K. Danzmann'],
 ];
 
 $breaks = [];
@@ -125,15 +126,20 @@ $fmt = 'Y-m-d\TH:i:s';
 
 .time {
     font-size: 80%;
+    color: #888;
 }
 
 .title {
     font-style: italic;
 }
 
+.notalk {
+    color: #888;
+}
 
-
-
+ul {
+    list-style-type: none;
+}
 
 
 
@@ -149,7 +155,8 @@ $(document).ready(function() {
         {
             start: '{$se->start->format($fmt)}',
             end:   '{$se->end->format($fmt)}',
-            title: '{$se->name}'
+            title: '{$se->name}',
+            description: '{$se->description}'
         },
 EOT;
     }
@@ -257,6 +264,9 @@ EOT;
             element.qtip({
                 content: {
                     text: txt
+                },
+                position: {
+                    viewport: $(window)
                 }
             });
         },
@@ -299,25 +309,28 @@ foreach($all as $p) {
         print "<ul>\n";
         $cur = $day;
     }
-    print "<!--  " . $day . "  " . $cur . "-->\n";
+    #print "<!--  " . $day . "  " . $cur . "-->\n";
 
     print <<<EOT
     <li>
-        <span class='time'>{$p->start->format($fmt)} &ndash; {$p->end->format($fmt)}</span>
-        <span class="author">{$p->name}</span>
+        <span class='time'>{$p->start->format($fmt)} &ndash; {$p->end->format($fmt)}:</span>
 
 EOT;
     if (isset($p->is_no_talk) && $p->is_no_talk) {
-
-    }
-    else {
         print <<<EOT
-        &mdash;
-        <span class="title">{$p->presentationTitle}</span>
-    </li>
+        <span class="notalk">{$p->name}</span>
 
 EOT;
     }
+    else {
+        print <<<EOT
+        <span class="author">{$p->name}</span>
+        &mdash;
+        <span class="title">{$p->presentationTitle}</span>
+
+EOT;
+    }
+    print "    </li>\n";
 }
 print "</ul>\n";
 
