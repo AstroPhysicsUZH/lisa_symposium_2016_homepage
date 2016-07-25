@@ -103,6 +103,8 @@ if (array_key_exists('id', $_GET)):
     $stmt->bindParam(":id", $ID);
     $stmt->execute();
     $p = $stmt->fetch(PDO::FETCH_OBJ);
+
+    $all_sessions = $db->query( "SELECT * FROM {$sessionsTable}")->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <form id="frm_edit"
@@ -188,6 +190,16 @@ if (array_key_exists('id', $_GET)):
         </tr>
 
         <tr>
+            <td></td>
+            <td><small><code>
+<?php foreach($PRESENTATION_TYPES as $k => $t) { $kk = sprintf("%02d", $k); print <<<EOT
+                $kk: $t<br>\n
+EOT;
+} ?>
+            </code></small></td>
+        </tr>
+
+        <tr>
             <td><label for="presentationTitle" class="left">P Title</label></td>
             <td>
                 <input id="presentationTitle"
@@ -214,11 +226,33 @@ if (array_key_exists('id', $_GET)):
             </td>
         </tr>
         <tr>
+            <td></td>
+            <td><small><code>
+<?php
+    $categories = $db->query( "SELECT DISTINCT presentationCategories FROM {$tableName}" )->fetchAll(PDO::FETCH_OBJ);
+    foreach($categories as $c) {
+        if ( $c->presentationCategories != "" ) {
+            print "{$c->presentationCategories}<br>\n";
+        }
+    }
+?>
+            </small></td>
+        </td>
+        <tr>
             <td><label for="assignedSession" class="left">SID</label></td>
             <td>
                 <input id="assignedSession"
                     type="text" name="assignedSession" placeholder=""
                     value="<?=$p->assignedSession?>">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <p><small><code>
+<?php foreach ($all_sessions as $s) {print "{$s->id}: [{$s->shortName}] {$s->description}<br>\n"; } ?>
+                </code></small></p>
             </td>
         </tr>
         <tr>
@@ -240,7 +274,7 @@ if (array_key_exists('id', $_GET)):
             <td><label for="isPresentationAccepted">isPresentationAccepted</label></td>
         </tr>
         <tr>
-            <td><label for="presentationSlot" class="left">slot datetime</label></td>
+            <td><label for="presentationSlot" class="left">slot datetime<br>YYYY-MM-DD</label></td>
             <td>
                 <input id="presentationSlot"
                     type="text" name="presentationSlot" placeholder=""
@@ -248,7 +282,7 @@ if (array_key_exists('id', $_GET)):
             </td>
         </tr>
         <tr>
-            <td><label for="presentationDuration" class="left">duration</label></td>
+            <td><label for="presentationDuration" class="left">duration<br>(min)</label></td>
             <td>
                 <input id="presentationDuration"
                     type="text" name="presentationDuration" placeholder=""
