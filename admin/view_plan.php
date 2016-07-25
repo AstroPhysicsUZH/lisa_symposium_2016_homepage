@@ -21,6 +21,8 @@ $stmtstr = "SELECT
                 presentationSlot, presentationDuration
             FROM {$tableName}
             WHERE acceptedType=" . PRESENTATION_TYPE_TALK . "
+                AND presentationDuration>0
+                AND presentationSlot<>''
             ORDER BY presentationSlot ASC;" ;
 
 $presentations = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
