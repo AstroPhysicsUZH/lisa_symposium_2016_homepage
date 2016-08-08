@@ -211,7 +211,8 @@ $topics = [
 
 <h2>Preliminary List of Plenary Speakers</h2>
 <p>
-    Click on the titles to see abstracts (if available)
+    Click on the titles to see abstracts (if available),
+    <a href="?page=full_program">click here to see the complete list</a>
 </p>
 
 <?php

@@ -564,20 +564,27 @@ ul.speakers .mod_title {
 }
 
 
-.time {
+
+
+.fullprog .authortitle {
+    display: block;
+    margin-left: 2em;
+}
+
+.fullprog .time {
     font-size: 80%;
     color: #888;
 }
 
-.title {
+.fullprog .title {
     font-style: italic;
 }
 
-.notalk {
+.fullprog .notalk {
     color: #888;
 }
 
-ul {
+.fullprog ul {
     list-style-type: none;
 }
 

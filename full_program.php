@@ -30,7 +30,7 @@ foreach($all as $p) {
     if (!($day==$cur)) {
         if (!is_null($cur)){print "</ul>\n";}
         print "<h2>$day</h2>\n";
-        print "<ul>\n";
+        print "<ul class='fullprog'>\n";
         $cur = $day;
     }
     #print "<!--  " . $day . "  " . $cur . "-->\n";
@@ -48,9 +48,11 @@ EOT;
     }
     else {
         print <<<EOT
-        <span class="author">{$p->name}</span>
-        &mdash;
-        <span class="title">{$p->presentationTitle}</span>
+        <span class="authortitle">
+            <span class="author">{$p->name}</span>
+            &mdash;
+            <span class="title">{$p->presentationTitle}</span>
+        </span>
 
 EOT;
     }

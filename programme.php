@@ -2,7 +2,9 @@
 <script src='js/fullcalendar.min.js'></script>
 
 <h1>Programme</h1>
-
+<p>
+    Mouse over for details
+</p>
 
 <?php require "items/program.php"; ?>
 
