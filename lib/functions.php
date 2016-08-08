@@ -10,9 +10,12 @@ function B($var) { return $var==="1"? "yes":"no"; }
 
 function print_menu($active_page)
 {
-    global $PAGES, $NOT_IMPLEMENTED_PAGES;
+    global $PAGES, $NOT_IMPLEMENTED_PAGES, $HIDDEN_PAGES;
 
     foreach ($PAGES as $page_) {
+        if ( in_array($page_, $HIDDEN_PAGES)) {
+            continue;
+        }
         $page = str_replace('_', ' ', $page_);
         $cls = array();
 

@@ -41,7 +41,8 @@ $PAGES = array(
     'transportation',
     'about_the_location',
     'proceedings',
-    'login_for_participants'
+    'login_for_participants',
+    'full_program'
 );
 
 /*
@@ -59,6 +60,7 @@ $NOT_IMPLEMENTED_PAGES = array(
 $HIDDEN_PAGES = array(
     'msgs',
     'user',
+    'full_program',
 );
 
 

@@ -564,6 +564,22 @@ ul.speakers .mod_title {
 }
 
 
+.time {
+    font-size: 80%;
+    color: #888;
+}
+
+.title {
+    font-style: italic;
+}
+
+.notalk {
+    color: #888;
+}
+
+ul {
+    list-style-type: none;
+}
 
 
 
