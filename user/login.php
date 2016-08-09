@@ -114,7 +114,7 @@ The local OK
         require "lib/header.php";
         require "lib/menu.php";
         echo "<main><article>\n";
-        echo "<p>A new accessKey ($akey) has been mailed to $email. Please log in with the new key</p>";
+        echo "<p>A new accessKey has been mailed to $email. Please log in with the new key</p>";
         echo "</main></article>\n";
         require "lib/footer.php";
         exit;
