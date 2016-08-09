@@ -114,6 +114,8 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'email' => ['TEXT', 'string'],
     'affiliation' => ['TEXT', 'string'],
     'address' => ['TEXT', 'string'],
+    
+    'isPassive' => ['INTEGER', 'boolean'], # passive accounts are for lazy VIP that don't feel like they have to register
 
 // options
     'needInet' => ['INTEGER', 'boolean'],

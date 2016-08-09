@@ -164,12 +164,23 @@ if (array_key_exists('id', $_GET)):
         </tr>
         <tr>
             <td>
+                <input type='hidden' value='0' name='needInet'>
                 <input
                     id="needInet" class="left" type="checkbox"
-                    name="needInet" value="X"
+                    name="needInet" value="1"
                     <?= $p->needInet ? "checked" : "" ?> >
             </td>
             <td><label for="needInet">Need WIFI</label></td>
+        </tr>
+        <tr class='topborder'>
+            <td>
+                <input type='hidden' value='0' name='isPassive'>
+                <input
+                    id="isPassive" class="left" type="checkbox"
+                    name="isPassive" value="1"
+                    <?= $p->isPassive ? "checked" : "" ?> >
+            </td>
+            <td><label for="isPassive">isPassive</label></td>
         </tr>
 
         <tr class='topborder'>
@@ -257,18 +268,20 @@ EOT;
         </tr>
         <tr>
             <td>
+                <input type='hidden' value='0' name='isPresentationChecked'>
                 <input id="isPresentationChecked"
                     class="left" type="checkbox"
-                    name="isPresentationChecked" value="checked"
+                    name="isPresentationChecked" value="1"
                     <?= $p->isPresentationChecked ? "checked" : "" ?> >
             </td>
             <td><label for="isPresentationChecked">isPresentationChecked</label></td>
         </tr>
         <tr>
             <td>
+                <input type='hidden' value='0' name='isPresentationAccepted'>
                 <input id="isPresentationAccepted"
                     class="left" type="checkbox"
-                    name="isPresentationAccepted" value="checked"
+                    name="isPresentationAccepted" value="1"
                     <?= $p->isPresentationAccepted ? "checked" : "" ?> >
             </td>
             <td><label for="isPresentationAccepted">isPresentationAccepted</label></td>
@@ -309,17 +322,19 @@ EOT;
         </tr>
         <tr>
             <td>
+                <input type='hidden' value='0' name='isVeggie'>
                 <input id="c1" class="left" type="checkbox"
-                    name="isVeggie" value="checked"
+                    name="isVeggie" value="1"
                     <?= $p->isVeggie ? "checked" : "" ?> >
             </td>
             <td><label for="c1">Vegetarian meal</label></td>
         </tr>
         <tr>
             <td>
+                <input type='hidden' value='0' name='isImpaired'>
                 <input id="isImpaired"
                     class="left" type="checkbox"
-                    name="isImpaired" value="checked"
+                    name="isImpaired" value="1"
                     <?= $p->isImpaired ? "checked" : "" ?> >
             </td>
             <td><label for="isImpaired">Mobility impaired</label></td>
@@ -327,9 +342,10 @@ EOT;
 
         <tr>
             <td>
+                <input type='hidden' value='0' name='lookingForRoomMate'>
                 <input id="lookingForRoomMate"
                     class="left" type="checkbox"
-                    name="lookingForRoomMate" value="checked"
+                    name="lookingForRoomMate" value="1"
                     <?= $p->lookingForRoomMate ? "checked" : "" ?> >
             </td>
             <td><label for="lookingForRoomMate">is looking for RoomMate</label></td>

@@ -3,7 +3,8 @@
 $admin_modules = array(
     ["index.php", "Overview", ["guest", "admin", "finanz", "session_head", "chief_orga", "orga"]],
     ["add_admin.php", "Edit Admin Users", ["admin"]],
-    ["edit.php", "Edit Entries", ["admin", "helper"]],
+    ["edit.php", "Edit Entries", ["admin"]],
+    ["add_user.php", "Add user", ["admin"]],
     ["payment_np.php", "Manage Payment", ["admin", "finanz"]],
     ["payment_all.php", "Manage Payment (all)", ["admin", "finanz"]],
     ["assign_sessions.php", "Create/Assign Sessions", ["admin", "chief_orga"]],

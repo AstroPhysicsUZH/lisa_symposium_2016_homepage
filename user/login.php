@@ -75,8 +75,8 @@ if (isset($_POST["op"]) || isset($_GET["op"])){
         $email = $p->email;
 
         $akey = bin2hex(openssl_random_pseudo_bytes(4));
-        $stmt = $db->prepare("UPDATE {$tableName} SET accessKey=:akey WHERE id = :id" );
-        $res = $stmt->execute([':akey'=>$akey, ':id'=>$id]);
+        $stmt = $db->prepare("UPDATE {$tableName} SET accessKey=:akey, isPassive=:isp WHERE id = :id" );
+        $res = $stmt->execute([':akey'=>$akey, ':isp'=>FALSE, ':id'=>$id]);
 
         if (! $res) {
             echo "Error while resetting the access key";

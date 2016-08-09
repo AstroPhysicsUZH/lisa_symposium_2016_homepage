@@ -140,9 +140,10 @@ require "lib/menu.php";
             </tr>
             <tr>
                 <td>
+                    <input type='hidden' value='0' name='needInet'>
                     <input
                         id="needInet" class="left" type="checkbox"
-                        name="needInet" value="X"
+                        name="needInet" value="1"
                         <?= $P["needInet"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="needInet">Need WIFI access</label></td>
@@ -150,17 +151,19 @@ require "lib/menu.php";
 
             <tr>
                 <td>
+                    <input type='hidden' value='0' name='isVeggie'>
                     <input id="c1" class="left" type="checkbox"
-                        name="isVeggie" value="checked"
+                        name="isVeggie" value="1"
                         <?= $P["isVeggie"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="c1">Vegetarian meal</label></td>
             </tr>
             <tr>
                 <td>
+                    <input type='hidden' value='0' name='isImpaired'>
                     <input id="isImpaired"
                         class="left" type="checkbox"
-                        name="isImpaired" value="checked"
+                        name="isImpaired" value="1"
                         <?= $P["isImpaired"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="isImpaired">Mobility impaired</label></td>
@@ -168,9 +171,10 @@ require "lib/menu.php";
 
             <tr>
                 <td>
+                    <input type='hidden' value='0' name='lookingForRoomMate'>
                     <input id="lookingForRoomMate"
                         class="left" type="checkbox"
-                        name="lookingForRoomMate" value="checked"
+                        name="lookingForRoomMate" value="1"
                         <?= $P["lookingForRoomMate"] ? "checked" : "" ?> >
                 </td>
                 <td><label for="lookingForRoomMate">looking for roommates</label></td>

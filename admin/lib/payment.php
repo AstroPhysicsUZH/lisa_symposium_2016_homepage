@@ -73,20 +73,23 @@ if (!empty($_POST)) {
         }
         $p = $stmt->fetch(PDO::FETCH_OBJ);
 
-        $from    = '"LISA Symposium Website" <relativityUZH@gmail.com>';
-        $replyto = $from;
+        if (empty($p->isPassive)) { # empty() is true for NULL, "", [], 0, FALSE
+            print "... sending email<br>";
 
-        $headers  = "";
-        $headers .= 'From: ' . $from . "\r\n";
-        $headers .= 'Reply-To:' . $replyto . "\r\n";
-        $headers .= 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
-        $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
-        $headers .= 'Delivery-Date: ' . date("r") . "\r\n";
+            $from    = '"LISA Symposium Website" <relativityUZH@gmail.com>';
+            $replyto = $from;
 
-        $subject = "11th LISA Symposium Payment Update [{$p->id}]";
+            $headers  = "";
+            $headers .= 'From: ' . $from . "\r\n";
+            $headers .= 'Reply-To:' . $replyto . "\r\n";
+            $headers .= 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";
+            $headers .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
+            $headers .= 'Delivery-Date: ' . date("r") . "\r\n";
 
-        $message = preg_replace('~\R~u', "\r\n",  # make sure we have RFC 5322 linebreaks
+            $subject = "11th LISA Symposium Payment Update [{$p->id}]";
+
+            $message = preg_replace('~\R~u', "\r\n",  # make sure we have RFC 5322 linebreaks
 "Dear Mrs/Mr {$p->title} {$p->lastname}
 
 Details about your payment for the 11th LISA Symposium were changed.
@@ -99,8 +102,8 @@ Kind regrads,
 The local OK
 ");
 
-        mail($p->email, $subject, $message, $headers);
-
+            mail($p->email, $subject, $message, $headers);
+        }
 
     }
 
