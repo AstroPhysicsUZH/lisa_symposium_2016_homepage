@@ -25,7 +25,7 @@ if (!empty($_POST)) {
                 die(1);
             }
 
-
+            var_dump($_POST);
             /*
                 init to default values
                 because checkboxes only give a value if checked..
@@ -73,7 +73,12 @@ if (!empty($_POST)) {
                         $vals[$key] = boolval($x);
                     }
                     elseif ($type == "choice") {
-                        $vals[$key] = intval(array_search($x, $choices, TRUE)); # if not found this returns False, which gets casted to 0, the first and default choice
+                        if (is_numeric($x)) {
+                            $vals[$key] = intval($x);
+                        }
+                        else {
+                            $vals[$key] = intval(array_search($x, $choices, TRUE)); # if not found this returns False, which gets casted to 0, the first and default choice
+                        }
                     }
                     elseif ($type == "date") {
                         $dt = new DateTime($x);
