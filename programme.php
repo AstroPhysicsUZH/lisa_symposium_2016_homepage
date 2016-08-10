@@ -1,7 +1,7 @@
 
 <script src='js/fullcalendar.min.js'></script>
 
-<h1>Programme</h1>
+<h1>Preliminary Programme</h1>
 <p>
     Mouse over for details
 </p>
