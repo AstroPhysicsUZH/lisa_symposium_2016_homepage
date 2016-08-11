@@ -13,6 +13,7 @@ $admin_modules = array(
     ["manage_session.php", "Manage My Session", ["admin", "chief_orga", "orga"]],
     ["view_plan.php", "-> Prelim. Program Plan", ["admin", "chief_orga", "orga"]],
     ["view_posters.php", "PosterSessions", ["admin"]],
+    ["submission_report.php", "SubmissionReport", ["admin", "chief_orga", "orga"]],
     ["get_csv.php", "get CSV data", ["admin"]]
 
     #["test2.php", "testing", ["admin"]]

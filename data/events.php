@@ -42,6 +42,18 @@ $stmtstr = "SELECT
 
 $posters = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
 
+$stmtstr = "SELECT
+                id, title, firstname, lastname, email, affiliation,
+                talkType, presentationTitle, coauthors, abstract, presentationCategories,
+                assignedSession, isPresentationAccepted, acceptedType,
+                presentationSlot, presentationDuration
+            FROM {$tableName}
+            WHERE talkType>0;" ;
+
+$all_submissions = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
+
+
+
 # group by day
 foreach($presentations as $p) {
     #print_r($p);
