@@ -23,6 +23,14 @@ $fmt = 'Y-m-d\TH:i:s';
 
 <style>
 
+.pid {
+    font-size: 80%;
+    color: #800;
+    width: 3em;
+    display: inline-block;
+    text-align:center;
+}
+
 .time {
     font-size: 80%;
     color: #888;
@@ -86,7 +94,7 @@ EOT;
             print "        {
                 start: '{$p->start->format($fmt)}',
                 end:   '{$p->end->format($fmt)}',
-                title: '{$p->name}',
+                title: '{$p->name} [{$p->id}]',
                 ptitle: '{$p->presentationTitle}',
                 name: '{$p->name}',
                 description: " . json_encode($p->abstract) . "
@@ -107,7 +115,7 @@ EOT;
             print "        {
                 start: '{$p->start->format($fmt)}',
                 end:   '{$p->end->format($fmt)}',
-                title: '{$p->name}',
+                title: '{$p->name} [{$p->id}/{$p->assignedSession}]',
                 ptitle: '{$p->presentationTitle}',
                 name: '{$p->name}',
                 description: " . json_encode($p->abstract) . "
@@ -220,7 +228,9 @@ EOT;
 EOT;
     }
     else {
+        $pid = sprintf("%03u", $p->id);
         print <<<EOT
+        <span class='pid'>[ {$pid} ]</span>
         <span class="author">{$p->name}</span>
         &mdash;
         <span class="title">{$p->presentationTitle}</span>
