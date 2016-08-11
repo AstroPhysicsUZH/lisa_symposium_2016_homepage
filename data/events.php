@@ -71,20 +71,27 @@ $breaks_list = [
 
     ['Coffee Break', '2016-09-05T16:30:00', '2016-09-05T17:00:00', ''],
     ['Coffee Break', '2016-09-06T16:30:00', '2016-09-06T17:00:00', ''],
+    ['Coffee Break', '2016-09-07T15:10:00', '2016-09-07T15:30:00', ''],
     ['Coffee Break', '2016-09-08T16:30:00', '2016-09-08T17:00:00', ''],
 
     ['Lunch Break', '2016-09-05T13:00:00', '2016-09-05T14:30:00', ''],
     ['Lunch Break', '2016-09-06T13:00:00', '2016-09-06T14:30:00', ''],
     ['Lunch Break', '2016-09-07T13:00:00', '2016-09-07T14:00:00', ''],
     ['Lunch Break', '2016-09-08T13:00:00', '2016-09-08T14:30:00', ''],
-    ['Lunch Break', '2016-09-09T13:00:00', '2016-09-09T14:30:00', ''],
+    ['Lunch Break', '2016-09-09T13:15:00', '2016-09-09T14:30:00', ''],
 ];
 
 $special_events_list = [
-    ['Registraton open', '2016-09-05T08:00:00', '2016-09-05T08:45:00', ''],
+
+    ['Posters', '2016-09-05T14:00:00', '2016-09-05T14:30:00', ''],
+    ['Posters', '2016-09-06T14:00:00', '2016-09-06T14:30:00', ''],
+    ['Posters', '2016-09-08T14:00:00', '2016-09-08T14:30:00', ''],
+
+    ['Registraton opens', '2016-09-05T08:00:00', '2016-09-05T08:45:00', ''],
     ['Welcome Talk', '2016-09-05T08:45:00', '2016-09-05T09:00:00', ''],
-    ['Joint eLISA and L3ST consortium meeting', '2016-09-07T14:00:00', '2016-09-07T16:30:00', ''],
-    ['Hike to Dinner', '2016-09-07T17:00:01', '2016-09-07T18:00:00', join('<br>',[
+    ['Joint eLISA and L3ST consortium meeting', '2016-09-07T14:00:00', '2016-09-07T17:00:00', ''],
+
+    ['Hike to Dinner', '2016-09-07T17:30:01', '2016-09-07T18:30:00', join('<br>',[
         'Hike to diner place',
         '(in case of nice weather, ask Rafael)',
         '<hr>' .
@@ -98,19 +105,19 @@ $special_events_list = [
         'HikeNr: 47',
         'Link: http://www.wanderland.ch/de/routen/etappe-01211.html' ])
     ],
-    ['Transport to Dinner', '2016-09-07T17:00:00', '2016-09-07T18:00:00', join('<br>',[
+    ['Transport to Dinner', '2016-09-07T17:40:00', '2016-09-07T18:25:00', join('<br>',[
         'Public transport',
         '<hr>' .
         'Tram Nr 14:',
-        'from: 17:06 Milchbuck',
-        'to: 17:16 Bahnhofplatz/HB',
+        'from: 17:38 Milchbuck',
+        'to: 17:50 Bahnhofplatz/HB',
         '<hr>' .
         'Train S10 on Track 22:',
-        'from: 17:35 Zurich HB SZU',
-        'to: 17:55 Uetliberg'])
+        'from: 18:05 Zurich HB SZU',
+        'to: 18:25 Uetliberg'])
     ],
-    ['Apero & Dinner', '2016-09-07T18:00:00', '2016-09-07T23:00:00', ''],
-    ['Farewell Talk', '2016-09-09T12:30:00', '2016-09-09T13:00:00', 'by K. Danzmann'],
+    ['Apero & Dinner', '2016-09-07T18:45:00', '2016-09-07T22:30:00', ''],
+    ['Farewell Talk', '2016-09-09T13:00:00', '2016-09-09T13:15:00', 'by K. Danzmann'],
 ];
 
 $breaks = [];
