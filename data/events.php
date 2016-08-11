@@ -38,7 +38,7 @@ $stmtstr = "SELECT
                 assignedSession, isPresentationAccepted, acceptedType,
                 presentationSlot, presentationDuration
             FROM {$tableName}
-            WHERE acceptedType=".PRESENTATION_TYPE_POSTER." AND presentationSlot<>'';" ;
+            WHERE acceptedType=".PRESENTATION_TYPE_POSTER.";" ;
 
 $posters = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
 
