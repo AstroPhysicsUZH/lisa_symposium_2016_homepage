@@ -26,7 +26,7 @@ $fmt = 'Y-m-d\TH:i:s';
 .pid {
     font-size: 80%;
     color: #800;
-    width: 3em;
+    width: 3.5em;
     display: inline-block;
     text-align:center;
 }

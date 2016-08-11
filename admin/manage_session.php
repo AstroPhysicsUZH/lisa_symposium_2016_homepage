@@ -330,9 +330,10 @@ elseif ($sid_is_set) {
 
 ?>
 
+<?php /*
     <h2>Overview / Timeline</h2>
-
     <div id="timeline_container"></div>
+*/ ?>
 
 
     <script type="text/javascript">
