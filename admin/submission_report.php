@@ -17,11 +17,24 @@ function print_subm($p){
 <?php
 
 
-print "<ul class='pagemenu'>\n";
-foreach($PRESENTATION_TYPES as $tid => $typestr) {
-    print "<li><a href='#tid" . (intval($tid) + 1) . "'>$typestr</a></li>\n";
+print "<h2><a name='tid'>rejected submissions</a></h2><br>\n";
+
+foreach ($sessions as $s) {
+    $sid = $s->id;
+    print "<h3>".$s->shortName . ") " . $s->description . "</h3><br>\n";
+    $i = 0;
+    foreach($all_submissions as $sub) {
+        #print $sub->isPresentationAccepted;
+        if ( isset($sub->isPresentationAccepted)
+            && $sub->isPresentationAccepted==FALSE
+            && $sub->assignedSession == $sid) {
+            $i += 1;
+            print_subm($sub);
+        }
+    }
+    print "<p><b>TOTAL: {$i}</b></p>\n<hr>\n";
 }
-print "</ul>\n";
+
 
 
 foreach($PRESENTATION_TYPES as $tid => $typestr) {
@@ -36,13 +49,14 @@ foreach($PRESENTATION_TYPES as $tid => $typestr) {
             # print_r($sub);
             if (   $sub->acceptedType == $tid
                 && $sub->assignedSession == $sid) {
-                    $i += 1;
-                    print_subm($sub);
-                    #print $sub->id . "<br>\n";
+                $i += 1;
+                print_subm($sub);
+                #print $sub->id . "<br>\n";
             }
         }
         print "<p><b>TOTAL: {$i}</b></p>\n<hr>\n";
     }
+
 }
 
 print "<hr>\n";
