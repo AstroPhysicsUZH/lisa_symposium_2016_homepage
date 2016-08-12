@@ -53,6 +53,26 @@ $stmtstr = "SELECT
 $all_submissions = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
 
 
+$chairs_ = [
+    '2016-09-05T08:00:00' => "M. Colpi",
+    '2016-09-05T13:30:00' => "O. Jennrich",
+
+    '2016-09-06T08:00:00' => "G. Nelemans",
+    '2016-09-06T13:30:00' => "S. Vitale",
+
+    '2016-09-07T08:00:00' => "C. Sopuerta",
+#    '2016-09-07T13:30:00' => "O. Jennrich",
+
+    '2016-09-08T08:00:00' => "P. Binetruy",
+    '2016-09-08T13:30:00' => "Ch. Caprini",
+
+    '2016-09-09T08:00:00' => "G. Mueller",
+];
+
+$chairs = [];
+foreach($chairs_ as $date =>$chair) {
+    $chairs[] = ['date'=>new DateTime($date),'chair'=>$chair];
+}
 
 # group by day
 foreach($presentations as $p) {

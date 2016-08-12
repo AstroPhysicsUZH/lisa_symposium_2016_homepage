@@ -23,6 +23,10 @@ $fmt = 'Y-m-d\TH:i:s';
 
 <style>
 
+.data {
+    display: inline-block;
+}
+
 .pid {
     font-size: 80%;
     color: #800;
@@ -48,6 +52,11 @@ ul {
     list-style-type: none;
 }
 
+h3.chair {
+    margin: 0;
+    padding: 1em 0 0.5em 0;
+    font-size: 100%;
+}
 
 
 </style>
@@ -193,6 +202,7 @@ EOT;
 <?php
 $fmt = 'H:i';
 $cur = NULL;
+$cid = 0;
 
 $all = array_merge($presentations, $breaks);
 
@@ -200,6 +210,7 @@ function cmp($a, $b) {
     $fmt = 'Y-m-d\TH:i:s';
     return strcmp($a->start->format($fmt), $b->start->format($fmt));
 }
+
 
 usort($all, "cmp");
 
@@ -215,6 +226,11 @@ foreach($all as $p) {
         $cur = $day;
     }
     #print "<!--  " . $day . "  " . $cur . "-->\n";
+    if (count($chairs) > $cid && $p->start > $chairs[$cid]['date']) {
+        print "<h3 class='chair'>Chairperson: " . $chairs[$cid]['chair'] . "</h3>";
+        $cid += 1;
+    }
+
 
     print <<<EOT
     <li>
@@ -229,11 +245,14 @@ EOT;
     }
     else {
         $pid = sprintf("%03u", $p->id);
+#        <span class="affil">({$p->affiliation})</span>
         print <<<EOT
-        <span class='pid'>[ {$pid} ]</span>
-        <span class="author">{$p->name}</span>
-        &mdash;
-        <span class="title">{$p->presentationTitle}</span>
+        <span class='data'>
+            <span class='pid'>[ {$pid} ]</span>
+            <span class="author">{$p->name}</span>
+            &mdash;
+            <span class="title">{$p->presentationTitle}</span>
+        </span>
 
 EOT;
     }
