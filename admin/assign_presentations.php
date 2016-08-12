@@ -29,12 +29,14 @@ if (!empty($_POST)) {
 
             $stmtstr = "UPDATE {$tableName} SET
                 assignedSession = :sid,
-                acceptedType = :atp
+                acceptedType = :atp,
+                isPresentationAccepted = :ipa
                 WHERE id = :id;";
             $stmt = $db->prepare($stmtstr);
             $stmt->bindParam(':id', $id , PDO::PARAM_INT);
             $stmt->bindParam(':sid', $sid , PDO::PARAM_INT);
             $stmt->bindParam(':atp', $atp , PDO::PARAM_INT);
+            $stmt->bindValue(':ipa', TRUE, PDO::PARAM_BOOL);
 
             $res = $stmt->execute();
 
@@ -190,15 +192,25 @@ foreach($all_sessions as $s) {
         <label class="left">As:
             <select name="acceptedType" size="1">
 <?php
-                $s0=''; $s1=''; $s2='';
-                if ($p->acceptedType == 1) {$s1=' selected';}
-                elseif ($p->acceptedType == 2) {$s2=' selected';}
-                else {$s0=' selected';}
-                print "<!-- $s0 - $s1 - $s2 -->"
-?>
-                <option value='-1'<?=$s0?>>- to be decided -</option>
+                $sm1=''; $s0=''; $s1=''; $s2='';
+                if ($p->acceptedType == -1)    {$sm1=' selected';}
+                elseif ($p->acceptedType == 1) {$s1 =' selected';}
+                elseif ($p->acceptedType == 2) {$s2 =' selected';}
+                else                           {$s0 =' selected';}
+                print "<!-- $sm1 - $s0 - $s1 - $s2 -->\n";
+
+                foreach ($PRESENTATION_TYPES as $tid=>$tstr) {
+                    if ($tid==$p->acceptedType) { $sel = " selected"; }
+                    else { $sel = ""; }
+                    print "<option value='$tid'$sel>$tstr</option>\n";
+                }
+/*
+                <option value=''<?=$s0?>>REJECTED</option>
+                <option value='0'<?=$s0?>>- to be decided -</option>
                 <option value='1'<?=$s1?>>talk</option>
                 <option value='2'<?=$s2?>>poster</option>
+*/
+?>
             </select>
         </label>
         <div style="display:inline-block;">

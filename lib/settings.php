@@ -114,7 +114,7 @@ $tableFields = array(       # database table columns with key => [SQL_DATATYPE, 
     'email' => ['TEXT', 'string'],
     'affiliation' => ['TEXT', 'string'],
     'address' => ['TEXT', 'string'],
-    
+
     'isPassive' => ['INTEGER', 'boolean'], # passive accounts are for lazy VIP that don't feel like they have to register
 
 // options
@@ -165,27 +165,28 @@ foreach ($tableFields as $key => $val) {
     elseif ($val[1]=='hex')     { $hexTableFields[] = $key; }
 }
 
-define("PRESENTATION_TYPE_REJECTED", -1);
+#define("PRESENTATION_TYPE_REJECTED", -1);
 define("PRESENTATION_TYPE_NONE", 0);
 define("PRESENTATION_TYPE_TALK", 1);
 define("PRESENTATION_TYPE_POSTER", 2);
 
-define("PRESENTATION_STR_REJECTED", 'rejected');
-define("PRESENTATION_STR_NONE", 'none');
+#define("PRESENTATION_STR_REJECTED", 'REJECTED');
+define("PRESENTATION_STR_NONE", '- not decided yet -');
 define("PRESENTATION_STR_TALK", 'talk');
 define("PRESENTATION_STR_POSTER", 'poster');
 
 $PRESENTATION_TYPES = [
-    PRESENTATION_TYPE_REJECTED => PRESENTATION_STR_REJECTED,
+#    PRESENTATION_TYPE_REJECTED => PRESENTATION_STR_REJECTED,
     PRESENTATION_TYPE_NONE =>     PRESENTATION_STR_NONE,
     PRESENTATION_TYPE_TALK =>     PRESENTATION_STR_TALK,
     PRESENTATION_TYPE_POSTER =>   PRESENTATION_STR_POSTER
 ];
 
+/*
 function GET_PRES_STR( $index ) {
     if ( $index ==  PRESENTATION_TYPE_NONE ) { return PRESENTATION_STR_NONE; }
     elseif ( $index ==  PRESENTATION_TYPE_TALK ) { return PRESENTATION_STR_TALK; }
     elseif ( $index ==  PRESENTATION_TYPE_POSTER ) { return PRESENTATION_STR_POSTER; }
 }
-
+*/
 ?>

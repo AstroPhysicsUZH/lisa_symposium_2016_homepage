@@ -68,10 +68,10 @@ if (!empty($_POST)) {
                 $atp = NULL;
                 $pac = NULL;
             }
-            elseif ($_POST['acceptedType'] == -1) {
-                $atp = -1;
-                $pac = FALSE;
-            }
+#            elseif ($_POST['acceptedType'] == -1) {
+#                $atp = -1;
+#                $pac = FALSE;
+#            }
             else {
                 $atp = $_POST['acceptedType'];
                 $pac = TRUE;
@@ -128,7 +128,7 @@ if (!empty($_POST)) {
 
         elseif ( $action=="reconsider" ) {
             $id = $_POST['id'];
-            $pac = TRUE;
+            $pac = NULL;
             $atp = NULL;
 
             $stmtstr = "UPDATE {$tableName} SET
@@ -151,15 +151,14 @@ if (!empty($_POST)) {
         elseif ( $action=="REJECT" ) {
             $id = $_POST['id'];
             $pac = FALSE;
-            $atp = PRESENTATION_TYPE_REJECTED;
 
+            #                acceptedType = :atp,
             $stmtstr = "UPDATE {$tableName} SET
-                acceptedType = :atp,
                 isPresentationAccepted = :pac
                 WHERE id = :id;";
             $stmt = $db->prepare($stmtstr);
             $stmt->bindParam(':id', $id , PDO::PARAM_INT);
-            $stmt->bindParam(':atp', $atp , PDO::PARAM_INT);
+#            $stmt->bindParam(':atp', $atp , PDO::PARAM_INT);
             $stmt->bindParam(':pac', $pac , PDO::PARAM_BOOL);
 
             $res = $stmt->execute();
@@ -169,91 +168,6 @@ if (!empty($_POST)) {
             header('Location: '.$target);
             exit();
         }
-
-
-        // elseif ( $action=="get_json_data" ) {
-        //
-        //     # apply access restrictions
-        //     # if (array_key_exists('sid', $_POST)) { $sid = $_POST['sid']; }
-        //     # else { die(); }
-        //
-        //     $data = [];
-        //
-        //     # set the intervals
-        //     $start_i_dt = clone $start_dt;
-        //     $start_i_dt->modify('-2 week');
-        //     $end_i_dt = clone $end_dt;
-        //     $end_i_dt->modify('+2 week');
-        //
-        //
-        //
-        //     $stmtstr = "SELECT
-        //                     id, title, firstname, lastname, affiliation,
-        //                     presentationTitle, coauthors, abstract,
-        //                     presentationSlot, presentationDuration
-        //                 FROM {$tableName}
-        //                 WHERE assignedSession=:sid
-        //                     AND acceptedType=1
-        //                     AND presentationSlot<>'';";
-        //     $stmt = $db->prepare($stmtstr);
-        //     $stmt->bindParam(':sid', $sid , PDO::PARAM_INT);
-        //     $stmt->execute();
-        //     $presentations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //
-        //     foreach($presentations as $p) {
-        //         $p['content'] = '';
-        //         $p['start'] = '';
-        //         $p['end'] = '';
-        //     }
-        //
-        //     $data['regions'] = [
-        //         'before' => [
-        //             'id' => 'before',
-        //             'content' => 'XXX',
-        //             'start' => $start_i_dt->format('Y-m-d H:i'),
-        //             'end' => $start_dt->format('Y-m-d H:i'),
-        //             'type' => 'background',
-        //             'className' => 'negative'
-        //         ],
-        //         'after' => [
-        //             'id' => 'after',
-        //             'content' => 'XXX',
-        //             'start' => $end_dt->format('Y-m-d H:i'),
-        //             'end' => $end_i_dt->format('Y-m-d H:i'),
-        //             'type' => 'background',
-        //             'className' => 'negative'
-        //         ],
-        //         'conference' => [
-        //             'id' => 'conference',
-        //             'content' => 'The Conference',
-        //             'start' => $conferenceStartDay->format('Y-m-d H:i'),
-        //             'end' => $conferenceEndDay->format('Y-m-d H:i'),
-        //             'type' => 'background',
-        //             'className' => 'converence'
-        //         ],
-        //         'session' => [
-        //             'id' => 'session',
-        //             'content' => 'Your Session',
-        //             'start' => $start_dt->format('Y-m-d H:i'),
-        //             'end' => $end_dt->format('Y-m-d H:i'),
-        //             'type' => 'background',
-        //             'className' => 'session'
-        //         ]
-        //     ];
-        //
-        //     $data['options'] = [
-        //         'min' => $conferenceStartDay->format('Y-m-d H:i'),
-        //         'max' => $conferenceEndDay->format('Y-m-d H:i')
-        //     ];
-        //
-        //     $data['presentations'] = $presentations;
-        //
-        //
-        //     print_r($data);
-        //
-        //
-        //     exit();
-        // }
 
         else {
             print "huch??";
@@ -330,96 +244,13 @@ elseif ($sid_is_set) {
 
 ?>
 
-<?php /*
-    <h2>Overview / Timeline</h2>
-    <div id="timeline_container"></div>
-*/ ?>
-
-
-    <script type="text/javascript">
-$(function(){
-    var container = document.getElementById('timeline_container');
-
-    var items = new vis.DataSet([
-        {id: 'A', content: '', start: '2016-09-01 12:00', end: '2016-09-05 08:00', type: 'background'},
-        {id: 'B', content: '', start: '2016-09-09 14:30', end: '2016-09-30', type: 'background', className: 'negative'},
-
-    <?php
-        $fmt = 'Y-m-d\ H:i:s';
-        foreach($presentations as $p) {
-            if (!empty($p->presentationSlot)) {
-                $p->name = substr($p->firstname,0,1) . ". " . $p->lastname;
-
-                $start = (new DateTime($p->presentationSlot))->format($fmt);
-                $dur = new DateInterval('PT'.$p->presentationDuration.'M');
-                $end = (new DateTime($p->presentationSlot))->add($dur)->format($fmt);
-                print <<<EOT
-    {
-            id: {$p->id},
-            content: '{$p->name}',
-            start: '$start',
-            end:   '$end',
-            className: 'tc_mysession'
-        },
-
-EOT;
-            }
-        }
-    ?>
-    <?php
-        $fmt = 'Y-m-d\ H:i:s';
-        foreach($other_presentations as $p) {
-            if (!empty($p->presentationSlot)) {
-                $p->name = substr($p->firstname,0,1) . ". " . $p->lastname;
-
-                $start = (new DateTime($p->presentationSlot))->format($fmt);
-                $dur = new DateInterval('PT'.$p->presentationDuration.'M');
-                $end = (new DateTime($p->presentationSlot))->add($dur)->format($fmt);
-                print <<<EOT
-    {
-            id: {$p->id},
-            content: '{$p->name}',
-            start: '$start',
-            end:   '$end',
-            className: 'tc_othersession'
-        },
-
-EOT;
-            }
-        }
-    ?>
-    ]);
-
-    // Configuration for the Timeline
-    var options = {
-        editable: false,
-        min: new Date("2016-09-05 07:00"),
-        max: new Date("2016-09-09 18:00"),
-    };
-
-    var groups = [
-      {
-        id: 1,
-        content: 'Group 1'
-        // Optional: a field 'className', 'style'
-      }
-      // more groups...
-    ];
-
-    var timeline = new vis.Timeline(container, items, options);
-
-    timeline.on('rangechanged', function (properties) {
-        console.log('rangechanged', properties);
-    });
-})
-    </script>
-
     <h2>Presentations</h2>
 
 <?php
     foreach($presentations as $p) {
-        if ($p->talkType > 0) {$type = GET_PRES_STR($p->talkType); }
-        else {$type = "none";}
+        #if ($p->talkType > 0) {$type = GET_PRES_STR($p->talkType); }
+        #else {$type = "none";}
+        $type = $PRESENTATION_TYPES[$p->talkType];
         print "<!-- {$p->presentationSlot} / {$p->presentationDuration} -->";
 
         if (isset($p->presentationSlot)) {
@@ -462,10 +293,19 @@ EOT;
                 <div class="half">
                     <label class="left">Accept as:
                         <select name="acceptedType" size="1">
+<?php
+                        foreach ($PRESENTATION_TYPES as $tid=>$tstr) {
+                            if ($tid==$p->acceptedType) { $sel = " selected"; }
+                            else { $sel = ""; }
+                            print "<option value='$tid'$sel>$tstr</option>\n";
+                        }
+/*
                             <option value='-1'<?=$s[-1]?>>REJECT</option>
                             <option value='0'<?=$s[0]?>>-- not defined --</option>
                             <option value='1'<?=$s[1]?>>talk</option>
                             <option value='2'<?=$s[2]?>>poster</option>
+*/
+?>
                         </select>
                     </label>
                     <br>
@@ -517,14 +357,6 @@ EOT;
 <?php
     }
 
-?>
-
-<script>
-    $(function(){
-    })
-</script>
-
-<?php
     require "lib/footer.php";
     exit();
 }

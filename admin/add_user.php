@@ -182,6 +182,10 @@ $all_sessions = $db->query( "SELECT * FROM {$sessionsTable}")->fetchAll(PDO::FET
     <li><a href='#overview'>overview</a></li>
 </ul>
 
+<p class="warn">
+    Keep your eyes open, this page has NO sanity checks and writes direclty to the database!
+</p>
+
 <h2 id='entry'>Entry</h2>
 
 <form id="frm_edit"
@@ -341,7 +345,7 @@ EOT;
                     class="left" type="checkbox"
                     name="isPresentationChecked" value="1" >
             </td>
-            <td><label for="isPresentationChecked">isPresentationChecked</label></td>
+            <td><label for="isPresentationChecked">isPresentationChecked (publish final descission)</label></td>
         </tr>
         <tr>
             <td>
@@ -350,10 +354,10 @@ EOT;
                     class="left" type="checkbox"
                     name="isPresentationAccepted" value="1" >
             </td>
-            <td><label for="isPresentationAccepted">isPresentationAccepted</label></td>
+            <td><label for="isPresentationAccepted">isPresentationAccepted (internal: accept or reject?)</label></td>
         </tr>
         <tr>
-            <td><label for="presentationSlot" class="left">slot datetime<br>YYYY-MM-DD</label></td>
+            <td><label for="presentationSlot" class="left">slot datetime<br>YYYY-MM-DD HH:MM:SS</label></td>
             <td>
                 <input id="presentationSlot"
                     type="text" name="presentationSlot" placeholder=""

@@ -23,6 +23,7 @@ foreach($PRESENTATION_TYPES as $tid => $typestr) {
 }
 print "</ul>\n";
 
+
 foreach($PRESENTATION_TYPES as $tid => $typestr) {
 
     print "<h2><a name='tid" . ($tid+1) . "'>" . $typestr ."</a></h2><br>\n";
@@ -40,6 +41,36 @@ foreach($PRESENTATION_TYPES as $tid => $typestr) {
                     #print $sub->id . "<br>\n";
             }
         }
-        print "<p><b>TOTAL: {$i}</b></p>\n";
+        print "<p><b>TOTAL: {$i}</b></p>\n<hr>\n";
     }
 }
+
+print "<hr>\n";
+print "<h2><a name='tid" . (98) . "'>[[ INVALID PRESENTAION TYPE ]]</a></h2><br>\n";
+
+foreach ($sessions as $s) {
+    print "<h3>".$s->shortName . ") " . $s->description . "</h3><br>\n";
+    foreach($all_submissions as $sub) {
+
+        if ( array_key_exists($sub->acceptedType, $PRESENTATION_TYPES) ) { continue; }
+        $sid = $s->id;
+        if ($sub->assignedSession == $sid) {
+            print_subm($sub);
+        }
+    }
+}
+
+print "<hr>\n";
+print "<h2><a name='tid" . (99) . "'>[[ NO ASSIGNED SESSION ]]</a></h2><br>\n";
+
+foreach($all_submissions as $sub) {
+    if ( ! intval($sub->talkType) == PRESENTATION_TYPE_NONE
+         && ! is_null($sub->assignedSession) ) { continue; }
+    print_subm($sub);
+    print "<!--\n";
+    print_r($sub);
+    print "-->\n";
+}
+
+
+?>
