@@ -19,6 +19,7 @@
   <script src='../js/moment.min.js'></script>
 
   <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="css/userlayout.css">
   <link rel="shortcut icon" href="../favicon.ico">
 
 
