@@ -26,6 +26,9 @@ $values = [
     'posterPlace'
 ];
 
+header('Content-Type: application/csv; charset=UTF-8');
+header('Content-Disposition: attachment; filename="participants.csv";');
+
 
 foreach($all_people as $p) {
 
