@@ -7,14 +7,48 @@
 require_once 'lib/auth.php';
 require_once "../lib/app.php";
 
+$accepted_types = [
+    "jpg", "png",
+    "avi", "mpg", "mpeg", "mp4",
+    "pdf", "ppt", "odp"
+];
 
 if (isset($_POST["op"])) {
 
     $op = isset($_POST["op"]) ? $_POST["op"] : "";
+    $data = [];
+    $data['success'] = FALSE;
 
     if ($op=="upload") {
-        print "upload";
+#        print "upload";
         print_r($_FILES);
+        foreach ($_FILES['files']['name'] as $i => $v) {
+            $name = $_FILES['files']['name'][$i];
+            $type = $_FILES['files']['type'][$i];
+            $tmp_name = $_FILES['files']['tmp_name'][$i];
+            $size = $_FILES['files']['size'][$i];
+            $error = $_FILES['files']['error'][$i];
+            $data[$name] = false;
+
+            $target_dir = "../uploads/" . $_SESSION['uid'] . "/";
+            $target_file = $target_dir . basename($name);
+            if (!file_exists($target_dir)) {
+                mkdir($target_dir, 0777, TRUE);
+            }
+            $filetype = pathinfo($target_file, PATHINFO_EXTENSION);
+
+            if(! in_array($filetype, $accepted_types)) {
+                continue;
+            }
+
+            $res = move_uploaded_file($tmp_name, $target_file);
+
+            if (!$res) {continue;}
+
+            $data[$name] = true;
+        }
+
+        print json_encode($data);
     }
     exit();
 }

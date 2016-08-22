@@ -16,6 +16,14 @@ $values = [
     'hasPayed',
     'amountPayed',
 
+    'talkType',
+    'presentationTitle',
+    'assignedSession',
+    'isPresentationAccepted',
+    'acceptedType',
+    'presentationSlot',
+    'presentationDuration',
+    'posterPlace'
 ];
 
 
