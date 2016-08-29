@@ -1,5 +1,6 @@
 
 <ul>
+<!--
     <li>
         <span class='small datetime'>
             <?=$abstractSubmissionDate->format($date_fstr)?>
@@ -14,15 +15,34 @@
     </li>
     <li>
         <span class='small datetime'>
-            <?=$registrationLimitDate->format($datetime_fstr)?>
+            <?=$registrationCloses->format($datetime_fstr)?>
         </span>
         Registration closes
+    </li>
+-->
+    <li>
+        <span class='small datetime'>
+            2016-09-05 08:00
+        </span>
+        Registration Desks opens
+    </li>
+    <li>
+        <span class='small datetime'>
+            2016-09-05 08:45
+        </span>
+        Welcome Talk
     </li>
     <li>
         <span class='small datetime'>
             <?=$conferenceDinnerDate->format($datetime_fstr)?>
         </span>
         Conference dinner
+    </li>
+    <li>
+        <span class='small datetime'>
+            2016-09-09 13:00
+        </span>
+        Farewell Talk
     </li>
 <!--
     <li><span class='date'>2016-09-05 08:00</span> Registration Opens</li>

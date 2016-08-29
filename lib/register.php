@@ -11,14 +11,20 @@ $rtest = intval($_POST['robot']);
 $rtest = 37;
 // print_r($_POST);
 
+if (!$isBookingOpen) {
+    echo "<h1 style='text-align:center;'>Yes, the registration is really closed!!</h1>";
+    var_dump($_POST);
+    die(1);
+}
+
 if ($rtest != 37) {
     echo "<h1 style='text-align:center;'>You did not pass the robot test.<br> Please just enter the number 37..</h1>";
     var_dump($_POST);
     die(1);
 }
 
-if (! isset($_POST['email'])) {
-    echo "<h1 style='text-align:center;'>No email in POST<br>However this happend...</h1>";
+if (! isset($_POST['email']) || strlen($_POST['email']) <6) {
+    echo "<h1 style='text-align:center;'>No email in POST or too short<br>However this happend...</h1>";
     var_dump($_POST);
     die(1);
 }

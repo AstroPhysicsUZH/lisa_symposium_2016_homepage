@@ -4,11 +4,18 @@
 <p>
     The <b>reduced</b> conference fee for early bookers is CHF <?=$baseFeeReduced+$dinnerFee;?>.&mdash; until <?=$reducedLimitDate->format($date_fstr);?>.
     <br />
-    Normal fee must be paid of CHF <?=$baseFeeRegular+$dinnerFee;?>.&mdash; until <?=$registrationLimitDate->format($date_fstr);?> (registration closes).
+    Normal fee must be paid of CHF <?=$baseFeeRegular+$dinnerFee;?>.&mdash; until <?=$registrationCloses->format($date_fstr);?> (registration closes).
 </p>
 <p>
     Please remember to book your hotel in time as well!
 </p>
+
+<?php if ($isItTooLate) { ?>
+    <div class='bookedout'>
+        BOOKED OUT
+    </div>
+<?php } ?>
+
 
 <p>
     The fee includes:

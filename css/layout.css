@@ -589,6 +589,17 @@ ul.speakers .mod_title {
 }
 
 
+.bookedout {
+    position: relative;
+    top: 3em;
+    font-size: 50px;
+    color: red;
+    font-weight: bold;
+    transform: rotate(-30deg);
+    left: 3em;
+    text-align: left;
+    height: 5px;
+}
 
 @media only screen and (min-width:600px) {
 

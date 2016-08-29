@@ -75,6 +75,14 @@ $( document ).ready(function(){
 
 
 <form action="lib/register.php" method="post">
+
+<?php if ($isItTooLate) { ?>
+    <div class='bookedout'>
+        BOOKED OUT
+    </div>
+    <fieldset disabled="disabled" >
+<?php } ?>
+
     <table class="registration">
         <thead>
             <th colspan="2">
@@ -298,6 +306,13 @@ $( document ).ready(function(){
             </td>
         </tr>
 
+<?php if ($isItTooLate) { ?>
+    <tr><td colspan="2">
+    <div class='bookedout'>
+        BOOKED OUT
+    </div>
+</td></tr>
+<?php } ?>
 
         <thead>
             <th colspan="2">
@@ -331,4 +346,8 @@ $( document ).ready(function(){
             </td>
         </tr>
     </table>
+<?php if ($isItTooLate) { ?>
+</fieldset>
+<?php } ?>
+
 </form>
