@@ -601,6 +601,49 @@ ul.speakers .mod_title {
     height: 5px;
 }
 
+ul.prog {
+    padding-left: 0;
+}
+
+ul.prog li {
+    display: table-row;
+}
+
+.time {
+    display: table-cell;
+    width: 7em;
+    font-size: 80%;
+    color: #888;
+}
+.data {
+    display: table-cell;
+}
+
+.notalk {
+    display: table-cell;
+    color: #888;
+}
+
+.title {
+    font-style: italic;
+}
+
+
+.prog ul {
+    list-style-type: none;
+}
+
+h4.chair {
+    margin: 0;
+    padding: 1em 0 0 1em;
+    font-size: 100%;
+}
+
+
+
+
+
+
 @media only screen and (min-width:600px) {
 
     body {

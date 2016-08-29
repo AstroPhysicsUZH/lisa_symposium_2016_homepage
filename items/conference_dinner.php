@@ -1,5 +1,5 @@
 
-<h2>Conference Dinner</h2>
+<h2 id="confdin">Conference Dinner</h2>
 
 <p>
     The conference dinner will take place on Wednesday evening, starting at 19:00 on the top of the Uetliberg.

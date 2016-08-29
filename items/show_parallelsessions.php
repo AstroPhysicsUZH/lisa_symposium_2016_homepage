@@ -1,12 +1,12 @@
 
-<h2>Contributed Sessions and Organizers</h2>
+<h2 id="conses">Contributed Sessions and Organizers</h2>
 
 <p>
     The following parallel sessions are foreseen.
     More will be announced as soon as available.
 </p>
 
-<h3>1. LISA Pathfinder - Results</h3>
+<h3>A) LISA Pathfinder - Results</h3>
 
 <p class="orgatime"> </p>
 <p class="orgas"><b>Organizers:</b><br />
@@ -16,7 +16,7 @@
 </p>
 
 
-<h3>2. LISA Hardware</h3>
+<h3>B) LISA Hardware</h3>
 
 <p class="orgatime"> </p>
 <p class="orgas"><b>Organizers:</b><br />
@@ -25,7 +25,7 @@
 </ul>
 
 
-<h3>3. Astrophysics with Gravitational Waves</h3>
+<h3>C) Astrophysics with Gravitational Waves</h3>
 
 <p class="orgatime"> </p>
 <p class="orgas"><b>Organizers:</b><br />
@@ -35,7 +35,7 @@
 </ul>
 
 
-<h3>4. Extreme Mass Ratio Inspirals (EMRI)</h3>
+<h3>D) Extreme Mass Ratio Inspirals (EMRI)</h3>
 
 <p class="orgatime"> </p>
 <p class="orgas"><b>Organizers:</b><br />
@@ -44,9 +44,9 @@
 </ul>
 
 
-<h3>5. Cosmology and Gravitational Waves</h3>
+<h3>E) Cosmology and Gravitational Waves</h3>
 
-<p class="orgatime">Thu, 2016-09-08</p>
+<p class="orgatime"><!--Thu, 2016-09-08--></p>
 <p class="orgas"><b>Organizers:</b><br />
     Chiara Caprini (IPhT, CEA Saclay);
     Germano Nardini (Albert Einstein Center for Fundamental Physics, Universität Bern)
