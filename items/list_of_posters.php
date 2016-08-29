@@ -9,7 +9,7 @@ $sids = [];
 ?>
 
 <h2 id='listofposters'>List of Posters</h2>
-<p class="small">(in no particular order)</p>
+<!--<p class="small">(in no particular order)</p>-->
 
 <?php
 

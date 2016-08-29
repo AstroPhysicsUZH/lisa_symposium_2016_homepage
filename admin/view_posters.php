@@ -9,7 +9,7 @@ $fmt = 'Y-m-d\TH:i:s';
 $sids = [];
 
 print "<h1>STATS</h1>\n";
-print "nposters: " . count($posters) . "<br>\n";
+print "nposters accepted: " . count($posters) . "<br>\n";
 
 foreach($sessions as $s) {
     $sid = $s->id;

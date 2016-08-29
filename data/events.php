@@ -3,7 +3,8 @@
 /**
  * assumes the header file is already loaded
  *
- * provides $presentations, $breaks, $posters, $specialevents
+ * provides $presentations, $breaks, $posters, $specialevents,
+ * only the accepted ones!
  */
 
 
@@ -26,6 +27,7 @@ $stmtstr = "SELECT
                 presentationSlot, presentationDuration
             FROM {$tableName}
             WHERE acceptedType=" . PRESENTATION_TYPE_TALK . "
+                AND isPresentationAccepted = 1
                 AND presentationDuration>0
                 AND presentationSlot<>''
             ORDER BY presentationSlot ASC;" ;
@@ -38,7 +40,9 @@ $stmtstr = "SELECT
                 assignedSession, isPresentationAccepted, acceptedType,
                 presentationSlot, presentationDuration
             FROM {$tableName}
-            WHERE acceptedType=".PRESENTATION_TYPE_POSTER.";" ;
+            WHERE acceptedType=".PRESENTATION_TYPE_POSTER."
+                AND isPresentationAccepted = 1
+                ORDER BY lastname ASC;" ;
 
 $posters = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
 
