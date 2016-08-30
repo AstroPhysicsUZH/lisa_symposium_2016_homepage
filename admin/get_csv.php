@@ -36,6 +36,8 @@ foreach($all_people as $p) {
 
         print json_encode($p->$key) . ';';
     }
+    print '"login.php?op=login&email=' . urlencode($p->email) . '&akey=' . $p->accessKey . '";';
+    
     print "\n";
 }
 

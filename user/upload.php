@@ -8,29 +8,36 @@ require_once 'lib/auth.php';
 require_once "../lib/app.php";
 
 $accepted_types = [
-    "jpg", "png",
-    "avi", "mpg", "mpeg", "mp4",
-    "pdf", "ppt", "odp"
+    "jpg", "png", "jpeg",
+    "avi", "mpg", "mpeg", "mp4", "mkv", "mov", "qt", "wmv",
+    "pdf", "ppt", "odp", "keynote"
 ];
+
+$pid = sprintf("%03u", $_SESSION['uid']);
+$target_dir = "../uploads/" . $pid . "/";
 
 if (isset($_POST["op"])) {
 
     $op = isset($_POST["op"]) ? $_POST["op"] : "";
     $data = [];
-    $data['success'] = FALSE;
+    $data['success'] = TRUE;
 
     if ($op=="upload") {
 #        print "upload";
-        print_r($_FILES);
+        //print_r($_FILES);
+        $data['files'] = [];
+        $data['error'] = "";
+
         foreach ($_FILES['files']['name'] as $i => $v) {
             $name = $_FILES['files']['name'][$i];
             $type = $_FILES['files']['type'][$i];
             $tmp_name = $_FILES['files']['tmp_name'][$i];
             $size = $_FILES['files']['size'][$i];
             $error = $_FILES['files']['error'][$i];
-            $data[$name] = false;
 
-            $target_dir = "../uploads/" . $_SESSION['uid'] . "/";
+            if (strlen($name)<=0) {continue;}
+            $data['files'][$name] = "nok";
+
             $target_file = $target_dir . basename($name);
             if (!file_exists($target_dir)) {
                 mkdir($target_dir, 0777, TRUE);
@@ -38,14 +45,22 @@ if (isset($_POST["op"])) {
             $filetype = pathinfo($target_file, PATHINFO_EXTENSION);
 
             if(! in_array($filetype, $accepted_types)) {
+                $data['files'][$name] = "nacc";
+                $data['success'] = FALSE;
+                $data['error'] .= $name . ": filetype not accepted <br>";
                 continue;
             }
 
             $res = move_uploaded_file($tmp_name, $target_file);
 
-            if (!$res) {continue;}
+            if (!$res) {
+                $data['files'][$name] = "nmov";
+                $data['success'] = FALSE;
+                $data['error'] .= $name . ": could not move file<br>";
+                continue;
+            }
 
-            $data[$name] = true;
+            $data['files'][$name] = "ok";
         }
 
         print json_encode($data);
@@ -66,7 +81,10 @@ require "lib/menu.php";
     <h1>Upload Your Talk / Poster</h1>
 
     <p>
-        Please upload your talk / poster.
+        Please upload a draft / testing version with your special fonts and videos
+        by Friday, 2nd Sept. for testing purposes.
+
+        You will overwrite old files and cannot delete files.
     </p>
 
     <form   method="post"
@@ -92,13 +110,30 @@ require "lib/menu.php";
             <a href="." class="box__restart" role="button">Upload more?</a>
         </div>
 		<div class="box__error">
-            Error! <span></span>. <a href="." class="box__restart" role="button">Try again!</a>
+            Error!<br><span style="font-size:80%;"></span><br><a href="." class="box__restart" role="button">Try again!</a>
         </div>
 
         <input type="hidden" name="op" value="upload"/>
 
     </form>
 
+    <p>
+        Uploaded files (press F5 to reload):
+    </p>
+    <ul>
+<?php
+$files = array_diff(scandir($target_dir), array('..', '.'));
+rsort($files);
+
+foreach ($files as $file) {
+    print "<li><a href='../uploads/".$pid."/".$file."'>" . $file . "</a></li>";
+}
+?>
+    </ul>
+
+    <p class="warning" style="font-size: 75%">
+        By uploading your presentation, you agree that your slides and presention will be put online.
+    </p>
 
 </article>
 </main>
@@ -223,7 +258,7 @@ require "lib/menu.php";
 						{
 							var data = JSON.parse( ajax.responseText );
 							form.classList.add( data.success == true ? 'is-success' : 'is-error' );
-							if( !data.success ) errorMsg.textContent = data.error;
+							if( !data.success ) errorMsg.innerHTML = data.error;
 						}
 						else alert( 'Error. Please, contact the webmaster!' );
 					};
