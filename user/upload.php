@@ -15,6 +15,9 @@ $accepted_types = [
 
 $pid = sprintf("%03u", $_SESSION['uid']);
 $target_dir = "../uploads/" . $pid . "/";
+if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, TRUE);
+}
 
 if (isset($_POST["op"])) {
 
