@@ -10,7 +10,7 @@ require_once "../lib/app.php";
 $accepted_types = [
     "jpg", "png", "jpeg",
     "avi", "mpg", "mpeg", "mp4", "mkv", "mov", "qt", "wmv",
-    "pdf", "ppt", "odp", "keynote"
+    "pdf", "ppt", "odp", "keynote", "key"
 ];
 
 $pid = sprintf("%03u", $_SESSION['uid']);
