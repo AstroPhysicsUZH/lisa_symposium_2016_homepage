@@ -86,8 +86,14 @@ require "lib/menu.php";
     <p>
         Please upload a draft / testing version with your special fonts and videos
         by Friday, 2nd Sept. for testing purposes.
-
+        <br>
+        The final presentation to be shown can be uploaded up to 5min before your talk starts.
+        <br>
+        You can either embed media files, or upload them as separate files.
+        Please note that subfolders are not supported.
         You will overwrite old files and cannot delete files.
+        Only certain filetypes are allowed.
+        If I forgot about yours, please let me know.
     </p>
 
     <form   method="post"
