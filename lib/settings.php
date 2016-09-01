@@ -39,7 +39,7 @@ $PAGES = array(
     'participants',
     'accommodation',
     'transportation',
-    'about_the_location',
+    'Q_and_A',
     'proceedings',
     'login_for_participants',
     'full_program'
