@@ -47,12 +47,12 @@ if (isset($_POST["op"])) {
             }
             $filetype = pathinfo($target_file, PATHINFO_EXTENSION);
 
-            if(! in_array($filetype, $accepted_types)) {
-                $data['files'][$name] = "nacc";
-                $data['success'] = FALSE;
-                $data['error'] .= $name . ": filetype not accepted <br>";
-                continue;
-            }
+#            if(! in_array($filetype, $accepted_types)) {#
+#                $data['files'][$name] = "nacc";
+#                $data['success'] = FALSE;
+#                $data['error'] .= $name . ": filetype not accepted <br>";
+#                continue;
+#            }
 
             $res = move_uploaded_file($tmp_name, $target_file);
 
