@@ -95,6 +95,11 @@ require "lib/menu.php";
         Only certain filetypes are allowed.
         If I forgot about yours, please let me know.
     </p>
+    <p class="warning" style="font-size: 85%; color: #600;">
+        By uploading your presentation, you agree that your slides and presention will be put online <b>during or after</b> the conference / your talk and that you agree to apear in a live stream.
+        <br>
+        To opt-out, please simply write an email to us, stating you don't wish to appear in the live stream and / or don't want your sildes to be published.
+    </p>
 
     <form   method="post"
             action="upload.php"
@@ -135,14 +140,12 @@ $files = array_diff(scandir($target_dir), array('..', '.'));
 rsort($files);
 
 foreach ($files as $file) {
-    print "<li><a href='../uploads/".$pid."/".$file."'>" . $file . "</a></li>";
+#    print "<li><a href='../uploads/".$pid."/".$file."'>" . $file . "</a></li>";
+    print "<li>" . $file . "</li>";
 }
 ?>
     </ul>
 
-    <p class="warning" style="font-size: 75%">
-        By uploading your presentation, you agree that your slides and presention will be put online.
-    </p>
 
 </article>
 </main>
