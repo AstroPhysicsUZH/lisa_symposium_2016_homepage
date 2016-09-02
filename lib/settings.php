@@ -50,7 +50,6 @@ $PAGES = array(
     grayed out, because not implemented
 */
 $NOT_IMPLEMENTED_PAGES = array(
-    'proceedings',
 /*    'participants',  */
 );
 
