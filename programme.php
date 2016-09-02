@@ -6,7 +6,7 @@
 <p>
     All the talks will take place in the room Y15 G20. Just <a href="http://www.physik.uzh.ch/~rafik/lisa2016/?page=transportation">follow the signs</a>.
     <br>
-    Additionally, there will be a transmission into Y15 G20 and a <a href="http://tiny.uzh.ch/B1"> live stream on youtube</a>.
+    Additionally, there will be a transmission into Y15 G19 and a <a href="http://tiny.uzh.ch/B1"> live stream on youtube</a>.
 
 
 <ul class="submenu">
