@@ -2,11 +2,7 @@
 
 require "lib/headerphp.php";
 
-$stmtstr = "SELECT
-                id, title, firstname, lastname, email, affiliation,
-                talkType, presentationTitle, coauthors, abstract, presentationCategories,
-                assignedSession, isPresentationAccepted, acceptedType,
-                presentationSlot, presentationDuration
+$stmtstr = "SELECT * 
             FROM {$tableName}
             WHERE talkType>0
             ORDER BY id ASC;" ;
