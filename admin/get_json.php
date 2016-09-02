@@ -2,9 +2,8 @@
 
 require "lib/headerphp.php";
 
-$stmtstr = "SELECT * 
+$stmtstr = "SELECT *
             FROM {$tableName}
-            WHERE talkType>0
             ORDER BY id ASC;" ;
 
 $data = $db->query( $stmtstr )->fetchAll(PDO::FETCH_OBJ);
