@@ -132,9 +132,9 @@ $special_events_list = [
         'Hike to diner place',
         '(in case of nice weather, ask Rafael)',
         '<hr>' .
-        'Meetingpoint: tram station "Triemli"',
+        'Meetingpoint 2: Tram station "Triemli"',
         '(end station of nr 14)' ,
-        'Meeting time: 17:00',
+        'Meeting time: 17:45',
         '<hr>'.
         'Duration: 1h',
         'Ascent: 400m',
