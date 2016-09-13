@@ -1,38 +1,7 @@
 <?php
-require "data/events.php";
+require_once "data/events.php";
 
 
-# scan $UPLOADS_DIR and see which files have been uploaded,
-# but only choose pdf files
-$all_files = [];
-$base_dir = $UPLOADS_DIR;
-$id_dirs = array_diff(scandir($base_dir), array('..', '.'));
-
-function isPDF($fn) {
-
-}
-
-foreach ($id_dirs as $key => $dir) {
-    # print $dir;
-    $subdir = $base_dir . DIRECTORY_SEPARATOR . $dir;
-    if (is_dir($subdir)) {
-        $files = glob($subdir . DIRECTORY_SEPARATOR . "*.pdf");
-#        $files = array_diff(scandir($subdir), array('..', '.'));
-#        $files = array_filter($files, "isPDF")
-        $all_files[$dir] = $files;
-    }
-}
-
-#print_r($pres_files);
-
-
-# get all available videos
-#
-#$all_videos = [
-#    "029" => "https://www.youtube.com/watch?v=JqwKEbUabG4"
-#];
-require_once "data/youtube_recordings.php";
-$all_videos = $youtube_recordings;
 
 ?>
 
@@ -106,7 +75,7 @@ EOT;
         if ($files || $video) {
             print ' <span class="dllnks"> [ ';
             if ($files) {
-                print '                <a href="'.$files[0].'">slides</a> ';
+                print '                <a href="'.$files.'">slides</a> ';
             }
             if ($files && $video) { print " | ";}
             if ($video) {

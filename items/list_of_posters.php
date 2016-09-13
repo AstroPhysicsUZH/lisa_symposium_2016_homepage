@@ -26,9 +26,16 @@ foreach($sessions as $s) {
     foreach($posters as $p) {
         if ($p->assignedSession === $sid) {
             $pid = sprintf("%03u", $p->id);
+            $links = "";
+            if (isset($all_files[$pid])) {
+                $links = '<span class="dllnks">[ <a href="'.$all_files[$pid].'">pdf</a> ]</span>';
+            }
+
             print <<<EOT
                 <li>
-                    {$p->lastname} $p->firstname <br>
+                    <span>{$p->lastname} $p->firstname</span>
+                    $links
+                    <br>
                     <a class="title linked" onclick="
                         document.getElementById('mod_abstr_{$pid}').style.display = 'block';
                         ">

@@ -1,3 +1,31 @@
+<?php
+# scan $UPLOADS_DIR and see which files have been uploaded,
+# but only choose pdf files
+$all_files = [];
+$base_dir = $UPLOADS_DIR;
+$id_dirs = array_diff(scandir($base_dir), array('..', '.'));
+
+foreach ($id_dirs as $key => $dir) {
+    # print $dir;
+    $subdir = $base_dir . DIRECTORY_SEPARATOR . $dir;
+    if (is_dir($subdir)) {
+        $files = glob($subdir . DIRECTORY_SEPARATOR . "*.pdf");
+        if (count($files)>0) {
+            $all_files[$dir] = $files[0]; # we just use the first file in the directory!
+        }
+    }
+}
+#print_r($pres_files);
+
+
+# get all available videos
+#
+#$all_videos = [
+#    "029" => "https://www.youtube.com/watch?v=JqwKEbUabG4"
+#];
+require_once "data/youtube_recordings.php";
+$all_videos = $youtube_recordings;
+?>
 
 <script src='js/fullcalendar.min.js'></script>
 

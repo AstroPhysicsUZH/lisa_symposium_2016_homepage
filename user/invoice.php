@@ -51,7 +51,7 @@ $REC_ADRESS = [
 $SPECIAL_NOTE = '';
 
 $INVOICE_ITMS = [
-    ["Conference fee (incl. dinner, proceedings, coffee breaks)", "CHF", "350.00"],
+    ["Conference fee", "CHF", "350.00"],
     ["Dinner for 1 accompaning person(s)", "CHF", "100.00"],
     ["Special agreement", "CHF", "-100.00"],
 ];
@@ -84,7 +84,7 @@ $regdate = new DateTime($P['registrationDate']);
 
 $fee = ($regdate < $reducedLimitDate ? $baseFeeReduced : $baseFeeRegular) + $dinnerFee;
 $cfi = [
-    "Conference fee (incl. dinner, proceedings, coffee breaks)",
+    "Conference fee",
     "CHF",
     strval($fee).".00"
 ];
