@@ -640,7 +640,26 @@ h4.chair {
     text-align: center;
 }
 
+span.dllnks {
+    float: right;
+}
+/*
+    vertical-align: middle;
+}
+span.icons a {
+    vertical-align: middle;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 0.5em 0 0.5em;
+    padding: 3px;
+}
 
+img.icon {
+    vertical-align: middle;
+    height: 1.5em;
+    border: none;
+}
+*/
 
 
 

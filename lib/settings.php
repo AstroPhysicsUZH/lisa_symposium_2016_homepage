@@ -119,6 +119,8 @@ $tableName = "registrationTable";
 // table to manage the (parallel)sessions
 $sessionsTable = "sessionsTable";
 
+$UPLOADS_DIR = "uploads";
+
 // Which fields do you want to have in the database?
 
 $tableFields = array(       # database table columns with key => [SQL_DATATYPE, meaning]

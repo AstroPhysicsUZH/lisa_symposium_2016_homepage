@@ -14,7 +14,7 @@ $accepted_types = [
 ];
 
 $pid = sprintf("%03u", $_SESSION['uid']);
-$target_dir = "../uploads/" . $pid . "/";
+$target_dir = "../" . $UPLOADS_DIR . "/" . $pid . "/";
 if (!file_exists($target_dir)) {
     mkdir($target_dir, 0777, TRUE);
 }

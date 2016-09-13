@@ -1,10 +1,49 @@
 <?php
 require "data/events.php";
 
+
+# scan $UPLOADS_DIR and see which files have been uploaded,
+# but only choose pdf files
+$all_files = [];
+$base_dir = $UPLOADS_DIR;
+$id_dirs = array_diff(scandir($base_dir), array('..', '.'));
+
+function isPDF($fn) {
+
+}
+
+foreach ($id_dirs as $key => $dir) {
+    # print $dir;
+    $subdir = $base_dir . DIRECTORY_SEPARATOR . $dir;
+    if (is_dir($subdir)) {
+        $files = glob($subdir . DIRECTORY_SEPARATOR . "*.pdf");
+#        $files = array_diff(scandir($subdir), array('..', '.'));
+#        $files = array_filter($files, "isPDF")
+        $all_files[$dir] = $files;
+    }
+}
+
+#print_r($pres_files);
+
+
+# get all available videos
+#
+#$all_videos = [
+#    "029" => "https://www.youtube.com/watch?v=JqwKEbUabG4"
+#];
+require_once "data/youtube_recordings.php";
+$all_videos = $youtube_recordings;
+
 ?>
 
 <h2 id='listoftalks'>List of Talks</h2>
 
+<p>
+    Click on the right hand side to download a pdf version of the slides or to see the
+    recording where available. If you cannot see youtube videos for some reason please let me know and I'll upload the videos elsewhere.
+    <br>
+    Speakers please upload a pdf version of your talk in the <a href="user/login.php">user center</a>.
+</p>
 
 <?php
 
@@ -26,6 +65,8 @@ foreach($all as $p) {
     #print "//{$p->id}";
     #if (!$p->is_plenary) { continue; }
     $day = $p->start->format('l jS \of F Y');
+
+
 
     if (!($day==$cur)) {
         if (!is_null($cur)){print "</ul>\n";}
@@ -53,16 +94,50 @@ EOT;
     }
     else {
         $pid = sprintf("%03u", $p->id);
+        $files = isset($all_files[$pid]) ? $all_files[$pid] : NULL;
+        $video = isset($all_videos[$pid]) ? $all_videos[$pid] : NULL;
+
 #        <span class="affil">({$p->affiliation})</span>
         print <<<EOT
         <span class='data'>
             <span class="author">{$p->name}</span>
-            <!--&mdash;-->
+
+EOT;
+        if ($files || $video) {
+            print ' <span class="dllnks"> [ ';
+            if ($files) {
+                print '                <a href="'.$files[0].'">slides</a> ';
+            }
+            if ($files && $video) { print " | ";}
+            if ($video) {
+                print '                <a href="'.$video.'">recording</a>';
+            }
+            print ' ]</span>';
+        }
+
+        print <<<EOT
+
+
             <a class="title linked" onclick="
                 document.getElementById('mod_abstr_{$pid}').style.display = 'block';
                 ">
                 &lsaquo;&nbsp;{$p->presentationTitle}&nbsp;&rsaquo;
             </a>
+
+EOT;
+/*
+        if ($files || $video) {
+            print '            <span class="icons">';
+            if ($files) {
+                print '                <a href="'.$files[0].'"><!--<img class="icon" src="img/x-office-presentation.png" alt="pdf">--> slides</a>';
+            }
+            if ($video) {
+                print '                <a href="'.$video.'"><img class="icon" src="img/video-x-generic.png" alt="youtube"> recording</a>';
+            }
+            print '            </span>';
+        }
+*/
+        print <<<EOT
         </span>
 
         <div id="mod_abstr_{$pid}" class="modal_abstract" onclick="
