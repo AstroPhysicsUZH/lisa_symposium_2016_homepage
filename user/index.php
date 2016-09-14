@@ -33,7 +33,7 @@ require "lib/menu.php";
         echo '
         <p class="notice centered">
             We received your payment. Thank you very much.<br />
-            Get your invoice on the left hand side
+            Get your invoice on the left hand side (Downloads)
         </p>';
     }
     else {
