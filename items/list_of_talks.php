@@ -5,7 +5,7 @@ require_once "data/events.php";
 
 ?>
 
-<h2 id='listoftalks'>List of Talks</h2>
+<h2 id='listoftalks'>List of Talks and PDFs</h2>
 
 <p>
     Click on the right hand side to download a pdf version of the slides or to see the

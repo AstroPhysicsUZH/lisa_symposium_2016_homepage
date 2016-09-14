@@ -29,18 +29,20 @@ $all_videos = $youtube_recordings;
 
 <script src='js/fullcalendar.min.js'></script>
 
-<h1>Programme</h1>
+<h1>Programme and Slides</h1>
 
 <p>
     All the talks will take place in the room Y15 G20. Just <a href="http://www.physik.uzh.ch/~rafik/lisa2016/?page=transportation">follow the signs</a>.
     <br>
     Additionally, there will be a transmission into Y15 G19 and a <a href="http://tiny.uzh.ch/B1"> live stream on youtube</a>.
-
+    <br>
+    Please find also the slides and youtube recordings if already available in the list of talks / posters.
+</p>
 
 <ul class="submenu">
     <li><a href="#timetable">Timetable</a></li>
-    <li><a href="#listoftalks">List of Talks</a></li>
-    <li><a href="#listofposters">List of Posters</a></li>
+    <li><a href="#listoftalks">List of Talks and Slides</a></li>
+    <li><a href="#listofposters">List of Posters and PDFs</a></li>
     <li><a href="#conses">Contributed Sessions and Organizers</a></li>
     <li><a href="#confdin">Conference Dinner</a></li>
 </ul>
