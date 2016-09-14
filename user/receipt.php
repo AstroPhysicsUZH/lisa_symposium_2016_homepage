@@ -58,9 +58,12 @@ $HTML = <<<EOT
 To whom it may concern,<br>
 <br>
 This letter confirms that we received the payment of
-<b>CHF {$P['price']}.00</b> from
-<b>{$P['firstname']} {$upperlast}</b> ({$P['affiliation']}</i>)
-to attend the LISA Symposium XI, which took place from Sept. 5th to 9th 2016 at University of Zurich; in Zurich, Switzerland.
+<b>CHF {$P['price']}.00</b> from <br>
+<br>
+<b>{$P['firstname']} {$upperlast}</b><br>
+<i>{$P['affiliation']}</i><br>
+<br>
+for the registration fee to attend the LISA Symposium XI, which took place from Sept. 5th to 9th 2016 at Irchel Campus, University of Zurich, Switzerland.
 EOT;
 
 
@@ -159,13 +162,12 @@ $pdf->SetY(90);
 $pdf->SetFont('helvetica', '', 12);
 $pdf->Image($HEADER_IMG, $pdf->GetX(), $pdf->GetY(), $W, '', 'png', '', 'T', true, 300, '', false, false, 0, true, false, false);
 
-$pdf->SetY(130);
+$pdf->SetY(120);
 $pdf->SetFont('helvetica', 'B', 14);
 $pdf->Cell(0,0,$TITLE,0,1);
 
-$pdf->SetY(160);
 
-
+$pdf->SetY(140);
 $pdf->SetFont('helvetica', '', 12);
 $pdf->writeHTML($HTML, true, false, true, false, '');
 

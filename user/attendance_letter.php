@@ -55,11 +55,12 @@ $upperlast = strtoupper($P['lastname']);
 $HTML = <<<EOT
 To whom it may concern,<br>
 <br>
-This letter confirms that
-<b>{$P['firstname']} {$upperlast}</b>,
-from
-<i>{$P['affiliation']}</i>
-attended the LISA Symposium XI, which took place from Sept. 5th to 9th 2016 at University of Zurich; in Zurich, Switzerland.
+This letter confirms that <br>
+<br>
+<b>{$P['firstname']} {$upperlast}</b><br>
+<i>{$P['affiliation']}</i><br>
+<br>
+attended the LISA Symposium XI, which took place from Sept. 5th to 9th 2016 at Irchel Campus, University of Zurich, Switzerland.
 EOT;
 
 
@@ -158,13 +159,12 @@ $pdf->SetY(90);
 $pdf->SetFont('helvetica', '', 12);
 $pdf->Image($HEADER_IMG, $pdf->GetX(), $pdf->GetY(), $W, '', 'png', '', 'T', true, 300, '', false, false, 0, true, false, false);
 
-$pdf->SetY(130);
+$pdf->SetY(120);
 $pdf->SetFont('helvetica', 'B', 14);
 $pdf->Cell(0,0,"Letter of Attendance",0,1);
 
-$pdf->SetY(160);
 
-
+$pdf->SetY(140);
 $pdf->SetFont('helvetica', '', 12);
 $pdf->writeHTML($HTML, true, false, true, false, '');
 

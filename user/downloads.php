@@ -23,7 +23,35 @@ $pid = sprintf("%03u", $_SESSION['uid']);
             <label for="addline">Remark on invoice:</label>
             <input type="text" id="addline" name="addline"/>
         </div>
-        <button type="submit">show invoice</button>
+        <button type="submit">get invoice</button>
+    </form>
+
+    <h2>Letter of Attendance</h2>
+    <p>
+        Here you can download a letter of attendance.<br />
+        If you require a special remark below, enter the text into the field first:<br />
+        If your address is incorrect, please first correct it <a href="edit.php">here</a>.
+    </p>
+    <form action="attendance_letter.php" method="post">
+        <div style="padding-bottom:0.5em;">
+            <label for="addline">Remark on letter of attendance:</label>
+            <input type="text" id="addline" name="addline"/>
+        </div>
+        <button type="submit">get letter of attendance</button>
+    </form>
+
+    <h2>Receipt</h2>
+    <p>
+        Here you can download a receipt.<br />
+        If you require a special remark below the receipt, enter the text into the field first:<br />
+        If your address is incorrect, please first correct it <a href="edit.php">here</a>.
+    </p>
+    <form action="receipt.php" method="post">
+        <div style="padding-bottom:0.5em;">
+            <label for="addline">Remark on receipt:</label>
+            <input type="text" id="addline" name="addline"/>
+        </div>
+        <button type="submit">get receipt</button>
     </form>
 
     <h2>Invitation Letter</h2>
