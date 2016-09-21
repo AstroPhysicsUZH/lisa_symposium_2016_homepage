@@ -33,7 +33,7 @@ $date_fstr = 'Y-m-d';               // how to present dates only
 */
 $PAGES = array(
     'home',
-    'programme',
+    'programme_slides',
     'committees',
     'registration',
     'participants',
