@@ -42,6 +42,7 @@ $PAGES = array(
     'Q_and_A',
     'proceedings',
     'login_for_participants',
+    'pictures',
     'full_program'
 );
 
