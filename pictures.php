@@ -3,9 +3,11 @@
 
 $directory = "photos/";
 
-$images = glob("" . $directory . "*.JPG");
+$images1 = glob("" . $directory . "*.jpg");
+$images2 = glob("" . $directory . "*.JPG");
 $imgs = '';
-foreach($images as $image){ $imgs[] = "$image"; }
+foreach($images1 as $image){ $imgs[] = "$image"; }
+foreach($images2 as $image){ $imgs[] = "$image"; }
 
 # print_r($images);
 ?>
