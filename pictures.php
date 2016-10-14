@@ -9,7 +9,7 @@ $imgs = '';
 foreach($images1 as $image){ $imgs[] = "$image"; }
 foreach($images2 as $image){ $imgs[] = "$image"; }
 
-print_r(basename($images2[0]));
+# print_r(basename($images2[0]));
 ?>
 
 
