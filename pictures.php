@@ -26,7 +26,7 @@ foreach($subpaths as $subpath) {
         $imgs[] = ["$image", basename($image), $subpath, $subdir];
     }
 }
-# print_r($imgs);
+#print_r($imgs);
 ?>
 
 
@@ -49,12 +49,14 @@ foreach ($cats as $cat) {
     print "<h2 id='$cat'>$cat</h2>";
 
     foreach ($imgs as $img_d) {
-      echo "
+        if ($cat==$img_d[3]) {
+            echo "
       <p>
         <a href='{$img_d[0]}'>
           <img src='{$basedir}/_thumbnails/" . $img_d[1] ."' height='200' alt='conference image'/>
         </a>
       </p>";
+        }
     }
 }
 
