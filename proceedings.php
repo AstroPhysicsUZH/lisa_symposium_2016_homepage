@@ -15,7 +15,7 @@
     Please note that:
 </p>
 <p class="warning">
-    The submission deadline is 30 November 2016.
+    The submission deadline is 1 February 2017.
 </p>
 
 
