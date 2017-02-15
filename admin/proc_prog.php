@@ -9,7 +9,7 @@ $fmt = 'H:i';
 $cur = NULL;
 $cid = 0;
 
-$all = array_merge($presentations, $breaks);
+$all = array_merge($presentations); #, $breaks);
 
 function cmp($a, $b) {
     $fmt = 'Y-m-d\TH:i:s';
